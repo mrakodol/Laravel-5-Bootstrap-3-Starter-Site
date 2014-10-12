@@ -1,14 +1,16 @@
-<?php
-
-class AdminDashboardController extends AdminController {
-
-	/**
-	 * Admin dashboard
-	 *
-	 */
-	public function getIndex()
+<?php namespace App\Http\Controllers;
+ 
+use Illuminate\Routing\Controller;
+ 
+class AdminDashboardController extends Controller {
+ 
+	public function __construct()
 	{
-        return View::make('admin/dashboard');
+		$this->beforeFilter('auth');
 	}
-
+	
+	public function index()
+	{
+		return view('admin/dashboard');
+	}
 }

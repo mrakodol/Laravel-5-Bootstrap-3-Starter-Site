@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Console\\InspireCommand' => $baseDir . '/app/Console/InspireCommand.php',
+    'App\\Http\\Controllers\\AdminDashboardController' => $baseDir . '/app/Http/Controllers/Admin/AdminDashboardController.php',
     'App\\Http\\Controllers\\Auth\\AuthController' => $baseDir . '/app/Http/Controllers/Auth/AuthController.php',
     'App\\Http\\Controllers\\Auth\\RemindersController' => $baseDir . '/app/Http/Controllers/Auth/RemindersController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',

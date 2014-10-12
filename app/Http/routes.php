@@ -10,5 +10,5 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-
-$router->get('/', 'HomeController@index');
+get('login','Auth\AuthController@showLoginForm');
+get('/', 'HomeController@index');

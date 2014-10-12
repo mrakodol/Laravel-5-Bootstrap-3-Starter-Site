@@ -67,7 +67,7 @@ class AuthController {
 	 */
 	public function showLoginForm()
 	{
-		return view('auth.login');
+		return view('site.auth.login');
 	}
 
 	/**
