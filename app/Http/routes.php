@@ -10,5 +10,15 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-get('login','Auth\AuthController@showLoginForm');
-get('/', 'HomeController@index');
+
+//:: User Account Routes ::
+get('user/login', 'Auth\AuthController@showLoginForm');
+post('user/login', 'Auth\AuthController@postLogin');
+
+get('user/register', 'Auth\AuthController@showRegistrationForm');
+post('user/register', 'Auth\AuthController@register');
+
+post('user/logout', 'Auth\AuthController@logout');
+
+
+get('/', 'Auth\AuthController@showLoginForm');

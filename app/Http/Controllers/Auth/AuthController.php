@@ -17,16 +17,17 @@ class AuthController {
 	 * @var Authenticator
 	 */
 	protected $auth;
-
+	protected $user; 
 	/**
 	 * Create a new authentication controller instance.
 	 *
 	 * @param  Authenticator  $auth
 	 * @return void
 	 */
-	public function __construct(Authenticator $auth)
+	public function __construct(Authenticator $auth, \App\User $user)
 	{
 		$this->auth = $auth;
+		$this->user = $user;
 	}
 
 	/**
@@ -38,7 +39,7 @@ class AuthController {
 	 */
 	public function showRegistrationForm()
 	{
-		return view('auth.register');
+		return view('site.auth.register');
 	}
 
 	/**
@@ -53,7 +54,11 @@ class AuthController {
 	{
 		// Registration form is valid, create user...
 
-		$this->auth->login($user);
+	    $this->user->email = $request->email;
+	    $this->user->password = \Hash::make($request->password);
+	    $this->user->save();
+			
+		$this->auth->login($this->user);
 
 		return redirect('/');
 	}
