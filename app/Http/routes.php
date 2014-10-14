@@ -13,12 +13,12 @@
 
 //:: User Account Routes ::
 get('user/login', 'Auth\AuthController@showLoginForm');
-post('user/login', 'Auth\AuthController@postLogin');
+post('user/login', 'Auth\AuthController@login');
 
 get('user/register', 'Auth\AuthController@showRegistrationForm');
 post('user/register', 'Auth\AuthController@register');
 
-post('user/logout', 'Auth\AuthController@logout');
+get('user/logout', 'Auth\AuthController@logout');
 
 
 get('/', 'Auth\AuthController@showLoginForm');

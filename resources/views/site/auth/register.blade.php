@@ -11,11 +11,11 @@
 <div class="page-header">
 	<h1>Signup</h1>
 </div>
-<form method="POST" action="" accept-charset="UTF-8">
+<form method="POST" action="{{URL::to('user/register')}}" accept-charset="UTF-8">
 	<fieldset>
 		<div class="form-group">
-			<label for="username">{{{ Lang::get('site/user.username') }}}</label>
-			<input class="form-control" placeholder="{{{ Lang::get('site/user.username') }}}" type="text" name="username" id="username" value="{{{ Input::old('username') }}}">
+			<label for="name">{{{ Lang::get('site/user.name') }}}</label>
+			<input class="form-control" placeholder="{{{ Lang::get('site/user.name') }}}" type="text" name="name" id="name" value="{{{ Input::old('name') }}}">
 		</div>
 		<div class="form-group">
 			<label for="email">{{{ Lang::get('site/user.e_mail') }}} <small>{{ Lang::get('site/user.confirmation_required') }}</small></label>
@@ -29,16 +29,11 @@
 			<label for="password_confirmation">{{{ Lang::get('site/user.password_confirmation') }}}</label>
 			<input class="form-control" placeholder="{{{ Lang::get('site/user.password_confirmation') }}}" type="password" name="password_confirmation" id="password_confirmation">
 		</div>
-		@if (Session::get('error'))
-			<div class="alert alert-error alert-danger">
-			@if (is_array(Session::get('error')))
-				{{ head(Session::get('error')) }}
-			@endif
-			</div>
-		@endif
-		@if (Session::get('notice'))
-			<div class="alert">{{ Session::get('notice') }}</div>
-		@endif
+		@if ($errors->has())
+			@foreach ($errors->all() as $error)
+	        	<div class="alert alert-danger">{{ $error }}</div>
+	        @endforeach
+        @endif
 		<div class="form-actions form-group">
 			<button type="submit" class="btn btn-primary">{{{ Lang::get('site/user.submit') }}}</button>
 		</div>

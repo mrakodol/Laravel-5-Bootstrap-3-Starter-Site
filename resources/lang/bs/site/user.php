@@ -11,7 +11,12 @@ return [
 	'register' => 'Registracija'
 	'password_confirmation' => 'Ponovljena lozinka',
 	'confirmation_required' => 'Potvrda naloga je obavezna',
-	'username' => 'Korisničko ime',
+	'name' => 'Ime',
 	'home' => 'Početna',
+	'email_required' => 'Morate unijeti ispravnu email adresu',
+	'email_unique' => 'Postoji korisnik koji se već registrovao sa tom email adresom',
+	'name_required' => 'Morate unijeti Vaše ime',
+	'password_required' => 'Morate unijeti Vašu lozinku',
+	'password_confirmed' => 'Morate ponovno unijeti vašu lozinku',
 	
 	];

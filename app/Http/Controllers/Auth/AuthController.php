@@ -52,15 +52,15 @@ class AuthController {
 	 */
 	public function register(RegisterRequest $request)
 	{
-		// Registration form is valid, create user...
-
-	    $this->user->email = $request->email;
-	    $this->user->password = \Hash::make($request->password);
-	    $this->user->save();
-			
-		$this->auth->login($this->user);
-
-		return redirect('/');
+		
+			$this->user->email = $request->email;
+			$this->user->name = $request->name;
+		    $this->user->password = \Hash::make($request->password);
+		    $this->user->save();
+				
+			$this->auth->login($this->user);
+	
+			return redirect('/');
 	}
 
 	/**

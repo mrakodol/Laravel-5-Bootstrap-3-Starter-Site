@@ -11,8 +11,7 @@
 <div class="page-header">
 	<h1>{{{ Lang::get('site/user.login_to_account') }}}</h1>
 </div>
-<form class="form-horizontal" method="POST" action="{{ URL::to('user/login') }}" accept-charset="UTF-8">
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+<form class="form-horizontal" method="POST" action="{{URL::to('user/login')}}"  accept-charset="UTF-8">
     <fieldset>
         <div class="form-group">
             <label class="col-md-2 control-label" for="email">{{ Lang::get('site/user.e_mail') }}</label>
@@ -40,12 +39,10 @@
             </div>
         </div>
 
-        @if ( Session::get('error') )
-        <div class="alert alert-danger">{{ Session::get('error') }}</div>
-        @endif
-
-        @if ( Session::get('notice') )
-        <div class="alert">{{ Session::get('notice') }}</div>
+       @if ($errors->has())
+			@foreach ($errors->all() as $error)
+	        	<div class="alert alert-danger">{{ $error }}</div>
+	        @endforeach
         @endif
 
         <div class="form-group">
