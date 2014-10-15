@@ -2,7 +2,7 @@
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterRequest extends FormRequest {
+class ChangePasswordRequest extends FormRequest {
 
 	/**
 	 * Get the validation rules that apply to the request.
@@ -12,9 +12,7 @@ class RegisterRequest extends FormRequest {
 	public function rules()
 	{
 		return [
-			'name' => 'required|min:3',
-			'email' => 'required|email|unique:users,email',
-			'password' => 'required|confirmed|min:5',
+			'password' => 'required|confirmed|min:4',
 		];
 	}
 
@@ -25,7 +23,7 @@ class RegisterRequest extends FormRequest {
 	 */
 	public function authorize()
 	{
-		return true;
+		return false;
 	}
 
 }

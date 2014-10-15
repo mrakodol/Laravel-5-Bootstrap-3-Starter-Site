@@ -2,26 +2,18 @@
 
 {{-- Web site Title --}}
 @section('title')
-{{{ Lang::get('site/user.register') }}} ::
+{{{ Lang::get('site/user.change_password') }}} ::
 @parent
 @stop
 
 {{-- Content --}}
 @section('content')
 <div class="page-header">
-	<h1>{{{ Lang::get('site/user.register') }}}</h1>
+	<h1>{{{ Lang::get('site/user.change_password') }}}</h1>
 </div>
-<form method="POST" action="{{URL::to('user/register')}}" accept-charset="UTF-8">
+<form method="POST" action="{{URL::to('user/changepassword')}}" accept-charset="UTF-8">
 	<fieldset>
-		<div class="form-group">
-			<label for="name">{{{ Lang::get('site/user.name') }}}</label>
-			<input class="form-control" placeholder="{{{ Lang::get('site/user.name') }}}" type="text" name="name" id="name" value="{{{ Input::old('name') }}}">
-		</div>
-		<div class="form-group">
-			<label for="email">{{{ Lang::get('site/user.e_mail') }}} <small>{{ Lang::get('site/user.confirmation_required') }}</small></label>
-			<input class="form-control" placeholder="{{{ Lang::get('site/user.e_mail') }}}" type="text" name="email" id="email" value="{{{ Input::old('email') }}}">
-		</div>
-		<div class="form-group">
+        <div class="form-group">
 			<label for="password">{{{ Lang::get('site/user.password') }}}</label>
 			<input class="form-control" placeholder="{{{ Lang::get('site/user.password') }}}" type="password" name="password" id="password">
 		</div>

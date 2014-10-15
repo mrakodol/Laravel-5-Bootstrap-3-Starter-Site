@@ -110,7 +110,8 @@ return [
 		 */
 		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
 		'Illuminate\Auth\AuthServiceProvider',
-		'Illuminate\Cache\CacheServiceProvider',
+        'Illuminate\Auth\Passwords\PasswordResetServiceProvider',
+        'Illuminate\Cache\CacheServiceProvider',
 		'Illuminate\Foundation\Providers\ConsoleSupportServiceProvider',
 		'Illuminate\Cookie\CookieServiceProvider',
 		'Illuminate\Database\DatabaseServiceProvider',
@@ -123,11 +124,11 @@ return [
 		'Illuminate\Pagination\PaginationServiceProvider',
 		'Illuminate\Queue\QueueServiceProvider',
 		'Illuminate\Redis\RedisServiceProvider',
-		'Illuminate\Auth\Reminders\ReminderServiceProvider',
 		'Illuminate\Session\SessionServiceProvider',
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
+        'Illuminate\Html\HtmlServiceProvider'
 
 	],
 
@@ -186,6 +187,8 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
+        'Form'      => 'Illuminate\Html\FormFacade',
+        'HTML'      => 'Illuminate\Html\HtmlFacade'
 
 	],
 

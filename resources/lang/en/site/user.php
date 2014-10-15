@@ -18,6 +18,6 @@ return [
 	'name_required' => 'You need to provide your name',
 	'password_required' => 'You need to provide your password',
 	'password_confirmed' => 'You need to provide confirm password',
-	
+    'change_password' => 'Change password',
 
 ];

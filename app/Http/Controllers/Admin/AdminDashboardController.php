@@ -1,14 +1,9 @@
 <?php namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\AdminController;
  
-use Illuminate\Routing\Controller;
- 
-class AdminDashboardController extends Controller {
- 
-	public function __construct()
-	{
-		$this->beforeFilter('auth');
-	}
-	
+class AdminDashboardController extends AdminController {
+
 	public function index()
 	{
 		return view('admin/dashboard');

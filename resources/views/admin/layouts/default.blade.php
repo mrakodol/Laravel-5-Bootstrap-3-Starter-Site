@@ -44,8 +44,9 @@
 	<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/admin/ico/apple-touch-icon-57-precomposed.png') }}}">
 
 	<!-- CSS -->
-    <link rel="stylesheet" href="{{asset('assets/admin/bootstrap/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/admin/bootstrap/css/bootstrap-theme.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/admin/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/admin/css/colorbox.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/admin/css/bootstrap-theme.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/admin/css/datatables-bootstrap.css')}}">
 
 	<style>
@@ -100,7 +101,7 @@
     								<span class="glyphicon glyphicon-user"></span> {{{ Auth::user()->name }}}	<span class="caret"></span>
     							</a>
     							<ul class="dropdown-menu">
-    								<li><a href="{{{ URL::to('user/settings') }}}"><span class="glyphicon glyphicon-wrench"></span> {{ Lang::get('admin/admin.settings') }}</a></li>
+    								<li><a href="{{{ URL::to('user/changepassword') }}}"><span class="glyphicon glyphicon-wrench"></span> {{ Lang::get('site/user.change_password') }}</a></li>
     								<li class="divider"></li>
     								<li><a href="{{{ URL::to('user/logout') }}}"><span class="glyphicon glyphicon-share"></span> {{ Lang::get('site/site.logout') }}</a></li>
     							</ul>
@@ -130,7 +131,7 @@
 
 	<!-- Javascripts -->
     <script src="{{asset('assets/admin/js/jquery-1.11.1.min.js')}}"></script>
-    <script src="{{asset('assets/admin/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/admin/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/admin/js/jquery.dataTables.js')}}"></script>
     <script src="{{asset('assets/admin/js/datatables-bootstrap.js')}}"></script>
     <script src="{{asset('assets/admin/js/datatables.fnReloadAjax.js')}}"></script>

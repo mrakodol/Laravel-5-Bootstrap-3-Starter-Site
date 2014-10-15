@@ -10,8 +10,11 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+get('admin', 'Admin\AdminDashboardController@index');
 get('admin/dashboard', 'Admin\AdminDashboardController@index');
 
+
+get('/', 'Auth\AuthController@showLoginForm');
 //:: User Account Routes ::
 get('user/login', 'Auth\AuthController@showLoginForm');
 post('user/login', 'Auth\AuthController@login');
@@ -21,5 +24,7 @@ post('user/register', 'Auth\AuthController@register');
 
 get('user/logout', 'Auth\AuthController@logout');
 
+get('user/changepassword', 'Auth\AuthController@showChangePasswordForm');
+post('user/changepassword', 'Auth\AuthController@changepassword');
 
-get('/', 'Auth\AuthController@showLoginForm');
+

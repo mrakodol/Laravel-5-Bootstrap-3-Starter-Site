@@ -8,7 +8,7 @@ return [
 	'remember' => 'Zapamtiti',
 	'password' => 'Lozinka',
 	'e_mail' => 'E-mail',
-	'register' => 'Registracija'
+	'register' => 'Registracija',
 	'password_confirmation' => 'Ponovljena lozinka',
 	'confirmation_required' => 'Potvrda naloga je obavezna',
 	'name' => 'Ime',
@@ -18,5 +18,6 @@ return [
 	'name_required' => 'Morate unijeti Vaše ime',
 	'password_required' => 'Morate unijeti Vašu lozinku',
 	'password_confirmed' => 'Morate ponovno unijeti vašu lozinku',
+	'change_password' => 'Promjena lozinke',
 	
 	];

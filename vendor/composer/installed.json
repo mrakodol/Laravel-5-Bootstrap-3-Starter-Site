@@ -1,27 +1,78 @@
 [
     {
-        "name": "vlucas/phpdotenv",
-        "version": "1.0.6",
-        "version_normalized": "1.0.6.0",
+        "name": "laravel/elixir",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/vlucas/phpdotenv.git",
-            "reference": "2821c024b4c14c7e6d1ff99e063ae9532620beb2"
+            "url": "https://github.com/laravel/elixir.git",
+            "reference": "e1a8b0580c0f66b595a228eb2e34585f570eb771"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/2821c024b4c14c7e6d1ff99e063ae9532620beb2",
-            "reference": "2821c024b4c14c7e6d1ff99e063ae9532620beb2",
+            "url": "https://api.github.com/repos/laravel/elixir/zipball/e1a8b0580c0f66b595a228eb2e34585f570eb771",
+            "reference": "e1a8b0580c0f66b595a228eb2e34585f570eb771",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "time": "2014-10-14 17:59:08",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "helpers.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jeffrey Way",
+                "email": "jeffrey@laracasts.com"
+            },
+            {
+                "name": "Taylor Otwell",
+                "email": "taylorotwell@gmail.com"
+            }
+        ]
+    },
+    {
+        "name": "vlucas/phpdotenv",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/vlucas/phpdotenv.git",
+            "reference": "e783b688cf5bc29a4ffd1b79c92eb4dd2a2e2237"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/e783b688cf5bc29a4ffd1b79c92eb4dd2a2e2237",
+            "reference": "e783b688cf5bc29a4ffd1b79c92eb4dd2a2e2237",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.2"
         },
         "require-dev": {
-            "phpunit/phpunit": "*"
+            "phpunit/phpunit": "~4.0"
         },
-        "time": "2014-01-31 16:18:39",
+        "time": "2014-10-14 15:06:44",
         "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
         "installation-source": "dist",
         "autoload": {
             "psr-0": {
@@ -36,8 +87,7 @@
             {
                 "name": "Vance Lucas",
                 "email": "vance@vancelucas.com",
-                "homepage": "http://www.vancelucas.com",
-                "role": "Developer"
+                "homepage": "http://www.vancelucas.com"
             }
         ],
         "description": "Loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically.",
@@ -1747,18 +1797,20 @@
         "source": {
             "type": "git",
             "url": "https://github.com/laravel/framework.git",
-            "reference": "cba9bfb4aaa9e1d1ae23546afa748351ed580ad2"
+            "reference": "8be2523f12c2d95bad4b11ab5ca7e58d75df94d3"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/laravel/framework/zipball/cba9bfb4aaa9e1d1ae23546afa748351ed580ad2",
-            "reference": "cba9bfb4aaa9e1d1ae23546afa748351ed580ad2",
+            "url": "https://api.github.com/repos/laravel/framework/zipball/8be2523f12c2d95bad4b11ab5ca7e58d75df94d3",
+            "reference": "8be2523f12c2d95bad4b11ab5ca7e58d75df94d3",
             "shasum": ""
         },
         "require": {
             "classpreloader/classpreloader": "~1.0.2",
             "d11wtq/boris": "~1.0",
             "doctrine/annotations": "~1.0",
+            "ext-mcrypt": "*",
+            "ext-openssl": "*",
             "filp/whoops": "1.1.*",
             "ircmaxell/password-compat": "~1.0",
             "jeremeamia/superclosure": "~1.0.1",
@@ -1824,7 +1876,7 @@
             "doctrine/dbal": "Allow renaming columns and dropping SQLite columns.",
             "guzzlehttp/guzzle": "Required for Mailgun and Mandrill mail drivers."
         },
-        "time": "2014-10-11 18:17:52",
+        "time": "2014-10-15 01:59:41",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1861,32 +1913,38 @@
         ]
     },
     {
-        "name": "laravel/elixir",
+        "name": "illuminate/html",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/laravel/elixir.git",
-            "reference": "a89d19137dd6a544c774ad83f6ff24b019a87de8"
+            "url": "https://github.com/illuminate/html.git",
+            "reference": "8b44c77a3b648af05fee2a8aed28d3058542dcc8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/laravel/elixir/zipball/a89d19137dd6a544c774ad83f6ff24b019a87de8",
-            "reference": "a89d19137dd6a544c774ad83f6ff24b019a87de8",
+            "url": "https://api.github.com/repos/illuminate/html/zipball/8b44c77a3b648af05fee2a8aed28d3058542dcc8",
+            "reference": "8b44c77a3b648af05fee2a8aed28d3058542dcc8",
             "shasum": ""
         },
         "require": {
+            "illuminate/http": "~5.0",
+            "illuminate/session": "~5.0",
+            "illuminate/support": "~5.0",
             "php": ">=5.4.0"
         },
-        "time": "2014-10-11 23:23:09",
+        "time": "2014-10-01 19:15:37",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.0-dev"
+                "dev-master": "5.0-dev"
             }
         },
         "installation-source": "dist",
         "autoload": {
+            "psr-4": {
+                "Illuminate\\Html\\": ""
+            },
             "files": [
                 "helpers.php"
             ]
@@ -1896,10 +1954,6 @@
             "MIT"
         ],
         "authors": [
-            {
-                "name": "Jeffrey Way",
-                "email": "jeffrey@laracasts.com"
-            },
             {
                 "name": "Taylor Otwell",
                 "email": "taylorotwell@gmail.com"
@@ -1965,16 +2019,16 @@
         "source": {
             "type": "git",
             "url": "https://github.com/doctrine/instantiator.git",
-            "reference": "4bdc0421209a00e6f425f4c3554d1b0df3a7e897"
+            "reference": "f976e5de371104877ebc89bd8fecb0019ed9c119"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/doctrine/instantiator/zipball/4bdc0421209a00e6f425f4c3554d1b0df3a7e897",
-            "reference": "4bdc0421209a00e6f425f4c3554d1b0df3a7e897",
+            "url": "https://api.github.com/repos/doctrine/instantiator/zipball/f976e5de371104877ebc89bd8fecb0019ed9c119",
+            "reference": "f976e5de371104877ebc89bd8fecb0019ed9c119",
             "shasum": ""
         },
         "require": {
-            "php": "~5.3"
+            "php": ">=5.3,<8.0-DEV"
         },
         "require-dev": {
             "athletic/athletic": "~0.1.8",
@@ -1983,7 +2037,7 @@
             "phpunit/phpunit": "~4.0",
             "squizlabs/php_codesniffer": "2.0.*@ALPHA"
         },
-        "time": "2014-10-05 00:20:37",
+        "time": "2014-10-13 12:58:55",
         "type": "library",
         "extra": {
             "branch-alias": {

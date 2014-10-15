@@ -1,9 +1,11 @@
 <?php namespace App\Http\Controllers\Auth;
 
+use App\User;
 use Illuminate\Contracts\Auth\Authenticator;
 
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\RegisterRequest;
+use App\Http\Requests\Auth\ChangePasswordRequest;
 
 /**
  * @Middleware("csrf")
@@ -52,15 +54,14 @@ class AuthController {
 	 */
 	public function register(RegisterRequest $request)
 	{
-		
-			$this->user->email = $request->email;
-			$this->user->name = $request->name;
-		    $this->user->password = \Hash::make($request->password);
-		    $this->user->save();
-				
-			$this->auth->login($this->user);
-	
-			return redirect('/admin/dashboard');
+		$this->user->email = $request->email;
+        $this->user->name = $request->name;
+        $this->user->password = \Hash::make($request->password);
+        $this->user->save();
+
+        $this->auth->login($this->user);
+
+        return redirect('/admin/dashboard');
 	}
 
 	/**
@@ -89,10 +90,7 @@ class AuthController {
 		{
 			return redirect('/admin/dashboard');
 		}
-
-		return redirect('user/login')->withErrors([
-			'email' => 'The credentials you entered did not match our records. Try again?',
-		]);
+        return redirect('/user/login');
 	}
 
 	/**
@@ -108,5 +106,40 @@ class AuthController {
 
 		return redirect('/');
 	}
+
+    /**
+     * Show the application settings user form.
+     *
+     * @Get("auth/settings")
+     *
+     * @return Response
+     */
+    public function showChangePasswordForm()
+    {
+        if($this->auth->user()!=null){
+            return view('site.auth.changepassword');
+        }
+        return redirect('/');
+    }
+
+    /**
+     * Handle a settings request for the application.
+     *
+     * @Post("auth/settings")
+     *
+     * @param  SettingsRequest  $request
+     * @return Response
+     */
+    public function changepassword(ChangePasswordRequest $request)
+    {
+        if($request->password == $request->password_confirmation){
+            $user = User::find($this->auth->user()->getAuthIdentifier());
+            $user->password = \Hash::make($request->password);
+            $user->save();
+            $this->auth->logout();
+            return redirect('/');
+        }
+        return redirect('/user/changepassword');
+    }
 
 }

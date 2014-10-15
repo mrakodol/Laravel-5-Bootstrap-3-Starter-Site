@@ -13,11 +13,11 @@
 </div>
 <form class="form-horizontal" method="POST" action="{{URL::to('user/login')}}"  accept-charset="UTF-8">
     <fieldset>
-        <div class="form-group">
+        <div class="form-group {{$errors->has('email')?'has-error':''}}">
             <label class="col-md-2 control-label" for="email">{{ Lang::get('site/user.e_mail') }}</label>
             <div class="col-md-10">
                 <input class="form-control" tabindex="1" placeholder="{{ Lang::get('site/user.e_mail') }}" type="text" name="email" id="email" value="{{ Input::old('email') }}">
-                <span class="help-block">{{$errors->first('email')}}</span>
+                <span class="help-block">{!!$errors->first('email', '<span class="help-block">:message </span>')!!}</span>
             </div>
         </div>
         <div class="form-group">
@@ -26,17 +26,6 @@
             </label>
             <div class="col-md-10">
                 <input class="form-control" tabindex="2" placeholder="{{ Lang::get('site/user.password') }}" type="password" name="password" id="password">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <div class="checkbox">
-                    <label for="remember">{{ Lang::get('site/user.remember') }}
-                        <input type="hidden" name="remember" value="0">
-                        <input tabindex="4" type="checkbox" name="remember" id="remember" value="1">
-                    </label>
-                </div>
             </div>
         </div>
         <div class="form-group">
