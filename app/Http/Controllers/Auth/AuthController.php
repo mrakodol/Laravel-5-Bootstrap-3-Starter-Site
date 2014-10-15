@@ -60,7 +60,7 @@ class AuthController {
 				
 			$this->auth->login($this->user);
 	
-			return redirect('/');
+			return redirect('/admin/dashboard');
 	}
 
 	/**
@@ -87,7 +87,7 @@ class AuthController {
 	{
 		if ($this->auth->attempt($request->only('email', 'password')))
 		{
-			return redirect('/');
+			return redirect('/admin/dashboard');
 		}
 
 		return redirect('user/login')->withErrors([

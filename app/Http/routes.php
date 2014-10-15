@@ -10,6 +10,7 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+get('admin/dashboard', 'Admin\AdminDashboardController@index');
 
 //:: User Account Routes ::
 get('user/login', 'Auth\AuthController@showLoginForm');
