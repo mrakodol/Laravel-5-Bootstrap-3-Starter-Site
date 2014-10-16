@@ -6,12 +6,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/vlucas/phpdotenv.git",
-            "reference": "e783b688cf5bc29a4ffd1b79c92eb4dd2a2e2237"
+            "reference": "56c252d48dce336da97926591aed71805203815b"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/e783b688cf5bc29a4ffd1b79c92eb4dd2a2e2237",
-            "reference": "e783b688cf5bc29a4ffd1b79c92eb4dd2a2e2237",
+            "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/56c252d48dce336da97926591aed71805203815b",
+            "reference": "56c252d48dce336da97926591aed71805203815b",
             "shasum": ""
         },
         "require": {
@@ -20,7 +20,7 @@
         "require-dev": {
             "phpunit/phpunit": "~4.0"
         },
-        "time": "2014-10-14 15:06:44",
+        "time": "2014-10-16 14:50:21",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1869,6 +1869,54 @@
         ]
     },
     {
+        "name": "illuminate/html",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/illuminate/html.git",
+            "reference": "b04be9a84be0d6f7552b281ad6b9e2795218fe56"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/illuminate/html/zipball/b04be9a84be0d6f7552b281ad6b9e2795218fe56",
+            "reference": "b04be9a84be0d6f7552b281ad6b9e2795218fe56",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/http": "~5.0",
+            "illuminate/session": "~5.0",
+            "illuminate/support": "~5.0",
+            "php": ">=5.4.0"
+        },
+        "time": "2014-10-16 14:38:30",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Illuminate\\Html\\": ""
+            },
+            "files": [
+                "helpers.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Taylor Otwell",
+                "email": "taylorotwell@gmail.com"
+            }
+        ]
+    },
+    {
         "name": "sebastian/environment",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -2685,54 +2733,6 @@
             "phpunit",
             "testing",
             "xunit"
-        ]
-    },
-    {
-        "name": "illuminate/html",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/illuminate/html.git",
-            "reference": "8b44c77a3b648af05fee2a8aed28d3058542dcc8"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/illuminate/html/zipball/8b44c77a3b648af05fee2a8aed28d3058542dcc8",
-            "reference": "8b44c77a3b648af05fee2a8aed28d3058542dcc8",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/http": "~5.0",
-            "illuminate/session": "~5.0",
-            "illuminate/support": "~5.0",
-            "php": ">=5.4.0"
-        },
-        "time": "2014-10-01 19:15:37",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "5.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Illuminate\\Html\\": ""
-            },
-            "files": [
-                "helpers.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Taylor Otwell",
-                "email": "taylorotwell@gmail.com"
-            }
         ]
     },
     {
