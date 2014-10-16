@@ -1,24 +1,41 @@
 <?php namespace App\Http\Controllers;
 
-class HomeController {
+use App\User;
+use App\Post;
 
-	/*
-	|--------------------------------------------------------------------------
-	| Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| Controller methods are called when a request enters the application
-	| with their assigned URI. The URI a method responds to may be set
-	| via simple annotations. Here is an example to get you started!
-	|
-	*/
+class HomeController extends BaseController {
 
-	/**
-	 * @Get("/")
-	 */
-	public function index()
+    /**
+     * Post \Model
+     * @var Post
+     */
+    protected $post;
+
+    /**
+     * User \Model
+     * @var User
+     */
+    protected $user;
+
+    /**
+     * Inject the models.
+     * @param \Post $post
+     * @param \User $user
+     */
+    public function __construct(Post $post, User $user)
+    {
+        parent::__construct();
+
+        $this->post = $post;
+        $this->user = $user;
+    }
+
+    public function index()
 	{
-		return view('hello');
+        // Get all the blog posts
+        $posts = $this->post->orderBy('created_at', 'DESC')->paginate(10);
+
+        return view('site.home.index',compact('posts'));
 	}
 
 }

@@ -1,35 +1,33 @@
 <?php namespace App\Http\Controllers\Auth;
 
-use App\User;
-use Illuminate\Contracts\Auth\Authenticator;
-
+use Illuminate\Routing\Controller;
+use Illuminate\Contracts\Auth\Guard;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\RegisterRequest;
-use App\Http\Requests\Auth\ChangePasswordRequest;
 
 /**
- * @Middleware("csrf")
  * @Middleware("guest", except={"logout"})
  */
-class AuthController {
+class AuthController extends Controller {
 
 	/**
-	 * The authenticator implementation.
+	 * The Guard implementation.
 	 *
-	 * @var Authenticator
+	 * @var Guard
 	 */
 	protected $auth;
-	protected $user; 
-	/**
+    protected $user;
+
+    /**
 	 * Create a new authentication controller instance.
 	 *
-	 * @param  Authenticator  $auth
+	 * @param  Guard  $auth
 	 * @return void
 	 */
-	public function __construct(Authenticator $auth, \App\User $user)
+	public function __construct(Guard $auth, \App\User $user)
 	{
 		$this->auth = $auth;
-		$this->user = $user;
+        $this->user = $user;
 	}
 
 	/**
@@ -54,14 +52,14 @@ class AuthController {
 	 */
 	public function register(RegisterRequest $request)
 	{
-		$this->user->email = $request->email;
+        $this->user->email = $request->email;
         $this->user->name = $request->name;
         $this->user->password = \Hash::make($request->password);
         $this->user->save();
 
         $this->auth->login($this->user);
 
-        return redirect('/admin/dashboard');
+		return redirect('/');
 	}
 
 	/**
@@ -88,9 +86,12 @@ class AuthController {
 	{
 		if ($this->auth->attempt($request->only('email', 'password')))
 		{
-			return redirect('/admin/dashboard');
+			return redirect('/');
 		}
-        return redirect('/user/login');
+
+		return redirect('/auth/login')->withErrors([
+			'email' => 'These credentials do not match our records.',
+		]);
 	}
 
 	/**
@@ -110,11 +111,11 @@ class AuthController {
     /**
      * Show the application settings user form.
      *
-     * @Get("auth/settings")
+     * @Get("auth/changepassword")
      *
      * @return Response
      */
-    public function showChangePasswordForm()
+    public function showChangepasswordForm()
     {
         if($this->auth->user()!=null){
             return view('site.auth.changepassword');
@@ -125,9 +126,9 @@ class AuthController {
     /**
      * Handle a settings request for the application.
      *
-     * @Post("auth/settings")
+     * @Post("auth/changepassword")
      *
-     * @param  SettingsRequest  $request
+     * @param  ChangePasswordRequest  $request
      * @return Response
      */
     public function changepassword(ChangePasswordRequest $request)
@@ -139,7 +140,7 @@ class AuthController {
             $this->auth->logout();
             return redirect('/');
         }
-        return redirect('/user/changepassword');
+        return redirect('/auth/changepassword');
     }
 
 }

@@ -11,7 +11,10 @@
 <div class="page-header">
 	<h1>{{{ Lang::get('site/user.change_password') }}}</h1>
 </div>
-<form method="POST" action="{{URL::to('user/changepassword')}}" accept-charset="UTF-8">
+<form method="POST" action="{{URL::to('auth/changepassword')}}" accept-charset="UTF-8">
+    <!-- CSRF Token -->
+		<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+	<!-- ./ csrf token -->
 	<fieldset>
         <div class="form-group">
 			<label for="password">{{{ Lang::get('site/user.password') }}}</label>

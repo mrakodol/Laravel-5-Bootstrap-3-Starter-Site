@@ -71,7 +71,7 @@
 	<div class="container">
 
 		<!-- Notifications -->
-		@include('notifications')
+		@include('......notifications')
 		<!-- ./ notifications -->
 
 		<div class="page-header">

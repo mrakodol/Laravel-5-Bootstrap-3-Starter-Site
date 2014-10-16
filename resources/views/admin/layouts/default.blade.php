@@ -101,9 +101,9 @@
     								<span class="glyphicon glyphicon-user"></span> {{{ Auth::user()->name }}}	<span class="caret"></span>
     							</a>
     							<ul class="dropdown-menu">
-    								<li><a href="{{{ URL::to('user/changepassword') }}}"><span class="glyphicon glyphicon-wrench"></span> {{ Lang::get('site/user.change_password') }}</a></li>
+    								<li><a href="{{{ URL::to('auth/changepassword') }}}"><span class="glyphicon glyphicon-wrench"></span> {{ Lang::get('site/user.change_password') }}</a></li>
     								<li class="divider"></li>
-    								<li><a href="{{{ URL::to('user/logout') }}}"><span class="glyphicon glyphicon-share"></span> {{ Lang::get('site/site.logout') }}</a></li>
+    								<li><a href="{{{ URL::to('auth/logout') }}}"><span class="glyphicon glyphicon-share"></span> {{ Lang::get('site/site.logout') }}</a></li>
     							</ul>
     					</li>
     				</ul>
@@ -113,7 +113,7 @@
 		<!-- ./ navbar -->
 
 		<!-- Notifications -->
-		@include('notifications')
+		@include('......notifications')
 		<!-- ./ notifications -->
 
 		<!-- Content -->

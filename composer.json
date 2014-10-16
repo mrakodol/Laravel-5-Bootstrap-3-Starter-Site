@@ -1,16 +1,21 @@
 {
-	"name": "laravel/laravel",
-	"description": "The Laravel Framework.",
-	"keywords": ["framework", "laravel"],
+	"name": "mrakodol/Laravel-5-Bootstrap-3-Starter-Site",
+	"description": "Laravel Framework 5 Bootstrap 3 Starter Site",
+	"keywords": ["framework", "laravel", "Starter Site"],
 	"license": "MIT",
+    "authors": [
+        {
+            "name": "Stojan Kukrika"
+        }
+    ],
 	"type": "project",
 	"require": {
 		"laravel/framework": "~5.0",
-		"laravel/elixir": "~1.0",
-        "illuminate/html": "5.0.*@dev"
+		"illuminate/html": "5.0.*@dev"
 	},
 	"require-dev": {
-		"phpunit/phpunit": "~4.0"
+		"phpunit/phpunit": "~4.0",
+        "way/generators": "~3.0"
 	},
 	"autoload": {
 		"classmap": [

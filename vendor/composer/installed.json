@@ -1,51 +1,5 @@
 [
     {
-        "name": "laravel/elixir",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/laravel/elixir.git",
-            "reference": "e1a8b0580c0f66b595a228eb2e34585f570eb771"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/laravel/elixir/zipball/e1a8b0580c0f66b595a228eb2e34585f570eb771",
-            "reference": "e1a8b0580c0f66b595a228eb2e34585f570eb771",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.4.0"
-        },
-        "time": "2014-10-14 17:59:08",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "files": [
-                "helpers.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Jeffrey Way",
-                "email": "jeffrey@laracasts.com"
-            },
-            {
-                "name": "Taylor Otwell",
-                "email": "taylorotwell@gmail.com"
-            }
-        ]
-    },
-    {
         "name": "vlucas/phpdotenv",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -534,12 +488,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/thephpleague/flysystem.git",
-            "reference": "0bc9f7ef20ed7c01400a9ba4cc5b84c36f8aaeec"
+            "reference": "30d2bedf2ff4b20645e708d3113bd6e788267ce7"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/0bc9f7ef20ed7c01400a9ba4cc5b84c36f8aaeec",
-            "reference": "0bc9f7ef20ed7c01400a9ba4cc5b84c36f8aaeec",
+            "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/30d2bedf2ff4b20645e708d3113bd6e788267ce7",
+            "reference": "30d2bedf2ff4b20645e708d3113bd6e788267ce7",
             "shasum": ""
         },
         "require": {
@@ -558,7 +512,8 @@
             "phpunit/phpunit": "~4.0",
             "predis/predis": "~1.0",
             "rackspace/php-opencloud": "~1.10.0",
-            "sabre/dav": "~2.0.2"
+            "sabre/dav": "~2.0.2",
+            "tedivm/stash": "~0.12.0"
         },
         "suggest": {
             "aws/aws-sdk-php": "Allows you to use AWS S3 storage",
@@ -569,9 +524,10 @@
             "phpseclib/phpseclib": "Allows SFTP server storage",
             "predis/predis": "Allows you to use Predis for caching",
             "rackspace/php-opencloud": "Allows you to use Rackspace Cloud Files",
-            "sabre/dav": "Enables WebDav support"
+            "sabre/dav": "Enables WebDav support",
+            "tedivm/stash": "Allows you to use Stash as cache implementation"
         },
-        "time": "2014-10-04 07:01:23",
+        "time": "2014-10-11 16:17:17",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1797,12 +1753,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/laravel/framework.git",
-            "reference": "8be2523f12c2d95bad4b11ab5ca7e58d75df94d3"
+            "reference": "5c2cfd7b7292ef60ae2b7c22077f00a0a47615c2"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/laravel/framework/zipball/8be2523f12c2d95bad4b11ab5ca7e58d75df94d3",
-            "reference": "8be2523f12c2d95bad4b11ab5ca7e58d75df94d3",
+            "url": "https://api.github.com/repos/laravel/framework/zipball/5c2cfd7b7292ef60ae2b7c22077f00a0a47615c2",
+            "reference": "5c2cfd7b7292ef60ae2b7c22077f00a0a47615c2",
             "shasum": ""
         },
         "require": {
@@ -1876,7 +1832,7 @@
             "doctrine/dbal": "Allow renaming columns and dropping SQLite columns.",
             "guzzlehttp/guzzle": "Required for Mailgun and Mandrill mail drivers."
         },
-        "time": "2014-10-15 01:59:41",
+        "time": "2014-10-16 02:23:06",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1910,54 +1866,6 @@
         "keywords": [
             "framework",
             "laravel"
-        ]
-    },
-    {
-        "name": "illuminate/html",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/illuminate/html.git",
-            "reference": "8b44c77a3b648af05fee2a8aed28d3058542dcc8"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/illuminate/html/zipball/8b44c77a3b648af05fee2a8aed28d3058542dcc8",
-            "reference": "8b44c77a3b648af05fee2a8aed28d3058542dcc8",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/http": "~5.0",
-            "illuminate/session": "~5.0",
-            "illuminate/support": "~5.0",
-            "php": ">=5.4.0"
-        },
-        "time": "2014-10-01 19:15:37",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "5.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Illuminate\\Html\\": ""
-            },
-            "files": [
-                "helpers.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Taylor Otwell",
-                "email": "taylorotwell@gmail.com"
-            }
         ]
     },
     {
@@ -2713,12 +2621,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/sebastianbergmann/phpunit.git",
-            "reference": "f75e6b2e0764bcf4faa5082f4b60d5e7cf0959bb"
+            "reference": "a0d821158f305c48ff401c32bec15f60a878d9c1"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/f75e6b2e0764bcf4faa5082f4b60d5e7cf0959bb",
-            "reference": "f75e6b2e0764bcf4faa5082f4b60d5e7cf0959bb",
+            "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a0d821158f305c48ff401c32bec15f60a878d9c1",
+            "reference": "a0d821158f305c48ff401c32bec15f60a878d9c1",
             "shasum": ""
         },
         "require": {
@@ -2744,7 +2652,7 @@
         "suggest": {
             "phpunit/php-invoker": "~1.1"
         },
-        "time": "2014-10-07 09:30:07",
+        "time": "2014-10-15 17:08:28",
         "bin": [
             "phpunit"
         ],
@@ -2778,5 +2686,101 @@
             "testing",
             "xunit"
         ]
+    },
+    {
+        "name": "illuminate/html",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/illuminate/html.git",
+            "reference": "8b44c77a3b648af05fee2a8aed28d3058542dcc8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/illuminate/html/zipball/8b44c77a3b648af05fee2a8aed28d3058542dcc8",
+            "reference": "8b44c77a3b648af05fee2a8aed28d3058542dcc8",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/http": "~5.0",
+            "illuminate/session": "~5.0",
+            "illuminate/support": "~5.0",
+            "php": ">=5.4.0"
+        },
+        "time": "2014-10-01 19:15:37",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Illuminate\\Html\\": ""
+            },
+            "files": [
+                "helpers.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Taylor Otwell",
+                "email": "taylorotwell@gmail.com"
+            }
+        ]
+    },
+    {
+        "name": "way/generators",
+        "version": "3.0.2",
+        "version_normalized": "3.0.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/JeffreyWay/Laravel-4-Generators.git",
+            "reference": "4a215769643507326192a739058a0c7105d932b5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/JeffreyWay/Laravel-4-Generators/zipball/4a215769643507326192a739058a0c7105d932b5",
+            "reference": "4a215769643507326192a739058a0c7105d932b5",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": "~5.0",
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "behat/behat": "~2.5.1",
+            "behat/mink": "~1.5.0",
+            "behat/mink-extension": "~1.2.0",
+            "behat/mink-goutte-driver": "~1.0.9",
+            "behat/mink-selenium2-driver": "~1.1.1",
+            "phpspec/phpspec": "~2.0",
+            "phpunit/phpunit": "~3.7"
+        },
+        "time": "2014-10-01 04:00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Way\\Generators": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jeffrey Way",
+                "email": "jeffrey@jeffrey-way.com"
+            }
+        ],
+        "description": "Rapidly generate resources, migrations, models, and much more."
     }
 ]

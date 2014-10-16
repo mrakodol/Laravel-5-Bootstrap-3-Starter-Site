@@ -78,7 +78,7 @@ return [
 	|
 	*/
 
-	'key' => 'mbbddSNFkkBx5sQBnqNpsyhKvqNRwyVq',
+	'key' => 'E0Wxl5C1bebBi96BC0ZiZOCtA9fp8351',
 
 	'cipher' => MCRYPT_RIJNDAEL_128,
 
@@ -110,9 +110,9 @@ return [
 		 */
 		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
 		'Illuminate\Auth\AuthServiceProvider',
-        'Illuminate\Auth\Passwords\PasswordResetServiceProvider',
-        'Illuminate\Cache\CacheServiceProvider',
+		'Illuminate\Cache\CacheServiceProvider',
 		'Illuminate\Foundation\Providers\ConsoleSupportServiceProvider',
+		'Illuminate\Routing\ControllerServiceProvider',
 		'Illuminate\Cookie\CookieServiceProvider',
 		'Illuminate\Database\DatabaseServiceProvider',
 		'Illuminate\Encryption\EncryptionServiceProvider',
@@ -124,11 +124,15 @@ return [
 		'Illuminate\Pagination\PaginationServiceProvider',
 		'Illuminate\Queue\QueueServiceProvider',
 		'Illuminate\Redis\RedisServiceProvider',
+		'Illuminate\Auth\Passwords\PasswordResetServiceProvider',
 		'Illuminate\Session\SessionServiceProvider',
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
-        'Illuminate\Html\HtmlServiceProvider'
+		//for HTML Forms
+        'Illuminate\Html\HtmlServiceProvider',
+        //Jaffery Way Generators
+        'Way\Generators\GeneratorsServiceProvider'
 
 	],
 
@@ -187,8 +191,9 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
+		//for HTML Forms
         'Form'      => 'Illuminate\Html\FormFacade',
-        'HTML'      => 'Illuminate\Html\HtmlFacade'
+        'HTML'      => 'Illuminate\Html\HtmlFacade',
 
 	],
 
