@@ -1,6 +1,7 @@
 <?php namespace App\Providers;
 
 use Illuminate\Routing\Router;
+use Illuminate\Routing\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
 class RouteServiceProvider extends ServiceProvider {
@@ -19,8 +20,10 @@ class RouteServiceProvider extends ServiceProvider {
 	 */
 	protected $scan = [
 		'App\Http\Controllers\HomeController',
-		'App\Http\Controllers\Auth\AuthController',
+        'App\Http\Controllers\Auth\AuthController',
 		'App\Http\Controllers\Auth\PasswordController',
+        'App\Http\Controllers\AdminController',
+        'App\Http\Controllers\Admin\DashboardController',
 	];
 
 	/**
@@ -33,7 +36,13 @@ class RouteServiceProvider extends ServiceProvider {
 	 */
 	public function before(Router $router)
 	{
-		//
+        if($router->is('admin/*'))
+        {
+            require app_path('Http/admin_routes.php');
+        }
+        else {
+            require app_path('Http/site_routes.php');
+        }
 	}
 
 	/**
@@ -43,7 +52,9 @@ class RouteServiceProvider extends ServiceProvider {
 	 */
 	public function map(Router $router)
 	{
-		// require app_path('Http/routes.php');
+
+        require app_path('Http/site_routes.php');
+        require app_path('Http/admin_routes.php');
 	}
 
 }

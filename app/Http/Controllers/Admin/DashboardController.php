@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\AdminController;
  
-class AdminDashboardController extends AdminController {
+class DashboardController extends AdminController {
 
 	public function index()
 	{
