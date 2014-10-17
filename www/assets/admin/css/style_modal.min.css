@@ -1,0 +1,28 @@
+body:after
+{
+	left:100%!important;
+	height:100%;
+	width:0%!important;
+	z-index:0
+}
+	body:before
+{
+	width:0%!important;
+	height:100%;
+	z-index:0
+}
+	body.sidebar-minified:after
+{
+	left:0px!important;
+	margin-right:0px!important;
+	z-index:0
+}
+.col-xs-1,.col-xs-2,.col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, 
+.col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, 
+.col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, 
+.col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12{
+	padding-left: 30px!important;
+}
+#sortable1, #sortable2 { list-style-type: none; margin: 0; padding: 0 0 2.5em; float: left; margin-right: 10px; width: 100%;cursor: move !important;}
+#sortable1 li, #sortable2 li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; cursor: move !important;}
+

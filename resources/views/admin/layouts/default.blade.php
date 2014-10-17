@@ -2,146 +2,150 @@
 
 <html lang="en">
 
-<head>
+	<head id="Starter-Site">
 
-	<meta charset="UTF-8">
+		<meta charset="UTF-8">
 
-	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>
-		@section('title')
-			Administration
-		@show
-	</title>
+		<title> Administration :: @yield('title')</title>
 
-	<meta name="keywords" content="@yield('keywords')" />
-	<meta name="author" content="@yield('author')" />
-	<!-- Google will often use this as its description of your page/site. Make it good. -->
-	<meta name="description" content="@yield('description')" />
-
-	<!-- Speaking of Google, don't forget to set your site up: http://google.com/webmasters -->
-	<meta name="google-site-verification" content="">
-
-	<!-- Dublin Core Metadata : http://dublincore.org/ -->
-	<meta name="DC.title" content="Project Name">
-	<meta name="DC.subject" content="@yield('description')">
-	<meta name="DC.creator" content="@yield('author')">
-
-	<!--  Mobile Viewport Fix -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-
-	<!-- This is the traditional favicon.
-	 - size: 16x16 or 32x32
-	 - transparency is OK
-	 - see wikipedia for info on browser support: http://mky.be/favicon/ -->
-	<link rel="shortcut icon" href="{{{ asset('assets/ico/favicon.png') }}}">
-
-	<!-- iOS favicons. -->
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{{ asset('assets/admin/ico/apple-touch-icon-144-precomposed.png') }}}">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{{ asset('assets/admin/ico/apple-touch-icon-114-precomposed.png') }}}">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/admin/ico/apple-touch-icon-72-precomposed.png') }}}">
-	<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/admin/ico/apple-touch-icon-57-precomposed.png') }}}">
-
-	<!-- CSS -->
-    <link rel="stylesheet" href="{{asset('assets/admin/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/admin/css/colorbox.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/admin/css/bootstrap-theme.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/admin/css/datatables-bootstrap.css')}}">
-
-	<style>
-	body {
-		padding: 60px 0;
-	}
-	</style>
-
-	@yield('styles')
-
-	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-	<!--[if lt IE 9]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-
-</head>
-
-<body>
-	<!-- Container -->
-	<div class="container">
-		<!-- Navbar -->
-		<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+		<meta name="keywords" content="" />
+		<meta name="author" content="" />
+		<!-- Google will often use this as its description of your page/site. Make it good. -->
+		<meta name="description" content="" />
+		<!-- Speaking of Google, don't forget to set your site up: http://google.com/webmasters -->
+		<meta name="google-site-verification" content="">
+		<!-- Dublin Core Metadata : http://dublincore.org/ -->
+		<meta name="DC.title" content="Laravel 5 Starter Site">
+		<meta name="DC.subject" content="">
+		<meta name="DC.creator" content="">
+		<!--  Mobile Viewport Fix -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<!-- start: CSS -->
+		<link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/bootstrap.min.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/print.css')}}" rel="stylesheet"media="print"/>
+		<link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/jquery.dataTables.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/colorbox.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/style.min.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/jquery-ui-1.10.3.custom.css')}}">		
+		<link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/bootstrap-dataTables.css')}}">
+		<!-- end: CSS -->
+		<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="{{asset('assets/admin/js/html5.js')}}"></script>
+		<script src="{{asset('assets/admin/js/respond.min.js')}}"></script>
+		<![endif]-->
+		<!-- start: Favicon and Touch Icons -->
+		<link rel="shortcut icon" href="{{asset('assets/admin/ico/favicon.ico')}}">
+		<!-- end: Favicon and Touch Icons -->
+	</head>
+	<body>
+		<!-- start: Header -->
+		<header class="navbar">
+			<div class="container">
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".sidebar-nav.nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a id="main-menu-toggle" class="hidden-xs open"><i class="icon-reorder"></i></a>
+				<a class="navbar-brand col-md-2 col-sm-1 col-xs-2" href="#"><span>Administration</span></a>
+				<!-- start: Header Menu -->
+				<div class="nav-no-collapse header-nav">
+					<ul class="nav navbar-nav pull-right">
+					
+						<!-- start: User Dropdown -->
+						<li class="dropdown">
+							<a class="btn account dropdown-toggle" data-toggle="dropdown" href="#">
+							<div class="user">
+								<span class="hello"> {{ Lang::get('admin/admin.welcome') }}!</span>
+								<span class="name"> {{{ Auth::user()->name }}}</span>
+							</div> </a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="{{{ URL::to('/') }}}"><i class="icon-home"></i> {{ Lang::get('admin/admin.homepage') }}</a>
+								</li>
+								<li>
+									<a href="{{{ URL::to('auth/logout') }}}"><i class="icon-road icon-white"></i> {{ Lang::get('site/site.logout') }}</a>
+								</li>
+							</ul>
+						</li>
+						<!-- end: User Dropdown -->
+					</ul>
+				</div>
+				<!-- end: Header Menu -->
+			</div>
+		</header>
+		<!-- end: Header -->
+		<div class="container">
+			<div class="row">
+                <div id="sidebar-left" class="col-lg-2 col-sm-1 ">
+                    <div class="sidebar-nav nav-collapse collapse navbar-collapse">
+                        <ul class="nav main-menu">
+                            <li>
+                                <a href="{{URL::to('admin/')}}">
+                                <i class="icon-dashboard"></i><span class="hidden-sm text"> Dashboard</span></a>
+                            </li>
+                            <li>
+                                <a href="{{URL::to('admin/blog')}}">
+                                <i class="icon-dashboard"></i><span class="hidden-sm text"> Blog</span></a>
+                            </li>
+                             <li>
+                                <a href="{{URL::to('admin/gallery')}}">
+                                <i class="icon-dashboard"></i><span class="hidden-sm text"> Gallery</span></a>
+                            </li>
+                		</ul>
+                	</div>
                 </div>
-    			<div class="collapse navbar-collapse navbar-ex1-collapse">
-    				<ul class="nav navbar-nav">
-    					<li{{ (Request::is('admin') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin') }}}"><span class="glyphicon glyphicon-home"></span> {{ Lang::get('admin/admin.home') }}</a></li>
-    					<li{{ (Request::is('admin/blogs*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/blogs') }}}"><span class="glyphicon glyphicon-list-alt"></span> {{ Lang::get('admin/admin.blog') }}</a></li>
-    					<li{{ (Request::is('admin/comments*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/comments') }}}"><span class="glyphicon glyphicon-bullhorn"></span> {{ Lang::get('admin/admin.comments') }}</a></li>
-    					<li class="dropdown{{ (Request::is('admin/users*|admin/roles*') ? ' active' : '') }}">
-    						<a class="dropdown-toggle" data-toggle="dropdown" href="{{{ URL::to('admin/users') }}}">
-    							<span class="glyphicon glyphicon-user"></span> Users <span class="caret"></span>
-    						</a>
-    						<ul class="dropdown-menu">
-    							<li{{ (Request::is('admin/users*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/users') }}}"><span class="glyphicon glyphicon-user"></span> {{ Lang::get('admin/admin.users') }}</a></li>
-    							<li{{ (Request::is('admin/roles*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/roles') }}}"><span class="glyphicon glyphicon-user"></span> {{ Lang::get('admin/admin.roles') }}</a></li>
-    						</ul>
-    					</li>
-    				</ul>
-    				<ul class="nav navbar-nav pull-right">
-    					<li><a href="{{{ URL::to('/') }}}">{{ Lang::get('admin/admin.homepage') }}</a></li>
-    					<li class="divider-vertical"></li>
-    					<li class="dropdown">
-    							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-    								<span class="glyphicon glyphicon-user"></span> {{{ Auth::user()->name }}}	<span class="caret"></span>
-    							</a>
-    							<ul class="dropdown-menu">
-    								<li><a href="{{{ URL::to('auth/changepassword') }}}"><span class="glyphicon glyphicon-wrench"></span> {{ Lang::get('site/user.change_password') }}</a></li>
-    								<li class="divider"></li>
-    								<li><a href="{{{ URL::to('auth/logout') }}}"><span class="glyphicon glyphicon-share"></span> {{ Lang::get('site/site.logout') }}</a></li>
-    							</ul>
-    					</li>
-    				</ul>
-    			</div>
-            </div>
-		</div>
-		<!-- ./ navbar -->
+				<!-- start: Content -->
+				<div id="content" class="col-lg-10 col-sm-11 ">
+					<div class="row">
+						<div class="col-sm-12 col-md-12">
+								<!-- Content -->
+								@yield('content')
+								<!-- ./ content -->
+						</div><!--/row-->
 
-		<!-- Notifications -->
-		@include('......notifications')
-		<!-- ./ notifications -->
+					</div><!--/col-->
+				</div><!--/row-->
+			<!-- end: Content -->
+		</div><!--/row-->
+		</div><!--/container-->
+		<div class="clearfix"></div>
+		<footer>
+			<p>
+				<span style="text-align:left;float:left">&copy; 2014 <a href="#">Laravel 5 Starter Site</a></span>
+				<span class="hidden-phone" style="text-align:right;float:right">Powered by: <a href="http://laravel.com/" alt="Laravel 5.0">Laravel 5.0</a></span>
+			</p>
 
-		<!-- Content -->
-		@yield('content')
-		<!-- ./ content -->
-
-		<!-- Footer -->
-		<footer class="clearfix">
-			@yield('footer')
 		</footer>
-		<!-- ./ Footer -->
-
-	</div>
-	<!-- ./ container -->
-
-	<!-- Javascripts -->
-    <script src="{{asset('assets/admin/js/jquery-1.11.1.min.js')}}"></script>
-    <script src="{{asset('assets/admin/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('assets/admin/js/jquery.dataTables.js')}}"></script>
-    <script src="{{asset('assets/admin/js/datatables-bootstrap.js')}}"></script>
-    <script src="{{asset('assets/admin/js/datatables.fnReloadAjax.js')}}"></script>
-    <script src="{{asset('assets/admin/js/jquery.colorbox.js')}}"></script>
-
-    <script type="text/javascript">
-    </script>
-
-    @yield('scripts')
-
-</body>
-
+		<!-- start: JavaScript-->
+		<!--[if !IE]>-->
+		<script src="{{asset('assets/admin/js/jquery-2.0.3.min.js')}}"></script>
+		<!--<![endif]-->
+		<!--[if IE]>
+		<script src="{{asset('assets/admin/js/jquery-1.10.2.min.js')}}"></script>
+		<![endif]-->
+		<script src="{{asset('assets/admin/js/jquery-migrate-1.2.1.min.js')}}"></script>
+		<script src="{{asset('assets/admin/js/bootstrap.min.js')}}"></script>
+		<!-- page scripts -->
+		<script src="{{asset('assets/admin/js/jquery-ui-1.10.3.custom.min.js')}}"></script>
+		<script src="{{asset('assets/admin/js/jquery.ui.touch-punch.min.js')}}"></script>
+		<!--[if lte IE 8]>
+			<script language="javascript" type="text/javascript" src="{{asset('assets/admin/js/excanvas.min.js')}}"></script>
+		<![endif]-->		
+		<script src="{{asset('assets/admin/js/jquery.dataTables.min.js')}}"></script>
+		<script src="{{asset('assets/admin/js/dataTables.bootstrap.min.js')}}"></script>
+		<!-- theme scripts -->
+		<script src="{{asset('assets/admin/js/custom.min.js')}}"></script>
+		<script src="{{asset('assets/admin/js/core.min.js')}}"></script>
+		<script src="{{asset('assets/admin/js/jquery.colorbox.js')}}"></script>
+		<script src="{{asset('assets/admin/js/bootstrap-dataTables-paging.js')}}"></script>
+		<script src="{{asset('assets/admin/js/select2.js')}}"></script>		
+		<script src="{{asset('assets/admin/js/jquery.multiselect.js')}}"></script>
+		<!-- end: JavaScript-->
+		@yield('scripts')
+	</body>
 </html>

@@ -89,7 +89,7 @@
 		<!-- Container -->
 		<div class="container">
 			<!-- Notifications -->
-			@include('......notifications')
+			@include('notifications')
 			<!-- ./ notifications -->
 
 			<!-- Content -->

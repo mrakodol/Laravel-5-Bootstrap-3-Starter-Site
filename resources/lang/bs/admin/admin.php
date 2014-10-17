@@ -8,5 +8,6 @@ return [
 	'comments' => 'Komentari',
 	'users' => 'Korisnici',
 	'roles' => 'Uloge',
+    'welcome' => 'Dobro došli',
 	
 	];

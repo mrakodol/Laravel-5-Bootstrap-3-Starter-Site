@@ -8,5 +8,5 @@ return [
 	'comments' => 'Comments',
 	'users' => 'Users',
 	'roles' => 'Roles',
-	
+	'welcome' => 'Welcome',
 	];

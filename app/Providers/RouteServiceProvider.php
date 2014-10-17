@@ -36,13 +36,7 @@ class RouteServiceProvider extends ServiceProvider {
 	 */
 	public function before(Router $router)
 	{
-        if($router->is('admin/*'))
-        {
-            require app_path('Http/admin_routes.php');
-        }
-        else {
-            require app_path('Http/site_routes.php');
-        }
+        //
 	}
 
 	/**

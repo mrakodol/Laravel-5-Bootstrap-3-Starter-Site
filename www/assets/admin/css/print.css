@@ -1,0 +1,38 @@
+body {
+	font-size: 12px !important;
+}
+
+body:before, 
+body:after,
+#sidebar-left,
+footer,
+#content:before,
+.btn {
+	display: none;
+}
+
+#content {
+	width: 100% !important;
+}
+
+.notice, .recap {
+	display: inline-block !important;
+	margin: 0;
+}
+
+.notice {
+	float: left;
+	width: 55%;
+}
+
+.recap {
+	width: 40%;
+	float: right;
+	white-space: nowrap;
+}
+
+th {
+	white-space: nowrap;
+}
+
+

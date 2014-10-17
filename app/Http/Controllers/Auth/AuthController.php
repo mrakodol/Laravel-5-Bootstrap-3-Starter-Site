@@ -26,7 +26,7 @@ class AuthController extends Controller {
 	 */
 	public function __construct(Guard $auth, \App\User $user)
 	{
-		$this->auth = $auth;
+        $this->auth = $auth;
         $this->user = $user;
 	}
 
