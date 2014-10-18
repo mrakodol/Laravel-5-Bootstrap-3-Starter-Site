@@ -11,7 +11,8 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "~5.0",
-		"illuminate/html": "5.0.*@dev"
+		"illuminate/html": "5.0.*@dev",
+        "bllim/datatables": "*"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",

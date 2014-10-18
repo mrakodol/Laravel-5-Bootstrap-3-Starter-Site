@@ -1,1 +1,12 @@
-dashboard.blade.php@extends('admin.layouts.default')
+@extends('admin.layouts.default')
+
+{{-- Web site Title --}}
+@section('title')
+Blog
+@parent
+@stop
+
+{{-- Content --}}
+@section('content')
+Blog
+@stop

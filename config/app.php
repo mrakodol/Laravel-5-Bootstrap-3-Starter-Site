@@ -132,7 +132,9 @@ return [
 		//for HTML Forms
         'Illuminate\Html\HtmlServiceProvider',
         //Jaffery Way Generators
-        'Way\Generators\GeneratorsServiceProvider'
+        'Way\Generators\GeneratorsServiceProvider',
+        //datatable
+        'Bllim\Datatables\DatatablesServiceProvider',
 
 	],
 
@@ -194,6 +196,8 @@ return [
 		//for HTML Forms
         'Form'      => 'Illuminate\Html\FormFacade',
         'HTML'      => 'Illuminate\Html\HtmlFacade',
+        //Datatables
+		'Datatables'      => 'Bllim\Datatables\Facade\Datatables',
 
 	],
 

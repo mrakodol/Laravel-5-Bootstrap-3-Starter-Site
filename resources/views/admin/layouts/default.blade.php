@@ -89,12 +89,48 @@
                                 <i class="icon-dashboard"></i><span class="hidden-sm text"> Dashboard</span></a>
                             </li>
                             <li>
-                                <a href="{{URL::to('admin/blog')}}">
-                                <i class="icon-dashboard"></i><span class="hidden-sm text"> Blog</span></a>
+                                <a href="{{URL::to('admin/')}}">
+                                <i class="icon-dashboard"></i><span class="hidden-sm text"> Language</span></a>
+                            </li>
+                            <li>
+                                <a href="{{URL::to('admin/')}}">
+                                <i class="icon-dashboard"></i><span class="hidden-sm text"> News category </span></a>
                             </li>
                              <li>
-                                <a href="{{URL::to('admin/gallery')}}">
-                                <i class="icon-dashboard"></i><span class="hidden-sm text"> Gallery</span></a>
+                                <a href="{{URL::to('admin/')}}">
+                                <i class="icon-dashboard"></i><span class="hidden-sm text"> News</span></a>
+                            </li>
+                            <li>
+                                <a href="{{URL::to('admin/')}}">
+                                <i class="icon-dashboard"></i><span class="hidden-sm text"> Photo category</span></a>
+                            </li>
+                            <li>
+                                <a href="{{URL::to('admin/')}}">
+                                <i class="icon-dashboard"></i><span class="hidden-sm text"> Photo</span></a>
+                            </li>
+                            <li>
+                                <a href="{{URL::to('admin/')}}">
+                                <i class="icon-dashboard"></i><span class="hidden-sm text"> Video category</span></a>
+                            </li>
+                            <li>
+                                <a href="{{URL::to('admin/')}}">
+                                <i class="icon-dashboard"></i><span class="hidden-sm text"> Video</span></a>
+                            </li>
+                            <li>
+                                <a href="{{URL::to('admin/')}}">
+                                <i class="icon-dashboard"></i><span class="hidden-sm text"> Slider category</span></a>
+                            </li>
+                            <li>
+                                <a href="{{URL::to('admin/')}}">
+                                <i class="icon-dashboard"></i><span class="hidden-sm text"> Slider</span></a>
+                            </li>
+                            <li>
+                                <a href="{{URL::to('admin/')}}">
+                                <i class="icon-dashboard"></i><span class="hidden-sm text"> Users</span></a>
+                            </li>
+                            <li>
+                                <a href="{{URL::to('admin/')}}">
+                                <i class="icon-dashboard"></i><span class="hidden-sm text"> Roles</span></a>
                             </li>
                 		</ul>
                 	</div>
