@@ -1,15 +1,15 @@
 <?php namespace App\Http\Controllers;
 
 use App\User;
-use App\Post;
+use App\News;
 
 class HomeController extends BaseController {
 
     /**
-     * Post \Model
+     * News \Model
      * @var Post
      */
-    protected $post;
+    protected $news;
 
     /**
      * User \Model
@@ -22,20 +22,20 @@ class HomeController extends BaseController {
      * @param \Post $post
      * @param \User $user
      */
-    public function __construct(Post $post, User $user)
+    public function __construct(News $news, User $user)
     {
         parent::__construct();
 
-        $this->post = $post;
+        $this->news = $news;
         $this->user = $user;
     }
 
     public function index()
 	{
         // Get all the blog posts
-        $posts = $this->post->orderBy('created_at', 'DESC')->paginate(10);
+        $news = $this->news->orderBy('created_at', 'DESC')->paginate(10);
 
-        return view('site.home.index',compact('posts'));
+        return view('site.home.index',compact('news'));
 	}
 
 }

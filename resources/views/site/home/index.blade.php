@@ -2,7 +2,7 @@
 
 {{-- Content --}}
 @section('content')
-@foreach ($posts as $post)
+@foreach ($news as $post)
 <div class="row">
 	<div class="col-md-8">
 		<!-- Post Title -->

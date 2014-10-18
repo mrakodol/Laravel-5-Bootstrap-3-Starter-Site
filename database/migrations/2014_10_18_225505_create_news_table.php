@@ -13,7 +13,7 @@ class CreateNewsTable extends Migration {
 	public function up()
 	{
 		// Create the `Posts` table
-		Schema::create('new', function(Blueprint $table)
+		Schema::create('news', function(Blueprint $table)
 		{
             $table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
@@ -43,7 +43,7 @@ class CreateNewsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('new');
+		Schema::drop('news');
 	}
 
 }
