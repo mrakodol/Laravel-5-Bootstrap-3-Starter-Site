@@ -1,6 +1,9 @@
 <?php namespace App\Http\Controllers;
 
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\AssignedRoles;
+use View;
 
 class BaseController extends Controller {
 
@@ -13,6 +16,29 @@ class BaseController extends Controller {
     public function __construct()
     {
         $this->beforeFilter('csrf', array('on' => 'post'));
+		
+		$user = Auth::id();
+		if($user>0){
+			$result = AssignedRoles::join('permission_role','assigned_roles.role_id','=','permission_role.role_id')
+											->join('permissions','permissions.id','=','permission_role.permission_id')
+											->where('assigned_roles.user_id',$user)
+											->select('name')
+											->get();
+			foreach ($result as $row)
+			{
+				View::share($row->name,  $row->name);
+			}
+			$count = AssignedRoles::join('permission_role','assigned_roles.role_id','=','permission_role.role_id')
+											->join('permissions','permissions.id','=','permission_role.permission_id')
+											->where('assigned_roles.user_id',$user)
+											->where('permissions.is_admin','1')
+											->count();
+			if($count>0)
+			{
+				View::share('admin',  'admin');
+			}
+		}	
+		
     }
 
 	/**

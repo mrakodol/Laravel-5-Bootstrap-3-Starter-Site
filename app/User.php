@@ -6,6 +6,10 @@ use Illuminate\Contracts\Auth\User as UserContract;
 use Illuminate\Auth\Passwords\CanResetPasswordTrait;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
+use \AssignedRoles;
+use \Permission;
+use \PermissionRole;
+
 class User extends Model implements UserContract, CanResetPasswordContract {
 
 	use UserTrait, CanResetPasswordTrait;
@@ -23,5 +27,6 @@ class User extends Model implements UserContract, CanResetPasswordContract {
 	 * @var array
 	 */
 	protected $hidden = ['password', 'remember_token'];
+	
 
 }

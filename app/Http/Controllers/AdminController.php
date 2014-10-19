@@ -1,5 +1,8 @@
 <?php namespace App\Http\Controllers;
 
+use App\AssignedRoles;
+use Illuminate\Support\Facades\Auth;
+
 class AdminController extends BaseController {
 
     /**

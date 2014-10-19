@@ -2,10 +2,10 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Permission extends Model {
+class PermissionRole extends Model {
 
 	protected $fillable = [];
 	
-	protected $table = 'permissions';
+	protected $table = 'permission_role';
 
 }

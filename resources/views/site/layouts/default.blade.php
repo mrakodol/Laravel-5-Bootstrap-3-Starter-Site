@@ -72,12 +72,14 @@
 
                     <ul class="nav navbar-nav pull-right">
                         @if (Auth::check())
-                        <li><a href="{{{ URL::to('admin') }}}">{{{ Lang::get('site/site.admin_panel') }}}</a></li>
-                        <li><a href="{{{ URL::to('auth/changepassword') }}}">{{{ Lang::get('site/site.login_as') }}} {{{ Auth::user()->name }}}</a></li>
-                        <li><a href="{{{ URL::to('auth/logout') }}}">{{{ Lang::get('site/site.logout') }}}</a></li>
+	                        @if(isset($admin))
+	                        	<li><a href="{{{ URL::to('admin') }}}">{{{ Lang::get('site/site.admin_panel') }}}</a></li>
+	                        @endif
+	                        <li><a href="{{{ URL::to('auth/changepassword') }}}">{{{ Lang::get('site/site.login_as') }}} {{{ Auth::user()->name }}}</a></li>
+	                        <li><a href="{{{ URL::to('auth/logout') }}}">{{{ Lang::get('site/site.logout') }}}</a></li>
                         @else
-                        <li {{ (Request::is('auth/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('auth/login') }}}">{{{ Lang::get('site/site.login') }}}</a></li>
-                        <li {{ (Request::is('auth/register') ? ' class="active"' : '') }}><a href="{{{ URL::to('auth/register') }}}">{{{ Lang::get('site/site.sign_up') }}}</a></li>
+                        	<li {{ (Request::is('auth/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('auth/login') }}}">{{{ Lang::get('site/site.login') }}}</a></li>
+                        	<li {{ (Request::is('auth/register') ? ' class="active"' : '') }}><a href="{{{ URL::to('auth/register') }}}">{{{ Lang::get('site/site.sign_up') }}}</a></li>
                         @endif
                     </ul>
 					<!-- ./ nav-collapse -->
