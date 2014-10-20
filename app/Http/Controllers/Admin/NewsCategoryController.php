@@ -92,12 +92,12 @@ class NewsCategoryController extends Controller {
     public function data()
     {
         $news_category = NewsCategory::join('language', 'language.id', '=', 'news_category.language_id')
-            ->select(array('news_category.title', 'language.name', 'news_category.created_at'))
+            ->select(array('news_category.id','news_category.title', 'language.name', 'news_category.created_at'))
             ->orderBy('news_category.position', 'ASC');
 
         return Datatables::of($news_category)
-           ->add_column('actions', '<a href="{{{ URL::to(\'admin/newscategory/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span> Izmjeni</a>
-                    <a href="{{{ URL::to(\'admin/newscategory/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> Obriši</a>
+           ->add_column('actions', '<a href="{{{ URL::to(\'admin/newscategory/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+                    <a href="{{{ URL::to(\'admin/newscategory/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> Delete</a>
                 ')
             ->remove_column('id')
 

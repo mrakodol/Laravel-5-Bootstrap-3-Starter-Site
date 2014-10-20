@@ -97,52 +97,68 @@
                                     </div>
                                     <!-- /input-group -->
                                 </li>
-                                <li>
-                                    <a href="{{URL::to('admin/')}}">
+                                <li >
+                                    <a href="{{URL::to('admin/')}}" {{ (Request::is('admin/') ? ' class=active' : '') }}>
                                     <i class="fa fa-dashboard fa-fw"></i><span class="hidden-sm text"> Dashboard</span></a>
                                 </li>
                                 <li>
-                                    <a href="{{URL::to('admin/language')}}">
+                                    <a href="{{URL::to('admin/language')}}" {{ (Request::is('admin/language*') ? ' class=active' : '') }}>
                                     <i class="glyphicon glyphicon-flag"></i><span class="hidden-sm text"> Language</span></a>
                                 </li>
-                                <li>
-                                    <a href="{{URL::to('admin/newscategory')}}">
-                                    <i class="glyphicon glyphicon-list"></i><span class="hidden-sm text"> News categories </span></a>
+                                 <li><a href="#"><i class="glyphicon glyphicon-bullhorn"></i> News items<span class="fa arrow"></span></a>
+	                                 <ul class="nav nav-second-level">
+		                                <li>
+		                                    <a href="{{URL::to('admin/newscategory')}}" {{ (Request::is('admin/newscategory') ? ' class=active' : '') }}>
+		                                    <i class="glyphicon glyphicon-list"></i><span class="hidden-sm text"> News categories </span></a>
+		                                </li>
+		                                 <li>
+		                                    <a href="{{URL::to('admin/news')}}" {{ (Request::is('admin/news') ? ' class=active' : '') }}>
+		                                    <i class="glyphicon glyphicon-bullhorn"></i><span class="hidden-sm text"> News</span></a>
+		                                </li>
+	                                </ul>
                                 </li>
-                                 <li>
-                                    <a href="{{URL::to('admin/news')}}">
-                                    <i class="glyphicon glyphicon-bullhorn"></i><span class="hidden-sm text"> News</span></a>
+                                <li><a href="#"><i class="glyphicon glyphicon-camera"></i> Photo items<span class="fa arrow"></span></a>
+	                                 <ul class="nav nav-second-level">
+		                                <li>
+		                                    <a href="{{URL::to('admin/photoalbum')}}" {{ (Request::is('admin/photoalbum') ? ' class=active' : '') }}>
+		                                    <i class="glyphicon glyphicon-list"></i><span class="hidden-sm text"> Photo albums</span></a>
+		                                </li>
+		                                <li>
+		                                    <a href="{{URL::to('admin/photo')}}" {{ (Request::is('admin/photo') ? ' class=active' : '') }}>
+		                                    <i class="glyphicon glyphicon-camera"></i><span class="hidden-sm text"> Photo</span></a>
+		                                </li>
+		                          	</ul>
                                 </li>
-                                <li>
-                                    <a href="{{URL::to('admin/photoalbum')}}">
-                                    <i class="glyphicon glyphicon-list"></i><span class="hidden-sm text"> Photo albums</span></a>
+                                 <li><a href="#"><i class="glyphicon glyphicon-facetime-video"></i> Video items<span class="fa arrow"></span></a>
+	                                 <ul class="nav nav-second-level">
+		                                <li>
+		                                    <a href="{{URL::to('admin/videoalbum')}}" {{ (Request::is('admin/videoalbum') ? ' class=active' : '') }}>
+		                                    <i class="glyphicon glyphicon-list"></i><span class="hidden-sm text"> Video albums</span></a>
+		                                </li>
+		                                <li>
+		                                    <a href="{{URL::to('admin/video')}}" {{ (Request::is('admin/video') ? ' class=active' : '') }}>
+		                                    <i class="glyphicon glyphicon-facetime-video"></i><span class="hidden-sm text"> Video</span></a>
+		                                </li>
+		                             </ul>
                                 </li>
+                                 <li><a href="#"><i class="glyphicon glyphicon-random"></i> Slider items<span class="fa arrow"></span></a>
+	                                 <ul class="nav nav-second-level">
+	                                 	<li>
+		                                    <a href="{{URL::to('admin/slideralbum')}}" {{ (Request::is('admin/slideralbum') ? ' class=active' : '') }}>
+		                                    <i class="glyphicon glyphicon-list"></i><span class="hidden-sm text"> Slider albums</span></a>
+		                                </li>
+		                                <li>
+		                                    <a href="{{URL::to('admin/slider')}}" {{ (Request::is('admin/slider') ? ' class=active' : '') }}>
+		                                    <i class="glyphicon glyphicon-random"></i><span class="hidden-sm text"> Slider</span></a>
+		                                </li>
+		                              </ul>
+                                </li> 
                                 <li>
-                                    <a href="{{URL::to('admin/photo')}}">
-                                    <i class="glyphicon glyphicon-camera"></i><span class="hidden-sm text"> Photo</span></a>
-                                </li>
-                                <li>
-                                    <a href="{{URL::to('admin/videoalbum')}}">
-                                    <i class="glyphicon glyphicon-list"></i><span class="hidden-sm text"> Video albums</span></a>
-                                </li>
-                                <li>
-                                    <a href="{{URL::to('admin/video')}}">
-                                    <i class="glyphicon glyphicon-facetime-video"></i><span class="hidden-sm text"> Video</span></a>
-                                </li>
-                                <li>
-                                    <a href="{{URL::to('admin/slideralbum')}}">
-                                    <i class="glyphicon glyphicon-list"></i><span class="hidden-sm text"> Slider albums</span></a>
-                                </li>
-                                <li>
-                                    <a href="{{URL::to('admin/slider')}}">
-                                    <i class="glyphicon glyphicon-random"></i><span class="hidden-sm text"> Slider</span></a>
-                                </li>
-                                <li>
-                                    <a href="{{URL::to('admin/users')}}">
+                                    <a href="{{URL::to('admin/users')}}" {{ (Request::is('admin/users*') ? ' class=active' : '') }}>
                                     <i class="glyphicon glyphicon-user"></i><span class="hidden-sm text"> Users</span></a>
                                 </li>
                                 <li>
-                                    <a href="{{URL::to('admin/roles')}}">
+                                    <a href="{{URL::to('admin/roles')}}" {{ (Request::is('admin/roles*') ? ' class=active' : '') }}>
                                     <i class="glyphicon glyphicon-tasks"></i><span class="hidden-sm text"> Roles</span></a>
                                 </li>
                 		    </ul>

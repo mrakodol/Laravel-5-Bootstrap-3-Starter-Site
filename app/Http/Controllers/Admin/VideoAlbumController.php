@@ -29,14 +29,14 @@ class VideoAlbumController extends Controller {
     public function data()
     {
         $video_category = VideoAlbum::join('language', 'language.id', '=', 'video_album.language_id')
-            ->select(array('video_album.name','language.name as language','video_album.id as images_count', 'video_album.created_at'))
+            ->select(array('video_album.id','video_album.name','language.name as language','video_album.id as images_count', 'video_album.created_at'))
             ->orderBy('video_album.position', 'ASC');
 
         return Datatables::of($video_category)
             -> edit_column('images_count', '<a class="btn btn-primary btn-sm" >{{ DB::table(\'video\')->where(\'video_album_id\', \'=\', $id)->count() }}</a>')
-            ->add_column('actions', '<a href="{{{ URL::to(\'admin/video/\' . $id . \'/imagesforgallery\' ) }}}" class="btn btn-info btn-sm" ><span class="glyphicon glyphicon-open"></span> Slike</a>
-                    <a href="{{{ URL::to(\'admin/video/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span> Izmjeni</a>
-                    <a href="{{{ URL::to(\'admin/video/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> Obriši</a>
+            ->add_column('actions', '<a href="{{{ URL::to(\'admin/video/\' . $id . \'/imagesforgallery\' ) }}}" class="btn btn-info btn-sm" ><span class="glyphicon glyphicon-open"></span> Items</a>
+                    <a href="{{{ URL::to(\'admin/video/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+                    <a href="{{{ URL::to(\'admin/video/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> Delete</a>
                 ')
             ->remove_column('id')
 

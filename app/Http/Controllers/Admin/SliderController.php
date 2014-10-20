@@ -30,12 +30,12 @@ class SliderController extends Controller {
     {
         $sliders = Slider::join('language', 'language.id', '=', 'slider.language_id')
             ->join('slider_album', 'slider_album.id', '=', 'slider.slider_album_id')
-            ->select(array('slider.name','slider_album.name as category', 'language.name as language', 'slider.created_at'))
+            ->select(array('slider.id','slider.name','slider_album.name as category', 'language.name as language', 'slider.created_at'))
             ->orderBy('slider.position', 'ASC');
 
         return Datatables::of($sliders)
-            ->add_column('actions', '<a href="{{{ URL::to(\'admin/slider/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span> Izmjeni</a>
-                    <a href="{{{ URL::to(\'admin/slider/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> Obriši</a>
+            ->add_column('actions', '<a href="{{{ URL::to(\'admin/slider/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+                    <a href="{{{ URL::to(\'admin/slider/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> Delete</a>
                 ')
             ->remove_column('id')
 

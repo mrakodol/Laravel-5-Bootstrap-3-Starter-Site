@@ -31,12 +31,12 @@ class NewsController extends AdminController {
     {
         $news = News::join('language', 'language.id', '=', 'news.language_id')
             ->join('news_category', 'news_category.id', '=', 'news.newscategory_id')
-            ->select(array('news.title','news_category.title as category', 'language.name', 'news.created_at'))
+            ->select(array('news.id','news.title','news_category.title as category', 'language.name', 'news.created_at'))
             ->orderBy('news.position', 'ASC');
 
         return Datatables::of($news)
-            ->add_column('actions', '<a href="{{{ URL::to(\'admin/news/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span> Izmjeni</a>
-                    <a href="{{{ URL::to(\'admin/news/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> Obriši</a>
+            ->add_column('actions', '<a href="{{{ URL::to(\'admin/news/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+                    <a href="{{{ URL::to(\'admin/news/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> Delete</a>
                 ')
             ->remove_column('id')
 

@@ -20,6 +20,7 @@ Gallery
 	<thead>
 		<tr>
 			<th>Title</th>
+			<th>Category</th>
 			<th>Language</th>
 			<th>Created at</th>
 			<th>Actions</th>

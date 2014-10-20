@@ -30,12 +30,12 @@ class VideoController extends Controller {
     {
         $videos = Video::join('language', 'language.id', '=', 'video.language_id')
             ->join('video_album', 'video_album.id', '=', 'video.video_album_id')
-            ->select(array('video.name','video_album.name as category', 'language.name as language', 'video.created_at'))
+            ->select(array('video.id','video.name','video_album.name as category', 'language.name as language', 'video.created_at'))
             ->orderBy('video.position', 'ASC');
 
         return Datatables::of($videos)
-            ->add_column('actions', '<a href="{{{ URL::to(\'admin/video/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span> Izmjeni</a>
-                    <a href="{{{ URL::to(\'admin/video/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> Obriši</a>
+            ->add_column('actions', '<a href="{{{ URL::to(\'admin/video/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+                    <a href="{{{ URL::to(\'admin/video/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> Delete</a>
                 ')
             ->remove_column('id')
 

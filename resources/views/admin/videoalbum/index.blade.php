@@ -21,6 +21,7 @@
 		<tr>
 			<th>Title</th>
 			<th>Language</th>
+			<th>Number of items</th>
 			<th>Created at</th>
 			<th>Actions</th>
 		</tr>
