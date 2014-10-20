@@ -2,15 +2,44 @@
 
 use App\Http\Controllers\AdminController;
 
-class BlogController extends AdminController {
+use App\News;
+use Bllim\Datatables\Facade\Datatables;
 
-     public function __construct()
+class NewsController extends AdminController {
+
+    /*
+    * Display a listing of the resource.
+    *
+    * @return Response
+    */
+    public function index()
     {
-        parent::__construct();
+        // Title
+        $title = "News";
+
+        // Show the page
+        return view('admin.news.index', compact('title'));
     }
 
-	public function index()
-	{
-		return view('admin.blog.index');
-	}
+
+    /**
+     * Show a list of all the languages posts formatted for Datatables.
+     *
+     * @return Datatables JSON
+     */
+    public function data()
+    {
+        $news = News::join('language', 'language.id', '=', 'news.language_id')
+            ->join('news_category', 'news_category.id', '=', 'news.newscategory_id')
+            ->select(array('news.title','news_category.title as category', 'language.name', 'news.created_at'))
+            ->orderBy('news.position', 'ASC');
+
+        return Datatables::of($news)
+            ->add_column('actions', '<a href="{{{ URL::to(\'admin/news/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span> Izmjeni</a>
+                    <a href="{{{ URL::to(\'admin/news/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> Obriši</a>
+                ')
+            ->remove_column('id')
+
+            ->make();
+    }
 }

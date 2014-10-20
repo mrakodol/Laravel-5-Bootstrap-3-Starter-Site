@@ -23,38 +23,46 @@
 		<meta name="DC.creator" content="">
 		<!--  Mobile Viewport Fix -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-		<!-- start: CSS -->
-		<link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/bootstrap.min.css')}}">
-		<link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/print.css')}}" rel="stylesheet"media="print"/>
-		<link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/jquery.dataTables.css')}}">
-		<link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/colorbox.css')}}">
-		<link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/style.min.css')}}">
-		<link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/jquery-ui-1.10.3.custom.css')}}">		
-		<link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/bootstrap-dataTables.css')}}">
-		<!-- end: CSS -->
-		<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
-		<!--[if lt IE 9]>
-		<script src="{{asset('assets/admin/js/html5.js')}}"></script>
-		<script src="{{asset('assets/admin/js/respond.min.js')}}"></script>
-		<![endif]-->
-		<!-- start: Favicon and Touch Icons -->
-		<link rel="shortcut icon" href="{{asset('assets/admin/ico/favicon.ico')}}">
-		<!-- end: Favicon and Touch Icons -->
+		<!-- Bootstrap Core CSS -->
+        <link href="{{asset('assets/admin/css/bootstrap.min.css')}}" rel="stylesheet">
+
+        <!-- MetisMenu CSS -->
+        <link href="{{asset('assets/admin/css/plugins/metisMenu/metisMenu.min.css')}}" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="{{asset('assets/admin/css/sb-admin-2.css')}}" rel="stylesheet">
+
+        <link href="{{asset('assets/admin/css/jquery.dataTables.css')}}" rel="stylesheet">
+        <link href="{{asset('assets/admin/css/dataTables.bootstrap.css')}}" rel="stylesheet">
+        <link href="{{asset('assets/admin/css/colorbox.css')}}" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="{{asset('assets/admin/font-awesome-4.1.0/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
 	</head>
 	<body>
-		<!-- start: Header -->
-		<header class="navbar">
-			<div class="container">
-				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".sidebar-nav.nav-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a id="main-menu-toggle" class="hidden-xs open"><i class="icon-reorder"></i></a>
-				<a class="navbar-brand col-md-2 col-sm-1 col-xs-2" href="#"><span>Administration</span></a>
-				<!-- start: Header Menu -->
-				<div class="nav-no-collapse header-nav">
-					<ul class="nav navbar-nav pull-right">
+	<div id="wrapper">
+		<!-- Navigation -->
+                <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html">Administration</a>
+                    </div>
+                    <!-- /.navbar-header -->
+                    <!-- /.navbar-header -->
+                    <ul class="nav navbar-top-links navbar-right">
 					
 						<!-- start: User Dropdown -->
 						<li class="dropdown">
@@ -65,90 +73,97 @@
 							</div> </a>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="{{{ URL::to('/') }}}"><i class="icon-home"></i> {{ Lang::get('admin/admin.homepage') }}</a>
+									<a href="{{{ URL::to('/') }}}"><i class="glyphicon glyphicon-home"></i> {{ Lang::get('admin/admin.homepage') }}</a>
 								</li>
 								<li>
-									<a href="{{{ URL::to('auth/logout') }}}"><i class="icon-road icon-white"></i> {{ Lang::get('site/site.logout') }}</a>
+									<a href="{{{ URL::to('auth/logout') }}}"><i class="glyphicon glyphicon-off"></i> {{ Lang::get('site/site.logout') }}</a>
 								</li>
 							</ul>
 						</li>
 						<!-- end: User Dropdown -->
 					</ul>
-				</div>
-				<!-- end: Header Menu -->
-			</div>
-		</header>
 		<!-- end: Header -->
-		<div class="container">
-			<div class="row">
-                <div id="sidebar-left" class="col-lg-2 col-sm-1 ">
-                    <div class="sidebar-nav nav-collapse collapse navbar-collapse">
-                        <ul class="nav main-menu">
-                            <li>
-                                <a href="{{URL::to('admin/')}}">
-                                <i class="icon-dashboard"></i><span class="hidden-sm text"> Dashboard</span></a>
-                            </li>
-                            <li>
-                                <a href="{{URL::to('admin/')}}">
-                                <i class="icon-dashboard"></i><span class="hidden-sm text"> Language</span></a>
-                            </li>
-                            <li>
-                                <a href="{{URL::to('admin/')}}">
-                                <i class="icon-dashboard"></i><span class="hidden-sm text"> News category </span></a>
-                            </li>
-                             <li>
-                                <a href="{{URL::to('admin/')}}">
-                                <i class="icon-dashboard"></i><span class="hidden-sm text"> News</span></a>
-                            </li>
-                            <li>
-                                <a href="{{URL::to('admin/')}}">
-                                <i class="icon-dashboard"></i><span class="hidden-sm text"> Photo category</span></a>
-                            </li>
-                            <li>
-                                <a href="{{URL::to('admin/')}}">
-                                <i class="icon-dashboard"></i><span class="hidden-sm text"> Photo</span></a>
-                            </li>
-                            <li>
-                                <a href="{{URL::to('admin/')}}">
-                                <i class="icon-dashboard"></i><span class="hidden-sm text"> Video category</span></a>
-                            </li>
-                            <li>
-                                <a href="{{URL::to('admin/')}}">
-                                <i class="icon-dashboard"></i><span class="hidden-sm text"> Video</span></a>
-                            </li>
-                            <li>
-                                <a href="{{URL::to('admin/')}}">
-                                <i class="icon-dashboard"></i><span class="hidden-sm text"> Slider category</span></a>
-                            </li>
-                            <li>
-                                <a href="{{URL::to('admin/')}}">
-                                <i class="icon-dashboard"></i><span class="hidden-sm text"> Slider</span></a>
-                            </li>
-                            <li>
-                                <a href="{{URL::to('admin/')}}">
-                                <i class="icon-dashboard"></i><span class="hidden-sm text"> Users</span></a>
-                            </li>
-                            <li>
-                                <a href="{{URL::to('admin/')}}">
-                                <i class="icon-dashboard"></i><span class="hidden-sm text"> Roles</span></a>
-                            </li>
-                		</ul>
-                	</div>
-                </div>
-				<!-- start: Content -->
-				<div id="content" class="col-lg-10 col-sm-11 ">
-					<div class="row">
-						<div class="col-sm-12 col-md-12">
+		 <div class="navbar-default sidebar" role="navigation">
+                        <div class="sidebar-nav navbar-collapse">
+                            <ul class="nav" id="side-menu">
+                                <li class="sidebar-search">
+                                    <div class="input-group custom-search-form">
+                                        <input type="text" class="form-control" placeholder="Search...">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                         </span>
+                                    </div>
+                                    <!-- /input-group -->
+                                </li>
+                                <li>
+                                    <a href="{{URL::to('admin/')}}">
+                                    <i class="fa fa-dashboard fa-fw"></i><span class="hidden-sm text"> Dashboard</span></a>
+                                </li>
+                                <li>
+                                    <a href="{{URL::to('admin/language')}}">
+                                    <i class="glyphicon glyphicon-flag"></i><span class="hidden-sm text"> Language</span></a>
+                                </li>
+                                <li>
+                                    <a href="{{URL::to('admin/newscategory')}}">
+                                    <i class="glyphicon glyphicon-list"></i><span class="hidden-sm text"> News categories </span></a>
+                                </li>
+                                 <li>
+                                    <a href="{{URL::to('admin/news')}}">
+                                    <i class="glyphicon glyphicon-bullhorn"></i><span class="hidden-sm text"> News</span></a>
+                                </li>
+                                <li>
+                                    <a href="{{URL::to('admin/photoalbum')}}">
+                                    <i class="glyphicon glyphicon-list"></i><span class="hidden-sm text"> Photo albums</span></a>
+                                </li>
+                                <li>
+                                    <a href="{{URL::to('admin/photo')}}">
+                                    <i class="glyphicon glyphicon-camera"></i><span class="hidden-sm text"> Photo</span></a>
+                                </li>
+                                <li>
+                                    <a href="{{URL::to('admin/videoalbum')}}">
+                                    <i class="glyphicon glyphicon-list"></i><span class="hidden-sm text"> Video albums</span></a>
+                                </li>
+                                <li>
+                                    <a href="{{URL::to('admin/video')}}">
+                                    <i class="glyphicon glyphicon-facetime-video"></i><span class="hidden-sm text"> Video</span></a>
+                                </li>
+                                <li>
+                                    <a href="{{URL::to('admin/slideralbum')}}">
+                                    <i class="glyphicon glyphicon-list"></i><span class="hidden-sm text"> Slider albums</span></a>
+                                </li>
+                                <li>
+                                    <a href="{{URL::to('admin/slider')}}">
+                                    <i class="glyphicon glyphicon-random"></i><span class="hidden-sm text"> Slider</span></a>
+                                </li>
+                                <li>
+                                    <a href="{{URL::to('admin/users')}}">
+                                    <i class="glyphicon glyphicon-user"></i><span class="hidden-sm text"> Users</span></a>
+                                </li>
+                                <li>
+                                    <a href="{{URL::to('admin/roles')}}">
+                                    <i class="glyphicon glyphicon-tasks"></i><span class="hidden-sm text"> Roles</span></a>
+                                </li>
+                		    </ul>
+                	    </div>
+                    </div>
+			    </nav>
+				<!-- end: Header Menu -->
+		</header>
+			<!-- Page Content -->
+                    <div id="page-wrapper">
+                        <div class="row">
 								<!-- Content -->
 								@yield('content')
 								<!-- ./ content -->
-						</div><!--/row-->
+						</div>
+                <!-- /.row -->
+            </div>
+            <!-- /#page-wrapper -->
 
-					</div><!--/col-->
-				</div><!--/row-->
-			<!-- end: Content -->
-		</div><!--/row-->
-		</div><!--/container-->
+        </div>
+        <!-- /#wrapper -->
 		<div class="clearfix"></div>
 		<footer>
 			<p>
@@ -158,30 +173,30 @@
 
 		</footer>
 		<!-- start: JavaScript-->
-		<!--[if !IE]>-->
-		<script src="{{asset('assets/admin/js/jquery-2.0.3.min.js')}}"></script>
-		<!--<![endif]-->
-		<!--[if IE]>
-		<script src="{{asset('assets/admin/js/jquery-1.10.2.min.js')}}"></script>
-		<![endif]-->
-		<script src="{{asset('assets/admin/js/jquery-migrate-1.2.1.min.js')}}"></script>
-		<script src="{{asset('assets/admin/js/bootstrap.min.js')}}"></script>
-		<!-- page scripts -->
-		<script src="{{asset('assets/admin/js/jquery-ui-1.10.3.custom.min.js')}}"></script>
-		<script src="{{asset('assets/admin/js/jquery.ui.touch-punch.min.js')}}"></script>
-		<!--[if lte IE 8]>
-			<script language="javascript" type="text/javascript" src="{{asset('assets/admin/js/excanvas.min.js')}}"></script>
-		<![endif]-->		
-		<script src="{{asset('assets/admin/js/jquery.dataTables.min.js')}}"></script>
-		<script src="{{asset('assets/admin/js/dataTables.bootstrap.min.js')}}"></script>
-		<!-- theme scripts -->
-		<script src="{{asset('assets/admin/js/custom.min.js')}}"></script>
-		<script src="{{asset('assets/admin/js/core.min.js')}}"></script>
-		<script src="{{asset('assets/admin/js/jquery.colorbox.js')}}"></script>
-		<script src="{{asset('assets/admin/js/bootstrap-dataTables-paging.js')}}"></script>
-		<script src="{{asset('assets/admin/js/select2.js')}}"></script>		
-		<script src="{{asset('assets/admin/js/jquery.multiselect.js')}}"></script>
-		<!-- end: JavaScript-->
+        <!--[if !IE]>-->
+        <script src="{{asset('assets/admin/js/jquery-2.1.1.min.js')}}"></script>
+        <!--<![endif]-->
+        <!--[if IE]>
+        <script src="{{asset('assets/admin/js/jquery-1.11.1.min.js')}}"></script>
+        <![endif]-->
+        <script src="{{asset('assets/admin/js/jquery-migrate-1.2.1.min.js')}}"></script>
+        <script src="{{asset('assets/admin/js/bootstrap.min.js')}}"></script>
+        <!-- page scripts -->
+        <script src="{{asset('assets/admin/js/jquery-ui.1.11.2.min.js')}}"></script>
+
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="{{asset('assets/admin/js/plugins/metisMenu/metisMenu.min.js')}}"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="{{asset('assets/admin/js/sb-admin-2.js')}}"></script>
+
+        <script src="{{asset('assets/admin/js/jquery.dataTables.min.js')}}"></script>
+        <script src="{{asset('assets/admin/js/dataTables.bootstrap.js')}}"></script>
+        <script src="{{asset('assets/admin/js/bootstrap-dataTables-paging.js')}}"></script>
+        <script src="{{asset('assets/admin/js/datatables.fnReloadAjax.js')}}"></script>
+        <script src="{{asset('assets/admin/js/jquery.colorbox.js')}}"></script>
+        <script src="{{asset('assets/admin/js/modal.js')}}"></script>
+
 		@yield('scripts')
 	</body>
 </html>

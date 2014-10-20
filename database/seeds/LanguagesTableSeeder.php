@@ -1,37 +1,30 @@
 <?php
 use Illuminate\Database\Seeder;
+use App\Language;
 
 class LanguagesTableSeeder extends Seeder {
 
     public function run()
     {
-       $language = array(
-            array(
-            	'name'      => 'English',
-                'lang_code'      => 'en',
-                'icon'   => "icon_flag_gb.gif",
-                'created_at' => new DateTime,
-                'updated_at' => new DateTime,
-            ),
-            array(
-                'name'      => 'Српски',
-                'lang_code'      => 'cr',
-                'icon'   => "icon_flag_sr.png",
-                'created_at' => new DateTime,
-                'updated_at' => new DateTime,
-            ),
-            array(
-                'name'      => 'Srpski',
-                'lang_code'      => 'lt',
-                'icon'   => "icon_flag_sr.png",
-                'created_at' => new DateTime,
-                'updated_at' => new DateTime,
-                'deleted_at' => new DateTime,
-            )
-			
-        );
+        DB::table('language')->delete();
 
-        DB::table('language')->insert( $language );
+        $language = new Language();
+        $language->name = 'English';
+        $language->lang_code = 'en';
+        $language->icon = "icon_flag_gb.gif";
+        $language->save();
+
+        $language = new Language();
+        $language->name = 'Српски';
+        $language->lang_code = 'cr';
+        $language->icon = "icon_flag_sr.gif";
+        $language->save();
+
+        $language = new Language();
+        $language->name = 'Srpski';
+        $language->lang_code = 'lt';
+        $language->icon = "icon_flag_sr.gif";
+        $language->save();
     }
 
 }

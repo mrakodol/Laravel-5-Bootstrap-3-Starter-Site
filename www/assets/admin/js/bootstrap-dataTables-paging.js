@@ -19,9 +19,9 @@ $.extend(true, $.fn.dataTable.defaults, {
  
       // Re-arrange the records selection for a form-horizontal layout
       thisLength.addClass('form-group');
-      thisLengthLabel.addClass('control-label col-xs-12 col-sm-7 col-md-6').attr('for', currentId + '_length_select').css('text-align', 'left');
+      thisLengthLabel.addClass('control-label col-xs-12 col-sm-7 col-md-7').attr('for', currentId + '_length_select').css('text-align', 'left');
       thisLengthSelect.addClass('form-control input-sm').attr('id', currentId + '_length_select');
-      thisLengthSelect.prependTo(thisLength).wrap('<div class="col-xs-12 col-sm-5 col-md-6" />');
+      thisLengthSelect.prependTo(thisLength).wrap('<div class="col-xs-12 col-sm-5 col-md-5" />');
       // Re-arrange the search input for a form-horizontal layout
       thisFilter.addClass('form-group');
       thisFilterLabel.addClass('control-label col-xs-4 col-sm-3 col-md-3').attr('for', currentId + '_filter_input');
@@ -63,10 +63,10 @@ $.extend($.fn.dataTableExt.oPagination, {
  
       $(nPaging).append(
        '<ul class="pagination">' +
-        '<li class="first disabled"><a href="#" title="' + oLang.sFirst + '"><span class="icon-fast-backward"></span></a></li>' +
-        '<li class="prev disabled"><a href="#" title="' + oLang.sPrevious + '"><span class="icon-step-backward"></span></a></li>' +
-        '<li class="next disabled"><a href="#" title="' + oLang.sNext + '"><span class="icon-step-forward"></span></a></li>' +
-        '<li class="last disabled"><a href="#" title="' + oLang.sLast + '"><span class="icon-fast-forward"></span></a></li>' +
+        '<li class="first disabled"><a href="#" title="' + oLang.sFirst + '"><span class="glyphicon glyphicon-fast-backward"></span></a></li>' +
+        '<li class="prev disabled"><a href="#" title="' + oLang.sPrevious + '"><span class="glyphicon glyphicon-step-backward"></span></a></li>' +
+        '<li class="next disabled"><a href="#" title="' + oLang.sNext + '"><span class="glyphicon glyphicon-step-forward"></span></a></li>' +
+        '<li class="last disabled"><a href="#" title="' + oLang.sLast + '"><span class="glyphicon glyphicon-fast-forward"></span></a></li>' +
        '</ul>'
       );
       var els = $('a', nPaging);

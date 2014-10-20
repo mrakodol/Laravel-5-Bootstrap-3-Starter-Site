@@ -31,9 +31,9 @@ class PhotoController extends AdminController {
 			
 		// Grab all the photo posts
 		$photoalbum = $this -> photoalbum;
-		$title = "Photo albums";
+		$title = "Photos";
 		// Show the page
-		return view('admin.gallery.index', compact('photoalbum','title'));
+		return view('admin.photo.index', compact('photoalbum','title'));
 	}
 
 	/**
@@ -43,11 +43,11 @@ class PhotoController extends AdminController {
 	 */
 	public function create() {
 		// Title
-		$title = "New gallery";
+		$title = "New photo albums";
 		$languages = Language::all();
 		$language = "";
 		// Show the page
-		return View::make('admin/photo/create_edit', compact('title','languages' , 'language'));
+		return View::make('admin.photo.create_edit', compact('title','languages' , 'language'));
 	}
 
 	public function store($object_id) {
@@ -69,8 +69,8 @@ class PhotoController extends AdminController {
 			$this -> photoalbum -> folderid = sha1($this -> photoalbum -> name . time());
 			// Was the photo created?
 			if ($this -> photoalbum -> save()) {
-				File::makeDirectory(public_path() . '/images/photo-albums/' . $this -> photoalbum -> folderid);
-				File::makeDirectory(public_path() . '/images/photo-albums/' . $this -> photoalbum -> folderid . '/thumbs');
+				File::makeDirectory(public_path() . '/images/photoalbum/' . $this -> photoalbum -> folderid);
+				File::makeDirectory(public_path() . '/images/photoalbum/' . $this -> photoalbum -> folderid . '/thumbs');
 
 				// Redirect to the new photo post page
 				return Redirect::to('admin/photo/' . $this -> photoalbum -> id . '/edit') -> with('success', "Uspješno kreirano!");
@@ -98,7 +98,7 @@ class PhotoController extends AdminController {
 		$language = $photoalbum->language_id;
 
 		// Show the page
-		return View::make('admin/photo/create_edit', compact('photoalbum', 'languages', 'language'));
+		return View::make('admin.photo.create_edit', compact('photoalbum', 'languages', 'language'));
 	}
 
 	/**
@@ -166,12 +166,10 @@ class PhotoController extends AdminController {
 	 */
 	public function data() {
 		$photoalbum = PhotoAlbum::join('language', 'language.id', '=', 'photo_album.language_id')
-		->select(array('photo_album.id', 'photo_album.name','language.name as language', 'photo_album.id as images_count', 'photo_album.created_at'));
+		->select(array('photo_album.id', 'photo_album.name','language.name as language', 'photo_album.created_at'));
 
 		return Datatables::of($photoalbum) 
-			-> edit_column('images_count', '<a class="btn btn-primary btn-sm" >{{ DB::table(\'photo\')->where(\'photo_album_id\', \'=\', $id)->whereNull(\'photo.deleted_at\')->count() }}</a>') 
-			-> add_column('actions', '<a href="{{{ URL::to(\'admin/photo/\' . $id . \'/imagesforgallery\' ) }}}" class="btn btn-info btn-sm" ><span class="glyphicon glyphicon-open"></span> Slike</a>
-        		<a href="{{{ URL::to(\'admin/photo/\' . $id . \'/edit\' ) }}}" class="btn btn-default btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span> Izmjeni</a>
+			-> add_column('actions', '<a href="{{{ URL::to(\'admin/photo/\' . $id . \'/edit\' ) }}}" class="btn btn-default btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span> Izmjeni</a>
                 <a href="{{{ URL::to(\'admin/photo/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> Obriši</a>
             ') -> remove_column('id') -> make();
 	}
