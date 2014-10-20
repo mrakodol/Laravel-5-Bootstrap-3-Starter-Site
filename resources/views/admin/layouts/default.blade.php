@@ -105,7 +105,7 @@
                                     <a href="{{URL::to('admin/language')}}" {{ (Request::is('admin/language*') ? ' class=active' : '') }}>
                                     <i class="glyphicon glyphicon-flag"></i><span class="hidden-sm text"> Language</span></a>
                                 </li>
-                                 <li><a href="#"><i class="glyphicon glyphicon-bullhorn"></i> News items<span class="fa arrow"></span></a>
+                                 <li {{ (Request::is('admin/news*') ? ' class=active' : '') }}><a href="#"><i class="glyphicon glyphicon-bullhorn"></i> News items<span class="fa arrow"></span></a>
 	                                 <ul class="nav nav-second-level">
 		                                <li>
 		                                    <a href="{{URL::to('admin/newscategory')}}" {{ (Request::is('admin/newscategory') ? ' class=active' : '') }}>
@@ -117,7 +117,7 @@
 		                                </li>
 	                                </ul>
                                 </li>
-                                <li><a href="#"><i class="glyphicon glyphicon-camera"></i> Photo items<span class="fa arrow"></span></a>
+                                <li{{ (Request::is('admin/photo*') ? ' class=active' : '') }}><a href="#"><i class="glyphicon glyphicon-camera"></i> Photo items<span class="fa arrow"></span></a>
 	                                 <ul class="nav nav-second-level">
 		                                <li>
 		                                    <a href="{{URL::to('admin/photoalbum')}}" {{ (Request::is('admin/photoalbum') ? ' class=active' : '') }}>
@@ -129,7 +129,7 @@
 		                                </li>
 		                          	</ul>
                                 </li>
-                                 <li><a href="#"><i class="glyphicon glyphicon-facetime-video"></i> Video items<span class="fa arrow"></span></a>
+                                 <li {{ (Request::is('admin/video*') ? ' class=active' : '') }}><a href="#"><i class="glyphicon glyphicon-facetime-video"></i> Video items<span class="fa arrow"></span></a>
 	                                 <ul class="nav nav-second-level">
 		                                <li>
 		                                    <a href="{{URL::to('admin/videoalbum')}}" {{ (Request::is('admin/videoalbum') ? ' class=active' : '') }}>
@@ -141,7 +141,7 @@
 		                                </li>
 		                             </ul>
                                 </li>
-                                 <li><a href="#"><i class="glyphicon glyphicon-random"></i> Slider items<span class="fa arrow"></span></a>
+                                 <li {{ (Request::is('admin/slider*') ? ' class=active' : '') }}><a href="#"><i class="glyphicon glyphicon-random"></i> Slider items<span class="fa arrow"></span></a>
 	                                 <ul class="nav nav-second-level">
 	                                 	<li>
 		                                    <a href="{{URL::to('admin/slideralbum')}}" {{ (Request::is('admin/slideralbum') ? ' class=active' : '') }}>
