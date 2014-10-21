@@ -45,7 +45,7 @@ class News extends Model {
 	 */
 	public function author()
 	{
-		return $this->belongsTo('User', 'user_id');
+		return $this->belongsTo('App\User', 'user_id');
 	}
 	/**
 	 * Get the post's language.
@@ -54,7 +54,7 @@ class News extends Model {
 	 */
 	public function language()
 	{
-		return $this->belongsTo('Language', 'language_id');
+		return $this->belongsTo('App\Language', 'language_id');
 	}
 	
 	/**
@@ -64,7 +64,7 @@ class News extends Model {
 	 */
 	public function category()
 	{
-		return $this->belongsTo('NewsCategory', 'newscategory_id');
+		return $this->belongsTo('App\NewsCategory', 'newscategory_id');
 	}
 
 }

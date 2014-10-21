@@ -16,7 +16,7 @@
 		<!-- Post Content -->
 		<div class="row">
 			<div class="col-md-2">
-				<a href="{!! $post->url() !!}" class="thumbnail"><img src="http://placehold.it/260x180" alt=""></a>
+				<a href="#" class="thumbnail"><img src="http://placehold.it/260x180" alt=""></a>
 			</div>
 			<div class="col-md-6">
 				<p>
@@ -33,9 +33,8 @@
 				<p></p>
 				<p>
 					<span class="glyphicon glyphicon-user"></span> by <span class="muted">{!! $post->author->name !!}</span>
-					| <span class="glyphicon glyphicon-calendar"></span> <!--Sept 16th, 2012-->{!! $post->date() !!}
-					| <span class="glyphicon glyphicon-comment"></span> <a href="#">{{$post->comments()->count()}} {{ \Illuminate\Support\Pluralizer::plural('Comment', $post->comments()->count()) }}</a>
-				</p>
+					| <span class="glyphicon glyphicon-calendar"></span> {!! $post->created_at !!}
+					</p>
 			</div>
 		</div>
 		<!-- ./ post footer -->
