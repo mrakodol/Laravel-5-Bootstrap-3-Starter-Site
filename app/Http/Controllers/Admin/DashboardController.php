@@ -29,10 +29,7 @@ class DashboardController extends AdminController {
         $photoalbum = PhotoAlbum::count();
         $video = Video::count();
         $videoalbum = VideoAlbum::count();
-        $slider = Slider::count();
-        $slideralbum = SliderAlbum::count();
-
 		return view('admin.dashboard.index',  compact('title','news','newscategory','video','videoalbum','photo',
-            'photoalbum','slider','slideralbum','users'));
+            'photoalbum','users'));
 	}
 }

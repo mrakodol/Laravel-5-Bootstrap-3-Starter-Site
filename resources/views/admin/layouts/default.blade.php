@@ -141,18 +141,6 @@
 		                                </li>
 		                             </ul>
                                 </li>
-                                 <li {{ (Request::is('admin/slider*') ? ' class=active' : '') }}><a href="#"><i class="glyphicon glyphicon-random"></i> Slider items<span class="fa arrow"></span></a>
-	                                 <ul class="nav nav-second-level">
-	                                 	<li>
-		                                    <a href="{{URL::to('admin/slideralbum')}}" {{ (Request::is('admin/slideralbum') ? ' class=active' : '') }}>
-		                                    <i class="glyphicon glyphicon-list"></i><span class="hidden-sm text"> Slider albums</span></a>
-		                                </li>
-		                                <li>
-		                                    <a href="{{URL::to('admin/slider')}}" {{ (Request::is('admin/slider') ? ' class=active' : '') }}>
-		                                    <i class="glyphicon glyphicon-random"></i><span class="hidden-sm text"> Slider</span></a>
-		                                </li>
-		                              </ul>
-                                </li> 
                                 <li>
                                     <a href="{{URL::to('admin/users')}}" {{ (Request::is('admin/users*') ? ' class=active' : '') }}>
                                     <i class="glyphicon glyphicon-user"></i><span class="hidden-sm text"> Users</span></a>

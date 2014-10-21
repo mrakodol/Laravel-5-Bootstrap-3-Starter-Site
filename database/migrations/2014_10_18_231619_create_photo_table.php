@@ -16,6 +16,7 @@ class CreatePhotoTable extends Migration {
 			$table->unsignedInteger('language_id');
 			$table->foreign('language_id')->references('id')->on('language');
 			$table->integer('position')->nullable();
+			$table->boolean('slider')->nullable();
 			$table->string('filename', 255);
 			$table->string('name', 255)->nullable();
 			$table->text('description')->nullable();
