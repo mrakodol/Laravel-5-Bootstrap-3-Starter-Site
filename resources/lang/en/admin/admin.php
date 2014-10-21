@@ -9,4 +9,6 @@ return [
 	'users' => 'Users',
 	'roles' => 'Roles',
 	'welcome' => 'Welcome',
+    'action' => 'Actions',
+    'back' => 'Back',
 	];

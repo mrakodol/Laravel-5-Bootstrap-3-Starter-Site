@@ -45,6 +45,9 @@
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <!-- start: Favicon and Touch Icons -->
+        <link rel="shortcut icon" href="{{{ asset('assets/admin/ico/favicon.ico') }}}">
+        <!-- end: Favicon and Touch Icons -->
 
 	</head>
 	<body>

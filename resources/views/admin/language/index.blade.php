@@ -11,7 +11,7 @@
 			{{{ $title }}}
 
 			<div class="pull-right">
-				<a href="{{{ URL::to('admin/language/create') }}}" class="btn btn-sm  btn-primary iframe"><span class="glyphicon glyphicon-plus-sign"></span> New</a>
+				<a href="{{{ URL::to('admin/language/create') }}}" class="btn btn-sm  btn-primary iframe"><span class="glyphicon glyphicon-plus-sign"></span>  {{ Lang::get("admin/modal.new") }}</a>
 			</div>
 		</h2>
 	</div>
@@ -19,10 +19,10 @@
 	<table id="table" class="table table-striped table-hover">
 		<thead>
 			<tr>
-				<th>Title</th>
-				<th>Short</th>
-				<th>Icon</th>
-				<th>Aktion</th>
+				<th> {{ Lang::get("admin/modal.title") }}</th>
+				<th>{{ Lang::get("admin/language.code") }}</th>
+				<th>{{ Lang::get("admin/language.icon") }}</th>
+				<th>{{ Lang::get("admin/admin.action") }}</th>
 			</tr>
 		</thead>
 		<tbody>

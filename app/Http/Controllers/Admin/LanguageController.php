@@ -3,10 +3,10 @@
 use Illuminate\Routing\Controller;
 use App\Language;
 use Bllim\Datatables\Facade\Datatables;
+use App\Http\Requests\Admin\LanguageRequest;
+use Illuminate\Support\Facades\Auth;
 
 class LanguageController extends Controller {
-
-
     /**
 	 * Display a listing of the resource.
 	 *
@@ -16,7 +16,6 @@ class LanguageController extends Controller {
 	{
         // Title
         $title = "Languages";
-
         // Show the page
         return view('admin.language.index', compact('title'));
 	}
@@ -28,7 +27,8 @@ class LanguageController extends Controller {
 	 */
 	public function create()
 	{
-		//
+       // Show the page
+        return view('admin/language/create_edit');
 	}
 
 	/**
@@ -36,22 +36,30 @@ class LanguageController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(LanguageRequest $request)
 	{
-		//
-	}
+        $language = new Language();
+        $language -> user_id = Auth::id();
+        $language -> lang_code = $request->lang_code;
+        $language -> name = $request->name;
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
+        $icon = "";
+        if($request->icon)
+        {
+            $file = $request->icon;
+            $filename = $file->getClientOriginalName();
+            $extension = $file -> getClientOriginalExtension();
+            $icon = sha1($filename . time()) . '.' . $extension;
+        }
+        $language -> icon = $icon;
+        $language -> save();
 
+        if($request->icon)
+        {
+            $destinationPath = public_path() . '/images/language/'.$language->id.'/';
+            Input::file('icon')->move($destinationPath, $icon);
+        }
+	}
 	/**
 	 * Show the form for editing the specified resource.
 	 *
@@ -60,7 +68,12 @@ class LanguageController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+        // Title
+        $title = "Edit language";
+
+        $language = Language::find($id);
+
+        return view('admin/language/create_edit','title','language');
 	}
 
 	/**
@@ -69,7 +82,7 @@ class LanguageController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(LanguageRequest $request, $id)
 	{
 		//
 	}
@@ -99,8 +112,8 @@ class LanguageController extends Controller {
         return Datatables::of($language)
             ->edit_column('icon', '{!! ($icon!="")? "<img style=\"max-width: 30px; max-height: 30px;\" src=\"../images/language/$id/$icon\">":""; !!}')
 
-            ->add_column('actions', '<a href="{{{ URL::to(\'admin/language/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span> Edit</a>
-                    <a href="{{{ URL::to(\'admin/language/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+            ->add_column('actions', '<a href="{{{ URL::to(\'admin/language/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span> {{ Lang::get("admin/modal.edit") }}</a>
+                    <a href="{{{ URL::to(\'admin/language/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> {{ Lang::get("admin/modal.delete") }}</a>
                 ')
             ->remove_column('id')
 

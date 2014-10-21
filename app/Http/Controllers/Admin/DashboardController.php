@@ -8,8 +8,6 @@ use App\Video;
 use App\VideoAlbum;
 use App\Photo;
 use App\PhotoAlbum;
-use App\Slider;
-use App\SliderAlbum;
 
 class DashboardController extends AdminController {
 

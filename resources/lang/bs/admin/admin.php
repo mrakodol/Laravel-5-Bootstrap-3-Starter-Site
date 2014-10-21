@@ -9,5 +9,7 @@ return [
 	'users' => 'Korisnici',
 	'roles' => 'Uloge',
     'welcome' => 'Dobro došli',
+    'action' => 'Akcije',
+    'back' => 'Povratak',
 	
 	];

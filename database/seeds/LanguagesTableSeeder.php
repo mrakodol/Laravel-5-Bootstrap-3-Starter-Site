@@ -16,14 +16,14 @@ class LanguagesTableSeeder extends Seeder {
 
         $language = new Language();
         $language->name = 'Српски';
-        $language->lang_code = 'cr';
+        $language->lang_code = 'sr';
         $language->icon = "icon_flag_sr.gif";
         $language->save();
 
         $language = new Language();
-        $language->name = 'Srpski';
-        $language->lang_code = 'lt';
-        $language->icon = "icon_flag_sr.gif";
+        $language->name = 'Bosanski';
+        $language->lang_code = 'bs';
+        $language->icon = "icon_flag_bs.gif";
         $language->save();
     }
 
