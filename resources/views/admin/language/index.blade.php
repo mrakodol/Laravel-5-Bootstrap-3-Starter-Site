@@ -2,13 +2,13 @@
 
 {{-- Web site Title --}}
 @section('title')
-{{{ $title }}} :: @parent
+{{{ Lang::get("admin/language.languages") }}} :: @parent
 @stop
 {{-- Content --}}
 @section('content')
 <div class="page-header">
 		<h2>
-			{{{ $title }}}
+			{{{ Lang::get("admin/language.languages") }}}
 
 			<div class="pull-right">
 				<a href="{{{ URL::to('admin/language/create') }}}" class="btn btn-sm  btn-primary iframe"><span class="glyphicon glyphicon-plus-sign"></span>  {{ Lang::get("admin/modal.new") }}</a>

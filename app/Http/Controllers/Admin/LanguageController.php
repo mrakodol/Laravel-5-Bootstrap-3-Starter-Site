@@ -1,9 +1,11 @@
 <?php namespace App\Http\Controllers\Admin;
 
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Input;
 use App\Language;
 use Bllim\Datatables\Facade\Datatables;
 use App\Http\Requests\Admin\LanguageRequest;
+use App\Http\Requests\Admin\DeleteRequest;
 use Illuminate\Support\Facades\Auth;
 
 class LanguageController extends Controller {
@@ -14,10 +16,8 @@ class LanguageController extends Controller {
 	 */
 	public function index()
 	{
-        // Title
-        $title = "Languages";
         // Show the page
-        return view('admin.language.index', compact('title'));
+        return view('admin.language.index');
 	}
 
 	/**
@@ -25,7 +25,7 @@ class LanguageController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function getCreate()
 	{
        // Show the page
         return view('admin/language/create_edit');
@@ -36,7 +36,7 @@ class LanguageController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(LanguageRequest $request)
+	public function postCreate(LanguageRequest $request)
 	{
         $language = new Language();
         $language -> user_id = Auth::id();
@@ -44,9 +44,9 @@ class LanguageController extends Controller {
         $language -> name = $request->name;
 
         $icon = "";
-        if($request->icon)
+        if(Input::hasFile('icon'))
         {
-            $file = $request->icon;
+            $file = Input::file('icon');
             $filename = $file->getClientOriginalName();
             $extension = $file -> getClientOriginalExtension();
             $icon = sha1($filename . time()) . '.' . $extension;
@@ -54,7 +54,7 @@ class LanguageController extends Controller {
         $language -> icon = $icon;
         $language -> save();
 
-        if($request->icon)
+        if(Input::hasFile('icon'))
         {
             $destinationPath = public_path() . '/images/language/'.$language->id.'/';
             Input::file('icon')->move($destinationPath, $icon);
@@ -66,14 +66,11 @@ class LanguageController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function getEdit($id)
 	{
-        // Title
-        $title = "Edit language";
-
         $language = Language::find($id);
 
-        return view('admin/language/create_edit','title','language');
+        return view('admin/language/create_edit',compact('language'));
 	}
 
 	/**
@@ -82,21 +79,56 @@ class LanguageController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(LanguageRequest $request, $id)
+	public function postEdit(LanguageRequest $request, $id)
 	{
-		//
+        $language = Language::find($id);
+        $language -> user_id_edited = Auth::id();
+        $language -> lang_code = $request->lang_code;
+        $language -> name = $request->name;
+        $icon = "";
+
+        if(Input::hasFile('icon'))
+        {
+            $file = Input::file('icon');
+            $filename = $file->getClientOriginalName();
+            $extension = $file -> getClientOriginalExtension();
+            $icon = sha1($filename . time()) . '.' . $extension;
+        }
+        $language -> icon = $icon;
+        $language -> save();
+
+        if(Input::hasFile('icon'))
+        {
+            $destinationPath = public_path() . '/images/language/'.$language->id.'/';
+            Input::file('icon')->move($destinationPath, $icon);
+        }
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param $blog
+     * @return Response
+     */
+
+    public function getDelete($id)
+    {
+        $language = Language::find($id);
+        // Show the page
+        return view('admin/language/delete', compact('language'));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param $post
+     * @return Response
+     */
+    public function postDelete(DeleteRequest $request,$id)
+    {
+        $language = Language::find($id);
+        $language->delete();
+    }
 
     /**
      * Show a list of all the languages posts formatted for Datatables.

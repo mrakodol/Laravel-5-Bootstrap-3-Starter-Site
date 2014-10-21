@@ -11,5 +11,7 @@ return [
     'welcome' => 'Dobro došli',
     'action' => 'Akcije',
     'back' => 'Povratak',
+    'created_at' => 'Kreirano',
+    'language' => 'Jezik',
 	
 	];

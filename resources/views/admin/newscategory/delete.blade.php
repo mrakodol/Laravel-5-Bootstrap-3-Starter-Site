@@ -9,11 +9,11 @@
         </ul>
     <!-- ./ tabs -->
     {{-- Delete Post Form --}}
-    <form id="deleteForm" class="form-horizontal" method="post" action="@if (isset($language)){{ URL::to('admin/language/' . $language->id . '/delete') }}@endif" autocomplete="off">
+    <form id="deleteForm" class="form-horizontal" method="post" action="@if (isset($newscategory)){{ URL::to('admin/newscategory/' . $newscategory->id . '/delete') }}@endif" autocomplete="off">
         
         <!-- CSRF Token -->
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-        <input type="hidden" name="id" value="{{ $language->id }}" />
+        <input type="hidden" name="id" value="{{ $newscategory->id }}" />
         <!-- <input type="hidden" name="_method" value="DELETE" /> -->
         <!-- ./ csrf token -->
 

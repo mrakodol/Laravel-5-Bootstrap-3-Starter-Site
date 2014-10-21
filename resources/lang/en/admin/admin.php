@@ -11,4 +11,6 @@ return [
 	'welcome' => 'Welcome',
     'action' => 'Actions',
     'back' => 'Back',
+    'created_at' => 'Created at',
+    'language' => 'Language',
 	];

@@ -11,7 +11,9 @@
 <!-- ./ tabs -->
 {{-- Edit Blog Form --}}
 <form class="form-horizontal" enctype="multipart/form-data" method="post" 
-	action="{{ URL::to('admin/language') }}" autocomplete="off">
+	action="@if(isset($language)){{ URL::to('admin/language/'.$language->id.'/edit') }}
+	        @else{{ URL::to('admin/language/create') }}@endif"
+    autocomplete="off">
 	<!-- CSRF Token -->
 	<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 	<!-- ./ csrf token -->
@@ -49,7 +51,7 @@
 	<div class="form-group">
 		<div class="col-md-12">
 			<button type="reset" class="btn btn-sm btn-warning close_popup">
-				<span class="glyphicon glyphicon-ban-circle"></span>   {{ Lang::get("admin/modal.cancel") }}
+				<span class="glyphicon glyphicon-ban-circle"></span>  {{ Lang::get("admin/modal.cancel") }}
 			</button>
 			<button type="reset" class="btn btn-sm btn-default">
 				<span class="glyphicon glyphicon-remove-circle"></span>  {{ Lang::get("admin/modal.reset") }}

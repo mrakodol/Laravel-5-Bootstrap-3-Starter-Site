@@ -2,7 +2,7 @@
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LanguageRequest extends FormRequest {
+class DeleteRequest extends FormRequest {
 
 	/**
 	 * Get the validation rules that apply to the request.
@@ -12,8 +12,7 @@ class LanguageRequest extends FormRequest {
 	public function rules()
 	{
 		return [
-            'name' => 'required|min:3',
-            'lang_code' => 'required|min:1',
+            'id' => 'required|integer',
 		];
 	}
 

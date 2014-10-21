@@ -12,7 +12,10 @@ class NewsRequest extends FormRequest {
 	public function rules()
 	{
 		return [
-			//
+            'title' => 'required|min:3',
+            'language_id' => 'required|integer',
+            'newscategory_id' => 'required|integer',
+            'content' => 'required|min:20',
 		];
 	}
 

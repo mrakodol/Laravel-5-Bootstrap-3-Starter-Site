@@ -1,8 +1,13 @@
 <?php namespace App\Http\Controllers\Admin;
 
-use Illuminate\Routing\Controller;
 use App\NewsCategory;
+use App\Language;
+use Illuminate\Routing\Controller;
 use Bllim\Datatables\Facade\Datatables;
+use App\Http\Requests\Admin\NewsCategoryRequest;
+use App\Http\Requests\Admin\DeleteRequest;
+use Illuminate\Support\Facades\Auth;
+
 
 class NewsCategoryController extends Controller {
 
@@ -13,76 +18,91 @@ class NewsCategoryController extends Controller {
 	 */
 	public function index()
 	{
-        // Title
-        $title = "News category";
-
         // Show the page
-        return view('admin.newscategory.index', compact('title'));
+        return view('admin.newscategory.index');
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return Response
+     */
+    public function getCreate()
+    {
+        $languages = Language::all();
+        $language = "";
+        // Show the page
+        return view('admin.newscategory.create_edit', compact('languages','language'));
+    }
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return Response
+     */
+    public function postCreate(NewsCategoryRequest $request)
+    {
+        $newscategory = new NewsCategory();
+        $newscategory -> user_id = Auth::id();
+        $newscategory -> language_id = $request->language_id;
+        $newscategory -> title = $request->title;
+        $newscategory -> save();
+    }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function getEdit($id)
+    {
+        $newscategory = NewsCategory::find($id);
+        $language = $newscategory->language_id;
+        $languages = Language::all();
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
+        return view('admin.newscategory.create_edit',compact('newscategory','languages','language'));
+    }
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function postEdit(NewsCategoryRequest $request, $id)
+    {
+        $newscategory = NewsCategory::find($id);
+        $newscategory -> user_id_edited = Auth::id();
+        $newscategory -> language_id = $request->language_id;
+        $newscategory -> title = $request->title;
+        $newscategory -> save();
+    }
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param $blog
+     * @return Response
+     */
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
+    public function getDelete($id)
+    {
+        $newscategory = NewsCategory::find($id);
+        // Show the page
+        return view('admin.newscategory.delete', compact('newscategory'));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param $post
+     * @return Response
+     */
+    public function postDelete(DeleteRequest $request,$id)
+    {
+        $newscategory = NewsCategory::find($id);
+        $newscategory->delete();
+    }
 
     /**
      * Show a list of all the languages posts formatted for Datatables.
