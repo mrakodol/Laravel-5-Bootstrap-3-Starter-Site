@@ -6,5 +6,6 @@ return [
     'content' => 'Content',
     'source' => 'Source',
     'picture' => 'Picture',
+    'category' => 'Category',
 
 ];

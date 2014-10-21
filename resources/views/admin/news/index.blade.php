@@ -19,11 +19,11 @@
 <table id="table" class="table table-striped table-hover">
 	<thead>
 		<tr>
-			<th>Title</th>
-			<th>Category</th>
-			<th>Language</th>
-			<th>Created at</th>
-			<th>Actions</th>
+			<th>{{ Lang::get("admin/modal.title") }}</th>
+			<th>{{ Lang::get("admin/news.category") }}</th>
+			<th>{{ Lang::get("admin/admin.language") }}</th>
+			<th>{{ Lang::get("admin/admin.created_at") }}</th>
+			<th>{{ Lang::get("admin/admin.action") }}</th>
 		</tr>
 	</thead>
 	<tbody></tbody>

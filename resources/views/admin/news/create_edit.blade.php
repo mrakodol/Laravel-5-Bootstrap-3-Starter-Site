@@ -45,6 +45,22 @@
 					{!!$errors->first('title', '<span class="help-block">:message </span>')!!}
 				</div>
 			</div>
+			<div class="form-group {{{ $errors->has('newscategory_id') ? 'error' : '' }}}">
+                <div class="col-md-12">
+                    <label class="control-label" for="newscategory_id">{{ Lang::get("admin/news.category") }}</label>
+                    <select style="width: 100%"name="newscategory_id" id="newscategory_id" class="form-control">
+                        @foreach($newscategories as $item)
+                            <option value="{{$item->id}}"
+                                @if(!empty($newscategory))
+                                        @if($item->id==$newscategory)
+                                            selected="selected"
+                                        @endif
+                                @endif
+                                >{{$item->title}}</option>
+                        @endforeach
+                        </select>
+                </div>
+            </div>
 			<div class="form-group {{{ $errors->has('introduction') ? 'has-error' : '' }}}">
                 <div class="col-md-12">
                     <label class="control-label" for="introduction">{{ Lang::get("admin/news.introduction") }}</label>
@@ -88,7 +104,7 @@
 				<span class="glyphicon glyphicon-remove-circle"></span>  {{ Lang::get("admin/modal.reset") }}
 			</button>
 			<button type="submit" class="btn btn-sm btn-success">
-				<span class="glyphicon glyphicon-ok-circle"></span> @if (isset($newscategory))  {{ Lang::get("admin/modal.edit") }} @else  {{ Lang::get("admin/modal.create") }} @endif
+				<span class="glyphicon glyphicon-ok-circle"></span> @if (isset($news))  {{ Lang::get("admin/modal.edit") }} @else  {{ Lang::get("admin/modal.create") }} @endif
 			</button>
 		</div>
 	</div>

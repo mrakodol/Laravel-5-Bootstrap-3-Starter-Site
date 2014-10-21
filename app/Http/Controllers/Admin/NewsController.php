@@ -3,8 +3,10 @@
 use App\Http\Controllers\AdminController;
 
 use App\News;
+use App\NewsCategory;
 use App\Language;
 use Bllim\Datatables\Facade\Datatables;
+use Illuminate\Support\Facades\Input;
 use App\Http\Requests\Admin\NewsRequest;
 use App\Http\Requests\Admin\DeleteRequest;
 use Illuminate\Support\Facades\Auth;
@@ -31,8 +33,10 @@ class NewsController extends AdminController {
     {
         $languages = Language::all();
         $language = "";
+		$newscategories = NewsCategory::all();
+		$newscategory = "";
         // Show the page
-        return view('admin.news.create_edit', compact('languages', 'language'));
+        return view('admin.news.create_edit', compact('languages', 'language','newscategories','newscategory'));
     }
 
     /**
@@ -79,8 +83,10 @@ class NewsController extends AdminController {
         $news = News::find($id);
         $languages = Language::all();
         $language = $news->language_id;
+		$newscategories = NewsCategory::all();
+		$newscategory = $news->newscategory_id;
 
-        return view('admin.news.create_edit',compact('news','languages','language'));
+        return view('admin.news.create_edit',compact('news','languages','language','newscategories','newscategory'));
     }
 
     /**

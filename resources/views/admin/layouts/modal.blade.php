@@ -32,7 +32,7 @@
 		<link href="{{{ asset('assets/admin/css/select2.css') }}}"  rel="stylesheet" type="text/css" >		
 		<link href="{{ asset('assets/admin/css/summernote.css')}}"  rel="stylesheet" type="text/css" >	
 		<link href="{{ asset('assets/admin/css/summernote-bs3.css')}}"  rel="stylesheet" type="text/css" >				
-		<link href="{{ asset('assets/admin/css/font-awesome.min.css')}}"  rel="stylesheet" type="text/css" >	
+		<link href="{{asset('assets/admin/font-awesome-4.2.0/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
 		<link href="{{ asset('assets/admin/css/prettify.css')}}"  rel="stylesheet" type="text/css" >	
 		<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!-- start: Favicon and Touch Icons -->

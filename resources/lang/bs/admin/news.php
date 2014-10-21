@@ -6,5 +6,6 @@ return [
     'content' => 'Cijela',
     'source' => 'Izvor',
     'picture' => 'Slika',
+    'category' => 'Kategorija',
 
 ];
