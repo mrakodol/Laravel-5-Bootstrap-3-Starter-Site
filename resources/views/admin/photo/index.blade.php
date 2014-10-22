@@ -2,28 +2,29 @@
 
 {{-- Web site Title --}}
 @section('title')
-Gallery
+ {{{ Lang::get("admin/photo.photo") }}}
 @parent
 @stop
 
 {{-- Content --}}
 @section('content')
 <div class="page-header">
-	<h3> {{{ $title }}}
+	<h3>  {{{ Lang::get("admin/photo.photo") }}}
 	<div class="pull-right">
-		<a href="{{{ URL::to('admin/photo/create') }}}" class="btn btn-sm btn-info iframe">
-			<span class="icon-plus"></span> New</a>
+		<a href="{{{ URL::to('admin/photo/create') }}}"class="btn btn-sm  btn-primary iframe"><span class="glyphicon glyphicon-plus-sign"></span> {{ Lang::get("admin/modal.new") }}</a>
 	</div></h3>
 </div>
 
 <table id="table" class="table table-striped table-hover">
 	<thead>
 		<tr>
-			<th>Title</th>
-			<th>Category</th>
-			<th>Language</th>
-			<th>Created at</th>
-			<th>Actions</th>
+			<th>{{{ Lang::get("admin/modal.title") }}}</th>
+			<th>{{{ Lang::get("admin/photo.album") }}}</th>
+			<th>{{{ Lang::get("admin/photo.album_cover") }}}</th>
+			<th>{{{ Lang::get("admin/photo.slider") }}}</th>
+			<th>{{{ Lang::get("admin/admin.language") }}}</th>
+			<th>{{{ Lang::get("admin/admin.created_at") }}}</th>
+            <th>{{{ Lang::get("admin/admin.action") }}}</th>
 		</tr>
 	</thead>
 	<tbody></tbody>
@@ -41,7 +42,7 @@ Gallery
 			
 			"bProcessing" : true,
 			"bServerSide" : true,
-			"sAjaxSource" : "{{ URL::to('admin/photo/data/') }}",
+			"sAjaxSource" : "{{ URL::to('admin/photo/data/'.((isset($album))?$album->id:0)) }}",
 			"fnDrawCallback" : function(oSettings) {
 				$(".iframe").colorbox({
 					iframe : true,

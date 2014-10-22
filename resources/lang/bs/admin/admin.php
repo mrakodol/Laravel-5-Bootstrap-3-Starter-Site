@@ -13,5 +13,7 @@ return [
     'back' => 'Povratak',
     'created_at' => 'Kreirano',
     'language' => 'Jezik',
+    'yes'       => 'Da',
+    'no'        =>  'Ne',
 	
 	];

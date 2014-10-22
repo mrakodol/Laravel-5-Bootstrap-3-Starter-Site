@@ -1,10 +1,10 @@
 <?php namespace App\Http\Controllers\Admin;
 
-use Illuminate\Routing\Controller;
+use App\Http\Controllers\AdminController;
 use App\Role;
 use Bllim\Datatables\Facade\Datatables;
 
-class RoleController extends Controller {
+class RoleController extends AdminController {
 
 
     /*

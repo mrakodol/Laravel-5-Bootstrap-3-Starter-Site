@@ -1,10 +1,10 @@
 <?php namespace App\Http\Controllers\Admin;
 
-use Illuminate\Routing\Controller;
+use App\Http\Controllers\AdminController;
 use App\User;
 use Bllim\Datatables\Facade\Datatables;
 
-class UserController extends Controller {
+class UserController extends AdminController {
 
     /*
     * Display a listing of the resource.

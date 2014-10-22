@@ -2,7 +2,7 @@
 
 use App\VideoAlbum;
 use App\Language;
-use Illuminate\Routing\Controller;
+use App\Http\Controllers\AdminController;
 use Bllim\Datatables\Facade\Datatables;
 use App\Http\Requests\Admin\PhotoAlbumRequest;
 use App\Http\Requests\Admin\DeleteRequest;
@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Support\Facades\File;
 
-class VideoAlbumController extends Controller {
+class VideoAlbumController extends AdminController {
 
     /*
     * Display a listing of the resource.
@@ -50,7 +50,6 @@ class VideoAlbumController extends Controller {
         $photoalbum -> folderid = sha1($request -> name . time());
         if ($photoalbum -> save()) {
             File::makeDirectory(public_path() . '/images/videoalbum/' . $photoalbum -> folderid);
-            File::makeDirectory(public_path() . '/images/videoalbum/' . $photoalbum -> folderid . '/thumbs');
         }
     }
     /**
@@ -123,7 +122,7 @@ class VideoAlbumController extends Controller {
 
         return Datatables::of($video_category)
             -> edit_column('images_count', '<a class="btn btn-primary btn-sm" >{{ DB::table(\'video\')->where(\'video_album_id\', \'=\', $id)->count() }}</a>')
-            ->add_column('actions', '<a href="{{{ URL::to(\'admin/video/\' . $id . \'/imagesforgallery\' ) }}}" class="btn btn-info btn-sm" ><span class="glyphicon glyphicon-open"></span>  {{ Lang::get("admin/modal.items") }}</a>
+            ->add_column('actions', '<a href="{{{ URL::to(\'admin/video/\' . $id . \'/itemsforalbum\' ) }}}" class="btn btn-info btn-sm" ><span class="glyphicon glyphicon-open"></span>  {{ Lang::get("admin/modal.items") }}</a>
                     <a href="{{{ URL::to(\'admin/videoalbum/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span>  {{ Lang::get("admin/modal.edit") }}</a>
                     <a href="{{{ URL::to(\'admin/videoalbum/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> {{ Lang::get("admin/modal.delete") }}</a>
                 ')

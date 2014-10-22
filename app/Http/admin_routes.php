@@ -1,6 +1,7 @@
 <?php
 $router->group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     $this->pattern('id', '[0-9]+');
+    $this->pattern('id2', '[0-9]+');
 
     #Language
     $this->get('language', 'App\Http\Controllers\Admin\LanguageController@index');
@@ -50,7 +51,10 @@ $router->group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     $this->post('photo/{id}/edit', 'App\Http\Controllers\Admin\PhotoController@postEdit');
     $this->get('photo/{id}/delete', 'App\Http\Controllers\Admin\PhotoController@getDelete');
     $this->post('photo/{id}/delete', 'App\Http\Controllers\Admin\PhotoController@postDelete');
-    $this->get('photo/data', 'App\Http\Controllers\Admin\PhotoController@data');
+    $this->get('photo/{id}/itemsforalbum', 'App\Http\Controllers\Admin\PhotoController@itemsForAlbum');
+    $this->get('photo/{id}/{id2}/slider', 'App\Http\Controllers\Admin\PhotoController@getSlider');
+    $this->get('photo/{id}/{id2}/albumcover', 'App\Http\Controllers\Admin\PhotoController@getAlbumCover');
+    $this->get('photo/data/{id}', 'App\Http\Controllers\Admin\PhotoController@data');
 
     #Video
     $this->get('videoalbum', 'App\Http\Controllers\Admin\VideoAlbumController@index');
@@ -70,7 +74,10 @@ $router->group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     $this->post('video/{id}/edit', 'App\Http\Controllers\Admin\VideoController@postEdit');
     $this->get('video/{id}/delete', 'App\Http\Controllers\Admin\VideoController@getDelete');
     $this->post('video/{id}/delete', 'App\Http\Controllers\Admin\VideoController@postDelete');
-    $this->get('video/data', 'App\Http\Controllers\Admin\VideoController@data');
+    $this->get('video/{id}/itemsforalbum', 'App\Http\Controllers\Admin\VideoController@itemsForAlbum');
+    $this->get('video/{id}/{id2}/slider', 'App\Http\Controllers\Admin\VideoController@getSlider');
+    $this->get('video/{id}/{id2}/albumcover', 'App\Http\Controllers\Admin\VideoController@getAlbumCover');
+    $this->get('video/data/{id}', 'App\Http\Controllers\Admin\VideoController@data');
 
     #Users
     $this->get('admin/users/data', 'App\Http\Controllers\Admin\UserController@data');

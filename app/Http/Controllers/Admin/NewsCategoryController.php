@@ -2,14 +2,14 @@
 
 use App\NewsCategory;
 use App\Language;
-use Illuminate\Routing\Controller;
+use App\Http\Controllers\AdminController;
 use Bllim\Datatables\Facade\Datatables;
 use App\Http\Requests\Admin\NewsCategoryRequest;
 use App\Http\Requests\Admin\DeleteRequest;
 use Illuminate\Support\Facades\Auth;
 
 
-class NewsCategoryController extends Controller {
+class NewsCategoryController extends AdminController {
 
 	/**
 	 * Display a listing of the resource.

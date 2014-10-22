@@ -11,7 +11,7 @@
 	<h3> {{{ $title }}}
 	<div class="pull-right">
 		<div class="pull-right">
-            <a href="{{{ URL::to('admin/users/create') }}}" class="btn btn-sm  btn-primary iframe"><span class="glyphicon glyphicon-plus-sign"></span> New</a>
+            <a href="{{{ URL::to('admin/users/create') }}}" class="btn btn-sm  btn-primary iframe"><span class="glyphicon glyphicon-plus-sign"></span> {{ Lang::get("admin/modal.new") }}</a>
         </div>
 	</div></h3>
 </div>

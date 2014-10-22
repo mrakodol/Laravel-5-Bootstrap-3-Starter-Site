@@ -1,7 +1,6 @@
 <?php namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\AdminController;
-
 use App\News;
 use App\NewsCategory;
 use App\Language;
@@ -146,8 +145,8 @@ class NewsController extends AdminController {
      */
     public function postDelete(DeleteRequest $request,$id)
     {
-        $language = News::find($id);
-        $language->delete();
+        $news = News::find($id);
+        $news->delete();
     }
 
 

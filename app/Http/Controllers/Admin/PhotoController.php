@@ -2,51 +2,225 @@
 
 use App\Http\Controllers\AdminController;
 use App\Photo;
+use App\PhotoAlbum;
+use App\Language;
 use Bllim\Datatables\Facade\Datatables;
+use App\Http\Requests\Admin\PhotoRequest;
+use App\Http\Requests\Admin\DeleteRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
+use App\Helpers\Thumbnail;
+use Illuminate\Support\Facades\DB;
 
 class PhotoController extends AdminController {
 	/**
-	 * photo Model
-	 * @var photo
-	 */
-	protected $photo;
-	
-   /**
-	 * Inject the models.
-	 * @param photo $post
-	 */
-	public function __construct(Photo $photo) {
-		parent::__construct();
-		$this -> photo = $photo;
-	}
-	/**
-	 * Show a list of all the photo posts.
-	 *
-	 * @return View
-	 */
-	public function index() {
-			
-		// Grab all the photo posts
-		$photo = $this -> photo;
-		$title = "Photos";
-		// Show the page
-		return view('admin.photo.index', compact('photo','title'));
-	}
+ * Show a list of all the photo posts.
+ *
+ * @return View
+ */
+    public function index() {
+        // Show the page
+        return view('admin.photo.index');
+    }
 
-	/**
-	 * Show a list of all the photo formatted for Datatables.
-	 *
-	 * @return Datatables JSON
-	 */
-	public function data() {
+    /**
+     * Show a list of all the photo posts.
+     *
+     * @return View
+     */
+    public function itemsForAlbum($id) {
+        $album = PhotoAlbum::find($id);
+        // Show the page
+        return view('admin.photo.index', compact('album'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return Response
+     */
+    public function getCreate()
+    {
+        $languages = Language::all();
+        $language = "";
+        $photoalbums = PhotoAlbum::all();
+        $photoalbum = "";
+        // Show the page
+        return view('admin.photo.create_edit', compact('languages', 'language','photoalbums','photoalbum'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return Response
+     */
+    public function postCreate(PhotoRequest $request)
+    {
+        $photo = new Photo();
+        $photo -> user_id = Auth::id();
+        $photo -> language_id = $request->language_id;
+        $photo -> name = $request->name;
+        $photo -> photo_album_id = $request->photo_album_id;
+        $photo -> description = $request->description;
+        $photo -> slider = $request->slider;
+        $photo -> album_cover = $request->album_cover;
+
+        $picture = "";
+        if(Input::hasFile('picture'))
+        {
+            $file = Input::file('picture');
+            $filename = $file->getClientOriginalName();
+            $extension = $file -> getClientOriginalExtension();
+            $picture = sha1($filename . time()) . '.' . $extension;
+        }
+        $photo -> filename = $picture;
+        $photo -> save();
+
+        if(Input::hasFile('picture'))
+        {
+            $photoalbum = PhotoAlbum::find($request->photo_album_id);
+            $destinationPath = public_path() . '/images/photoalbum/'.$photoalbum->folderid.'/';
+            Input::file('picture')->move($destinationPath, $picture);
+
+            $path2 = public_path() . '/images/photoalbum/' . $photoalbum->folderid . '/thumbs/';
+            Thumbnail::generate_image_thumbnail($destinationPath . $picture, $path2 . $picture);
+
+        }
+    }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function getEdit($id)
+    {
+        $photo = Photo::find($id);
+        $languages = Language::all();
+        $language = $photo->language_id;
+        $photoalbums = PhotoAlbum::all();
+        $photoalbum = $photo->photo_album_id;
+
+        return view('admin.photo.create_edit',compact('photo','languages','language','photoalbums','photoalbum'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function postEdit(PhotoRequest $request, $id)
+    {
+        $photo = Photo::find($id);
+        $photo -> user_id = Auth::id();
+        $photo -> language_id = $request->language_id;
+        $photo -> name = $request->name;
+        $photo -> photo_album_id = $request->photo_album_id;
+        $photo -> description = $request->description;
+        $photo -> slider = $request->slider;
+        $photo -> album_cover = $request->album_cover;
+
+        $picture = $photo->filename;
+        if(Input::hasFile('picture'))
+        {
+            $file = Input::file('picture');
+            $filename = $file->getClientOriginalName();
+            $extension = $file -> getClientOriginalExtension();
+            $picture = sha1($filename . time()) . '.' . $extension;
+        }
+        $photo -> filename = $picture;
+        $photo -> save();
+
+        if(Input::hasFile('picture'))
+        {
+            $photoalbum = PhotoAlbum::find($request->photo_album_id);
+            $destinationPath = public_path() . '/images/photoalbum/'.$photoalbum->folderid.'/';
+            Input::file('picture')->move($destinationPath, $picture);
+
+            $path2 = public_path() . '/images/photoalbum/' . $photoalbum->folderid . '/thumbs/';
+            Thumbnail::generate_image_thumbnail($destinationPath . $picture, $path2 . $picture);
+        }
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param $blog
+     * @return Response
+     */
+
+    public function getDelete($id)
+    {
+        $photo = Photo::find($id);
+        // Show the page
+        return view('admin.photo.delete', compact('photo'));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param $post
+     * @return Response
+     */
+    public function postDelete(DeleteRequest $request,$id)
+    {
+        $photo = Photo::find($id);
+        $photo->delete();
+    }
+
+    /**
+     * Set a Album cover.
+     *
+     * @param $blog
+     * @return Response
+     */
+
+    public function getAlbumCover($id,$album=0)
+    {
+        $photo = Photo::find($id);
+        $photoalbums = Photo::where('photo_album_id',$photo->photo_album_id)->get();
+        foreach($photoalbums as $item)
+        {
+            $item -> album_cover = 0;
+            $item -> save();
+        }
+        $photo -> album_cover = 1;
+        $photo -> save();
+        // Show the page
+        return redirect( (($album==0)?'/admin/photo':'/admin/photo/'.$album.'/itemsforalbum'));
+    }
+
+    public function getSlider($id,$album=0)
+    {
+        $photo = Photo::find($id);
+        $photo->slider = ($photo -> slider + 1) % 2;
+        $photo->save();
+        // Show the page
+        return redirect( (($album==0)?'/admin/photo':'/admin/photo/'.$album.'/itemsforalbum'));
+    }
+
+
+    /**
+     * Show a list of all the languages posts formatted for Datatables.
+     *
+     * @return Datatables JSON
+     */
+	public function data($albumid=0) {
+        $condition =(intval($albumid)==0)?">":"=";
 		$photoalbum = Photo::join('language', 'language.id', '=', 'photo.language_id')
-		->join('photo_album', 'photo_album.id', '=', 'photo.photo_album_id')
-		->select(array('photo.id', 'photo.name','photo_album.name as category','language.name as language', 'photo.created_at'));
+		    ->join('photo_album', 'photo_album.id', '=', 'photo.photo_album_id')
+            ->where('photo.photo_album_id',$condition,$albumid)
+		    ->select(array('photo.id',DB::raw($albumid . ' as albumid'), 'photo.name','photo_album.name as category','photo.album_cover','photo.slider',
+                'language.name as language', 'photo.created_at'));
 
-		return Datatables::of($photoalbum) 
-			-> add_column('actions', '<a href="{{{ URL::to(\'admin/photo/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span>  {{ Lang::get("admin/modal.edit") }}</a>
+		return Datatables::of($photoalbum)
+            -> edit_column('album_cover', '<a href="{{{ URL::to(\'admin/photo/\' . $id . \'/\' . $albumid . \'/albumcover\' ) }}}" class="btn btn-warning btn-sm" >@if ($album_cover=="1") <span class="glyphicon glyphicon-ok"></span> @else <span class=\'glyphicon glyphicon-remove\'></span> @endif</a>')
+            -> edit_column('slider', '<a href="{{{ URL::to(\'admin/photo/\' . $id . \'/\' . $albumid . \'/slider\' ) }}}" class="btn btn-warning btn-sm" >@if ($slider=="1") <span class=\'glyphicon glyphicon-ok\'></span> @else <span class=\'glyphicon glyphicon-remove\'></span> @endif</a>')
+            -> add_column('actions', '<a href="{{{ URL::to(\'admin/photo/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span>  {{ Lang::get("admin/modal.edit") }}</a>
                 <a href="{{{ URL::to(\'admin/photo/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> {{ Lang::get("admin/modal.delete") }}</a>
-            ') -> remove_column('id') -> make();
+            ') -> remove_column('id')
+            -> remove_column('albumid')-> make();
 	}
 	/**
 	 * Reorder navigation

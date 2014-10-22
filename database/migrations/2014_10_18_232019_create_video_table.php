@@ -18,14 +18,13 @@ class CreateVideoTable extends Migration {
 			$table->foreign('language_id')->references('id')->on('language');
 			$table->integer('position')->nullable();
 			$table->boolean('slider')->nullable();
-			$table->string('filename', 255);
+			$table->string('filename', 255)->nullable();
 			$table->string('name', 255)->nullable();
 			$table->text('description')->nullable();
 			$table->string('youtube', 255)->nullable();
 			$table->unsignedInteger('video_album_id')->nullable();
 			$table->foreign('video_album_id')->references('id')->on('video_album')->onDelete('set null');
-			$table->boolean('video_album_cover')->nullable();
-			$table->unique(array('filename'), 'filename_unique');
+			$table->boolean('album_cover')->nullable();
 			$table->unsignedInteger('user_id')->nullable();
 			$table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
 			$table->unsignedInteger('user_id_edited')->nullable();

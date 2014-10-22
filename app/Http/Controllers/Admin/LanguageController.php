@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers\Admin;
 
-use Illuminate\Routing\Controller;
+use Illuminate\Routing\AdminController;
 use Illuminate\Support\Facades\Input;
 use App\Language;
 use Bllim\Datatables\Facade\Datatables;
@@ -8,7 +8,7 @@ use App\Http\Requests\Admin\LanguageRequest;
 use App\Http\Requests\Admin\DeleteRequest;
 use Illuminate\Support\Facades\Auth;
 
-class LanguageController extends Controller {
+class LanguageController extends AdminController {
     /**
 	 * Display a listing of the resource.
 	 *

@@ -13,4 +13,6 @@ return [
     'back' => 'Back',
     'created_at' => 'Created at',
     'language' => 'Language',
+    'yes'       => 'Yes',
+    'no'        =>  'No',
 	];
