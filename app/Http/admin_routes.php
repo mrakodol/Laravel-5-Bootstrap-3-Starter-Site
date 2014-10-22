@@ -80,12 +80,24 @@ $router->group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     $this->get('video/data/{id}', 'App\Http\Controllers\Admin\VideoController@data');
 
     #Users
-    $this->get('admin/users/data', 'App\Http\Controllers\Admin\UserController@data');
-    $this->resource('admin/users/', 'App\Http\Controllers\Admin\UserController');
+    $this->get('users/', 'App\Http\Controllers\Admin\UserController');
+    $this->get('users/create', 'App\Http\Controllers\Admin\UserController@getCreate');
+    $this->post('users/create', 'App\Http\Controllers\Admin\UserController@postCreate');
+    $this->get('users/{id}/edit', 'App\Http\Controllers\Admin\UserController@getEdit');
+    $this->post('users/{id}/edit', 'App\Http\Controllers\Admin\UserController@postEdit');
+    $this->get('users/{id}/delete', 'App\Http\Controllers\Admin\UserController@getDelete');
+    $this->post('users/{id}/delete', 'App\Http\Controllers\Admin\UserController@postDelete');
+    $this->get('users/data', 'App\Http\Controllers\Admin\UserController@data');
 
     #Roles
-    $this->get('admin/roles/data', 'App\Http\Controllers\Admin\RoleController@data');
-    $this->resource('admin/roles/', 'App\Http\Controllers\Admin\RoleController');
+    $this->get('users/', 'App\Http\Controllers\Admin\RoleController');
+    $this->get('roles/create', 'App\Http\Controllers\Admin\RoleController@getCreate');
+    $this->post('roles/create', 'App\Http\Controllers\Admin\RoleController@postCreate');
+    $this->get('roles/{id}/edit', 'App\Http\Controllers\Admin\RoleController@getEdit');
+    $this->post('roles/{id}/edit', 'App\Http\Controllers\Admin\RoleController@postEdit');
+    $this->get('roles/{id}/delete', 'App\Http\Controllers\Admin\RoleController@getDelete');
+    $this->post('roles/{id}/delete', 'App\Http\Controllers\Admin\RoleController@postDelete');
+    $this->get('roles/data', 'App\Http\Controllers\Admin\RoleController@data');
 
     #Admin Dashboard
     $this->get('/', 'App\Http\Controllers\Admin\DashboardController@index');
