@@ -12,7 +12,8 @@ class VideoAlbumRequest extends FormRequest {
 	public function rules()
 	{
 		return [
-			//
+            'name' => 'required|min:3',
+            'language_id' => 'required|integer',
 		];
 	}
 
@@ -23,7 +24,7 @@ class VideoAlbumRequest extends FormRequest {
 	 */
 	public function authorize()
 	{
-		return false;
+		return true;
 	}
 
 }

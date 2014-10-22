@@ -43,12 +43,12 @@
 		<!-- Container -->
 		<div class="container">
 			<div class="page-header">
-				<div class="pull-right">
-					<button class="btn btn-link btn-small btn-inverse close_popup">
-						<span class="glyphicon glyphicon-backward"></span> {{{ Lang::get('admin/admin.back') }}}
-					</button>
-				</div>
 			</div>
+            <div class="pull-right">
+                <button class="btn btn-primary btn-sm close_popup">
+                    <span class="glyphicon glyphicon-backward"></span> {{{ Lang::get('admin/admin.back') }}}
+                </button>
+            </div>
 			<!-- Content -->
 			@yield('content')
 			<!-- ./ content -->

@@ -12,7 +12,8 @@ class VideoRequest extends FormRequest {
 	public function rules()
 	{
 		return [
-			//
+            'language_id' => 'required|integer',
+            'video_album_id' => 'required|integer',
 		];
 	}
 
@@ -23,7 +24,7 @@ class VideoRequest extends FormRequest {
 	 */
 	public function authorize()
 	{
-		return false;
+		return true;
 	}
 
 }

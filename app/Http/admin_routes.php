@@ -32,26 +32,55 @@ $router->group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     $this->post('news/{id}/delete', 'App\Http\Controllers\Admin\NewsController@postDelete');
     $this->get('news/data', 'App\Http\Controllers\Admin\NewsController@data');
 
-    //not finished
-	$this->get('admin/photo/data', 'App\Http\Controllers\Admin\PhotoController@data');
-    $this->resource('admin/photo/', 'App\Http\Controllers\Admin\PhotoController');
+    #Photo Album
+    $this->get('photoalbum', 'App\Http\Controllers\Admin\PhotoAlbumController@index');
+    $this->get('photoalbum/create', 'App\Http\Controllers\Admin\PhotoAlbumController@getCreate');
+    $this->post('photoalbum/create', 'App\Http\Controllers\Admin\PhotoAlbumController@postCreate');
+    $this->get('photoalbum/{id}/edit', 'App\Http\Controllers\Admin\PhotoAlbumController@getEdit');
+    $this->post('photoalbum/{id}/edit', 'App\Http\Controllers\Admin\PhotoAlbumController@postEdit');
+    $this->get('photoalbum/{id}/delete', 'App\Http\Controllers\Admin\PhotoAlbumController@getDelete');
+    $this->post('photoalbum/{id}/delete', 'App\Http\Controllers\Admin\PhotoAlbumController@postDelete');
+    $this->get('photoalbum/data', 'App\Http\Controllers\Admin\PhotoAlbumController@data');
 
-    $this->get('admin/photoalbum/data', 'App\Http\Controllers\Admin\PhotoAlbumController@data');
-    $this->resource('admin/photoalbum/', 'App\Http\Controllers\Admin\PhotoAlbumController');
+    #Photo
+    $this->get('photo', 'App\Http\Controllers\Admin\PhotoController@index');
+    $this->get('photo/create', 'App\Http\Controllers\Admin\PhotoController@getCreate');
+    $this->post('photo/create', 'App\Http\Controllers\Admin\PhotoController@postCreate');
+    $this->get('photo/{id}/edit', 'App\Http\Controllers\Admin\PhotoController@getEdit');
+    $this->post('photo/{id}/edit', 'App\Http\Controllers\Admin\PhotoController@postEdit');
+    $this->get('photo/{id}/delete', 'App\Http\Controllers\Admin\PhotoController@getDelete');
+    $this->post('photo/{id}/delete', 'App\Http\Controllers\Admin\PhotoController@postDelete');
+    $this->get('photo/data', 'App\Http\Controllers\Admin\PhotoController@data');
 
-    $this->get('admin/videoalbum/data', 'App\Http\Controllers\Admin\VideoAlbumController@data');
-    $this->resource('admin/videoalbum/', 'App\Http\Controllers\Admin\VideoAlbumController');
+    #Video
+    $this->get('videoalbum', 'App\Http\Controllers\Admin\VideoAlbumController@index');
+    $this->get('videoalbum/create', 'App\Http\Controllers\Admin\VideoAlbumController@getCreate');
+    $this->post('videoalbum/create', 'App\Http\Controllers\Admin\VideoAlbumController@postCreate');
+    $this->get('videoalbum/{id}/edit', 'App\Http\Controllers\Admin\VideoAlbumController@getEdit');
+    $this->post('videoalbum/{id}/edit', 'App\Http\Controllers\Admin\VideoAlbumController@postEdit');
+    $this->get('videoalbum/{id}/delete', 'App\Http\Controllers\Admin\VideoAlbumController@getDelete');
+    $this->post('videoalbum/{id}/delete', 'App\Http\Controllers\Admin\VideoAlbumController@postDelete');
+    $this->get('videoalbum/data', 'App\Http\Controllers\Admin\VideoAlbumController@data');
 
-    $this->get('admin/video/data', 'App\Http\Controllers\Admin\VideoController@data');
-    $this->resource('admin/video/', 'App\Http\Controllers\Admin\VideoController');
+    #Video
+    $this->get('video', 'App\Http\Controllers\Admin\VideoController@index');
+    $this->get('video/create', 'App\Http\Controllers\Admin\VideoController@getCreate');
+    $this->post('video/create', 'App\Http\Controllers\Admin\VideoController@postCreate');
+    $this->get('video/{id}/edit', 'App\Http\Controllers\Admin\VideoController@getEdit');
+    $this->post('video/{id}/edit', 'App\Http\Controllers\Admin\VideoController@postEdit');
+    $this->get('video/{id}/delete', 'App\Http\Controllers\Admin\VideoController@getDelete');
+    $this->post('video/{id}/delete', 'App\Http\Controllers\Admin\VideoController@postDelete');
+    $this->get('video/data', 'App\Http\Controllers\Admin\VideoController@data');
 
+    #Users
     $this->get('admin/users/data', 'App\Http\Controllers\Admin\UserController@data');
     $this->resource('admin/users/', 'App\Http\Controllers\Admin\UserController');
 
+    #Roles
     $this->get('admin/roles/data', 'App\Http\Controllers\Admin\RoleController@data');
     $this->resource('admin/roles/', 'App\Http\Controllers\Admin\RoleController');
 
+    #Admin Dashboard
     $this->get('/', 'App\Http\Controllers\Admin\DashboardController@index');
-
 
 });

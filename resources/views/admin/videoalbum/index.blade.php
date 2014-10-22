@@ -2,16 +2,16 @@
 
 {{-- Web site Title --}}
 @section('title')
-{{{ $title }}} :: @parent
+{{{ Lang::get("admin/videoalbum.videoalbum") }}} :: @parent
 @stop
 
 {{-- Content --}}
 @section('content')
 <div class="page-header">
-	<h3> {{{ $title }}}
+	<h3> {{{ Lang::get("admin/videoalbum.videoalbum") }}}
 	<div class="pull-right">
 		<div class="pull-right">
-            <a href="{{{ URL::to('admin/videoalbum/create') }}}" class="btn btn-sm  btn-primary iframe"><span class="glyphicon glyphicon-plus-sign"></span> New</a>
+            <a href="{{{ URL::to('admin/videoalbum/create') }}}" class="btn btn-sm  btn-primary iframe"><span class="glyphicon glyphicon-plus-sign"></span> {{{ Lang::get("admin/modal.new") }}}</a>
         </div>
 	</div></h3>
 </div>
@@ -19,11 +19,11 @@
 <table id="table" class="table table-striped table-hover">
 	<thead>
 		<tr>
-			<th>Title</th>
-			<th>Language</th>
-			<th>Number of items</th>
-			<th>Created at</th>
-			<th>Actions</th>
+			<th>{{{ Lang::get("admin/modal.title") }}}</th>
+            <th>{{{ Lang::get("admin/admin.language") }}}</th>
+            <th>{{{ Lang::get("admin/videoalbum.numbers_of_items") }}}</th>
+            <th>{{{ Lang::get("admin/admin.created_at") }}}</th>
+            <th>{{{ Lang::get("admin/admin.action") }}}</th>
 		</tr>
 	</thead>
 	<tbody></tbody>
