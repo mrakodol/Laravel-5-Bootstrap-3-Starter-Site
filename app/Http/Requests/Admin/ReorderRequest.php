@@ -2,7 +2,7 @@
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserRequest extends FormRequest {
+class ReorderRequest extends FormRequest {
 
 	/**
 	 * Get the validation rules that apply to the request.
@@ -12,9 +12,7 @@ class UserRequest extends FormRequest {
 	public function rules()
 	{
 		return [
-            'name' => 'required|min:3',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|confirmed|min:5',
+            'list' => 'required',
 		];
 	}
 

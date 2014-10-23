@@ -12,6 +12,7 @@ $router->group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     $this->get('language/{id}/delete', 'App\Http\Controllers\Admin\LanguageController@getDelete');
     $this->post('language/{id}/delete', 'App\Http\Controllers\Admin\LanguageController@postDelete');
     $this->get('language/data', 'App\Http\Controllers\Admin\LanguageController@data');
+    $this->get('language/reorder', 'App\Http\Controllers\Admin\LanguageController@getReorder');
 
     #News category
     $this->get('newscategory', 'App\Http\Controllers\Admin\NewsCategoryController@index');
@@ -22,6 +23,7 @@ $router->group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     $this->get('newscategory/{id}/delete', 'App\Http\Controllers\Admin\NewsCategoryController@getDelete');
     $this->post('newscategory/{id}/delete', 'App\Http\Controllers\Admin\NewsCategoryController@postDelete');
     $this->get('newscategory/data', 'App\Http\Controllers\Admin\NewsCategoryController@data');
+    $this->get('newscategory/reorder', 'App\Http\Controllers\Admin\NewsCategoryController@getReorder');
 
     #News
     $this->get('news', 'App\Http\Controllers\Admin\NewsController@index');
@@ -32,6 +34,7 @@ $router->group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     $this->get('news/{id}/delete', 'App\Http\Controllers\Admin\NewsController@getDelete');
     $this->post('news/{id}/delete', 'App\Http\Controllers\Admin\NewsController@postDelete');
     $this->get('news/data', 'App\Http\Controllers\Admin\NewsController@data');
+    $this->get('news/reorder', 'App\Http\Controllers\Admin\NewsController@getReorder');
 
     #Photo Album
     $this->get('photoalbum', 'App\Http\Controllers\Admin\PhotoAlbumController@index');
@@ -42,6 +45,7 @@ $router->group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     $this->get('photoalbum/{id}/delete', 'App\Http\Controllers\Admin\PhotoAlbumController@getDelete');
     $this->post('photoalbum/{id}/delete', 'App\Http\Controllers\Admin\PhotoAlbumController@postDelete');
     $this->get('photoalbum/data', 'App\Http\Controllers\Admin\PhotoAlbumController@data');
+    $this->get('photoalbum/reorder', 'App\Http\Controllers\Admin\PhotoAlbumController@getReorder');
 
     #Photo
     $this->get('photo', 'App\Http\Controllers\Admin\PhotoController@index');
@@ -55,6 +59,7 @@ $router->group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     $this->get('photo/{id}/{id2}/slider', 'App\Http\Controllers\Admin\PhotoController@getSlider');
     $this->get('photo/{id}/{id2}/albumcover', 'App\Http\Controllers\Admin\PhotoController@getAlbumCover');
     $this->get('photo/data/{id}', 'App\Http\Controllers\Admin\PhotoController@data');
+    $this->get('photo/reorder', 'App\Http\Controllers\Admin\PhotoController@getReorder');
 
     #Video
     $this->get('videoalbum', 'App\Http\Controllers\Admin\VideoAlbumController@index');
@@ -65,6 +70,7 @@ $router->group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     $this->get('videoalbum/{id}/delete', 'App\Http\Controllers\Admin\VideoAlbumController@getDelete');
     $this->post('videoalbum/{id}/delete', 'App\Http\Controllers\Admin\VideoAlbumController@postDelete');
     $this->get('videoalbum/data', 'App\Http\Controllers\Admin\VideoAlbumController@data');
+    $this->get('video/reorder', 'App\Http\Controllers\Admin\VideoAlbumController@getReorder');
 
     #Video
     $this->get('video', 'App\Http\Controllers\Admin\VideoController@index');
@@ -78,9 +84,10 @@ $router->group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     $this->get('video/{id}/{id2}/slider', 'App\Http\Controllers\Admin\VideoController@getSlider');
     $this->get('video/{id}/{id2}/albumcover', 'App\Http\Controllers\Admin\VideoController@getAlbumCover');
     $this->get('video/data/{id}', 'App\Http\Controllers\Admin\VideoController@data');
+    $this->get('video/reorder', 'App\Http\Controllers\Admin\VideoController@getReorder');
 
     #Users
-    $this->get('users/', 'App\Http\Controllers\Admin\UserController');
+    $this->get('users/', 'App\Http\Controllers\Admin\UserController@index');
     $this->get('users/create', 'App\Http\Controllers\Admin\UserController@getCreate');
     $this->post('users/create', 'App\Http\Controllers\Admin\UserController@postCreate');
     $this->get('users/{id}/edit', 'App\Http\Controllers\Admin\UserController@getEdit');
@@ -90,7 +97,7 @@ $router->group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     $this->get('users/data', 'App\Http\Controllers\Admin\UserController@data');
 
     #Roles
-    $this->get('users/', 'App\Http\Controllers\Admin\RoleController');
+    $this->get('roles/', 'App\Http\Controllers\Admin\RoleController@index');
     $this->get('roles/create', 'App\Http\Controllers\Admin\RoleController@getCreate');
     $this->post('roles/create', 'App\Http\Controllers\Admin\RoleController@postCreate');
     $this->get('roles/{id}/edit', 'App\Http\Controllers\Admin\RoleController@getEdit');

@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use Bllim\Datatables\Facade\Datatables;
 use App\Http\Requests\Admin\NewsCategoryRequest;
 use App\Http\Requests\Admin\DeleteRequest;
+use App\Http\Requests\Admin\ReorderRequest;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -81,7 +82,7 @@ class NewsCategoryController extends AdminController {
     /**
      * Remove the specified resource from storage.
      *
-     * @param $blog
+     * @param $id
      * @return Response
      */
 
@@ -95,7 +96,7 @@ class NewsCategoryController extends AdminController {
     /**
      * Remove the specified resource from storage.
      *
-     * @param $post
+     * @param $id
      * @return Response
      */
     public function postDelete(DeleteRequest $request,$id)
@@ -117,11 +118,30 @@ class NewsCategoryController extends AdminController {
 
         return Datatables::of($news_category)
            ->add_column('actions', '<a href="{{{ URL::to(\'admin/newscategory/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span>  {{ Lang::get("admin/modal.edit") }}</a>
-                    <a href="{{{ URL::to(\'admin/newscategory/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> {{ Lang::get("admin/modal.delete") }}</a>
-                ')
+                <a href="{{{ URL::to(\'admin/newscategory/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> {{ Lang::get("admin/modal.delete") }}</a>
+                <input type="hidden" name="row" value="{{$id}}" id="row">')
             ->remove_column('id')
 
             ->make();
+    }
+
+    /**
+     * Reorder items
+     *
+     * @param items list
+     * @return items from @param
+     */
+    public function getReorder(ReorderRequest $request) {
+        $list = $request->list;
+        $items = explode(",", $list);
+        $order = 1;
+        foreach ($items as $value) {
+            if ($value != '') {
+                NewsCategory::where('id', '=', $value) -> update(array('position' => $order));
+                $order++;
+            }
+        }
+        return $list;
     }
 
 }

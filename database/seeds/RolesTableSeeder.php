@@ -13,10 +13,12 @@ class RolesTableSeeder extends Seeder {
 
         $adminRole = new Role;
         $adminRole->name = 'admin';
+        $adminRole->is_admin = 1;
         $adminRole->save();
 
         $commentRole = new Role;
         $commentRole->name = 'comment';
+        $commentRole->is_admin = 0;
         $commentRole->save();
 
         $user = User::where('email','=','admin@admin.com')->first();

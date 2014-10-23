@@ -16,52 +16,42 @@ class PermissionsTableSeeder extends Seeder {
                 'display_name' => 'Manage languages',
                 'is_admin'	   => 1
             ),
-            array( // 2
-                'name'         => 'manage_sliders_albums',
-                'display_name' => 'Manage sliders albums',
-                'is_admin'	   => 1
-            ),
-            array( // 3
-                'name'         => 'manage_sliders',
-                'display_name' => 'Manage sliders',
-                'is_admin'	   => 1
-            ),
-            array( // 4
+           array( // 2
                 'name'         => 'manage_news_category',
                 'display_name' => 'Manage news category',
                 'is_admin'	   => 1
             ),
-            array( // 5
+            array( // 3
                 'name'         => 'manage_news',
                 'display_name' => 'Manage news',
                 'is_admin'	   => 1
             ),
-            array( // 6
+            array( // 4
                 'name'         => 'manage_video_album',
                 'display_name' => 'Manage video album',
                 'is_admin'	   => 1
             ),
-            array( // 7
+            array( // 5
                 'name'         => 'manage_video',
                 'display_name' => 'Manage video',
                 'is_admin'	   => 1
             ),
-            array( // 8
+            array( // 6
                 'name'         => 'manage_photo_album',
                 'display_name' => 'Manage photo album',
                 'is_admin'	   => 1
             ),
-            array( // 9
+            array( // 7
                 'name'         => 'manage_photo',
                 'display_name' => 'Manage photo',
                 'is_admin'	   => 1
             ),
-            array( // 10
+            array( // 8
                 'name'         => 'manage_users',
                 'display_name' => 'Manage users',
                 'is_admin'	   => 1
             ),
-            array( // 11
+            array( // 9
                 'name'         => 'manage_roles',
                 'display_name' => 'Manage roles',
                 'is_admin'	   => 1
@@ -111,14 +101,6 @@ class PermissionsTableSeeder extends Seeder {
              array(
                 'role_id'       => $role_id_admin,
                 'permission_id' => $permission_base + 9
-            ),
-             array(
-                'role_id'       => $role_id_admin,
-                'permission_id' => $permission_base + 10
-            ),
-             array(
-                'role_id'       => $role_id_admin,
-                'permission_id' => $permission_base + 11
             ),
         );
 

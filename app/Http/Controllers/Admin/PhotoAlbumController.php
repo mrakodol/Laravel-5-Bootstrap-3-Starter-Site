@@ -7,7 +7,7 @@ use Bllim\Datatables\Facade\Datatables;
 use App\Http\Requests\Admin\PhotoAlbumRequest;
 use App\Http\Requests\Admin\DeleteRequest;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Contracts\Filesystem\Filesystem;
+use App\Http\Requests\Admin\ReorderRequest;
 use Illuminate\Support\Facades\File;
 
 class PhotoAlbumController extends AdminController {
@@ -87,7 +87,7 @@ class PhotoAlbumController extends AdminController {
     /**
      * Remove the specified resource from storage.
      *
-     * @param $blog
+     * @param $id
      * @return Response
      */
 
@@ -101,7 +101,7 @@ class PhotoAlbumController extends AdminController {
     /**
      * Remove the specified resource from storage.
      *
-     * @param $post
+     * @param $id
      * @return Response
      */
     public function postDelete(DeleteRequest $request,$id)
@@ -126,10 +126,29 @@ class PhotoAlbumController extends AdminController {
             ->add_column('actions', '<a href="{{{ URL::to(\'admin/photo/\' . $id . \'/itemsforalbum\' ) }}}" class="btn btn-info btn-sm" ><span class="glyphicon glyphicon-open"></span>  {{ Lang::get("admin/modal.items") }}</a>
                     <a href="{{{ URL::to(\'admin/photoalbum/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span>  {{ Lang::get("admin/modal.edit") }}</a>
                     <a href="{{{ URL::to(\'admin/photoalbum/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> {{ Lang::get("admin/modal.delete") }}</a>
-                ')
+                    <input type="hidden" name="row" value="{{$id}}" id="row">')
             ->remove_column('id')
 
             ->make();
+    }
+
+    /**
+     * Reorder items
+     *
+     * @param items list
+     * @return items from @param
+     */
+    public function getReorder(ReorderRequest $request) {
+        $list = $request->list;
+        $items = explode(",", $list);
+        $order = 1;
+        foreach ($items as $value) {
+            if ($value != '') {
+                PhotoAlbum::where('id', '=', $value) -> update(array('position' => $order));
+                $order++;
+            }
+        }
+        return $list;
     }
 
 }

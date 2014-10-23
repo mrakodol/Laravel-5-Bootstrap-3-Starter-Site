@@ -2,13 +2,13 @@
 
 {{-- Web site Title --}}
 @section('title')
-{{{ $title }}} :: @parent
+{{{ Lang::get("admin/users.users") }}} :: @parent
 @stop
 
 {{-- Content --}}
 @section('content')
 <div class="page-header">
-	<h3> {{{ $title }}}
+	<h3> {{{ Lang::get("admin/users.users") }}}
 	<div class="pull-right">
 		<div class="pull-right">
             <a href="{{{ URL::to('admin/users/create') }}}" class="btn btn-sm  btn-primary iframe"><span class="glyphicon glyphicon-plus-sign"></span> {{ Lang::get("admin/modal.new") }}</a>
@@ -19,10 +19,11 @@
 <table id="table" class="table table-striped table-hover">
 	<thead>
 		<tr>
-			<th>Name</th>
-			<th>Email</th>
-			<th>Created at</th>
-			<th>Actions</th>
+			<th>{{{ Lang::get("admin/users.name") }}}</th>
+			<th>{{{ Lang::get("admin/users.email") }}}</th>
+			<th>{{{ Lang::get("admin/users.activate_user") }}}</th>
+            <th>{{{ Lang::get("admin/admin.created_at") }}}</th>
+            <th>{{{ Lang::get("admin/admin.action") }}}</th>
 		</tr>
 	</thead>
 	<tbody></tbody>

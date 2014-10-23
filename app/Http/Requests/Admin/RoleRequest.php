@@ -12,7 +12,7 @@ class RoleRequest extends FormRequest {
 	public function rules()
 	{
 		return [
-			//
+            'name' => 'required|min:3',
 		];
 	}
 
@@ -23,7 +23,7 @@ class RoleRequest extends FormRequest {
 	 */
 	public function authorize()
 	{
-		return false;
+		return true;
 	}
 
 }

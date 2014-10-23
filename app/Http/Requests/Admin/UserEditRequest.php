@@ -2,7 +2,7 @@
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserRequest extends FormRequest {
+class UserEditRequest extends FormRequest {
 
 	/**
 	 * Get the validation rules that apply to the request.
@@ -13,8 +13,6 @@ class UserRequest extends FormRequest {
 	{
 		return [
             'name' => 'required|min:3',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|confirmed|min:5',
 		];
 	}
 

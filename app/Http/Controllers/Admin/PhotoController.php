@@ -7,6 +7,7 @@ use App\Language;
 use Bllim\Datatables\Facade\Datatables;
 use App\Http\Requests\Admin\PhotoRequest;
 use App\Http\Requests\Admin\DeleteRequest;
+use App\Http\Requests\Admin\ReorderRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use App\Helpers\Thumbnail;
@@ -146,7 +147,7 @@ class PhotoController extends AdminController {
     /**
      * Remove the specified resource from storage.
      *
-     * @param $blog
+     * @param $id
      * @return Response
      */
 
@@ -160,7 +161,7 @@ class PhotoController extends AdminController {
     /**
      * Remove the specified resource from storage.
      *
-     * @param $post
+     * @param $id
      * @return Response
      */
     public function postDelete(DeleteRequest $request,$id)
@@ -172,7 +173,7 @@ class PhotoController extends AdminController {
     /**
      * Set a Album cover.
      *
-     * @param $blog
+     * @param $id
      * @return Response
      */
 
@@ -211,6 +212,7 @@ class PhotoController extends AdminController {
 		$photoalbum = Photo::join('language', 'language.id', '=', 'photo.language_id')
 		    ->join('photo_album', 'photo_album.id', '=', 'photo.photo_album_id')
             ->where('photo.photo_album_id',$condition,$albumid)
+            ->orderBy('photo.position')
 		    ->select(array('photo.id',DB::raw($albumid . ' as albumid'), 'photo.name','photo_album.name as category','photo.album_cover','photo.slider',
                 'language.name as language', 'photo.created_at'));
 
@@ -219,28 +221,26 @@ class PhotoController extends AdminController {
             -> edit_column('slider', '<a href="{{{ URL::to(\'admin/photo/\' . $id . \'/\' . $albumid . \'/slider\' ) }}}" class="btn btn-warning btn-sm" >@if ($slider=="1") <span class=\'glyphicon glyphicon-ok\'></span> @else <span class=\'glyphicon glyphicon-remove\'></span> @endif</a>')
             -> add_column('actions', '<a href="{{{ URL::to(\'admin/photo/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span>  {{ Lang::get("admin/modal.edit") }}</a>
                 <a href="{{{ URL::to(\'admin/photo/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> {{ Lang::get("admin/modal.delete") }}</a>
-            ') -> remove_column('id')
+                <input type="hidden" name="row" value="{{$id}}" id="row">') -> remove_column('id')
             -> remove_column('albumid')-> make();
 	}
-	/**
-	 * Reorder navigation
-	 *
-	 * @param order navigation
-	 * @param navigation list
-	 * @return boolean is sorting would be a correct
-	 * /
-	 */
-	public function getReorder() {
-		$list = Input::get('list');
-		$items = explode(",", $list);
-		$order = 1;
-		foreach ($items as $value) {
-			if ($value != '') {
-				Photo::where('id', '=', $value) -> update(array('position' => $order));
 
-				$order++;
-			}
-		}
-		return $list;
-	}
+    /**
+     * Reorder items
+     *
+     * @param items list
+     * @return items from @param
+     */
+    public function getReorder(ReorderRequest $request) {
+        $list = $request->list;
+        $items = explode(",", $list);
+        $order = 1;
+        foreach ($items as $value) {
+            if ($value != '') {
+                Photo::where('id', '=', $value) -> update(array('position' => $order));
+                $order++;
+            }
+        }
+        return $list;
+    }
 }

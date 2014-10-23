@@ -1,11 +1,12 @@
 <?php namespace App\Http\Controllers\Admin;
 
-use Illuminate\Routing\AdminController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Input;
 use App\Language;
 use Bllim\Datatables\Facade\Datatables;
 use App\Http\Requests\Admin\LanguageRequest;
 use App\Http\Requests\Admin\DeleteRequest;
+use App\Http\Requests\Admin\ReorderRequest;
 use Illuminate\Support\Facades\Auth;
 
 class LanguageController extends AdminController {
@@ -107,7 +108,7 @@ class LanguageController extends AdminController {
     /**
      * Remove the specified resource from storage.
      *
-     * @param $blog
+     * @param $id
      * @return Response
      */
 
@@ -121,7 +122,7 @@ class LanguageController extends AdminController {
     /**
      * Remove the specified resource from storage.
      *
-     * @param $post
+     * @param $id
      * @return Response
      */
     public function postDelete(DeleteRequest $request,$id)
@@ -137,8 +138,9 @@ class LanguageController extends AdminController {
      */
     public function data()
     {
-        $language = Language::
-        whereNull('language.deleted_at')->select(array('language.id', 'language.name', 'language.lang_code',
+        $language = Language::whereNull('language.deleted_at')
+            ->orderBy('language.position', 'ASC')
+            ->select(array('language.id', 'language.name', 'language.lang_code',
             'language.icon as icon'));
 
         return Datatables::of($language)
@@ -146,10 +148,29 @@ class LanguageController extends AdminController {
 
             ->add_column('actions', '<a href="{{{ URL::to(\'admin/language/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span> {{ Lang::get("admin/modal.edit") }}</a>
                     <a href="{{{ URL::to(\'admin/language/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> {{ Lang::get("admin/modal.delete") }}</a>
-                ')
+                    <input type="hidden" name="row" value="{{$id}}" id="row">')
             ->remove_column('id')
 
             ->make();
+    }
+
+    /**
+     * Reorder items
+     *
+     * @param items list
+     * @return items from @param
+     */
+    public function getReorder(ReorderRequest $request) {
+        $list = $request->list;
+        $items = explode(",", $list);
+        $order = 1;
+        foreach ($items as $value) {
+            if ($value != '') {
+                Language::where('id', '=', $value) -> update(array('position' => $order));
+                $order++;
+            }
+        }
+        return $list;
     }
 
 }

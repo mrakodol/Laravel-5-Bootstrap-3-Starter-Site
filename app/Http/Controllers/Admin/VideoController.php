@@ -6,10 +6,10 @@ use App\VideoAlbum;
 use App\Language;
 use Bllim\Datatables\Facade\Datatables;
 use App\Http\Requests\Admin\VideoRequest;
+use App\Http\Requests\Admin\ReorderRequest;
 use App\Http\Requests\Admin\DeleteRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
-use App\Helpers\Thumbnail;
 use Illuminate\Support\Facades\DB;
 
 class VideoController extends AdminController {
@@ -156,7 +156,7 @@ class VideoController extends AdminController {
     /**
      * Remove the specified resource from storage.
      *
-     * @param $blog
+     * @param $id
      * @return Response
      */
 
@@ -170,7 +170,7 @@ class VideoController extends AdminController {
     /**
      * Remove the specified resource from storage.
      *
-     * @param $post
+     * @param $id
      * @return Response
      */
     public function postDelete(DeleteRequest $request,$id)
@@ -182,7 +182,7 @@ class VideoController extends AdminController {
     /**
      * Set a Album cover.
      *
-     * @param $blog
+     * @param $id
      * @return Response
      */
 
@@ -221,6 +221,7 @@ class VideoController extends AdminController {
         $photoalbum = Video::join('language', 'language.id', '=', 'video.language_id')
             ->join('video_album', 'video_album.id', '=', 'video.video_album_id')
             ->where('video.video_album_id',$condition,$albumid)
+            ->orderBy('video.position')
             ->select(array('video.id',DB::raw($albumid . ' as albumid'), 'video.name','video_album.name as category',
                 'video.album_cover','video.slider',
                 'language.name as language', 'video.created_at'));
@@ -230,25 +231,24 @@ class VideoController extends AdminController {
             -> edit_column('slider', '<a href="{{{ URL::to(\'admin/video/\' . $id . \'/\' . $albumid . \'/slider\' ) }}}" class="btn btn-warning btn-sm" >@if ($slider=="1") <span class=\'glyphicon glyphicon-ok\'></span> @else <span class=\'glyphicon glyphicon-remove\'></span> @endif</a>')
             -> add_column('actions', '<a href="{{{ URL::to(\'admin/video/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span>  {{ Lang::get("admin/modal.edit") }}</a>
                 <a href="{{{ URL::to(\'admin/video/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> {{ Lang::get("admin/modal.delete") }}</a>
-            ') -> remove_column('id')
+                <input type="hidden" name="row" value="{{$id}}" id="row">') -> remove_column('id')
             -> remove_column('albumid')-> make();
     }
+
+
     /**
-     * Reorder navigation
+     * Reorder items
      *
-     * @param order navigation
-     * @param navigation list
-     * @return boolean is sorting would be a correct
-     * /
+     * @param items list
+     * @return items from @param
      */
-    public function getReorder() {
-        $list = Input::get('list');
+    public function getReorder(ReorderRequest $request) {
+        $list = $request->list;
         $items = explode(",", $list);
         $order = 1;
         foreach ($items as $value) {
             if ($value != '') {
-                Photo::where('id', '=', $value) -> update(array('position' => $order));
-
+                Video::where('id', '=', $value) -> update(array('position' => $order));
                 $order++;
             }
         }

@@ -17,6 +17,7 @@ class EntrustSetupTables extends Migration {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name');
+            $table -> boolean('is_admin')->nullable()->default(0);
             $table->timestamps();
         });
 
