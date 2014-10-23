@@ -13,8 +13,8 @@
 {{-- Content --}}
 @section('content')
     <h3>{{ $news->title }}</h3>
-    <p>{{ $news->introduction() }}</p>
-    <p>{{ $news->content() }}</p>
+    <p>{!! $news->introduction() !!}</p>
+    <p>{!! $news->content() !!}</p>
     <div>
         <span class="badge badge-info">Posted {{{ $news->created_at }}}</span>
     </div>
