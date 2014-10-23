@@ -26,8 +26,12 @@
 		================================================== -->
         <link rel="stylesheet" href="{{asset('assets/site/css/bootstrap.min.css')}}">
         <link rel="stylesheet" href="{{asset('assets/site/css/bootstrap-theme.min.css')}}">
-        <link rel="stylesheet" href="{{asset('assets/site/css/jquery-ui.min.css')}}">
-        <link rel="stylesheet" href="{{asset('assets/site/css/jquery-ui.theme.min.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/site/css/half-slider.css')}}">
+
+        <!-- Javascripts
+		================================================== -->
+        <script src="{{asset('assets/site/js/jquery-1.11.1.min.js')}}"></script>
+        <script src="{{asset('assets/site/js/bootstrap.min.js')}}"></script>
 
 		<style>
         body {
@@ -51,7 +55,7 @@
 		<!-- To make sticky footer need to wrap in a div -->
 		<div id="wrap">
 		<!-- Navbar -->
-		<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
+		<nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
 			 <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -81,15 +85,16 @@
 					<!-- ./ nav-collapse -->
 				</div>
 			</div>
-		</div>
+		</nav>
 		<!-- ./ navbar -->
-
+		<!-- Carousel -->
+        @yield('carousel')
+		<!-- ./ carousel -->
 		<!-- Container -->
 		<div class="container">
 			<!-- Notifications -->
 			@include('notifications')
 			<!-- ./ notifications -->
-
 			<!-- Content -->
 			@yield('content')
 			<!-- ./ content -->
@@ -107,14 +112,6 @@
 	        <p class="muted credit">Laravel 5 Starter Site on <a href="https://github.com/mrakodol/Laravel-5-Bootstrap-3-Starter-Site">Github</a>.</p>
 	      </div>
 	    </div>
-
-		<!-- Javascripts
-		================================================== -->
-        <script src="{{asset('assets/site/js/jquery-1.11.1.min.js')}}"></script>
-        <script src="{{asset('assets/site/js/bootstrap.min.js')}}"></script>
-        <script src="{{asset('assets/site/js/jquery-ui.min.js')}}"></script>
-
-
         @yield('scripts')
 	</body>
 </html>
