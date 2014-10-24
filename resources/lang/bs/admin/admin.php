@@ -2,12 +2,8 @@
 
 return [
 	'settings' => 'Podešavanja',
-	'homepage' => 'Ppovratak na sajt',
+	'homepage' => 'Povratak na sajt',
 	'home' => 'Početna',
-	'blog' => 'Blog',
-	'comments' => 'Komentari',
-	'users' => 'Korisnici',
-	'roles' => 'Uloge',
     'welcome' => 'Dobro došli',
     'action' => 'Akcije',
     'back' => 'Povratak',
@@ -15,5 +11,13 @@ return [
     'language' => 'Jezik',
     'yes'       => 'Da',
     'no'        =>  'Ne',
+    'view_detail' => 'Detalji',
+    'news_categories' => 'Kategorije novosti',
+    'news_items' => 'Novosti',
+    'photo_albums' => 'Foto albumi',
+    'photo_items' => 'Fotografije',
+    'video_albums' => 'Video albumi',
+    'video_items' => 'Videoi',
+    'users' => 'Korisnici',
 	
 	];
