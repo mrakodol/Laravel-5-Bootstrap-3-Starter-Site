@@ -85,7 +85,7 @@ class VideoController extends AdminController {
         if(Input::hasFile('video'))
         {
             $videoalbum = VideoAlbum::find($request->video_album_id);
-            $destinationPath = public_path() . '/images/photoalbum/'.$videoalbum->folderid.'/';
+            $destinationPath = public_path() . '/images/videoalbum/'.$videoalbum->folderid.'/';
             Input::file('video')->move($destinationPath, $video_file);
         }
     }
