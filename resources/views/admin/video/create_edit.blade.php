@@ -1,25 +1,16 @@
 @extends('admin.layouts.modal')
-
-{{-- Content --}}
 @section('content')
-<!-- Tabs -->
 <ul class="nav nav-tabs">
 	<li class="active">
 		<a href="#tab-general" data-toggle="tab"> {{ Lang::get("admin/modal.general") }}</a>
 	</li>
 </ul>
-<!-- ./ tabs -->
-{{-- Edit Blog Form --}}
 <form class="form-horizontal" enctype="multipart/form-data" method="post" 
 	action="@if(isset($video)){{ URL::to('admin/video/'.$video->id.'/edit') }}
 	        @else{{ URL::to('admin/video/create') }}@endif"
     autocomplete="off">
-	<!-- CSRF Token -->
 	<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-	<!-- ./ csrf token -->
-	<!-- Tabs Content -->
 	<div class="tab-content">
-		<!-- General tab -->
 		<div class="tab-pane active" id="tab-general">
             <div class="tab-pane active" id="tab-general">
                 <div class="form-group {{{ $errors->has('language_id') ? 'error' : '' }}}">
@@ -61,21 +52,7 @@
                         </select>
                 </div>
             </div>
-            <div class="form-group {{{ $errors->has('slider') ? 'error' : '' }}}">
-                <div class="col-lg-12">
-                    <label class="control-label" for="slider">{{{ Lang::get('admin/photo.slider') }}}</label>
-                    <label class="radio">
-                        {!! Form::radio('slider', 1, (Input::old('slider') == '1' || (isset($video) && $video->slider == '1')) ? true : false, array('id'=>'slider', 'class'=>'radio')) !!}
-                        {{{ Lang::get('admin/admin.yes') }}}
-                        </label>
-                        <label class="radio">
-                        {!! Form::radio('slider', 0, (Input::old('slider') == '0' || (isset($video) && $video->slider == '0') || !isset($photo)) ? true : false, array('id'=>'slider', 'class'=>'radio')) !!}
-                        {{{ Lang::get('admin/admin.no') }}}
-                    </label>
-
-                </div>
-            </div>
-            <div class="form-group {{{ $errors->has('album_cover') ? 'error' : '' }}}">
+           <div class="form-group {{{ $errors->has('album_cover') ? 'error' : '' }}}">
                 <div class="col-lg-12">
                     <label class="control-label" for="album_cover">{{{ Lang::get('admin/photo.album_cover') }}}</label>
                     <label class="radio">
@@ -102,19 +79,8 @@
 					<input class="form-control" type="text" name="youtube" id="youtube" value="{{{ Input::old('youtube', isset($video) ? $video->youtube : null) }}}" />
 				</div>
 			</div>
-            <div class="form-group">
-            <div class="col-lg-12">
-                <label class="control-label" for="video">{{ Lang::get("admin/video.video") }}</label>
-                <input name="video" type="file" class="uploader" id="video" value="Upload" />
-            </div>
-
 		</div>
-		<!-- ./ general tab -->
 	</div>
-	<!-- ./ tabs content -->
-
-	<!-- Form Actions -->
-	
 	<div class="form-group">
 		<div class="col-md-12">
 			<button type="reset" class="btn btn-sm btn-warning close_popup">
@@ -128,6 +94,6 @@
 			</button>
 		</div>
 	</div>
-	<!-- ./ form actions -->
+</div>
 </form>
 @stop

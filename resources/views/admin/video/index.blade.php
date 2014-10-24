@@ -21,7 +21,6 @@
 			<th>{{{ Lang::get("admin/modal.title") }}}</th>
 			<th>{{{ Lang::get("admin/video.album") }}}</th>
 			<th>{{{ Lang::get("admin/video.album_cover") }}}</th>
-			<th>{{{ Lang::get("admin/video.slider") }}}</th>
 			<th>{{{ Lang::get("admin/admin.language") }}}</th>
 			<th>{{{ Lang::get("admin/admin.created_at") }}}</th>
             <th>{{{ Lang::get("admin/admin.action") }}}</th>

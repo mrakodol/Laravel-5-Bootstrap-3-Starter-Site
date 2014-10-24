@@ -9,17 +9,12 @@
 	</li>
 </ul>
 <!-- ./ tabs -->
-{{-- Edit Blog Form --}}
 <form class="form-horizontal" enctype="multipart/form-data" method="post" 
 	action="@if(isset($language)){{ URL::to('admin/language/'.$language->id.'/edit') }}
 	        @else{{ URL::to('admin/language/create') }}@endif"
     autocomplete="off">
-	<!-- CSRF Token -->
 	<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-	<!-- ./ csrf token -->
-	<!-- Tabs Content -->
 	<div class="tab-content">
-		<!-- General tab -->
 		<div class="tab-pane active" id="tab-general">
 			<div class="form-group {{{ $errors->has('name') ? 'has-error' : '' }}}">
 				<div class="col-md-12">
@@ -42,12 +37,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- ./ general tab -->
 	</div>
-	<!-- ./ tabs content -->
-
-	<!-- Form Actions -->
-	
 	<div class="form-group">
 		<div class="col-md-12">
 			<button type="reset" class="btn btn-sm btn-warning close_popup">
@@ -61,6 +51,5 @@
 			</button>
 		</div>
 	</div>
-	<!-- ./ form actions -->
 </form>
 @stop

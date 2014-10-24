@@ -22,7 +22,7 @@ class VideoController extends AdminController {
     public function index()
     {
         // Show the page
-        return view('admin.video.index', compact('title'));
+        return view('admin.video.index');
     }
 
     /**
@@ -65,12 +65,11 @@ class VideoController extends AdminController {
         $video -> name = $request->name;
         $video -> video_album_id = $request->video_album_id;
         $video -> description = $request->description;
-        $video -> slider = $request->slider;
         $video -> album_cover = $request->album_cover;
 
         if($request->youtube!="") {
             $youtube = explode('http://www.youtube.com/watch?v=', $request->youtube);
-            $video->youtube = $youtube[1];
+            $video->youtube = rtrim($youtube[1]);
         }
         $video_file = "";
         if(Input::hasFile('video'))
@@ -126,12 +125,11 @@ class VideoController extends AdminController {
         $video -> name = $request->name;
         $video -> video_album_id = $request->video_album_id;
         $video -> description = $request->description;
-        $video -> slider = $request->slider;
         $video -> album_cover = $request->album_cover;
 
         if($request->youtube!="") {
             $youtube = explode('http://www.youtube.com/watch?v=', $request->youtube);
-            $video->youtube = $youtube[1];
+            $video->youtube = rtrim($youtube[1]);
         }
 
         $video_file = $video->filename;
@@ -201,15 +199,6 @@ class VideoController extends AdminController {
         return redirect( (($album==0)?'/admin/video':'/admin/video/'.$album.'/itemsforalbum'));
     }
 
-    public function getSlider($id,$album=0)
-    {
-        $video = Video::find($id);
-        $video->slider = ($video -> slider + 1) % 2;
-        $video->save();
-        // Show the page
-        return redirect( (($album==0)?'/admin/video':'/admin/video/'.$album.'/itemsforalbum'));
-    }
-
 
     /**
      * Show a list of all the languages posts formatted for Datatables.
@@ -223,12 +212,10 @@ class VideoController extends AdminController {
             ->where('video.video_album_id',$condition,$albumid)
             ->orderBy('video.position')
             ->select(array('video.id',DB::raw($albumid . ' as albumid'), 'video.name','video_album.name as category',
-                'video.album_cover','video.slider',
-                'language.name as language', 'video.created_at'));
+                'video.album_cover','language.name as language', 'video.created_at'));
 
         return Datatables::of($photoalbum)
             -> edit_column('album_cover', '<a href="{{{ URL::to(\'admin/video/\' . $id . \'/\' . $albumid . \'/albumcover\' ) }}}" class="btn btn-warning btn-sm" >@if ($album_cover=="1") <span class="glyphicon glyphicon-ok"></span> @else <span class=\'glyphicon glyphicon-remove\'></span> @endif</a>')
-            -> edit_column('slider', '<a href="{{{ URL::to(\'admin/video/\' . $id . \'/\' . $albumid . \'/slider\' ) }}}" class="btn btn-warning btn-sm" >@if ($slider=="1") <span class=\'glyphicon glyphicon-ok\'></span> @else <span class=\'glyphicon glyphicon-remove\'></span> @endif</a>')
             -> add_column('actions', '<a href="{{{ URL::to(\'admin/video/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span>  {{ Lang::get("admin/modal.edit") }}</a>
                 <a href="{{{ URL::to(\'admin/video/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> {{ Lang::get("admin/modal.delete") }}</a>
                 <input type="hidden" name="row" value="{{$id}}" id="row">') -> remove_column('id')

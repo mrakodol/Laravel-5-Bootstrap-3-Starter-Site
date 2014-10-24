@@ -81,7 +81,6 @@ $router->group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     $this->get('video/{id}/delete', 'App\Http\Controllers\Admin\VideoController@getDelete');
     $this->post('video/{id}/delete', 'App\Http\Controllers\Admin\VideoController@postDelete');
     $this->get('video/{id}/itemsforalbum', 'App\Http\Controllers\Admin\VideoController@itemsForAlbum');
-    $this->get('video/{id}/{id2}/slider', 'App\Http\Controllers\Admin\VideoController@getSlider');
     $this->get('video/{id}/{id2}/albumcover', 'App\Http\Controllers\Admin\VideoController@getAlbumCover');
     $this->get('video/data/{id}', 'App\Http\Controllers\Admin\VideoController@data');
     $this->get('video/reorder', 'App\Http\Controllers\Admin\VideoController@getReorder');

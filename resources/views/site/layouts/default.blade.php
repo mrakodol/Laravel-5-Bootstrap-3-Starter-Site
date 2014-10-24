@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<!-- Basic Page Needs
-		================================================== -->
 		<meta charset="utf-8" />
 		<title>
 			@section('title')
@@ -17,7 +15,7 @@
 		@show
 		@section('meta_description')
 		<meta name="description" content="Lorem ipsum dolor sit amet, nihil fabulas et sea, nam posse menandri scripserit no, mei." />
-                @show
+        @show
 		<!-- Mobile Specific Metas
 		================================================== -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,11 +25,14 @@
         <link rel="stylesheet" href="{{asset('assets/site/css/bootstrap.min.css')}}">
         <link rel="stylesheet" href="{{asset('assets/site/css/bootstrap-theme.min.css')}}">
         <link rel="stylesheet" href="{{asset('assets/site/css/half-slider.css')}}">
-
+        <link rel="stylesheet" href="{{asset('assets/site/css/justifiedGallery.min.css')}}" />
+        <link rel="stylesheet" href="{{asset('assets/site/css/lightbox.min.css')}}" />
         <!-- Javascripts
 		================================================== -->
         <script src="{{asset('assets/site/js/jquery-1.11.1.min.js')}}"></script>
         <script src="{{asset('assets/site/js/bootstrap.min.js')}}"></script>
+        <script src="{{asset('assets/site/js/jquery.justifiedGallery.min.js')}}"></script>
+        <script src="{{asset('assets/site/js/lightbox.min.js')}}"></script>
 
 		<style>
         body {
@@ -40,21 +41,12 @@
 		@section('styles')
 		@show
 		</style>
-
-		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-		<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-
-		<!-- Favicons
-		================================================== -->
 		<link rel="shortcut icon" href="{{{ asset('assets/site/ico/favicon.ico') }}}">
 	</head>
 
 	<body>
-		<!-- To make sticky footer need to wrap in a div -->
 		<div id="wrap">
-		<!-- Navbar -->
 		<nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
 			 <div class="container">
                 <div class="navbar-header">
@@ -69,7 +61,6 @@
                     <ul class="nav navbar-nav">
 						<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">{{{ Lang::get('site/site.home') }}}</a></li>
 					</ul>
-
                     <ul class="nav navbar-nav pull-right">
                         @if (Auth::check())
 	                        @if(isset($admin))
@@ -82,31 +73,17 @@
                         	<li {{ (Request::is('auth/register') ? ' class="active"' : '') }}><a href="{{{ URL::to('auth/register') }}}">{{{ Lang::get('site/site.sign_up') }}}</a></li>
                         @endif
                     </ul>
-					<!-- ./ nav-collapse -->
 				</div>
 			</div>
 		</nav>
-		<!-- ./ navbar -->
-		<!-- Carousel -->
         @yield('carousel')
-		<!-- ./ carousel -->
-		<!-- Container -->
 		<div class="container">
-			<!-- Notifications -->
 			@include('notifications')
-			<!-- ./ notifications -->
-			<!-- Content -->
 			@yield('content')
-			<!-- ./ content -->
+		    @yield('galeries')
 		</div>
-		<!-- ./ container -->
-
-		<!-- the following div is needed to make a sticky footer -->
 		<div id="push"></div>
 		</div>
-		<!-- ./wrap -->
-
-
 	    <div id="footer">
 	      <div class="container">
 	        <p class="muted credit">Laravel 5 Starter Site on <a href="https://github.com/mrakodol/Laravel-5-Bootstrap-3-Starter-Site">Github</a>.</p>

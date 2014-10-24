@@ -13,46 +13,30 @@
 
 		<meta name="keywords" content="" />
 		<meta name="author" content="" />
-		<!-- Google will often use this as its description of your page/site. Make it good. -->
 		<meta name="description" content="" />
-		<!-- Speaking of Google, don't forget to set your site up: http://google.com/webmasters -->
 		<meta name="google-site-verification" content="">
-		<!-- Dublin Core Metadata : http://dublincore.org/ -->
 		<meta name="DC.title" content="Laravel 5 Starter Site">
 		<meta name="DC.subject" content="">
 		<meta name="DC.creator" content="">
-		<!--  Mobile Viewport Fix -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-		<!-- Bootstrap Core CSS -->
         <link href="{{asset('assets/admin/css/bootstrap.min.css')}}" rel="stylesheet">
-
-        <!-- MetisMenu CSS -->
         <link href="{{asset('assets/admin/css/plugins/metisMenu/metisMenu.min.css')}}" rel="stylesheet">
-
-        <!-- Custom CSS -->
         <link href="{{asset('assets/admin/css/sb-admin-2.css')}}" rel="stylesheet">
 
         <link href="{{asset('assets/admin/css/jquery.dataTables.css')}}" rel="stylesheet">
         <link href="{{asset('assets/admin/css/dataTables.bootstrap.css')}}" rel="stylesheet">
         <link href="{{asset('assets/admin/css/colorbox.css')}}" rel="stylesheet">
-
-        <!-- Custom Fonts -->
         <link href="{{asset('assets/admin/font-awesome-4.2.0/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
 
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-        <!-- start: Favicon and Touch Icons -->
         <link rel="shortcut icon" href="{{{ asset('assets/admin/ico/favicon.ico') }}}">
-        <!-- end: Favicon and Touch Icons -->
 
 	</head>
 	<body>
 	<div id="wrapper">
-		<!-- Navigation -->
                 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -63,12 +47,8 @@
                         </button>
                         <a class="navbar-brand" href="index.html">Administration</a>
                     </div>
-                    <!-- /.navbar-header -->
-                    <!-- /.navbar-header -->
                     <ul class="nav navbar-top-links navbar-right">
-					
-						<!-- start: User Dropdown -->
-						<li class="dropdown">
+					    <li class="dropdown">
 							<a class="btn account dropdown-toggle" data-toggle="dropdown" href="#">
 							<div class="user">
 								<span class="hello"> {{ Lang::get('admin/admin.welcome') }}!</span>
@@ -83,9 +63,7 @@
 								</li>
 							</ul>
 						</li>
-						<!-- end: User Dropdown -->
 					</ul>
-		<!-- end: Header -->
 		 <div class="navbar-default sidebar" role="navigation">
                         <div class="sidebar-nav navbar-collapse">
                             <ul class="nav" id="side-menu">
@@ -98,7 +76,6 @@
                                             </button>
                                          </span>
                                     </div>
-                                    <!-- /input-group -->
                                 </li>
                                 <li >
                                     <a href="{{URL::to('admin/')}}" {{ (Request::is('admin/') ? ' class=active' : '') }}>
@@ -156,21 +133,13 @@
                 	    </div>
                     </div>
 			    </nav>
-				<!-- end: Header Menu -->
 		</header>
-			<!-- Page Content -->
                     <div id="page-wrapper">
                         <div class="row">
-								<!-- Content -->
 								@yield('content')
-								<!-- ./ content -->
 						</div>
-                <!-- /.row -->
             </div>
-            <!-- /#page-wrapper -->
-
         </div>
-        <!-- /#wrapper -->
 		<div class="clearfix"></div>
 		<footer>
 			<p>
@@ -179,7 +148,6 @@
 			</p>
 
 		</footer>
-		<!-- start: JavaScript-->
         <!--[if !IE]>-->
         <script src="{{asset('assets/admin/js/jquery-2.1.1.min.js')}}"></script>
         <!--<![endif]-->
@@ -188,15 +156,9 @@
         <![endif]-->
         <script src="{{asset('assets/admin/js/jquery-migrate-1.2.1.min.js')}}"></script>
         <script src="{{asset('assets/admin/js/bootstrap.min.js')}}"></script>
-        <!-- page scripts -->
         <script src="{{asset('assets/admin/js/jquery-ui.1.11.2.min.js')}}"></script>
-
-        <!-- Metis Menu Plugin JavaScript -->
         <script src="{{asset('assets/admin/js/plugins/metisMenu/metisMenu.min.js')}}"></script>
-
-        <!-- Custom Theme JavaScript -->
         <script src="{{asset('assets/admin/js/sb-admin-2.js')}}"></script>
-
         <script src="{{asset('assets/admin/js/jquery.dataTables.min.js')}}"></script>
         <script src="{{asset('assets/admin/js/dataTables.bootstrap.js')}}"></script>
         <script src="{{asset('assets/admin/js/bootstrap-dataTables-paging.js')}}"></script>
