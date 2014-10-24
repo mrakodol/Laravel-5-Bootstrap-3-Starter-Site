@@ -1,6 +1,5 @@
 /.idea
 /vendor
-/www/images
 /node_modules
 .env
 .DS_Store
