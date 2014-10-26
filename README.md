@@ -66,12 +66,12 @@ usr/local/bin to use it globally on your system. On Windows, you can use the Com
 
 #### Option 1: Composer is not installed globally
 
-    cd laravel4startersite
+    cd laravel5startersite
 	curl -s http://getcomposer.org/installer | php
 	php composer.phar install --dev
 #### Option 2: Composer is installed globally
 
-    cd laravel4startersite
+    cd laravel5startersite
 	composer install --dev
 
 Please note the use of the `--dev` flag.
