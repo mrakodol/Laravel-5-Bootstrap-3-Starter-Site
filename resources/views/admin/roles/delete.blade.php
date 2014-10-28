@@ -3,7 +3,7 @@
         <ul class="nav nav-tabs">
             <li class="active"><a href="#tab-general" data-toggle="tab">{{ Lang::get("admin/modal.general") }}</a></li>
         </ul>
-    <form id="deleteForm" class="form-horizontal" method="post" action="@if (isset($role)){{ URL::to('admin/role/' . $role->id . '/delete') }}@endif" autocomplete="off">
+    <form id="deleteForm" class="form-horizontal" method="post" action="@if (isset($role)){{ URL::to('admin/roles/' . $role->id . '/delete') }}@endif" autocomplete="off">
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
         <input type="hidden" name="id" value="{{ $role->id }}" />
         <div class="form-group">

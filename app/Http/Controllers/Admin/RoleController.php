@@ -43,27 +43,29 @@ class RoleController extends AdminController {
 
         $is_admin = 0;
         // Check if role is for admin user
-        $permissionsAdmin = Permission::where('is_admin','=',1)->get();
-
-        foreach ($permissionsAdmin as $perm){
-            foreach($request->permission as $item){
-                if($item==$perm['id'] && $perm['is_admin']=='1')
-                {
-                    $is_admin = 1;
-                }
-            }
-        }
+        if(!empty($request->permission)){
+	    	$permissionsAdmin = Permission::where('is_admin','=',1)->get();
+		    foreach ($permissionsAdmin as $perm){
+	            foreach($request->permission as $item){
+	                if($item==$perm['id'] && $perm['is_admin']=='1')
+	                {
+	                    $is_admin = 1;
+	                }
+	            }
+	        }
+		}
         $role = new Role();
         $role -> is_admin = $is_admin;
         $role -> name = $request->name;
         $role -> save();
-
-        foreach ($request->permission as $item) {
-            $permission = new PermissionRole();
-            $permission->permission_id = $item;
-            $permission->role_id = $role->id;
-            $permission -> save();
-        }
+		if(!empty($request->permission)){
+	        foreach ($request->permission as $item) {
+	            $permission = new PermissionRole();
+	            $permission->permission_id = $item;
+	            $permission->role_id = $role->id;
+	            $permission -> save();
+	        }
+		}
     }
 
     /**
@@ -90,28 +92,31 @@ class RoleController extends AdminController {
      */
     public function postEdit(RoleRequest $request, $id) {
         $is_admin = 0;
-        $permissionsAdmin = Permission::where('is_admin','=',1)->get();
-        foreach ($permissionsAdmin as $perm){
-            foreach($request->permission as $item){
-                if($item==$perm['id'] && $perm['is_admin']=='1')
-                {
-                    $is_admin = 1;
-                }
-            }
-        }
+		if(!empty($request->permission)){
+	        $permissionsAdmin = Permission::where('is_admin','=',1)->get();
+	        foreach ($permissionsAdmin as $perm){
+	            foreach($request->permission as $item){
+	                if($item==$perm['id'] && $perm['is_admin']=='1')
+	                {
+	                    $is_admin = 1;
+	                }
+	            }
+	        }
+		}
         $role = Role::find($id);
         $role -> is_admin = $is_admin;
         $role -> name = $request->name;
         $role -> save();
 
         PermissionRole::where('role_id','=',$id) -> delete();
-
-        foreach ($request->permission as $item) {
-            $permission = new PermissionRole;
-            $permission->permission_id = $item;
-            $permission->role_id = $role->id;
-            $permission -> save();
-        }
+		if(!empty($request->permission)){
+	        foreach ($request->permission as $item) {
+	            $permission = new PermissionRole;
+	            $permission->permission_id = $item;
+	            $permission->role_id = $role->id;
+	            $permission -> save();
+	        }
+		}
     }
 
     /**
