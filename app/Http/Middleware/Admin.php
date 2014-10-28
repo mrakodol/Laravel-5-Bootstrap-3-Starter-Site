@@ -7,7 +7,7 @@ use Illuminate\Contracts\Routing\ResponseFactory;
 
 use App\AssignedRoles;
 
-class AdminMiddleware implements Middleware {
+class Admin implements Middleware {
 
     /**
      * The Guard implementation.

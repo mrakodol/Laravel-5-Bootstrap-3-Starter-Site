@@ -45,7 +45,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.html">Administration</a>
+                        <a class="navbar-brand" href="{!!URL::to('/admin')!!}">Administration</a>
                     </div>
                     <ul class="nav navbar-top-links navbar-right">
 					    <li class="dropdown">

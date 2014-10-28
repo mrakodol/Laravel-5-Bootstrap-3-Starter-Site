@@ -45,8 +45,8 @@
 ##How to install:
 * [Step 1: Get the code](#step1)
 * [Step 2: Use Composer to install dependencies](#step2)
-* [Step 3: Configure Mailer](#step4)
-* [Step 4: Create database and create Encryption Key](#step4)
+* [Step 3: Configure Mailer](#step3)
+* [Step 4: Create database](#step4)
 * [Step 5: Install](#step5)
 * [Step 6: Start Page](#step6)
 
@@ -56,101 +56,61 @@
 
     https://github.com/mrakodol/Laravel-5-Bootstrap-3-Starter-Site/archive/master.zip
 
+Extract it in www(or htdocs if you using XAMPP) folder and put it for example in laravel5startersite folder.
+
 -----
 <a name="step2"></a>
 ### Step 2: Use Composer to install dependencies
 
 Laravel utilizes [Composer](http://getcomposer.org/) to manage its dependencies. First, download a copy of the composer.phar.
 Once you have the PHAR archive, you can either keep it in your local project directory or move to
-usr/local/bin to use it globally on your system. On Windows, you can use the Composer [Windows installer](https://getcomposer.org/Composer-Setup.exe).
+usr/local/bin to use it globally on your system. 
+On Windows, you can use the Composer [Windows installer](https://getcomposer.org/Composer-Setup.exe).
 
-#### Option 1: Composer is not installed globally
+Then run:
 
-    cd laravel5startersite
-	curl -s http://getcomposer.org/installer | php
-	php composer.phar install --dev
-#### Option 2: Composer is installed globally
-
-    cd laravel5startersite
-	composer install --dev
-
-Please note the use of the `--dev` flag.
-
-Some packages used to preprocess and minify assests are required on the development environment.
-
-When you deploy your project on a production environment you will want to upload the ***composer.lock*** file used on the development environment and only run `php composer.phar install` on the production server.
-
-This will skip the development packages and ensure the version of the packages installed on the production server match those you developped on.
-
-NEVER RUN `php composer.phar update` ON YOUR PRODUCTION SERVER.
-
-If you haven't already, you might want to make composer be installed globally:
-
-    $ curl -s http://getcomposer.org/installer | php
-    $ sudo mv composer.phar /usr/local/bin/composer
-
-Now I can use composer by invoking just the composer command.
-
-Optional way to do it, is to set up an alias:
-    alias composer='/location/of/the/composer.phar'
+    composer install --dev
+to install dependencies Laravel and other packages.
 
 -----
 <a name="step3"></a>
 ### Step 3: Configure Mailer
 
-In the same fashion, copy the ***app/config/mail.php*** configuration file in ***app/config/local/mail.php***. Now set the `address` and `name` from the `from` array in ***config/mail.php***. Those will be used to send account confirmation and password reset emails to the users.
+In the same fashion, copy the ***config/mail.php*** configuration file in ***config/local/mail.php***. Now set the `address` and `name` from the `from` array in ***config/mail.php***. Those will be used to send account confirmation and password reset emails to the users.
 If you don't set that registration will fail because it cannot send the confirmation email.
 
 -----
 <a name="step4"></a>
-### Step 4: Create database and create Encryption Key
+### Step 4: Create database
 
-If you finished first four steps, now you can create database on your database server(MySQL). You must create database
+If you finished first three steps, now you can create database on your database server(MySQL). You must create database
 with utf-8 collation(uft8_general_ci), to install and application work perfectly.
-
-The configuration option that we need is create the encryption key that is used within the framework.
-To do this, all we need to do is to run:
-
-    php artisan key:generate
+After that setup ***config/database.php*** default database connection name and database connection. If you using MySQL than you do not need change default database connection name, only database connection, put name database, database username and password.
 
 -----
 <a name="step5"></a>
 ### Step 5: Install
 
-Now that you have the environment configured, you need to create a database configuration for it.
-If you install on your localhost in folder laravel4startersite, you can type on web browser:
-	http://localhost/laravel4startersite
-And than finish the installation. Instalation would populate a database with tables and start-up data(you can delete that data later).
+Now that you have the environment configured, you need to create a database configuration for it. For create database tables use this command:
 
-Now inside ***app/config*** that corresponds to the environment the code is deployed in. This will most likely be ***local***  or ***production***  when you first start a project.
+    php artisan migrate
 
-You may setup your timezone:
+And to initial populate database use this:
 
-    <?php
-		/*
-		|--------------------------------------------------------------------------
-		| Application Timezone
-		|--------------------------------------------------------------------------
-		|
-		| Here you may specify the default timezone for your application, which
-		| will be used by the PHP date and date-time functions. We have gone
-		| ahead and set this to a sensible default for you out of the box.
-		|
-		*/
+    php artisan db:seed
 
-		'timezone' => 'UTC',
-    );
-
+If you install on your localhost in folder laravel5startersite, you can type on web browser:
+	http://localhost/laravel5startersite/www
 -----
 <a name="step6"></a>
 ### Step 6: Start Page
 
-####Admin login
-You can login to admin part of Laravel Framework 5  Bootstrap 3 Starter Site:
+You can now login to admin part of Laravel Framework 5  Bootstrap 3 Starter Site:
 
     username: admin@admin.com
     password: admin
-OR
+OR user
+
     username: user@user.com
     password: user
 
@@ -161,6 +121,9 @@ OR
 ### Site loading very slow
 
 		composer dump-autoload --optimize
+OR
+
+        php artisan dump-autoload
 
 -----
 <a name="feature6"></a>

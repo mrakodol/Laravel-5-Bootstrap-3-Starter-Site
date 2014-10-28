@@ -1,16 +1,11 @@
 {
-	"name": "mrakodol/Laravel-5-Bootstrap-3-Starter-Site",
-	"description": "Laravel Framework 5 Bootstrap 3 Starter Site",
-	"keywords": ["framework", "laravel", "Starter Site"],
+	"name": "laravel/laravel",
+	"description": "The Laravel Framework.",
+	"keywords": ["framework", "laravel"],
 	"license": "MIT",
-    "authors": [
-        {
-            "name": "Stojan Kukrika"
-        }
-    ],
 	"type": "project",
 	"require": {
-		"laravel/framework": "~5.0",
+		"laravel/framework": "dev-master#700bbf22bb325a3ddd10e2fc839feb9b4958387a",
 		"illuminate/html": "5.0.*@dev",
         "bllim/datatables": "*"
 	},

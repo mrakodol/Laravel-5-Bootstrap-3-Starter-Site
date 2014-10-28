@@ -78,7 +78,7 @@ return [
 	|
 	*/
 
-	'key' => 'E0Wxl5C1bebBi96BC0ZiZOCtA9fp8351',
+	'key' => 'TgY2WioNSlVYDWDkBT49dJD258oJCbYu',
 
 	'cipher' => MCRYPT_RIJNDAEL_128,
 
@@ -98,11 +98,7 @@ return [
 		/*
 		 * Application Service Providers...
 		 */
-		'App\Providers\AppServiceProvider',
-		'App\Providers\ArtisanServiceProvider',
-		'App\Providers\ErrorServiceProvider',
 		'App\Providers\EventServiceProvider',
-		'App\Providers\LogServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
 		/*
