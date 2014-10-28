@@ -114,7 +114,7 @@ class LanguageController extends AdminController {
 
     public function getDelete($id)
     {
-        $language = Language::find($id);
+        $language = $id;
         // Show the page
         return view('admin/language/delete', compact('language'));
     }
