@@ -1,4 +1,7 @@
 # Laravel Framework 5  Bootstrap 3 Starter Site
+
+Demo is here http://l5start.mrakodol.info/
+
 ## Starter Site based on on Laravel 5.0 and Boostrap 3
 * [Features](#feature1)
 * [Requirements](#feature2)
@@ -10,7 +13,7 @@
 * [How Starter site is look like](#feature8)
 
 <a name="feature1"></a>
-## A2Z CMS Features:
+## Starter Site Features:
 * Laravel 5.0
 * Twitter Bootstrap 3.2.0
 * Back-end
