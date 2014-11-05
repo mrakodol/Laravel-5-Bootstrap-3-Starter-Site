@@ -58,7 +58,7 @@ class RoleController extends AdminController {
         $role -> is_admin = $is_admin;
         $role -> name = $request->name;
         $role -> save();
-		if(!empty($request->permission)){
+		if(is_array($request->permission)){
 	        foreach ($request->permission as $item) {
 	            $permission = new PermissionRole();
 	            $permission->permission_id = $item;
@@ -109,9 +109,10 @@ class RoleController extends AdminController {
         $role -> save();
 
         PermissionRole::where('role_id','=',$id) -> delete();
-		if(!empty($request->permission)){
-	        foreach ($request->permission as $item) {
-	            $permission = new PermissionRole;
+		
+		if(is_array($request->permission)){
+	        foreach ($request->permission as $item) {	        	
+	            $permission = new PermissionRole();
 	            $permission->permission_id = $item;
 	            $permission->role_id = $role->id;
 	            $permission -> save();
