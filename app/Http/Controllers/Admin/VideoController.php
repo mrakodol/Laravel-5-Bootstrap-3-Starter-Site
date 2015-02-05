@@ -211,8 +211,8 @@ class VideoController extends AdminController {
             ->join('video_album', 'video_album.id', '=', 'video.video_album_id')
             ->where('video.video_album_id',$condition,$albumid)
             ->orderBy('video.position')
-            ->select(array('video.id',DB::raw($albumid . ' as albumid'), 'video.name','video_album.name as category',
-                'video.album_cover','language.name as language', 'video.created_at'));
+            ->select(array('video.id',DB::raw($albumid . ' as albumid'), DB::getTablePrefix().'video.name','video_album.name as category',
+                DB::getTablePrefix().'video.album_cover',DB::getTablePrefix().'language.name as language', DB::getTablePrefix().'video.created_at'));
 
         return Datatables::of($photoalbum)
             -> edit_column('album_cover', '<a href="{{{ URL::to(\'admin/video/\' . $id . \'/\' . $albumid . \'/albumcover\' ) }}}" class="btn btn-warning btn-sm" >@if ($album_cover=="1") <span class="glyphicon glyphicon-ok"></span> @else <span class=\'glyphicon glyphicon-remove\'></span> @endif</a>')
