@@ -13,7 +13,7 @@
 </div>
 <form method="POST" action="{{URL::to('auth/register')}}" accept-charset="UTF-8">
     <!-- CSRF Token -->
-		<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 	<!-- ./ csrf token -->
 	<fieldset>
 		<div class="form-group {{$errors->has('name')?'has-error':''}}">

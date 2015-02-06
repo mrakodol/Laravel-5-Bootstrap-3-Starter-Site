@@ -1,0 +1,35 @@
+.item img {
+	width:100%;
+}
+.carousel-control.left, .carousel-control.right {
+	background-image:none !important;
+	opacity:1;
+}
+
+.carousel-control.left {
+	top:0%
+}
+.carousel-control.right {
+	top:0%
+}
+.carousel-caption {
+	top:45%;
+	text-align:left;
+  	height:auto;
+
+}
+.carousel-caption h2 { 
+	line-height:150%
+}
+.carousel-caption h2 span {
+	background:#428BCA;
+	padding:10px 20px;
+	color:#fff;
+	border-left:0px solid #fff;
+}
+p.caption {
+	background:#fff;
+	padding:6px;
+	text-shadow:none;
+	color:#428BCA;
+}
