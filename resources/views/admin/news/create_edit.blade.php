@@ -22,7 +22,7 @@
 		<!-- General tab -->
 		<div class="tab-pane active" id="tab-general">
             <div class="tab-pane active" id="tab-general">
-                <div class="form-group {{{ $errors->has('language_id') ? 'error' : '' }}}">
+                <div class="form-group {{{ $errors->has('language_id') ? 'has-error' : '' }}}">
                 <div class="col-md-12">
                     <label class="control-label" for="language_id">{{ Lang::get("admin/admin.language") }}</label>
                     <select style="width: 100%"name="language_id" id="language_id" class="form-control">
@@ -42,7 +42,7 @@
 				<div class="col-md-12">
 					<label class="control-label" for="title"> {{ Lang::get("admin/modal.title") }}</label>
 					<input class="form-control" type="text" name="title" id="title" value="{{{ Input::old('title', isset($news) ? $news->title : null) }}}" />
-					{!!$errors->first('title', '<span class="help-block">:message </span>')!!}
+					{!!$errors->first('title', '<label class="control-label">:message</label>')!!}
 				</div>
 			</div>
 			<div class="form-group {{{ $errors->has('newscategory_id') ? 'error' : '' }}}">
@@ -65,21 +65,21 @@
                 <div class="col-md-12">
                     <label class="control-label" for="introduction">{{ Lang::get("admin/news.introduction") }}</label>
                     <textarea class="form-control full-width wysihtml5" name="introduction" value="introduction" rows="10">{{{ Input::old('introduction', isset($news) ? $news->introduction : null) }}}</textarea>
-                    {{{ $errors->first('introduction', '<span class="help-block">:message</span>') }}}
+                    {!! $errors->first('introduction', '<label class="control-label">:message</label>') !!}
                 </div>
             </div>
             <div class="form-group {{{ $errors->has('content') ? 'has-error' : '' }}}">
                 <div class="col-md-12">
                     <label class="control-label" for="content">{{ Lang::get("admin/news.content") }}</label>
                     <textarea class="form-control full-width wysihtml5" name="content" value="content" rows="10">{{{ Input::old('content', isset($news) ? $news->content : null) }}}</textarea>
-                    {{{ $errors->first('content', '<span class="help-block">:message</span>') }}}
+                    {!! $errors->first('content', '<label class="control-label">:message</label>') !!}
                 </div>
             </div>
             <div class="form-group {{{ $errors->has('source') ? 'error' : '' }}}">
                 <div class="col-md-12">
                     <label class="control-label" for="title">{{ Lang::get("admin/news.source") }}</label>
                     <input class="form-control" type="text" name="source" id="source" value="{{{ Input::old('source', isset($news) ? $news->source : null) }}}" />
-                    {{{ $errors->first('source', '<span class="help-block">:message</span>') }}}
+                    {!! $errors->first('source', '<label class="control-label">:message</label>') !!}
                 </div>
             </div>
             <div class="form-group {{{ $errors->has('picture') ? 'error' : '' }}}">

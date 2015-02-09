@@ -4,10 +4,11 @@ use App\Http\Controllers\AdminController;
 use App\User;
 use App\AssignedRoles;
 use App\Role;
-use Bllim\Datatables\Facade\Datatables;
 use App\Http\Requests\Admin\UserRequest;
 use App\Http\Requests\Admin\UserEditRequest;
 use App\Http\Requests\Admin\DeleteRequest;
+use Datatables;
+use Hash;
 
 class UserController extends AdminController {
 
@@ -89,8 +90,7 @@ class UserController extends AdminController {
 
         if (!empty($password)) {
             if ($password === $passwordConfirmation) {
-                $user -> password = $password;
-                $user -> password_confirmation = $passwordConfirmation;
+                $user -> password = Hash::make($password);
             }
         }
         $user -> save();

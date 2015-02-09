@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration {
             $table->string('password', 60);
             $table->string('confirmation_code');
             $table->string('remember_token')->nullable();
-            $table->boolean('confirmed')->default(false);
+            $table->boolean('confirmed')->default(false);            
 			$table->timestamps();
 		});
 	}

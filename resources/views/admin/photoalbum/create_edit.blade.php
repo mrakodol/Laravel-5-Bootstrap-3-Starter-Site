@@ -33,7 +33,7 @@
 				<div class="col-md-12">
 					<label class="control-label" for="name"> {{ Lang::get("admin/modal.title") }}</label>
 					<input class="form-control" type="text" name="name" id="name" value="{{{ Input::old('name', isset($photoalbum) ? $photoalbum->name : null) }}}" />
-					{!!$errors->first('title', '<span class="help-block">:message </span>')!!}
+					{!!$errors->first('title', '<label class="control-label">:message</label>')!!}
 				</div>
 			</div>
 			<div class="form-group">

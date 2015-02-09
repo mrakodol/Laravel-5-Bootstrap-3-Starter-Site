@@ -22,7 +22,7 @@
 		<!-- General tab -->
 		<div class="tab-pane active" id="tab-general">
             <div class="tab-pane active" id="tab-general">
-                <div class="form-group {{{ $errors->has('language_id') ? 'error' : '' }}}">
+                <div class="form-group {{{ $errors->has('language_id') ? 'has-error' : '' }}}">
                 <div class="col-md-12">
                     <label class="control-label" for="language_id">{{ Lang::get("admin/admin.language") }}</label>
                     <select style="width: 100%"name="language_id" id="language_id" class="form-control">

@@ -3,11 +3,11 @@
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Input;
 use App\Language;
-use Bllim\Datatables\Facade\Datatables;
 use App\Http\Requests\Admin\LanguageRequest;
 use App\Http\Requests\Admin\DeleteRequest;
 use App\Http\Requests\Admin\ReorderRequest;
 use Illuminate\Support\Facades\Auth;
+use Datatables;
 
 class LanguageController extends AdminController {
     /**

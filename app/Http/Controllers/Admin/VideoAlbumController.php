@@ -3,12 +3,12 @@
 use App\VideoAlbum;
 use App\Language;
 use App\Http\Controllers\AdminController;
-use Bllim\Datatables\Facade\Datatables;
 use App\Http\Requests\Admin\PhotoAlbumRequest;
 use App\Http\Requests\Admin\DeleteRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Admin\ReorderRequest;
 use Illuminate\Support\Facades\File;
+use Datatables;
 
 class VideoAlbumController extends AdminController {
 

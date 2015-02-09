@@ -36,7 +36,7 @@
 					{!!$errors->first('name', '<span class="help-block">:message </span>')!!}
 				</div>
 			</div>
-			<div class="form-group {{{ $errors->has('photo_album_id') ? 'error' : '' }}}">
+			<div class="form-group {{{ $errors->has('photo_album_id') ? 'has-error' : '' }}}">
                 <div class="col-md-12">
                     <label class="control-label" for="video_album_id">{{ Lang::get("admin/video.album") }}</label>
                     <select style="width: 100%"name="video_album_id" id="video_album_id" class="form-control">
@@ -52,7 +52,7 @@
                         </select>
                 </div>
             </div>
-           <div class="form-group {{{ $errors->has('album_cover') ? 'error' : '' }}}">
+           <div class="form-group {{{ $errors->has('album_cover') ? 'has-error' : '' }}}">
                 <div class="col-lg-12">
                     <label class="control-label" for="album_cover">{{{ Lang::get('admin/photo.album_cover') }}}</label>
                     <label class="radio">
@@ -70,7 +70,7 @@
                 <div class="col-md-12">
                     <label class="control-label" for="description">{{ Lang::get("admin/photo.description") }}</label>
                     <textarea class="form-control full-width wysihtml5" name="description" rows="10">{{{ Input::old('content', isset($video) ? $video->description : null) }}}</textarea>
-                    {{{ $errors->first('description', '<span class="help-block">:message</span>') }}}
+                    {!! $errors->first('description', '<label class="control-label">:message</label>') !!}
                 </div>
             </div>
             <div class="form-group">

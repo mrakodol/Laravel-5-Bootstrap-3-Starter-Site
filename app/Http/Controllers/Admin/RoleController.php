@@ -4,9 +4,9 @@ use App\Http\Controllers\AdminController;
 use App\Role;
 use App\Permission;
 use App\PermissionRole;
-use Bllim\Datatables\Facade\Datatables;
 use App\Http\Requests\Admin\RoleRequest;
 use App\Http\Requests\Admin\DeleteRequest;
+use Datatables;
 
 class RoleController extends AdminController {
     /*

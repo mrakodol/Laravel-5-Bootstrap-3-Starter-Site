@@ -4,12 +4,12 @@ use App\Http\Controllers\AdminController;
 use App\News;
 use App\NewsCategory;
 use App\Language;
-use Bllim\Datatables\Facade\Datatables;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests\Admin\NewsRequest;
 use App\Http\Requests\Admin\DeleteRequest;
 use App\Http\Requests\Admin\ReorderRequest;
 use Illuminate\Support\Facades\Auth;
+use Datatables;
 
 class NewsController extends AdminController {
 

@@ -4,13 +4,13 @@ use App\Http\Controllers\AdminController;
 use App\Video;
 use App\VideoAlbum;
 use App\Language;
-use Bllim\Datatables\Facade\Datatables;
 use App\Http\Requests\Admin\VideoRequest;
 use App\Http\Requests\Admin\ReorderRequest;
 use App\Http\Requests\Admin\DeleteRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
+use Datatables;
 
 class VideoController extends AdminController {
 

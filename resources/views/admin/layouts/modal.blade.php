@@ -80,12 +80,13 @@
 						// Optionally alert the user of success here...
 						setTimeout(function() 
 					        {
-					            //parent.$.colorbox.close();
-					            //window.parent.location.reload();
+					            parent.$.colorbox.close();
+					            window.parent.location.reload();
 					        }, 10);
 						
 					}).fail(function() {
 						// Optionally alert the user of an error here...
+						alert("There was an error with form data!");
 					});
 					//event.preventDefault();
 					// Prevent the form from submitting via the browser.

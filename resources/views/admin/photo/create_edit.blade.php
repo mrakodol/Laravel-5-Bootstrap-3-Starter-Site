@@ -22,7 +22,7 @@
 		<!-- General tab -->
 		<div class="tab-pane active" id="tab-general">
             <div class="tab-pane active" id="tab-general">
-                <div class="form-group {{{ $errors->has('language_id') ? 'error' : '' }}}">
+                <div class="form-group {{{ $errors->has('language_id') ? 'has-error' : '' }}}">
                 <div class="col-md-12">
                     <label class="control-label" for="language_id">{{ Lang::get("admin/admin.language") }}</label>
                     <select style="width: 100%"name="language_id" id="language_id" class="form-control">
@@ -61,7 +61,7 @@
                         </select>
                 </div>
             </div>
-            <div class="form-group {{{ $errors->has('slider') ? 'error' : '' }}}">
+            <div class="form-group {{{ $errors->has('slider') ? 'has-error' : '' }}}">
                 <div class="col-lg-12">
                     <label class="control-label" for="slider">{{{ Lang::get('admin/photo.slider') }}}</label>
                     <label class="radio">
@@ -75,7 +75,7 @@
 
                 </div>
             </div>
-            <div class="form-group {{{ $errors->has('album_cover') ? 'error' : '' }}}">
+            <div class="form-group {{{ $errors->has('album_cover') ? 'has-error' : '' }}}">
                 <div class="col-lg-12">
                     <label class="control-label" for="album_cover">{{{ Lang::get('admin/photo.album_cover') }}}</label>
                     <label class="radio">
@@ -84,7 +84,7 @@
                         </label>
                         <label class="radio">
                         {!! Form::radio('album_cover', 0, (Input::old('album_cover') == '0' || (isset($photo) && $photo->album_cover == '0') || !isset($photo)) ? true : false, array('id'=>'showtitle', 'class'=>'radio')) !!}
-                        {{{ Lang::get('admin/admin.no') }}}
+                        {!! Lang::get('admin/admin.no') !!}
                     </label>
 
                 </div>
@@ -93,7 +93,7 @@
                 <div class="col-md-12">
                     <label class="control-label" for="description">{{ Lang::get("admin/photo.description") }}</label>
                     <textarea class="form-control full-width wysihtml5" name="description" rows="10">{{{ Input::old('content', isset($photo) ? $photo->description : null) }}}</textarea>
-                    {{{ $errors->first('description', '<span class="help-block">:message</span>') }}}
+                    {!! $errors->first('description', '<label class="control-label">:message</label>') !!}
                 </div>
             </div>
 

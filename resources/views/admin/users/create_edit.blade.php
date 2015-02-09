@@ -19,30 +19,30 @@
 			</div>
 			@if(!isset($user))
                 <div class="col-md-12">
-                <div class="form-group {{{ $errors->has('email') ? 'error' : '' }}}">
+                <div class="form-group {{{ $errors->has('email') ? 'has-error' : '' }}}">
                     <label class="col-md-2 control-label" for="email">{{ Lang::get('admin/users.email') }}</label>
                     <div class="col-md-10">
                         <input class="form-control" type="email" tabindex="4" placeholder="{{ Lang::get('admin/users.email') }}" name="email" id="email" value="{{{ Input::old('email', isset($user) ? $user->email : null) }}}" />
-                        {{{ $errors->first('email', '<span class="help-inline">:message</span>') }}}
+                        {!! $errors->first('email', '<label class="control-label" for="email">:message</label>')!!}
                     </div>
                 </div>
                 </div>
 			@endif
 			<div class="col-md-12">
-			<div class="form-group {{{ $errors->has('password') ? 'error' : '' }}}">
+			<div class="form-group {{{ $errors->has('password') ? 'has-error' : '' }}}">
 				<label class="col-md-2 control-label" for="password">{{ Lang::get('admin/users.password') }}</label>
 				<div class="col-md-10">
 					<input class="form-control"  tabindex="5" placeholder="{{ Lang::get('admin/users.password') }}" type="password" name="password" id="password" value="" />
-					{{{ $errors->first('password', '<span class="help-inline">:message</span>') }}}
+					{!!$errors->first('password', '<label class="control-label" for="password">:message</label>')!!}
 				</div>
 			</div>
 			</div>
 			<div class="col-md-12">
-			<div class="form-group {{{ $errors->has('password_confirmation') ? 'error' : '' }}}">
+			<div class="form-group {{{ $errors->has('password_confirmation') ? 'has-error' : '' }}}">
 				<label class="col-md-2 control-label" for="password_confirmation">{{ Lang::get('admin/users.password_confirmation') }}</label>
 				<div class="col-md-10">
 					<input class="form-control" type="password" tabindex="6" placeholder="{{ Lang::get('admin/users.password_confirmation') }}"  name="password_confirmation" id="password_confirmation" value="" />
-					{{{ $errors->first('password_confirmation', '<span class="help-inline">:message</span>') }}}
+					{!!$errors->first('password_confirmation', '<label class="control-label" for="password_confirmation">:message</label>')!!}
 				</div>
 			</div>
 			</div>
