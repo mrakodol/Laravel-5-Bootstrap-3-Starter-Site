@@ -78,7 +78,7 @@
                                     </div>
                                 </li>
                                 <li >
-                                    <a href="{{URL::to('admin/')}}" {{ (Request::is('admin/') ? ' class=active' : '') }}>
+                                    <a href="{{URL::to('admin/dashboard')}}" {{ (Request::is('admin/dashboard') ? ' class=active' : '') }}>
                                     <i class="fa fa-dashboard fa-fw"></i><span class="hidden-sm text"> Dashboard</span></a>
                                 </li>
                                 <li>
