@@ -13,6 +13,7 @@ class CreateVideoTable extends Migration {
 	public function up()
 	{
 		Schema::create( 'video', function(Blueprint $table){
+		    $table->engine = 'InnoDB';
 			$table->increments('id');
 			$table->unsignedInteger('language_id');
 			$table->foreign('language_id')->references('id')->on('language');

@@ -12,6 +12,7 @@ class CreatePhotoTable extends Migration {
 	public function up()
 	{
 		Schema::create( 'photo', function(Blueprint $table){
+		    $table->engine = 'InnoDB';
 			$table->increments('id');
 			$table->unsignedInteger('language_id');
 			$table->foreign('language_id')->references('id')->on('language');
