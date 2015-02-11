@@ -71,6 +71,7 @@
 			$(function() {
 				$('textarea').summernote({height: 250});
 				$('form').submit(function(event) {
+					event.preventDefault();
 					var form = $(this);
 					$.ajax({
 						type : form.attr('method'),
@@ -86,7 +87,7 @@
 						
 					}).fail(function() {
 						// Optionally alert the user of an error here...
-						alert("There was an error with form data!");
+						//alert("There was an error with form data!");
 					});
 					//event.preventDefault();
 					// Prevent the form from submitting via the browser.
