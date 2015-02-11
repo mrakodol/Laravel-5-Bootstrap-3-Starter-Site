@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use App\Http\Requests\Auth\LoginRequest as LoginRequest;
 use App\Http\Requests\Auth\RegisterRequest as RegisterRequest;
 use App\User as User;
+use App\AssignedRoles as IsAdminRoles;
 
 class AuthController extends Controller
 {
@@ -101,6 +102,15 @@ class AuthController extends Controller
     public function login(LoginRequest $request)
     {
         if ($this->auth->attempt($request->only('email', 'password'))) {
+            
+            $count = IsAdminRoles::join('permission_role','assigned_roles.role_id','=','permission_role.role_id')
+            ->join('permissions','permissions.id','=','permission_role.permission_id')
+            ->where('assigned_roles.user_id',$this->auth->id())
+            ->where('permissions.is_admin','1')
+            ->count();
+            if($count>0){
+                return redirect('admin/dashboard');
+            }
             return redirect('/');
         }
         
