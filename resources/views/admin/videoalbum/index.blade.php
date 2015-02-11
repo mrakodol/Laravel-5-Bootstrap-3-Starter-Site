@@ -1,37 +1,33 @@
-@extends('admin.layouts.default')
-
-{{-- Web site Title --}}
-@section('title')
-{{{ Lang::get("admin/videoalbum.videoalbum") }}} :: @parent
-@stop
-
-{{-- Content --}}
-@section('content')
+@extends('admin.layouts.default') {{-- Web site Title --}}
+@section('title') {{{ Lang::get("admin/videoalbum.videoalbum") }}} ::
+@parent @stop {{-- Content --}} @section('content')
 <div class="page-header">
-	<h3> {{{ Lang::get("admin/videoalbum.videoalbum") }}}
-	<div class="pull-right">
+	<h3>
+		{{{ Lang::get("admin/videoalbum.videoalbum") }}}
 		<div class="pull-right">
-            <a href="{{{ URL::to('admin/videoalbum/create') }}}" class="btn btn-sm  btn-primary iframe"><span class="glyphicon glyphicon-plus-sign"></span> {{{ Lang::get("admin/modal.new") }}}</a>
-        </div>
-	</div></h3>
+			<div class="pull-right">
+				<a href="{{{ URL::to('admin/videoalbum/create') }}}"
+					class="btn btn-sm  btn-primary iframe"><span
+					class="glyphicon glyphicon-plus-sign"></span> {{{
+					Lang::get("admin/modal.new") }}}</a>
+			</div>
+		</div>
+	</h3>
 </div>
 
 <table id="table" class="table table-striped table-hover">
 	<thead>
 		<tr>
 			<th>{{{ Lang::get("admin/modal.title") }}}</th>
-            <th>{{{ Lang::get("admin/admin.language") }}}</th>
-            <th>{{{ Lang::get("admin/videoalbum.numbers_of_items") }}}</th>
-            <th>{{{ Lang::get("admin/admin.created_at") }}}</th>
-            <th>{{{ Lang::get("admin/admin.action") }}}</th>
+			<th>{{{ Lang::get("admin/admin.language") }}}</th>
+			<th>{{{ Lang::get("admin/videoalbum.numbers_of_items") }}}</th>
+			<th>{{{ Lang::get("admin/admin.created_at") }}}</th>
+			<th>{{{ Lang::get("admin/admin.action") }}}</th>
 		</tr>
 	</thead>
 	<tbody></tbody>
 </table>
-@stop
-
-{{-- Scripts --}}
-@section('scripts')
+@stop {{-- Scripts --}} @section('scripts')
 <script type="text/javascript">
 	var oTable;
 	$(document).ready(function() {

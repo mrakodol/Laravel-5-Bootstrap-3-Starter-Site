@@ -1,19 +1,18 @@
-@extends('admin.layouts.default')
-
-{{-- Web site Title --}}
-@section('title')
-{{{ Lang::get("admin/users.users") }}} :: @parent
-@stop
-
-{{-- Content --}}
-@section('content')
+@extends('admin.layouts.default') {{-- Web site Title --}}
+@section('title') {{{ Lang::get("admin/users.users") }}} :: @parent
+@stop {{-- Content --}} @section('content')
 <div class="page-header">
-	<h3> {{{ Lang::get("admin/users.users") }}}
-	<div class="pull-right">
+	<h3>
+		{{{ Lang::get("admin/users.users") }}}
 		<div class="pull-right">
-            <a href="{{{ URL::to('admin/users/create') }}}" class="btn btn-sm  btn-primary iframe"><span class="glyphicon glyphicon-plus-sign"></span> {{ Lang::get("admin/modal.new") }}</a>
-        </div>
-	</div></h3>
+			<div class="pull-right">
+				<a href="{{{ URL::to('admin/users/create') }}}"
+					class="btn btn-sm  btn-primary iframe"><span
+					class="glyphicon glyphicon-plus-sign"></span> {{
+					Lang::get("admin/modal.new") }}</a>
+			</div>
+		</div>
+	</h3>
 </div>
 
 <table id="table" class="table table-striped table-hover">
@@ -22,16 +21,13 @@
 			<th>{{{ Lang::get("admin/users.name") }}}</th>
 			<th>{{{ Lang::get("admin/users.email") }}}</th>
 			<th>{{{ Lang::get("admin/users.activate_user") }}}</th>
-            <th>{{{ Lang::get("admin/admin.created_at") }}}</th>
-            <th>{{{ Lang::get("admin/admin.action") }}}</th>
+			<th>{{{ Lang::get("admin/admin.created_at") }}}</th>
+			<th>{{{ Lang::get("admin/admin.action") }}}</th>
 		</tr>
 	</thead>
 	<tbody></tbody>
 </table>
-@stop
-
-{{-- Scripts --}}
-@section('scripts')
+@stop {{-- Scripts --}} @section('scripts')
 <script type="text/javascript">
 	var oTable;
 	$(document).ready(function() {

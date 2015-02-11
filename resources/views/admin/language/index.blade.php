@@ -1,38 +1,33 @@
-@extends('admin.layouts.default')
-
-{{-- Web site Title --}}
-@section('title')
-{{{ Lang::get("admin/language.languages") }}} :: @parent
-@stop
-{{-- Content --}}
-@section('content')
+@extends('admin.layouts.default') {{-- Web site Title --}}
+@section('title') {{{ Lang::get("admin/language.languages") }}} ::
+@parent @stop {{-- Content --}} @section('content')
 <div class="page-header">
-		<h2>
-			{{{ Lang::get("admin/language.languages") }}}
+	<h2>
+		{{{ Lang::get("admin/language.languages") }}}
 
-			<div class="pull-right">
-				<a href="{{{ URL::to('admin/language/create') }}}" class="btn btn-sm  btn-primary iframe"><span class="glyphicon glyphicon-plus-sign"></span>  {{ Lang::get("admin/modal.new") }}</a>
-			</div>
-		</h2>
-	</div>
+		<div class="pull-right">
+			<a href="{{{ URL::to('admin/language/create') }}}"
+				class="btn btn-sm  btn-primary iframe"><span
+				class="glyphicon glyphicon-plus-sign"></span> {{
+				Lang::get("admin/modal.new") }}</a>
+		</div>
+	</h2>
+</div>
 
-	<table id="table" class="table table-striped table-hover">
-		<thead>
-			<tr>
-				<th> {{ Lang::get("admin/modal.title") }}</th>
-				<th>{{ Lang::get("admin/language.code") }}</th>
-				<th>{{ Lang::get("admin/language.icon") }}</th>
-				<th>{{ Lang::get("admin/admin.action") }}</th>
-			</tr>
-		</thead>
-		<tbody>
-		</tbody>
-	</table>
-@stop
-
-{{-- Scripts --}}
-@section('scripts')
-	<script type="text/javascript">
+<table id="table" class="table table-striped table-hover">
+	<thead>
+		<tr>
+			<th>{{ Lang::get("admin/modal.title") }}</th>
+			<th>{{ Lang::get("admin/language.code") }}</th>
+			<th>{{ Lang::get("admin/language.icon") }}</th>
+			<th>{{ Lang::get("admin/admin.action") }}</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+@stop {{-- Scripts --}} @section('scripts')
+<script type="text/javascript">
 		var oTable;
 		$(document).ready(function() {
 			oTable = $('#table').dataTable( {

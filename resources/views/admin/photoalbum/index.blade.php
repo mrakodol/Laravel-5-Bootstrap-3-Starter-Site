@@ -1,19 +1,18 @@
-@extends('admin.layouts.default')
-
-{{-- Web site Title --}}
-@section('title')
-{{{ Lang::get("admin/photoalbum.photoalbum") }}} :: @parent
-@stop
-
-{{-- Content --}}
-@section('content')
+@extends('admin.layouts.default') {{-- Web site Title --}}
+@section('title') {{{ Lang::get("admin/photoalbum.photoalbum") }}} ::
+@parent @stop {{-- Content --}} @section('content')
 <div class="page-header">
-	<h3> {{{ Lang::get("admin/photoalbum.photoalbum") }}}
-	<div class="pull-right">
+	<h3>
+		{{{ Lang::get("admin/photoalbum.photoalbum") }}}
 		<div class="pull-right">
-            <a href="{{{ URL::to('admin/photoalbum/create') }}}" class="btn btn-sm  btn-primary iframe"><span class="glyphicon glyphicon-plus-sign"></span> {{{ Lang::get("admin/modal.new") }}}</a>
-        </div>
-	</div></h3>
+			<div class="pull-right">
+				<a href="{{{ URL::to('admin/photoalbum/create') }}}"
+					class="btn btn-sm  btn-primary iframe"><span
+					class="glyphicon glyphicon-plus-sign"></span> {{{
+					Lang::get("admin/modal.new") }}}</a>
+			</div>
+		</div>
+	</h3>
 </div>
 
 <table id="table" class="table table-striped table-hover">
@@ -28,10 +27,7 @@
 	</thead>
 	<tbody></tbody>
 </table>
-@stop
-
-{{-- Scripts --}}
-@section('scripts')
+@stop {{-- Scripts --}} @section('scripts')
 <script type="text/javascript">
 	var oTable;
 	$(document).ready(function() {

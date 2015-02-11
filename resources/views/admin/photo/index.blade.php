@@ -1,18 +1,17 @@
-@extends('admin.layouts.default')
+@extends('admin.layouts.default') {{-- Web site Title --}}
+@section('title') {{{ Lang::get("admin/photo.photo") }}} @parent @stop
 
-{{-- Web site Title --}}
-@section('title')
- {{{ Lang::get("admin/photo.photo") }}}
-@parent
-@stop
-
-{{-- Content --}}
-@section('content')
+{{-- Content --}} @section('content')
 <div class="page-header">
-	<h3>  {{{ Lang::get("admin/photo.photo") }}}
-	<div class="pull-right">
-		<a href="{{{ URL::to('admin/photo/create') }}}"class="btn btn-sm  btn-primary iframe"><span class="glyphicon glyphicon-plus-sign"></span> {{ Lang::get("admin/modal.new") }}</a>
-	</div></h3>
+	<h3>
+		{{{ Lang::get("admin/photo.photo") }}}
+		<div class="pull-right">
+			<a href="{{{ URL::to('admin/photo/create') }}}"
+				class="btn btn-sm  btn-primary iframe"><span
+				class="glyphicon glyphicon-plus-sign"></span> {{
+				Lang::get("admin/modal.new") }}</a>
+		</div>
+	</h3>
 </div>
 
 <table id="table" class="table table-striped table-hover">
@@ -24,15 +23,12 @@
 			<th>{{{ Lang::get("admin/photo.slider") }}}</th>
 			<th>{{{ Lang::get("admin/admin.language") }}}</th>
 			<th>{{{ Lang::get("admin/admin.created_at") }}}</th>
-            <th>{{{ Lang::get("admin/admin.action") }}}</th>
+			<th>{{{ Lang::get("admin/admin.action") }}}</th>
 		</tr>
 	</thead>
 	<tbody></tbody>
 </table>
-@stop
-
-{{-- Scripts --}}
-@section('scripts')
+@stop {{-- Scripts --}} @section('scripts')
 <script type="text/javascript">
 	var oTable;
 	$(document).ready(function() {
