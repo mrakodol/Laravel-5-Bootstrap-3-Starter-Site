@@ -68,7 +68,7 @@ class VideoController extends AdminController {
         $video -> album_cover = $request->album_cover;
 
         if($request->youtube!="") {
-            $youtube = explode('http://www.youtube.com/watch?v=', $request->youtube);
+            $youtube = explode('?v=', $request->youtube);
             $video->youtube = rtrim($youtube[1]);
         }
         $video_file = "";
@@ -100,7 +100,7 @@ class VideoController extends AdminController {
         $video = Video::find($id);
         if($video ->youtube!="")
         {
-            $video->youtube = 'http://www.youtube.com/watch?v='.$video->youtube;
+            $video->youtube = 'https://www.youtube.com/watch?v='.$video->youtube;
         }
         $languages = Language::all();
         $language = $video->language_id;
@@ -128,7 +128,7 @@ class VideoController extends AdminController {
         $video -> album_cover = $request->album_cover;
 
         if($request->youtube!="") {
-            $youtube = explode('http://www.youtube.com/watch?v=', $request->youtube);
+            $youtube = explode('?v=', $request->youtube);
             $video->youtube = rtrim($youtube[1]);
         }
 
