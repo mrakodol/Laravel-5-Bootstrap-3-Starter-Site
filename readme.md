@@ -72,7 +72,7 @@ On Windows, you can use the Composer [Windows installer](https://getcomposer.org
 
 Then run:
 
-    composer install --dev
+    composer install
 to install dependencies Laravel and other packages.
 
 -----
