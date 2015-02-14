@@ -17,7 +17,7 @@ class EntrustSetupTables extends Migration {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name');
-            $table -> boolean('is_admin')->nullable()->default(0);
+            $table -> boolean('is_admin')->default(0);
             $table->timestamps();
         });
 
@@ -26,11 +26,11 @@ class EntrustSetupTables extends Migration {
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('user_id')->unsigned()->index();
-            $table->integer('role_id')->unsigned()->index();
-            $table->timestamps();
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('role_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

@@ -18,7 +18,7 @@ class EntrustPermissions extends Migration {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name')->unique();
-            $table->string('display_name')->unique();
+            $table->string('display_name');
 			$table->boolean('is_admin');
             $table->timestamps();
         });
@@ -28,11 +28,11 @@ class EntrustPermissions extends Migration {
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('permission_id')->unsigned()->index();
-            $table->integer('role_id')->unsigned()->index();
-            $table->timestamps();
+            $table->unsignedInteger('permission_id');
+            $table->unsignedInteger('role_id');
             $table->foreign('permission_id')->references('id')->on('permissions')->onDelete('cascade');
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
