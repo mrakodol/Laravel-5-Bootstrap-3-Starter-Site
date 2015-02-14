@@ -88,7 +88,7 @@ If you don't set that registration will fail because it cannot send the confirma
 
 If you finished first three steps, now you can create database on your database server(MySQL). You must create database
 with utf-8 collation(uft8_general_ci), to install and application work perfectly.
-After that setup ***config/database.php*** default database connection name and database connection. If you using MySQL than you do not need change default database connection name, only database connection, put name database, database username and password.
+After that, copy .env.example and rename it as .env and put connection and change default database connection name, only database connection, put name database, database username and password.
 
 -----
 <a name="step5"></a>
