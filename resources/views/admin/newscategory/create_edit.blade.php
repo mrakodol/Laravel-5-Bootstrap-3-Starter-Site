@@ -34,8 +34,7 @@
 						</select>
 					</div>
 				</div>
-				<div
-					class="form-group {{{ $errors->has('title') ? 'has-error' : '' }}}">
+				<div class="form-group {{{ $errors->has('title') ? 'has-error' : '' }}}">
 					<div class="col-md-12">
 						<label class="control-label" for="title"> {{
 							Lang::get("admin/modal.title") }}</label> <input
@@ -63,9 +62,12 @@
 					Lang::get("admin/modal.reset") }}
 				</button>
 				<button type="submit" class="btn btn-sm btn-success">
-					<span class="glyphicon glyphicon-ok-circle"></span> @if
-					(isset($newscategory)) {{ Lang::get("admin/modal.edit") }} @else {{
-					Lang::get("admin/modal.create") }} @endif
+					<span class="glyphicon glyphicon-ok-circle"></span> 
+					@if
+					   (isset($newscategory)) {{ Lang::get("admin/modal.edit") }} 
+					@else 
+					   {{Lang::get("admin/modal.create") }} 
+				    @endif
 				</button>
 			</div>
 		</div>

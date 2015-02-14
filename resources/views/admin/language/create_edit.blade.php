@@ -54,9 +54,12 @@
 				Lang::get("admin/modal.reset") }}
 			</button>
 			<button type="submit" class="btn btn-sm btn-success">
-				<span class="glyphicon glyphicon-ok-circle"></span> @if
-				(isset($language)) {{ Lang::get("admin/modal.edit") }} @else {{
-				Lang::get("admin/modal.create") }} @endif
+				<span class="glyphicon glyphicon-ok-circle"></span> 
+				@if (isset($language)) 
+				    {{ Lang::get("admin/modal.edit") }} 
+				@else 
+				    {{Lang::get("admin/modal.create") }} 
+			     @endif
 			</button>
 		</div>
 	</div>
