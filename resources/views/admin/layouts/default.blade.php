@@ -56,7 +56,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="{!!URL::to('/admin')!!}">Administration</a>
+				<a class="navbar-brand" href="{!!URL::to('/admin/dashboard')!!}">Administration</a>
 			</div>
 			<ul class="nav navbar-top-links navbar-right">
 				<li class="dropdown"><a class="btn account dropdown-toggle"
