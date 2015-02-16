@@ -7,6 +7,7 @@ return [
     'password' =>  'Password',
     'password_confirmation' => 'Password confirmation',
     'activate_user' => 'Activate user',
+    'active_user' => 'Active user',
     'yes' => 'Yes',
     'no' => 'No',
     'roles' => 'Roles',
