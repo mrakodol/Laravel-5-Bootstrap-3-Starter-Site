@@ -63,11 +63,11 @@
 				</button>
 				<button type="submit" class="btn btn-sm btn-success">
 					<span class="glyphicon glyphicon-ok-circle"></span> 
-					@if
-					   (isset($newscategory)) {{ Lang::get("admin/modal.edit") }} 
+					@if (isset($newscategory)) 
+						{{ Lang::get("admin/modal.edit") }} 
 					@else 
-					   {{Lang::get("admin/modal.create") }} 
-				    @endif
+						{{Lang::get("admin/modal.create") }} 
+				    	@endif
 				</button>
 			</div>
 		</div>
