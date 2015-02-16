@@ -7,6 +7,7 @@ return [
     'password' =>  'Lozinka',
     'password_confirmation' => 'Ponovljena lozinka',
     'activate_user' => 'Aktivan korisnik',
+    'active_user' => 'Aktivan korisnik',
     'yes' => 'Da',
     'no' => 'Ne',
     'roles' => 'Uloge',
