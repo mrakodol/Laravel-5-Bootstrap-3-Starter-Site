@@ -20,7 +20,7 @@
 		<tr>
 			<th>{{{ Lang::get("admin/users.name") }}}</th>
 			<th>{{{ Lang::get("admin/users.email") }}}</th>
-			<th>{{{ Lang::get("admin/users.activate_user") }}}</th>
+			<th>{{{ Lang::get("admin/users.active_user") }}}</th>
 			<th>{{{ Lang::get("admin/admin.created_at") }}}</th>
 			<th>{{{ Lang::get("admin/admin.action") }}}</th>
 		</tr>
