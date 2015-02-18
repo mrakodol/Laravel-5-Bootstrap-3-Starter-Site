@@ -6,7 +6,8 @@
 <form class="form-horizontal" enctype="multipart/form-data"
 	method="post"
 	action="@if(isset($video)){{ URL::to('admin/video/'.$video->id.'/edit') }}
-	        @else{{ URL::to('admin/video/create') }}@endif"
+	        @else {{ URL::to('admin/video/create') }}
+	        @endif"
 	autocomplete="off">
 	<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 	<div class="tab-content">
@@ -22,7 +23,9 @@
 							<option value="{{$item->id}}"
 								@if(!empty($language))
                                         @if($item->id==$language)
-								selected="selected" @endif @endif >{{$item->name}}</option>
+								            selected="selected" 
+								        @endif 
+								@endif >{{$item->name}}</option>
 							@endforeach
 						</select>
 					</div>
@@ -43,11 +46,14 @@
 						<label class="control-label" for="video_album_id">{{
 							Lang::get("admin/video.album") }}</label> <select
 							style="width: 100%" name="video_album_id" id="video_album_id"
-							class="form-control"> @foreach($videoalbums as $item)
+							class="form-control"> 
+							@foreach($videoalbums as $item)
 							<option value="{{$item->id}}"
 								@if(!empty($videoalbum))
                                         @if($item->id==$videoalbum)
-								selected="selected" @endif @endif >{{$item->name}}</option>
+								            selected="selected" 
+								        @endif 
+								@endif >{{$item->name}}</option>
 							@endforeach
 						</select>
 					</div>
@@ -56,16 +62,16 @@
 					class="form-group {{{ $errors->has('album_cover') ? 'has-error' : '' }}}">
 					<div class="col-lg-12">
 						<label class="control-label" for="album_cover">{{{
-							Lang::get('admin/photo.album_cover') }}}</label> <label
-							class="radio"> {!! Form::radio('album_cover', 1,
-							(Input::old('album_cover') == '1' || (isset($video) &&
-							$video->video_album_cover == '1')) ? true : false,
-							array('id'=>'showtitle', 'class'=>'radio')) !!} {{{
-							Lang::get('admin/admin.yes') }}} </label> <label class="radio">
-							{!! Form::radio('album_cover', 0, (Input::old('album_cover') ==
-							'0' || (isset($video) && $video->video_album_cover == '0') ||
+							Lang::get('admin/photo.album_cover') }}}</label> 
+							<label 	class="radio"> {!! Form::radio('album_cover', 1, (Input::old('album_cover') == '1' || (isset($video) &&
+							     $video->video_album_cover == '1')) ? true : false,
+							         array('id'=>'showtitle', 'class'=>'radio')) !!} 
+							{{{	Lang::get('admin/admin.yes') }}} </label> 
+							<label class="radio">
+							{!! Form::radio('album_cover', 0, (Input::old('album_cover') ==	'0' || (isset($video) && $video->video_album_cover == '0') ||
 							!isset($video)) ? true : false, array('id'=>'showtitle',
-							'class'=>'radio')) !!} {{{ Lang::get('admin/admin.no') }}} </label>
+							'class'=>'radio')) !!} 
+							{{{ Lang::get('admin/admin.no') }}} </label>
 
 					</div>
 				</div>
@@ -76,8 +82,7 @@
 							Lang::get("admin/photo.description") }}</label>
 						<textarea class="form-control full-width wysihtml5"
 							name="description" rows="10">{{{ Input::old('content', isset($video) ? $video->description : null) }}}</textarea>
-						{!! $errors->first('description', '<label class="control-label">:message</label>')
-						!!}
+						{!! $errors->first('description', '<label class="control-label">:message</label>')!!}
 					</div>
 				</div>
 				<div class="form-group">

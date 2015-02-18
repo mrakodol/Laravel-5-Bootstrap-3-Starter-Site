@@ -31,14 +31,13 @@ Demo is here http://l5start.mrakodol.info/
 	* View Video,Photos,News
 	* soon will be more...
 * Packages included:
-	* JeffreyWay Laravel 4 Generators
 	* Datatables Bundle
 
 -----
 <a name="feature2"></a>
 ##Requirements
 
-	PHP >= 5.4.0 (Entrust requires 5.4, this is an increase over Laravel's 5.3.7 requirement)
+	PHP >= 5.4.0
 	MCrypt PHP Extension
 	Enable creating triger in database
 	SQL server(for example MySQL)
