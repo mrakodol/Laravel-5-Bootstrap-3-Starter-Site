@@ -36,6 +36,8 @@ class HomeController extends BaseController {
 
     public function index()
 	{
+	    $tbpfx = DB::getTablePrefix();
+	    
         $news = $this->news->orderBy('position', 'DESC')->orderBy('created_at', 'DESC')->limit(4)->get();
         $sliders = Photo::join('photo_album', 'photo_album.id','=','photo.photo_album_id')
                         ->where('photo.slider',1)
