@@ -31,7 +31,11 @@ class Thumbnail {
 			$thumbnail_image_width = $thumbnail_with;
 			$thumbnail_image_height = (int)($thumbnail_height / $source_aspect_ratio);
 		}
-		$thumbnail_gd_image = imagecreatetruecolor($thumbnail_image_width, $thumbnail_image_height);
+	    $thumbnail_directory = dirname($thumbnail_image_path);
+        if(!file_exists($thumbnail_directory)) {
+            mkdir($thumbnail_directory);
+        }
+        $thumbnail_gd_image = imagecreatetruecolor($thumbnail_image_width, $thumbnail_image_height);
 		imagecopyresampled($thumbnail_gd_image, $source_gd_image, 0, 0, 0, 0, $thumbnail_image_width, $thumbnail_image_height, $source_image_width, $source_image_height);
 		imagejpeg($thumbnail_gd_image, $thumbnail_image_path, 90);
 		imagedestroy($source_gd_image);

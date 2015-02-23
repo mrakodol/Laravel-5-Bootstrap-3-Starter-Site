@@ -72,9 +72,9 @@ class VideoController extends AdminController {
             $video->youtube = rtrim($youtube[1]);
         }
         $video_file = "";
-        if(Input::hasFile('video'))
+        if($request->hasFile('video'))
         {
-            $file = Input::file('video');
+            $file = $request->file('video');
             $filename = $file->getClientOriginalName();
             $extension = $file -> getClientOriginalExtension();
             $video_file = sha1($filename . time()) . '.' . $extension;
@@ -82,11 +82,11 @@ class VideoController extends AdminController {
         }
         $video -> save();
 
-        if(Input::hasFile('video'))
+        if($request->hasFile('video'))
         {
             $videoalbum = VideoAlbum::find($request->video_album_id);
-            $destinationPath = public_path() . '/images/videoalbum/'.$videoalbum->folderid.'/';
-            Input::file('video')->move($destinationPath, $video_file);
+            $destinationPath = public_path() . '/appfiles/videoalbum/'.$videoalbum->folderid.'/';
+            $request->file('video')->move($destinationPath, $video_file);
         }
     }
     /**
@@ -121,7 +121,6 @@ class VideoController extends AdminController {
         $video = Video::find($id);
         $video -> user_id = Auth::id();
         $video -> language_id = $request->language_id;
-        $video -> language_id = $request->language_id;
         $video -> name = $request->name;
         $video -> video_album_id = $request->video_album_id;
         $video -> description = $request->description;
@@ -133,9 +132,9 @@ class VideoController extends AdminController {
         }
 
         $video_file = $video->filename;
-        if(Input::hasFile('video'))
+        if($request->hasFile('video'))
         {
-            $file = Input::file('video');
+            $file = $request->file('video');
             $filename = $file->getClientOriginalName();
             $extension = $file -> getClientOriginalExtension();
             $video_file = sha1($filename . time()) . '.' . $extension;
@@ -143,11 +142,11 @@ class VideoController extends AdminController {
         }
         $video -> save();
 
-        if(Input::hasFile('video'))
+        if($request->hasFile('video'))
         {
             $videoalbum = VideoAlbum::find($request->video_album_id);
-            $destinationPath = public_path() . '/images/videoalbum/'.$videoalbum->folderid.'/';
-            Input::file('video')->move($destinationPath, $video_file);
+            $destinationPath = public_path() . '/appfiles/videoalbum/'.$videoalbum->folderid.'/';
+            $request->file('video')->move($destinationPath, $video_file);
         }
     }
 

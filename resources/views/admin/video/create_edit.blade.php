@@ -3,7 +3,7 @@
 	<li class="active"><a href="#tab-general" data-toggle="tab"> {{
 			Lang::get("admin/modal.general") }}</a></li>
 </ul>
-<form class="form-horizontal" enctype="multipart/form-data"
+<form class="form-horizontal" id="fupload" enctype="multipart/form-data"
 	method="post"
 	action="@if(isset($video)){{ URL::to('admin/video/'.$video->id.'/edit') }}
 	        @else {{ URL::to('admin/video/create') }}

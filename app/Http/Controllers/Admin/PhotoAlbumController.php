@@ -48,10 +48,7 @@ class PhotoAlbumController extends AdminController {
         $photoalbum -> name = $request->name;
         $photoalbum -> description = $request->description;
         $photoalbum -> folderid = sha1($request -> name . time());
-        if ($photoalbum -> save()) {
-            File::makeDirectory(public_path() . '/images/photoalbum/' . $photoalbum -> folderid);
-            File::makeDirectory(public_path() . '/images/photoalbum/' . $photoalbum -> folderid . '/thumbs');
-        }
+        $photoalbum -> save();
     }
     /**
      * Show the form for editing the specified resource.

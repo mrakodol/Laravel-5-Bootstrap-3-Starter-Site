@@ -6,7 +6,7 @@
 </ul>
 <!-- ./ tabs -->
 {{-- Edit Blog Form --}}
-<form class="form-horizontal" enctype="multipart/form-data"
+<form class="form-horizontal" id="fupload" enctype="multipart/form-data"
 	method="post"
 	action="@if(isset($photo)){{ URL::to('admin/photo/'.$photo->id.'/edit') }}
 	        @else{{ URL::to('admin/photo/create') }}@endif"
@@ -105,11 +105,11 @@
 				</div>
 
 				<div
-					class="form-group {{{ $errors->has('picture') ? 'error' : '' }}}">
+					class="form-group {{{ $errors->has('image') ? 'error' : '' }}}">
 					<div class="col-lg-12">
-						<label class="control-label" for="picture">{{
-							Lang::get("admin/photo.picture") }}</label> <input name="picture"
-							type="file" class="uploader" id="picture" value="Upload" />
+						<label class="control-label" for="image">{{
+							Lang::get("admin/photo.picture") }}</label> <input name="image"
+							type="file" class="uploader" id="image" value="Upload" />
 					</div>
 
 				</div>
