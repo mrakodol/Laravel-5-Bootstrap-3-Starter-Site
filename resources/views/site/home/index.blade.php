@@ -73,10 +73,10 @@
 			<a href="{{URL::to('photo/'.$item->id.'/item')}}"
 				class="hover-effect"> @if($item->album_image!="") <img
 				class="col-sm-12"
-				src="{!!'images/photoalbum/'.$item->folderid.'/thumbs/'.$item->album_image !!}">
+				src="{!!'appfiles/photoalbum/'.$item->folderid.'/thumbs/'.$item->album_image !!}">
 				@elseif($item->album_image_first!="") <img class="col-sm-12"
-				src="{!!'images/photoalbum/'.$item->folderid.'/thumbs/'.$item->album_image_first !!}">
-				@else <img class="col-sm-12" src="{!!'images/default-image.png' !!}">
+				src="{!!'appfiles/photoalbum/'.$item->folderid.'/thumbs/'.$item->album_image_first !!}">
+				@else <img class="col-sm-12" src="{!!'appfiles/photoalbum/default-image.jpg' !!}">
 				@endif
 			</a>
 			<div class=" col-sm-12">{!!$item->name!!}</div>
@@ -91,7 +91,7 @@
 				src="{{{'http://img.youtube.com/vi/'.$item->album_image.'/hqdefault.jpg' }}}">
 				@elseif($item->album_image_first!="") <img class="col-sm-12"
 				src="{{{'http://img.youtube.com/vi/'.$item->album_image_first.'/hqdefault.jpg' }}}">
-				@else <img class="col-sm-12" src="{{'images/default-image.png' }}">
+				@else <img class="col-sm-12" src="{{'appfiles/photoalbum/default-image.jpg' }}">
 				@endif
 			</a>
 			<div class=" col-sm-12">{!!$item->name!!}</div>

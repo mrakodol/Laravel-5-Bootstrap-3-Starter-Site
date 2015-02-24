@@ -212,8 +212,10 @@ class PhotoController extends AdminController {
 		    ->join('photo_album', 'photo_album.id', '=', 'photo.photo_album_id')
             ->where('photo.photo_album_id',$condition,$albumid)
             ->orderBy('photo.position')
-		    ->select(array('photo.id',DB::raw($albumid . ' as albumid'), 'photo.name','photo_album.name as category','photo.album_cover','photo.slider',
-                'language.name as language', 'photo.created_at'));
+		    ->select(array('photo.id',DB::raw($albumid . ' as albumid'), DB::getTablePrefix().'photo.name',
+		        'photo_album.name as category',DB::getTablePrefix().'photo.album_cover',
+		        DB::getTablePrefix().'photo.slider',
+                'language.name as language', DB::getTablePrefix().'photo.created_at'));
 
 		return Datatables::of($photoalbum)
             -> edit_column('album_cover', '<a href="{{{ URL::to(\'admin/photo/\' . $id . \'/\' . $albumid . \'/albumcover\' ) }}}" class="btn btn-warning btn-sm" >@if ($album_cover=="1") <span class="glyphicon glyphicon-ok"></span> @else <span class=\'glyphicon glyphicon-remove\'></span> @endif</a>')

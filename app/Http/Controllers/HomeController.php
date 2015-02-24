@@ -57,8 +57,8 @@ class HomeController extends BaseController
             'photo_album.name',
             'photo_album.description',
             'photo_album.folderid',
-            DB::raw('(select filename from photo WHERE album_cover=TRUE and photo.photo_album_id=photo_album.id) AS album_image'),
-            DB::raw('(select filename from photo WHERE photo.photo_album_id=photo_album.id ORDER BY position ASC, id ASC LIMIT 1) AS album_image_first')
+            DB::raw('(select filename from '.DB::getTablePrefix().'photo WHERE album_cover=TRUE and '.DB::getTablePrefix().'photo.photo_album_id='.DB::getTablePrefix().'photo_album.id) AS album_image'),
+            DB::raw('(select filename from '.DB::getTablePrefix().'photo WHERE '.DB::getTablePrefix().'photo.photo_album_id='.DB::getTablePrefix().'photo_album.id ORDER BY position ASC, id ASC LIMIT 1) AS album_image_first')
         ))->limit(8)->get();
         
         $videoalbums = VideoAlbum::select(array(
@@ -66,8 +66,8 @@ class HomeController extends BaseController
             'video_album.name',
             'video_album.description',
             'video_album.folderid',
-            DB::raw('(select youtube from video as v WHERE album_cover=TRUE and v.video_album_id=video_album.id) AS album_image'),
-            DB::raw('(select youtube from video WHERE video.video_album_id=video_album.id ORDER BY position ASC, id ASC LIMIT 1) AS album_image_first')
+            DB::raw('(select youtube from '.DB::getTablePrefix().'video as v WHERE album_cover=TRUE and v.video_album_id='.DB::getTablePrefix().'video_album.id) AS album_image'),
+            DB::raw('(select youtube from '.DB::getTablePrefix().'video WHERE '.DB::getTablePrefix().'video.video_album_id='.DB::getTablePrefix().'video_album.id ORDER BY position ASC, id ASC LIMIT 1) AS album_image_first')
         ))->limit(8)->get();
         
         return view('site.home.index', compact('news', 'sliders', 'videoalbums', 'photoalbums'));
