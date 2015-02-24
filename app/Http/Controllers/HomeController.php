@@ -57,7 +57,7 @@ class HomeController extends BaseController
             'photo_album.name',
             'photo_album.description',
             'photo_album.folderid',
-            DB::raw('(select filename from photo WHERE album_cover=1 and photo.photo_album_id=photo_album.id) AS album_image'),
+            DB::raw('(select filename from photo WHERE album_cover=TRUE and photo.photo_album_id=photo_album.id) AS album_image'),
             DB::raw('(select filename from photo WHERE photo.photo_album_id=photo_album.id ORDER BY position ASC, id ASC LIMIT 1) AS album_image_first')
         ))->limit(8)->get();
         
@@ -66,7 +66,7 @@ class HomeController extends BaseController
             'video_album.name',
             'video_album.description',
             'video_album.folderid',
-            DB::raw('(select youtube from video as v WHERE album_cover=1 and v.video_album_id=video_album.id) AS album_image'),
+            DB::raw('(select youtube from video as v WHERE album_cover=TRUE and v.video_album_id=video_album.id) AS album_image'),
             DB::raw('(select youtube from video WHERE video.video_album_id=video_album.id ORDER BY position ASC, id ASC LIMIT 1) AS album_image_first')
         ))->limit(8)->get();
         
