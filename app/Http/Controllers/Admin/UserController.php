@@ -45,8 +45,8 @@ class UserController extends AdminController {
         $user = new User ();
         $user -> name = $request->name;
         $user -> email = $request->email;
-        $user -> password = $request->password;
-        $user -> confirmation_code = $request->password;
+        $user -> password = Hash::make($request->password);
+        $user -> confirmation_code = str_random(32);
         $user -> confirmed = $request->confirmed;
         $user -> save();
         foreach($request->roles as $item)
