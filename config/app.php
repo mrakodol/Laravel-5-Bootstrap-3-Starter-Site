@@ -147,6 +147,8 @@ return [
 	    
 	    'yajra\Datatables\DatatablesServiceProvider',
 
+		'Laracasts\Generators\GeneratorsServiceProvider',
+
 	],
 
 	/*
