@@ -3,8 +3,11 @@
   "description" : "The Laravel Framework.",
   "require" : {
     "laravel/framework" : "5.0.*",
-    "illuminate/html" : "5.0.*",
-    "yajra/laravel-datatables-oracle" : ">=v4.0.1"
+    "illuminate/html" : "~5.0",
+    "yajra/laravel-datatables-oracle" : ">=v4.0.1",
+    "doctrine/dbal": "~2.5",
+    "laracasts/testdummy": "~2.0",
+    "laracasts/flash": "~1.3"
   },
   "require-dev" : {
     "phpunit/phpunit" : "~4.0",

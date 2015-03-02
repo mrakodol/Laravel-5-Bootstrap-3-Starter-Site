@@ -11,9 +11,12 @@
 |
 */
 
-//Route::get('/', 'WelcomeController@index');
-Route::get('/', 'HomeController@index');
-Route::get('home', 'HomeController@index');
+Route::get('/', 'PagesController@home');
+Route::get('home', 'PagesController@home');
+Route::get('about', 'PagesController@about');
+Route::get('contact', 'PagesController@contact');
+
+Route:resource('articles', 'ArticlesController');
 
 Route::pattern('id', '[0-9]+');
 Route::get('news/{id}/item', 'NewsController@item');

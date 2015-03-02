@@ -37,7 +37,7 @@ class RedirectIfAuthenticated {
 		if ($this->auth->check())
 		{
 		    Session::flush();
-			return new RedirectResponse(url('/'));
+			return new RedirectResponse(url('/home'));
 		}
 
 		return $next($request);
