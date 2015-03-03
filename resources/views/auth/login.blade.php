@@ -1,48 +1,63 @@
-@extends('site.layouts.default') {{-- Web site Title --}}
-@section('title') {{{ Lang::get('site/user.login') }}} :: @parent @stop
+@extends('app')
 
-{{-- Content --}} @section('content')
-<div class="page-header">
-	<h1>{{{ Lang::get('site/user.login_to_account') }}}</h1>
-</div>
-<form class="form-horizontal" method="POST"
-	action="{{URL::to('auth/login')}}" accept-charset="UTF-8">
-	<!-- CSRF Token -->
-	<input type="hidden" name="_token" value="{{ csrf_token() }}">
-	<!-- ./ csrf token -->
-	<fieldset>
-		<div class="form-group {{$errors->has('email')?'has-error':''}}">
-			<label class="col-md-2 control-label" for="email"> {{
-				Lang::get('site/user.e_mail') }} </label>
-			<div class="col-md-10">
-				<input class="form-control" tabindex="1"
-					placeholder="{{ Lang::get('site/user.e_mail') }}" type="text"
-					name="email" id="email" value="{{ Input::old('email') }}"> <span
-					class="help-block">{!!$errors->first('email', '<span
-					class="help-block">:message </span>')!!}
-				</span>
-			</div>
-		</div>
-		<div class="form-group {{$errors->has('email')?'has-error':''}}">
-			<label class="col-md-2 control-label" for="password"> {{
-				Lang::get('site/user.password') }} </label>
-			<div class="col-md-10">
-				<input class="form-control" tabindex="2"
-					placeholder="{{ Lang::get('site/user.password') }}" type="password"
-					name="password" id="password"> <span class="help-block">{!!$errors->first('password',
-					'<span class="help-block">:message </span>')!!}
-				</span>
-			</div>
-		</div>
-		<div class="form-group">
-			<div class="col-md-offset-2 col-md-10">
-				<button tabindex="3" type="submit" class="btn btn-primary">{{
-					Lang::get('site/user.submit') }}</button>
-				<a class="btn btn-default" href="register">{{
-					Lang::get('site/user.register') }}</a>
-			</div>
-		</div>
-	</fieldset>
-</form>
+@section('content')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Login</div>
+                    <div class="panel-body">
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
 
-@stop
+                        <form class="form-horizontal" role="form" method="POST" action="/auth/login">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">E-Mail Address</label>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Password</label>
+                                <div class="col-md-6">
+                                    <input type="password" class="form-control" name="password">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="remember"> Remember Me
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-4">
+                                    <button type="submit" class="btn btn-primary" style="margin-right: 15px;">
+                                        Login
+                                    </button>
+
+                                    <a href="/password/email">Forgot Your Password?</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
