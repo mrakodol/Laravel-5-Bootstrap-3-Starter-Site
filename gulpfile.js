@@ -37,7 +37,7 @@ elixir(function (mix) {
     mix.copy(paths.jquery + '/jquery.js', 'public/js/vendor/jquery.js');
     mix.copy(paths.bootstrap + '/javascripts/bootstrap.js', 'public/js/vendor/bootstrap.js');
 
-    // wasn't able to use scripts or scriptsIn!
+    // Wasn't able to use scripts or scriptsIn!
     //mix.scripts([
     //        'vendor/jquery.js',
     //        'vendor/bootstrap.js'
@@ -53,7 +53,7 @@ elixir(function (mix) {
     //    'bootstrap-sass-official/assets/javascripts/bootstrap.js'
     //], 'public/js/app.min.js', 'vendor/bower_components');
 
-
+    // Cache-bust app.css
     mix.version('public/css/app.css');
 });
 
