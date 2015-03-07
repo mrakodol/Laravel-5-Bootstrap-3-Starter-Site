@@ -17,8 +17,8 @@ $factory('App\User', [
 	'username'          => $faker->userName,
 	'email'             => $faker->email,
 	'password'          => $faker->word,
-	//'confirmed'         => 1,
-	//'confirmation_code' => md5(microtime() . Config::get('app.key')),
+	'confirmed'         => 0,
+	'confirmation_code' => md5(microtime() . env('APP_KEY')),
 ]);
 
 $factory('App\User', 'admin_user', [
@@ -26,8 +26,8 @@ $factory('App\User', 'admin_user', [
 	'username'          => 'admin_user',
 	'email'             => 'admin@admin.com',
 	'password'          => bcrypt('admin'),
-	//'confirmed'         => 1,
-	//'confirmation_code' => md5(microtime() . Config::get('app.key')),
+	'confirmed'         => 1,
+	'confirmation_code' => md5(microtime() . env('APP_KEY')),
 ]);
 
 $factory('App\User', 'test_user', [
@@ -35,7 +35,7 @@ $factory('App\User', 'test_user', [
 	'username'          => 'test_user',
 	'email'             => 'user@user.com',
 	'password'          => bcrypt('user'),
-	//'confirmed'         => 1,
-	//'confirmation_code' => md5(microtime() . Config::get('app.key')),
+	'confirmed'         => 1,
+	'confirmation_code' => md5(microtime() . env('APP_KEY')),
 ]);
 

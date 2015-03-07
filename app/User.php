@@ -22,27 +22,27 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 *
 	 * @var array
 	 */
-	protected $fillable = [ 'name', 'username', 'email', 'password' ];
+	protected $fillable = [ 'name', 'username', 'email', 'password', 'confirmed' ,'confirmation_code' ];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
 	 * @var array
 	 */
-	protected $hidden = [ 'password', 'remember_token' ];
+	protected $hidden = [ 'password', 'remember_token', 'confirmed' ,'confirmation_code'  ];
 
 
 	public function roles()
 	{
-		return $this->belongsToMany('Role')->withTimestamps();
+		return $this->belongsToMany('App\Role')->withTimestamps();
 	}
 
 
-	public function hasRole($username)
+	public function hasRole($name)
 	{
 		foreach ($this->roles as $role)
 		{
-			if ( $role->username == $username )
+			if ( $role->name == $name )
 			{
 				return true;
 			}

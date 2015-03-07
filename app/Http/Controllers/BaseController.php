@@ -21,7 +21,7 @@ class BaseController extends Controller {
 		if($user>0){
 			$result = IsAdminRoles::join('permission_role','assigned_roles.role_id','=','permission_role.role_id')
 											->join('permissions','permissions.id','=','permission_role.permission_id')
-											->where('assigned_roles.user_id',$user)
+											->where('role_user.user_id',$user)
 											->select('name')
 											->get();
 			foreach ($result as $row)
@@ -30,7 +30,7 @@ class BaseController extends Controller {
 			}
 			$count = IsAdminRoles::join('permission_role','assigned_roles.role_id','=','permission_role.role_id')
 											->join('permissions','permissions.id','=','permission_role.permission_id')
-											->where('assigned_roles.user_id',$user)
+											->where('role_user.user_id',$user)
 											->where('permissions.is_admin','1')
 											->count();
 			if($count>0)

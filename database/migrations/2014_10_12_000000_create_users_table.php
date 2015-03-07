@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('username')->unique(); // used for slug.
             $table->string('email')->unique();
             $table->string('password', 60);
-            //$table->string('confirmation_code');
-            //$table->boolean('confirmed')->default(false);
+            $table->string('confirmation_code');
+            $table->boolean('confirmed')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

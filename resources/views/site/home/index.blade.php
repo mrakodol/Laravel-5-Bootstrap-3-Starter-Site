@@ -73,8 +73,7 @@
             </div>
         @endforeach
     </div>
-@stop
-@section('galeries')
+
     <div class="row">
         @if(count($photoalbums)>0) @foreach($photoalbums as $item)
             <div class="col-sm-3">

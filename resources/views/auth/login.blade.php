@@ -49,6 +49,8 @@
                                 </div>
                             </div>
                         </form>
+                        <p><a href="register">{{
+					Lang::get('site/user.register') }}</a></p>
                     </div>
                 </div>
             </div>
