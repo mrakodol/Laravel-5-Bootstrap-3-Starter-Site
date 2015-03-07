@@ -43,10 +43,10 @@ elixir(function (mix) {
     //        'vendor/bootstrap.js'
     //    ], 'public/js/vendor.js','public/js');
 
-    mix.scripts([
-        paths.jquery + '/jquery.js',
-        paths.bootstrap + '/javascripts/bootstrap.js'
-    ], 'public/js/vendor.js', './');
+    //mix.scripts([
+    //    paths.jquery + '/jquery.js',
+    //    paths.bootstrap + '/javascripts/bootstrap.js'
+    //], 'public/js/vendor.js', './');
 
     //mix.scripts([
     //    'jquery-legacy/dist/jquery.js',
