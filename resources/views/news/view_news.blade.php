@@ -1,4 +1,4 @@
-@extends('site.layouts.default') {{-- Web site Title --}}
+@extends('app') {{-- Web site Title --}}
 @section('title') {{{ $news->title }}} :: @parent @stop
 
 @section('meta_author')

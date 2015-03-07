@@ -1,4 +1,4 @@
-@extends('site.layouts.default') @section('title') {{{
+@extends('app') @section('title') {{{
 $video_album->name }}} :: @parent @stop @section('content')
 <h3>{{{ $video_album->name }}}</h3>
 

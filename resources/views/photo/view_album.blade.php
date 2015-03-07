@@ -1,4 +1,4 @@
-@extends('site.layouts.default') @section('title') {{{
+@extends('app') @section('title') {{{
 $photo_album->name }}} :: @parent @stop @section('content')
 <h3>{{{ $photo_album->name }}}</h3>
 
