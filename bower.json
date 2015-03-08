@@ -21,7 +21,7 @@
     "font-awesome": "~4.3.0",
     "metisMenu": "~1.1.3",
     "datatables": "~1.10.5",
-    "datatables-bootstrap3-plugin": "~0.4.0"
-
+    "datatables-bootstrap3-plugin": "~0.4.0",
+    "jquery-colorbox": "~1.6.0"
   }
 }

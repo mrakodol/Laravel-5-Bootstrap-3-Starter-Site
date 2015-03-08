@@ -33,6 +33,7 @@
 
     {{-- Moved by Elixir--}}
     <script src="{{asset('js/vendor/metisMenu.js')}}"></script>
+    <script src="{{asset('js/vendor/jquery.colorbox.js')}}"></script>
     <script src="{{asset('js/vendor/dataTables.js')}}"></script>
     <script src="{{asset('js/vendor/dataTables-bootstrap3.js')}}"></script>
 
