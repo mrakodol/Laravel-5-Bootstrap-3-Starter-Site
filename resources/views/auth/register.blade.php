@@ -1,12 +1,22 @@
 @extends('app')
 
+{{-- Web site Title --}}
+@section('title') {{{ Lang::get('site/user.register') }}} :: @parent @stop
+
+{{-- Content --}}
 @section('content')
+    <div class="row">
+        <div class="page-header">
+            <h2>{{{ Lang::get('site/user.register') }}}</h2>
+        </div>
+    </div>
+
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Register</div>
-                    <div class="panel-body">
+            {{--<div class="col-md-8 col-md-offset-2">--}}
+                {{--<div class="panel panel-default">--}}
+                    {{--<div class="panel-heading">Register</div>--}}
+                    {{--<div class="panel-body">--}}
 
                         @include('errors.list')
 
@@ -14,7 +24,7 @@
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Name</label>
+                                <label class="col-md-4 control-label">{{{ Lang::get('site/user.name') }}}</label>
 
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="name" value="{{ old('name') }}">
@@ -31,7 +41,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-4 control-label">E-Mail Address</label>
+                                <label class="col-md-4 control-label">{{{ Lang::get('site/user.e_mail') }}}</label>
 
                                 <div class="col-md-6">
                                     <input type="email" class="form-control" name="email" value="{{ old('email') }}">
@@ -62,9 +72,9 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
-                </div>
-            </div>
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
         </div>
     </div>
 @endsection

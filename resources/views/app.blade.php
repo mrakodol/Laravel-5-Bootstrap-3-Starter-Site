@@ -15,15 +15,20 @@
               content="Lorem ipsum dolor sit amet, nihil fabulas et sea, nam posse menandri scripserit no, mei."/>
     @show
 
+    {{--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/yeti/bootstrap.min.css">--}}
+
     <link href="{{elixir('css/app.css')}}" rel="stylesheet">
 
     {{-- TODO: Incorporate into elixer workflow. --}}
-    <link rel="stylesheet"
-          href="{{asset('assets/site/css/half-slider.css')}}">
-    <link rel="stylesheet"
-          href="{{asset('assets/site/css/justifiedGallery.min.css')}}"/>
-    <link rel="stylesheet"
-          href="{{asset('assets/site/css/lightbox.min.css')}}"/>
+    {{--<link rel="stylesheet"--}}
+          {{--href="{{asset('assets/site/css/half-slider.css')}}">--}}
+    {{--<link rel="stylesheet"--}}
+          {{--href="{{asset('assets/site/css/justifiedGallery.min.css')}}"/>--}}
+    {{--<link rel="stylesheet"--}}
+          {{--href="{{asset('assets/site/css/lightbox.min.css')}}"/>--}}
+    {{--<link rel="stylesheet" href="http://l5start.mrakodol.info/assets/site/css/bootstrap-theme.min.css">--}}
+
+    @yield('styles')
 
     <!-- Fonts -->
     <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -35,19 +40,15 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <link rel="shortcut icon"
-          href="{{{ asset('assets/site/ico/favicon.ico') }}}">
+    <link rel="shortcut icon" href="{{{ asset('assets/site/ico/favicon.ico') }}}">
 </head>
 <body>
 @include('partials.nav')
 
-
-
+@include('flash::message')
 <div class="container">
-    @include('flash::message')
-    @yield('content')
+@yield('content')
 </div>
-
 @include('partials.footer')
 
 <!-- Scripts -->
@@ -62,7 +63,7 @@
 
 <script>
     $('#flash-overlay-modal').modal();
-    $('div.alert').not('.alert-important').delay(3000).slideUp(300);
+    $('div.alert').not('.alert-danger').delay(3000).slideUp(300);
 </script>
 @yield('scripts')
 

@@ -1,8 +1,9 @@
 @extends('app')
-
+@section('title') Contact :: @parent @stop
 @section('content')
-
-    <h1>Contact Page</h1>
-    <hr>
-
+    <div class="row">
+        <div class="page-header">
+            <h2>Contact Page</h2>
+        </div>
+    </div>
 @endsection

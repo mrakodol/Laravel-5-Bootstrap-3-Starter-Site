@@ -1,12 +1,22 @@
 @extends('app')
 
+{{-- Web site Title --}}
+@section('title') {{{ Lang::get('site/user.login') }}} :: @parent @stop
+
+{{-- Content --}}
 @section('content')
+    <div class="row">
+        <div class="page-header">
+            <h2>{{{ Lang::get('site/user.login_to_account') }}}</h2>
+        </div>
+    </div>
+
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Login</div>
-                    <div class="panel-body">
+            {{--<div class="col-md-8 col-md-offset-2">--}}
+                {{--<div class="panel panel-default">--}}
+                    {{--<div class="panel-heading">Login</div>--}}
+                    {{--<div class="panel-body">--}}
 
                         @include('errors.list')
 
@@ -49,11 +59,9 @@
                                 </div>
                             </div>
                         </form>
-                        <p><a href="register">{{
-					Lang::get('site/user.register') }}</a></p>
-                    </div>
-                </div>
-            </div>
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
         </div>
     </div>
 @endsection

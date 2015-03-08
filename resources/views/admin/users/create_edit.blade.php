@@ -21,10 +21,23 @@
 					</div>
 				</div>
 			</div>
-			@if(!isset($user))
+            @if(!isset($user))
+            <div class="col-md-12">
+                <div class="form-group {{{ $errors->has('username') ? 'has-error' : '' }}}">
+                    <label class="col-md-2 control-label" for="username">{{
+						Lang::get('admin/users.username') }}</label>
+                    <div class="col-md-10">
+                        <input class="form-control" type="username" tabindex="4"
+                               placeholder="{{ Lang::get('admin/users.username') }}" name="username"
+                               id="username"
+                               value="{{{ Input::old('username', isset($user) ? $user->username : null) }}}" />
+                        {!! $errors->first('username', '<label class="control-label"
+                                                            for="username">:message</label>')!!}
+                    </div>
+                </div>
+            </div>
 			<div class="col-md-12">
-				<div
-					class="form-group {{{ $errors->has('email') ? 'has-error' : '' }}}">
+				<div class="form-group {{{ $errors->has('email') ? 'has-error' : '' }}}">
 					<label class="col-md-2 control-label" for="email">{{
 						Lang::get('admin/users.email') }}</label>
 					<div class="col-md-10">
@@ -39,8 +52,7 @@
 			</div>
 			@endif
 			<div class="col-md-12">
-				<div
-					class="form-group {{{ $errors->has('password') ? 'has-error' : '' }}}">
+				<div class="form-group {{{ $errors->has('password') ? 'has-error' : '' }}}">
 					<label class="col-md-2 control-label" for="password">{{
 						Lang::get('admin/users.password') }}</label>
 					<div class="col-md-10">
@@ -53,8 +65,7 @@
 				</div>
 			</div>
 			<div class="col-md-12">
-				<div
-					class="form-group {{{ $errors->has('password_confirmation') ? 'has-error' : '' }}}">
+				<div class="form-group {{{ $errors->has('password_confirmation') ? 'has-error' : '' }}}">
 					<label class="col-md-2 control-label" for="password_confirmation">{{
 						Lang::get('admin/users.password_confirmation') }}</label>
 					<div class="col-md-10">

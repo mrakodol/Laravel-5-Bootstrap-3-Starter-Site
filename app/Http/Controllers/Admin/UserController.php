@@ -8,7 +8,7 @@ use App\Http\Requests\Admin\UserRequest;
 use App\Http\Requests\Admin\UserEditRequest;
 use App\Http\Requests\Admin\DeleteRequest;
 use Datatables;
-use Hash;
+
 
 class UserController extends AdminController {
 
@@ -44,8 +44,9 @@ class UserController extends AdminController {
 
         $user = new User ();
         $user -> name = $request->name;
+		$user -> username = $request->username;
         $user -> email = $request->email;
-        $user -> password = Hash::make($request->password);
+        $user -> password = bcrypt($request->password);
         $user -> confirmation_code = str_random(32);
         $user -> confirmed = $request->confirmed;
         $user -> save();
@@ -90,7 +91,7 @@ class UserController extends AdminController {
 
         if (!empty($password)) {
             if ($password === $passwordConfirmation) {
-                $user -> password = Hash::make($password);
+                $user -> password = bcrypt($password);
             }
         }
         $user -> save();

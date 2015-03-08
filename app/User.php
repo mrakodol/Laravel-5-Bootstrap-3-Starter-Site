@@ -29,7 +29,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 *
 	 * @var array
 	 */
-	protected $hidden = [ 'password', 'remember_token', 'confirmed' ,'confirmation_code'  ];
+	protected $hidden = [ 'password', 'remember_token' ,'confirmation_code'  ];
 
 
 	public function roles()

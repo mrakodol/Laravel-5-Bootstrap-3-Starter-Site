@@ -1,9 +1,10 @@
 @extends('app')
-
+@section('title') Home :: @parent @stop
 @section('content')
-
-    <h1>Home Page</h1>
-    <hr>
+<div class="row">
+    <div class="page-header">
+        <h2>Home Page</h2>
+    </div></div>
 
     @if(count($news)>0)
         <div class="row">
@@ -99,3 +100,13 @@
     @endif
 
 @endsection
+
+@section('scripts')
+    @parent
+    <script>
+        $('#myCarousel').carousel({
+            interval: 4000
+        });
+    </script>
+@endsection
+@stop

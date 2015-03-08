@@ -1,26 +1,52 @@
-@import "variables";
-
+$icon-font-path: "/fonts/"; // correct bootstrap font path
 @import "bootstrap";
+@import "yeti/variables";
+$icon-font-path: "/fonts/"; // re-correct bootstrap font path
+@import "bootstrap";
+@import "yeti/variables";
 
+@import "yeti/bootswatch";
+
+$fa-font-path: "/fonts/"; // correct font-awesome font path
 @import "font-awesome";
 
-@import 'pages/home';
+
+@import "dataTables-bootstrap3";
+@import "metisMenu";
+
+
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
+$footer-height: 60px;
+
 html {
   position: relative;
   min-height: 100%;
 }
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  margin-bottom: $footer-height;
 }
-.id {
+#footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 60px;
+  height: $footer-height;
   background-color: #f5f5f5;
+}
+
+
+
+/* Dashboard styles
+-------------------------------------------------- */
+
+.main .page-header {
+  margin-top: 0;
+}
+
+li > ul {
+  margin-left: 10px !important;
 }
