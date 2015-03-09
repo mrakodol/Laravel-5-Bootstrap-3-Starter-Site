@@ -93,9 +93,17 @@ After that, copy .env.example and rename it as .env and put connection and chang
 <a name="step5"></a>
 ### Step 5: Install
 
-Use Nodejs (included in in homestead) to install Bower and Gulp with the following command:
+This project makes use of Bower and Laravel Elixir. Before triggering Elixir, you must first ensure that Node.js (included in in homestead) is installed on your machine.
 
-    npm -g install bower gulp
+    node -v
+   
+Next, pull Gulp and Bower like so:
+
+    npm install --global bower gulp
+
+Install Elixir with:
+
+    npm install
 
 Retrieve frontend dependencies with Bower:
 
@@ -105,13 +113,6 @@ Compile SASS and move frontend files into place by running:
 
     gulp
 
-Now that you have the environment configured, you need to create a database configuration for it. For create database tables use this command:
-
-    php artisan migrate
-
-And to initial populate database use this:
-
-    php artisan db:seed
 Now that you have the environment configured, you need to create a database configuration for it. For create database tables use this command:
 
     php artisan migrate
