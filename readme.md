@@ -93,6 +93,25 @@ After that, copy .env.example and rename it as .env and put connection and chang
 <a name="step5"></a>
 ### Step 5: Install
 
+Use Nodejs (included in in homestead) to install Bower and Gulp with the following command:
+
+    npm -g install bower gulp
+
+Retrieve frontend dependencies with Bower:
+
+    bower update
+    
+Compile SASS and move frontend files into place by running:
+
+    gulp
+
+Now that you have the environment configured, you need to create a database configuration for it. For create database tables use this command:
+
+    php artisan migrate
+
+And to initial populate database use this:
+
+    php artisan db:seed
 Now that you have the environment configured, you need to create a database configuration for it. For create database tables use this command:
 
     php artisan migrate
@@ -123,7 +142,7 @@ OR user
 
 ### Site loading very slow
 
-		composer dump-autoload --optimize
+	composer dump-autoload --optimize
 OR
 
         php artisan dump-autoload
