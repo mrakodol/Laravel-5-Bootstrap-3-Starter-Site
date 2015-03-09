@@ -7,7 +7,8 @@ class AssignedRoles extends Model {
 
     public static $rules = array();
 	
-	protected $table = 'assigned_roles';
+	//protected $table = 'assigned_roles';
+	protected $table = 'role_user';
 
 
 }

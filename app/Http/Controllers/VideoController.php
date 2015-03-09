@@ -10,12 +10,12 @@ class VideoController extends BaseController {
         parent::__construct();
     }
 
-    public function item($id)
+    public function show($id)
 	{
         $video_album = VideoAlbum::find($id);
         $videos = Video::where('video_album_id', $id)->get();
 
-        return view('site.video.view_album',compact('videos','video_album'));
+        return view('video.view_album',compact('videos','video_album'));
 	}
 
 }

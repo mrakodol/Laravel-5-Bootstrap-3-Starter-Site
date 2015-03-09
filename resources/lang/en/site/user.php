@@ -7,7 +7,7 @@ return [
 	'register' => 'Create a new account',
 	'remember' => 'Remember',
 	'password' => 'Password',
-	'e_mail' => 'E-mail',
+	'e_mail' => 'E-Mail Address',
 	'register' => 'Register',
 	'password_confirmation' => 'Password confirmation',
 	'confirmation_required' => 'Confirmation is required',

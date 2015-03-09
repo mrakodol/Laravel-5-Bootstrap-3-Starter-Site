@@ -8,7 +8,7 @@ use App\Http\Requests\Admin\UserRequest;
 use App\Http\Requests\Admin\UserEditRequest;
 use App\Http\Requests\Admin\DeleteRequest;
 use Datatables;
-use Hash;
+
 
 class UserController extends AdminController {
 
@@ -44,8 +44,9 @@ class UserController extends AdminController {
 
         $user = new User ();
         $user -> name = $request->name;
+		$user -> username = $request->username;
         $user -> email = $request->email;
-        $user -> password = Hash::make($request->password);
+        $user -> password = bcrypt($request->password);
         $user -> confirmation_code = str_random(32);
         $user -> confirmed = $request->confirmed;
         $user -> save();
@@ -90,7 +91,7 @@ class UserController extends AdminController {
 
         if (!empty($password)) {
             if ($password === $passwordConfirmation) {
-                $user -> password = Hash::make($password);
+                $user -> password = bcrypt($password);
             }
         }
         $user -> save();
@@ -136,11 +137,11 @@ class UserController extends AdminController {
      */
     public function data()
     {
-        $users = User::select(array('users.id','users.name','users.email','users.confirmed', 'users.created_at'))
-            ->orderBy('users.email', 'ASC');
+        $users = User::select(array('users.id','users.name','users.email','users.confirmed', 'users.created_at'))->orderBy('users.email', 'ASC');
+        //$users = User::select(array('users.id','users.name','users.email', 'users.created_at'))->orderBy('users.email', 'ASC');
 
         return Datatables::of($users)
-            -> edit_column('confirmed', '@if ($confirmed=="1") <span class="glyphicon glyphicon-ok"></span> @else <span class=\'glyphicon glyphicon-remove\'></span> @endif')
+            ->edit_column('confirmed', '@if ($confirmed=="1") <span class="glyphicon glyphicon-ok"></span> @else <span class=\'glyphicon glyphicon-remove\'></span> @endif')
             ->add_column('actions', '<a href="{{{ URL::to(\'admin/users/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span>  {{ Lang::get("admin/modal.edit") }}</a>
                     <a href="{{{ URL::to(\'admin/users/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> {{ Lang::get("admin/modal.delete") }}</a>
                 ')

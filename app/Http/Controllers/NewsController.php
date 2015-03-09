@@ -2,19 +2,21 @@
 
 use App\News;
 
-class NewsController extends BaseController {
+class NewsController extends Controller {
 
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    public function item($id)
+	public function __construct()
 	{
-        // Get all the blog posts
-        $news = News::find($id);
+		//parent::__construct();
+		$this->middleware('auth', [ 'except' => [ 'index', 'show' ] ]);
+	}
 
-        return view('site.news.view_news',compact('news'));
+
+	public function show($id)
+	{
+		// Get all the blog posts
+		$news = News::find($id);
+
+		return view('news.view_news', compact('news'));
 	}
 
 }

@@ -3,6 +3,7 @@
 return [
     'users' => 'Users',
     'name' =>   'Name',
+    'username' =>   'Username',
     'email' =>   'Email',
     'password' =>  'Password',
     'password_confirmation' => 'Password confirmation',

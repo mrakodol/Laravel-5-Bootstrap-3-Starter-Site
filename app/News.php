@@ -5,6 +5,13 @@ use Illuminate\Support\Facades\URL;
 
 class News extends Model {
 
+	/**
+	 * The attributes that are mass assignable.
+	 *
+	 * @var array
+	 */
+	protected $fillable = ['content'];
+
 	protected $table = "news";
 	/**
 	 * Deletes a news.

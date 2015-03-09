@@ -12,18 +12,19 @@
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('home', 'HomeController@index');
+Route::get('about', 'PagesController@about');
+Route::get('contact', 'PagesController@contact');
 
 Route::pattern('id', '[0-9]+');
-Route::get('news/{id}/item', 'NewsController@item');
-Route::get('video/{id}/item', 'VideoController@item');
-Route::get('photo/{id}/item', 'PhotoController@item');
+Route::get('news/{id}', 'NewsController@show');
+Route::get('video/{id}', 'VideoController@show');
+Route::get('photo/{id}', 'PhotoController@show');
 
-Route::get('auth/login', 'Auth\AuthController@showLoginForm');
-Route::post('auth/login', 'Auth\AuthController@login');
-Route::get('auth/register', 'Auth\AuthController@showRegistrationForm');
-Route::post('auth/register', 'Auth\AuthController@register');
-Route::get('auth/logout', 'Auth\AuthController@logout');
-
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+]);
 
 if (Request::is('admin/*'))
 {
