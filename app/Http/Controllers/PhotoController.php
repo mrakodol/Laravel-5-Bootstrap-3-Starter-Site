@@ -3,11 +3,11 @@
 use App\Photo;
 use App\PhotoAlbum;
 
-class PhotoController extends BaseController {
+class PhotoController extends Controller {
 
     public function __construct()
     {
-        parent::__construct();
+        $this->middleware('auth', [ 'except' => [ 'index', 'show' ] ]);
     }
 
     public function show($id)
