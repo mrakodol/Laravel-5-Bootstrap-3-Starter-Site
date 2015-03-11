@@ -40,8 +40,17 @@ class Video extends Model {
 	 *
 	 * @return Video
 	 */
-	public function videos() {
-		return $this -> belongsTo('App\VideoAlbum', 'videoalbum_id');
+	public function album() {
+		return $this -> belongsTo('App\VideoAlbum', 'video_album_id');
 	}
 
+    /**
+     * Get the video's language.
+     *
+     * @return Language
+     */
+    public function language()
+    {
+        return $this->belongsTo('App\Language', 'language_id');
+    }
 }

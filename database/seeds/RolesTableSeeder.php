@@ -13,11 +13,15 @@ class RolesTableSeeder extends Seeder {
 
         $adminRole = new Role;
         $adminRole->name = 'admin';
+        $adminRole->display_name = 'admin';
+        $adminRole->description = 'description';
         $adminRole->is_admin = 1;
         $adminRole->save();
 
         $commentRole = new Role;
         $commentRole->name = 'comment';
+        $commentRole->display_name = 'comment';
+        $commentRole->description = 'description';
         $commentRole->is_admin = 0;
         $commentRole->save();
 

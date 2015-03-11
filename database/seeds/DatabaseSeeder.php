@@ -21,6 +21,10 @@ class DatabaseSeeder extends Seeder {
 		$this->call('LanguagesTableSeeder');
 		$this->call('NewsCategoryTableSeeder');
 		$this->call('NewsTableSeeder');
+		$this->call('PhotoAlbumsTableSeeder');
+        $this->call('PhotosTableSeeder');
+        $this->call('VideoAlbumsTableSeeder');
+        $this->call('VideosTableSeeder');
     }
 
 }

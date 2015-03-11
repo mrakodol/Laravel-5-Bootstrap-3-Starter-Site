@@ -32,6 +32,16 @@ class Photo extends Model{
      */
     public function album()
     {
-        return $this->belongsTo('App\PhotoAlbum');
+        return $this->belongsTo('App\PhotoAlbum', 'photo_album_id');
     }
-} 
+
+    /**
+     * Get the photo's language.
+     *
+     * @return Language
+     */
+    public function language()
+    {
+        return $this->belongsTo('App\Language', 'language_id');
+    }
+}
