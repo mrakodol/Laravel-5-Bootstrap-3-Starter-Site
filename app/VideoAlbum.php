@@ -31,7 +31,17 @@ class VideoAlbum extends Model {
 	 *
 	 * @return array
 	 */
-	public function videovideos() {
+	public function videos() {
 		return $this -> hasMany('App\Video');
 	}
+
+    /**
+     * Get the photo album's language.
+     *
+     * @return Language
+     */
+    public function language()
+    {
+        return $this->belongsTo('App\Language', 'language_id');
+    }
 }

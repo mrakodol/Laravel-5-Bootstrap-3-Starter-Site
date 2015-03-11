@@ -146,7 +146,7 @@ OR user
 	composer dump-autoload --optimize
 OR
 
-        php artisan dump-autoload
+    php artisan dump-autoload
 
 -----
 <a name="feature6"></a>
@@ -159,6 +159,11 @@ This is free software distributed under the terms of the MIT license
 ## Additional information
 
 Inspired by and based on [andrew13's Laravel-4-Bootstrap-Starter-Site](https://github.com/andrew13/Laravel-4-Bootstrap-Starter-Site)
+
+###Disable gulp-notify
+If you are running on a system that handles notifications poorly or you simply do not wish to use gulp-notify but your project does? You can disable gulp-notify by using enviroment variable DISABLE_NOTIFIER.
+
+    export DISABLE_NOTIFIER=true;
 
 <a name="feature8"></a>
 ##How Starter Site is look like
