@@ -34,4 +34,14 @@ class NewsCategory extends Model {
 	public function news() {
 		return $this -> hasMany('App\News');
 	}
+
+    /**
+     * Get the category's language.
+     *
+     * @return Language
+     */
+    public function language()
+    {
+        return $this->belongsTo('App\Language', 'language_id');
+    }
 }

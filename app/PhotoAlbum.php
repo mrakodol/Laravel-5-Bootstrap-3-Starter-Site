@@ -35,8 +35,18 @@ class PhotoAlbum extends Model{
      *
      * @return array
      */
-    public function images()
+    public function photos()
     {
         return $this->hasMany('App\Photo');
+    }
+
+    /**
+     * Get the photo album's language.
+     *
+     * @return Language
+     */
+    public function language()
+    {
+        return $this->belongsTo('App\Language', 'language_id');
     }
 } 
