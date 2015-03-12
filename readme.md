@@ -74,17 +74,6 @@ Then run:
     composer install
 to install dependencies Laravel and other packages.
 
-After that finised, you need instal [notdejs](http://nodejs.org/). After successful installation of nodejs,
-then run:
-
-    npm install
-
-to install nodejs dependencies and affter that:
-
-    bover install
-to install bover. And last thing is ran gulp to make sass of javascripts and css files:
-
-    gulp
 -----
 <a name="step3"></a>
 ### Step 3: Configure Mailer
