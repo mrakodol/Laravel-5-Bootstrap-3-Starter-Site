@@ -4,8 +4,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\URL;
 
 class VideoAlbum extends Model {
-	
-	protected $table = "video_album";
 
 	/**
 	 * Returns a formatted post content entry,
@@ -23,11 +21,11 @@ class VideoAlbum extends Model {
 	 * @return User
 	 */
 	public function author() {
-		return $this -> belongsTo('App\User', 'user_id');
+		return $this -> belongsTo('App\User');
 	}
 
 	/**
-	 * Get the galllery's videos.
+	 * Get the gallery's videos.
 	 *
 	 * @return array
 	 */
@@ -42,6 +40,6 @@ class VideoAlbum extends Model {
      */
     public function language()
     {
-        return $this->belongsTo('App\Language', 'language_id');
+        return $this->belongsTo('App\Language');
     }
 }

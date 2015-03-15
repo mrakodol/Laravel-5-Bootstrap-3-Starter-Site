@@ -4,15 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\URL;
 
 class Language extends Model {
-	
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
-	protected $table = 'language';
-	
-	
+
 	/**
 	 * The attributes included in the model's JSON form.
 	 *

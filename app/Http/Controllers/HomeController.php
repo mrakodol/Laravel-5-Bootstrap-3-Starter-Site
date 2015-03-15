@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use App\News;
+use App\Article;
 use App\Photo;
 use App\VideoAlbum;
 use App\PhotoAlbum;
@@ -43,31 +43,32 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		$news = News::select('*')->orderBy('position', 'DESC')->orderBy('created_at', 'DESC')->limit(4)->get();
+		$articles = Article::with('author')->orderBy('position', 'DESC')->orderBy('created_at', 'DESC')->limit(4)->get();
 
-		$sliders = Photo::join('photo_album', 'photo_album.id', '=', 'photo.photo_album_id')->where('photo.slider',
-			1)->orderBy('photo.position', 'DESC')->orderBy('photo.created_at', 'DESC')->select('photo.filename',
-			'photo.name', 'photo.description', 'photo_album.folderid')->get();
+//		TODO: abstract to model
+		$sliders = Photo::join('photo_albums', 'photo_albums.id', '=', 'photos.photo_album_id')->where('photos.slider',
+			1)->orderBy('photos.position', 'DESC')->orderBy('photos.created_at', 'DESC')->select('photos.filename',
+			'photos.name', 'photos.description', 'photo_albums.folder_id')->get();
 
 		$photoAlbums = PhotoAlbum::select(array(
-			'photo_album.id',
-			'photo_album.name',
-			'photo_album.description',
-			'photo_album.folderid',
-			DB::raw('(select filename from ' . DB::getTablePrefix() . 'photo WHERE album_cover=TRUE and ' . DB::getTablePrefix() . 'photo.photo_album_id=' . DB::getTablePrefix() . 'photo_album.id) AS album_image'),
-			DB::raw('(select filename from ' . DB::getTablePrefix() . 'photo WHERE ' . DB::getTablePrefix() . 'photo.photo_album_id=' . DB::getTablePrefix() . 'photo_album.id ORDER BY position ASC, id ASC LIMIT 1) AS album_image_first')
+			'photo_albums.id',
+			'photo_albums.name',
+			'photo_albums.description',
+			'photo_albums.folder_id',
+			DB::raw('(select filename from ' . DB::getTablePrefix() . 'photos WHERE album_cover=TRUE and ' . DB::getTablePrefix() . 'photos.photo_album_id=' . DB::getTablePrefix() . 'photo_albums.id LIMIT 1) AS album_image'),
+			DB::raw('(select filename from ' . DB::getTablePrefix() . 'photos WHERE ' . DB::getTablePrefix() . 'photos.photo_album_id=' . DB::getTablePrefix() . 'photo_albums.id ORDER BY position ASC, id ASC LIMIT 1) AS album_image_first')
 		))->limit(8)->get();
 
 		$videoAlbums = VideoAlbum::select(array(
-			'video_album.id',
-			'video_album.name',
-			'video_album.description',
-			'video_album.folderid',
-			DB::raw('(select youtube from ' . DB::getTablePrefix() . 'video as v WHERE album_cover=TRUE and v.video_album_id=' . DB::getTablePrefix() . 'video_album.id) AS album_image'),
-			DB::raw('(select youtube from ' . DB::getTablePrefix() . 'video WHERE ' . DB::getTablePrefix() . 'video.video_album_id=' . DB::getTablePrefix() . 'video_album.id ORDER BY position ASC, id ASC LIMIT 1) AS album_image_first')
+			'video_albums.id',
+			'video_albums.name',
+			'video_albums.description',
+			'video_albums.folder_id',
+			DB::raw('(select youtube from ' . DB::getTablePrefix() . 'videos WHERE album_cover=TRUE and ' . DB::getTablePrefix() . 'videos.video_album_id=' . DB::getTablePrefix() . 'video_albums.id LIMIT 1) AS album_image'),
+			DB::raw('(select youtube from ' . DB::getTablePrefix() . 'videos WHERE ' . DB::getTablePrefix() . 'videos.video_album_id=' . DB::getTablePrefix() . 'video_albums.id ORDER BY position ASC, id ASC LIMIT 1) AS album_image_first')
 		))->limit(8)->get();
 
-		return view('pages.home', compact('news', 'sliders', 'videoAlbums', 'photoAlbums'));
+		return view('pages.home', compact('articles', 'sliders', 'videoAlbums', 'photoAlbums'));
 
 		//return view('pages.welcome');
 	}

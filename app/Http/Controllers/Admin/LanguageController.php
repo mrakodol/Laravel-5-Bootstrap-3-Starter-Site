@@ -138,10 +138,10 @@ class LanguageController extends AdminController {
      */
     public function data()
     {
-        $language = Language::whereNull('language.deleted_at')
-            ->orderBy('language.position', 'ASC')
-            ->select(array('language.id', 'language.name', 'language.lang_code',
-            'language.icon as icon'));
+        $language = Language::whereNull('languages.deleted_at')
+            ->orderBy('languages.position', 'ASC')
+            ->select(array('languages.id', 'languages.name', 'languages.lang_code',
+            'languages.icon as icon'));
 
         return Datatables::of($language)
             ->edit_column('icon', '{!! ($icon!="")? "<img style=\"max-width: 30px; max-height: 30px;\" src=\"../images/language/$id/$icon\">":""; !!}')
