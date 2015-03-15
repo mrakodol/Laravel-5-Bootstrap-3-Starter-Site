@@ -1,18 +1,5 @@
 var elixir = require('laravel-elixir');
 
-var bowerPath = './vendor/bower_components';
-var paths = {
-    'jquery': bowerPath + '/jquery-legacy/dist',
-    'bootstrap': bowerPath + '/bootstrap-sass/assets',
-    'bootswatch': bowerPath + '/bootswatch-sass',
-    'fontawesome': bowerPath + '/font-awesome',
-    'metisMenu': bowerPath + '/metisMenu/dist',
-    'colorbox': bowerPath + '/jquery-colorbox',
-    'dataTables': bowerPath + '/datatables/media',
-    'dataTablesBootstrap3Plugin': bowerPath + '/datatables-bootstrap3-plugin/media'
-};
-
-
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -24,15 +11,43 @@ var paths = {
  |
  */
 
+var bowerPath = './vendor/bower_components';
+
+var paths = {
+    'jquery': bowerPath + '/jquery-legacy/dist',
+    'bootstrap': bowerPath + '/bootstrap-sass/assets',
+    'bootswatch': bowerPath + '/bootswatch-sass',
+    'fontawesome': bowerPath + '/font-awesome',
+    'metisMenu': bowerPath + '/metisMenu/dist',
+    'colorbox': bowerPath + '/jquery-colorbox',
+    'dataTables': bowerPath + '/datatables/media',
+    'dataTablesBootstrap3Plugin': bowerPath + '/datatables-bootstrap3-plugin/media'
+};
+
 elixir(function (mix) {
-    //mix.less('app.less');
 
-    // copy css for sass import
-    mix.copy(paths.metisMenu + '/metisMenu.css', 'resources/assets/sass/metisMenu.scss');
-    mix.copy(paths.colorbox + '/example3/colorbox.css', 'resources/assets/sass/colorbox.scss');
-    mix.copy(paths.dataTablesBootstrap3Plugin + '/css/datatables-bootstrap3.css', 'resources/assets/sass/dataTables-bootstrap3.scss');
+    // Copy CSSs to default resource directory
+    mix.copy(paths.metisMenu + '/metisMenu.css', 'resources/css/metisMenu.css');
+    mix.copy(paths.colorbox + '/example3/colorbox.css', 'resources/css/colorbox.css');
+    mix.copy(paths.dataTablesBootstrap3Plugin + '/css/datatables-bootstrap3.css', 'resources/css/dataTables-bootstrap3.css');
 
-    mix.sass('app.scss', 'public/css', {
+    // Copy scripts to default resource directory
+    mix.copy(paths.jquery + '/jquery.js', 'resources/js/jquery.js');
+    mix.copy(paths.bootstrap + '/javascripts/bootstrap.js', 'resources/js/bootstrap.js');
+    mix.copy(paths.metisMenu + '/metisMenu.js', 'resources/js/metisMenu.js');
+    mix.copy(paths.colorbox + '/jquery.colorbox.js', 'resources/js/jquery.colorbox.js');
+    mix.copy(paths.dataTables + '/js/jquery.dataTables.js', 'resources/js/dataTables.js');
+    mix.copy(paths.dataTablesBootstrap3Plugin + '/js/datatables-bootstrap3.js', 'resources/js/dataTables-bootstrap3.js');
+
+    // Copy fonts straight to public
+    mix.copy(paths.bootstrap + '/fonts/bootstrap/**', 'public/fonts');
+    mix.copy(paths.fontawesome + '/fonts/**', 'public/fonts');
+
+    // Copy images straight to public
+    mix.copy(paths.colorbox + '/example3/images/**', 'public/img');
+
+    // Compile SASS and output to default resource directory
+    mix.sass('app.scss', 'resources/css', {
         includePaths: [
             paths.bootstrap + '/stylesheets/',
             paths.bootswatch + '/',
@@ -40,39 +55,28 @@ elixir(function (mix) {
         ]
     });
 
-    // copy fonts
-    mix.copy(paths.bootstrap + '/fonts/bootstrap/**', 'public/fonts');
-    mix.copy(paths.fontawesome + '/fonts/**', 'public/fonts');
+    // Merge CSSs
+    mix.styles([
+        'colorbox.css',
+        'dataTables-bootstrap.css',
+        'metisMenu.css',
+        'app.css' // app.css has some overrides
+    ]);
 
-    // copy images
-    mix.copy(paths.colorbox + '/example3/images/**', 'public/img');
+    // Merge scripts
+    mix.scripts([
+        'jquery.js',
+        'bootstrap.js',
+        'dataTables.js',
+        'dataTables-bootstrap3.js',
+        'jquery.colorbox.js',
+        'metisMenu.js'
+    ]);
 
-    // copy scripts
-    mix.copy(paths.jquery + '/jquery.min.js', 'public/js/vendor/jquery.js');
-    mix.copy(paths.bootstrap + '/javascripts/bootstrap.min.js', 'public/js/vendor/bootstrap.js');
-    mix.copy(paths.metisMenu + '/metisMenu.min.js', 'public/js/vendor/metisMenu.js');
-    mix.copy(paths.colorbox + '/jquery.colorbox-min.js', 'public/js/vendor/jquery.colorbox.js');
-    mix.copy(paths.dataTables + '/js/jquery.dataTables.min.js', 'public/js/vendor/dataTables.js');
-    mix.copy(paths.dataTablesBootstrap3Plugin + '/js/datatables-bootstrap3.min.js', 'public/js/vendor/dataTables-bootstrap3.js');
-
-
-    // Wasn't able to use scripts or scriptsIn!
-    //mix.scripts([
-    //        'vendor/jquery.js',
-    //        'vendor/bootstrap.js'
-    //    ], 'public/js/vendor.js','public/js');
-
-    //mix.scripts([
-    //    paths.jquery + '/jquery.js',
-    //    paths.bootstrap + '/javascripts/bootstrap.js'
-    //], 'public/js/vendor.js', './');
-
-    //mix.scripts([
-    //    'jquery-legacy/dist/jquery.js',
-    //    'bootstrap-sass-official/assets/javascripts/bootstrap.js'
-    //], 'public/js/app.min.js', 'vendor/bower_components');
-
-    // Cache-bust app.css
-    mix.version('public/css/app.css');
+    // Cache-bust all.css and all.js
+    mix.version([
+        'public/css/all.css',
+        'public/js/all.js'
+    ]);
 });
 

@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\URL;
 
 class PhotoAlbum extends Model{
 
-	protected $table = "photo_album";
     /**
      * Deletes a gallery all
      * the associated images.
@@ -47,6 +46,6 @@ class PhotoAlbum extends Model{
      */
     public function language()
     {
-        return $this->belongsTo('App\Language', 'language_id');
+        return $this->belongsTo('App\Language');
     }
 } 

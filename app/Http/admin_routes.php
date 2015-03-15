@@ -18,26 +18,26 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('language/reorder', 'Admin\LanguageController@getReorder');
 
     #News category
-    Route::get('newscategory', 'Admin\NewsCategoryController@index');
-    Route::get('newscategory/create', 'Admin\NewsCategoryController@getCreate');
-    Route::post('newscategory/create', 'Admin\NewsCategoryController@postCreate');
-    Route::get('newscategory/{id}/edit', 'Admin\NewsCategoryController@getEdit');
-    Route::post('newscategory/{id}/edit', 'Admin\NewsCategoryController@postEdit');
-    Route::get('newscategory/{id}/delete', 'Admin\NewsCategoryController@getDelete');
-    Route::post('newscategory/{id}/delete', 'Admin\NewsCategoryController@postDelete');
-    Route::get('newscategory/data', 'Admin\NewsCategoryController@data');
-    Route::get('newscategory/reorder', 'Admin\NewsCategoryController@getReorder');
+    Route::get('newscategory', 'Admin\ArticleCategoriesController@index');
+    Route::get('newscategory/create', 'Admin\ArticleCategoriesController@getCreate');
+    Route::post('newscategory/create', 'Admin\ArticleCategoriesController@postCreate');
+    Route::get('newscategory/{id}/edit', 'Admin\ArticleCategoriesController@getEdit');
+    Route::post('newscategory/{id}/edit', 'Admin\ArticleCategoriesController@postEdit');
+    Route::get('newscategory/{id}/delete', 'Admin\ArticleCategoriesController@getDelete');
+    Route::post('newscategory/{id}/delete', 'Admin\ArticleCategoriesController@postDelete');
+    Route::get('newscategory/data', 'Admin\ArticleCategoriesController@data');
+    Route::get('newscategory/reorder', 'Admin\ArticleCategoriesController@getReorder');
 
     #News
-    Route::get('news', 'Admin\NewsController@index');
-    Route::get('news/create', 'Admin\NewsController@getCreate');
-    Route::post('news/create', 'Admin\NewsController@postCreate');
-    Route::get('news/{id}/edit', 'Admin\NewsController@getEdit');
-    Route::post('news/{id}/edit', 'Admin\NewsController@postEdit');
-    Route::get('news/{id}/delete', 'Admin\NewsController@getDelete');
-    Route::post('news/{id}/delete', 'Admin\NewsController@postDelete');
-    Route::get('news/data', 'Admin\NewsController@data');
-    Route::get('news/reorder', 'Admin\NewsController@getReorder');
+    Route::get('news', 'Admin\ArticlesController@index');
+    Route::get('news/create', 'Admin\ArticlesController@getCreate');
+    Route::post('news/create', 'Admin\ArticlesController@postCreate');
+    Route::get('news/{id}/edit', 'Admin\ArticlesController@getEdit');
+    Route::post('news/{id}/edit', 'Admin\ArticlesController@postEdit');
+    Route::get('news/{id}/delete', 'Admin\ArticlesController@getDelete');
+    Route::post('news/{id}/delete', 'Admin\ArticlesController@postDelete');
+    Route::get('news/data', 'Admin\ArticlesController@data');
+    Route::get('news/reorder', 'Admin\ArticlesController@getReorder');
 
     #Photo Album
     Route::get('photoalbum', 'Admin\PhotoAlbumController@index');

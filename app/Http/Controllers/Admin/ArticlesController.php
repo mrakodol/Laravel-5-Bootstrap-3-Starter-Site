@@ -1,8 +1,8 @@
 <?php namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\AdminController;
-use App\News;
-use App\NewsCategory;
+use App\Article;
+use App\ArticleCategory;
 use App\Language;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests\Admin\NewsRequest;
@@ -11,7 +11,7 @@ use App\Http\Requests\Admin\ReorderRequest;
 use Illuminate\Support\Facades\Auth;
 use Datatables;
 
-class NewsController extends AdminController {
+class ArticlesController extends AdminController {
 
     /*
     * Display a listing of the resource.
@@ -33,7 +33,7 @@ class NewsController extends AdminController {
     {
         $languages = Language::all();
         $language = "";
-		$newscategories = NewsCategory::all();
+		$newscategories = ArticleCategory::all();
 		$newscategory = "";
         // Show the page
         return view('admin.news.create_edit', compact('languages', 'language','newscategories','newscategory'));
@@ -83,7 +83,7 @@ class NewsController extends AdminController {
         $news = News::find($id);
         $languages = Language::all();
         $language = $news->language_id;
-		$newscategories = NewsCategory::all();
+		$newscategories = ArticleCategory::all();
 		$newscategory = $news->newscategory_id;
 
         return view('admin.news.create_edit',compact('news','languages','language','newscategories','newscategory'));
@@ -158,10 +158,10 @@ class NewsController extends AdminController {
      */
     public function data()
     {
-        $news = News::join('language', 'language.id', '=', 'news.language_id')
-            ->join('news_category', 'news_category.id', '=', 'news.newscategory_id')
-            ->select(array('news.id','news.title','news_category.title as category', 'language.name', 'news.created_at'))
-            ->orderBy('news.position', 'ASC');
+        $news = Article::join('languages', 'languages.id', '=', 'articles.language_id')
+            ->join('article_categories', 'article_categories.id', '=', 'articles.article_category_id')
+            ->select(array('articles.id','articles.title','article_categories.title as category', 'languages.name', 'articles.created_at'))
+            ->orderBy('articles.position', 'ASC');
 
         return Datatables::of($news)
             ->add_column('actions', '<a href="{{{ URL::to(\'admin/news/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span>  {{ Lang::get("admin/modal.edit") }}</a>

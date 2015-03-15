@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers\Admin;
 
-use App\NewsCategory;
+use App\ArticleCategory;
 use App\Language;
 use App\Http\Controllers\AdminController;
 use App\Http\Requests\Admin\NewsCategoryRequest;
@@ -9,7 +9,7 @@ use App\Http\Requests\Admin\ReorderRequest;
 use Illuminate\Support\Facades\Auth;
 use Datatables;
 
-class NewsCategoryController extends AdminController {
+class ArticleCategoriesController extends AdminController {
 
 	/**
 	 * Display a listing of the resource.
@@ -42,7 +42,7 @@ class NewsCategoryController extends AdminController {
      */
     public function postCreate(NewsCategoryRequest $request)
     {
-        $newscategory = new NewsCategory();
+        $newscategory = new ArticleCategory();
         $newscategory -> user_id = Auth::id();
         $newscategory -> language_id = $request->language_id;
         $newscategory -> title = $request->title;
@@ -56,7 +56,7 @@ class NewsCategoryController extends AdminController {
      */
     public function getEdit($id)
     {
-        $newscategory = NewsCategory::find($id);
+        $newscategory = ArticleCategory::find($id);
         $language = $newscategory->language_id;
         $languages = Language::all();
 
@@ -71,7 +71,7 @@ class NewsCategoryController extends AdminController {
      */
     public function postEdit(NewsCategoryRequest $request, $id)
     {
-        $newscategory = NewsCategory::find($id);
+        $newscategory = ArticleCategory::find($id);
         $newscategory -> user_id_edited = Auth::id();
         $newscategory -> language_id = $request->language_id;
         $newscategory -> title = $request->title;
@@ -87,7 +87,7 @@ class NewsCategoryController extends AdminController {
 
     public function getDelete($id)
     {
-        $newscategory = NewsCategory::find($id);
+        $newscategory = ArticleCategory::find($id);
         // Show the page
         return view('admin.newscategory.delete', compact('newscategory'));
     }
@@ -100,7 +100,7 @@ class NewsCategoryController extends AdminController {
      */
     public function postDelete(DeleteRequest $request,$id)
     {
-        $newscategory = NewsCategory::find($id);
+        $newscategory = ArticleCategory::find($id);
         $newscategory->delete();
     }
 
@@ -111,11 +111,11 @@ class NewsCategoryController extends AdminController {
      */
     public function data()
     {
-        $news_category = NewsCategory::join('language', 'language.id', '=', 'news_category.language_id')
-            ->select(array('news_category.id','news_category.title', 'language.name', 'news_category.created_at'))
-            ->orderBy('news_category.position', 'ASC');
+        $article_categories = ArticleCategory::join('languages', 'languages.id', '=', 'article_categories.language_id')
+            ->select(array('article_categories.id','article_categories.title', 'languages.name', 'article_categories.created_at'))
+            ->orderBy('article_categories.position', 'ASC');
 
-        return Datatables::of($news_category)
+        return Datatables::of($article_categories)
            ->add_column('actions', '<a href="{{{ URL::to(\'admin/newscategory/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span>  {{ Lang::get("admin/modal.edit") }}</a>
                 <a href="{{{ URL::to(\'admin/newscategory/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> {{ Lang::get("admin/modal.delete") }}</a>
                 <input type="hidden" name="row" value="{{$id}}" id="row">')
@@ -136,7 +136,7 @@ class NewsCategoryController extends AdminController {
         $order = 1;
         foreach ($items as $value) {
             if ($value != '') {
-                NewsCategory::where('id', '=', $value) -> update(array('position' => $order));
+                ArticleCategory::where('id', '=', $value) -> update(array('position' => $order));
                 $order++;
             }
         }

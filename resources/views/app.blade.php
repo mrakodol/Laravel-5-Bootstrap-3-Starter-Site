@@ -15,18 +15,17 @@
               content="Lorem ipsum dolor sit amet, nihil fabulas et sea, nam posse menandri scripserit no, mei."/>
     @show
 
-    {{--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/yeti/bootstrap.min.css">--}}
-
-    <link href="{{elixir('css/app.css')}}" rel="stylesheet">
+		<link href="{{ asset('/css/all.css') }}" rel="stylesheet">
+    {{--<link href="{{elixir('css/all.css')}}" rel="stylesheet">--}}
 
     {{-- TODO: Incorporate into elixer workflow. --}}
-    {{--<link rel="stylesheet"--}}
-          {{--href="{{asset('assets/site/css/half-slider.css')}}">--}}
-    {{--<link rel="stylesheet"--}}
-          {{--href="{{asset('assets/site/css/justifiedGallery.min.css')}}"/>--}}
-    {{--<link rel="stylesheet"--}}
-          {{--href="{{asset('assets/site/css/lightbox.min.css')}}"/>--}}
-    {{--<link rel="stylesheet" href="http://l5start.mrakodol.info/assets/site/css/bootstrap-theme.min.css">--}}
+    <link rel="stylesheet"
+          href="{{asset('assets/site/css/half-slider.css')}}">
+    <link rel="stylesheet"
+          href="{{asset('assets/site/css/justifiedGallery.min.css')}}"/>
+    <link rel="stylesheet"
+          href="{{asset('assets/site/css/lightbox.min.css')}}"/>
+    <link rel="stylesheet" href="http://l5start.mrakodol.info/assets/site/css/bootstrap-theme.min.css">
 
     @yield('styles')
 
@@ -52,12 +51,10 @@
 @include('partials.footer')
 
 <!-- Scripts -->
-{{--<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>--}}
-{{--<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>--}}
+<script src="{{ asset('/js/all.js') }}"></script>
+{{--<script src="{{ elixir('js/all.js') }}"></script>--}}
 
 {{-- TODO: Incorporate into elixir workflow. --}}
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/vendor/bootstrap.js"></script>
 <script src="{{asset('assets/site/js/jquery.justifiedGallery.min.js')}}"></script>
 <script src="{{asset('assets/site/js/lightbox.min.js')}}"></script>
 

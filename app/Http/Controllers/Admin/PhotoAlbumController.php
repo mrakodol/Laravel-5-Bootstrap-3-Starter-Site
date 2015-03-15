@@ -47,7 +47,7 @@ class PhotoAlbumController extends AdminController {
         $photoalbum -> language_id = $request->language_id;
         $photoalbum -> name = $request->name;
         $photoalbum -> description = $request->description;
-        $photoalbum -> folderid = sha1($request -> name . time());
+        $photoalbum -> folder_id = sha1($request -> name . time());
         $photoalbum -> save();
     }
     /**
@@ -114,12 +114,12 @@ class PhotoAlbumController extends AdminController {
      */
     public function data()
     {
-        $photo_category = PhotoAlbum::join('language', 'language.id', '=', 'photo_album.language_id')
-            ->select(array('photo_album.id','photo_album.name','language.name as language','photo_album.id as images_count', 'photo_album.created_at'))
-            ->orderBy('photo_album.position', 'ASC');
+        $photo_category = PhotoAlbum::join('languages', 'languages.id', '=', 'photo_albums.language_id')
+            ->select(array('photo_albums.id','photo_albums.name','languages.name as language','photo_albums.id as images_count', 'photo_albums.created_at'))
+            ->orderBy('photo_albums.position', 'ASC');
 
         return Datatables::of($photo_category)
-            -> edit_column('images_count', '<a class="btn btn-primary btn-sm" >{{ DB::table(\'photo\')->where(\'photo_album_id\', \'=\', $id)->count() }}</a>')
+            -> edit_column('images_count', '<a class="btn btn-primary btn-sm" >{{ DB::table(\'photos\')->where(\'photo_album_id\', \'=\', $id)->count() }}</a>')
             ->add_column('actions', '<a href="{{{ URL::to(\'admin/photo/\' . $id . \'/itemsforalbum\' ) }}}" class="btn btn-info btn-sm" ><span class="glyphicon glyphicon-open"></span>  {{ Lang::get("admin/modal.items") }}</a>
                     <a href="{{{ URL::to(\'admin/photoalbum/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span>  {{ Lang::get("admin/modal.edit") }}</a>
                     <a href="{{{ URL::to(\'admin/photoalbum/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> {{ Lang::get("admin/modal.delete") }}</a>

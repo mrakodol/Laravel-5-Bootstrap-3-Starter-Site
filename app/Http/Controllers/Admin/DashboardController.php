@@ -1,8 +1,8 @@
 <?php namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\AdminController;
-use App\News;
-use App\NewsCategory;
+use App\Article;
+use App\ArticleCategory;
 use App\User;
 use App\Video;
 use App\VideoAlbum;
@@ -20,8 +20,8 @@ class DashboardController extends AdminController {
 	{
         $title = "Dashboard";
 
-        $news = News::count();
-        $newscategory = NewsCategory::count();
+        $news = Article::count();
+        $newscategory = ArticleCategory::count();
         $users = User::count();
         $photo = Photo::count();
         $photoalbum = PhotoAlbum::count();

@@ -85,7 +85,7 @@ class VideoController extends AdminController {
         if($request->hasFile('video'))
         {
             $videoalbum = VideoAlbum::find($request->video_album_id);
-            $destinationPath = public_path() . '/appfiles/videoalbum/'.$videoalbum->folderid.'/';
+            $destinationPath = public_path() . '/appfiles/videoalbum/'.$videoalbum->folder_id.'/';
             $request->file('video')->move($destinationPath, $video_file);
         }
     }
@@ -145,7 +145,7 @@ class VideoController extends AdminController {
         if($request->hasFile('video'))
         {
             $videoalbum = VideoAlbum::find($request->video_album_id);
-            $destinationPath = public_path() . '/appfiles/videoalbum/'.$videoalbum->folderid.'/';
+            $destinationPath = public_path() . '/appfiles/videoalbum/'.$videoalbum->folder_id.'/';
             $request->file('video')->move($destinationPath, $video_file);
         }
     }
@@ -206,14 +206,14 @@ class VideoController extends AdminController {
      */
     public function data($albumid=0) {
         $condition =(intval($albumid)==0)?">":"=";
-        $videoalbum = Video::join('language', 'language.id', '=', 'video.language_id')
-            ->join('video_album', 'video_album.id', '=', 'video.video_album_id')
-            ->where('video.video_album_id',$condition,$albumid)
-            ->orderBy('video.position')
-            ->select(array('video.id',DB::raw($albumid . ' as albumid'), DB::getTablePrefix().'video.name',
-                'video_album.name as category',
-                DB::getTablePrefix().'video.album_cover','language.name as language', 
-                DB::getTablePrefix().'video.created_at'));
+        $videoalbum = Video::join('languages', 'languages.id', '=', 'videos.language_id')
+            ->join('video_albums', 'video_albums.id', '=', 'videos.video_album_id')
+            ->where('videos.video_album_id',$condition,$albumid)
+            ->orderBy('videos.position')
+            ->select(array('videos.id',DB::raw($albumid . ' as albumid'), DB::getTablePrefix().'videos.name',
+                'video_albums.name as category',
+                DB::getTablePrefix().'videos.album_cover','languages.name as language',
+                DB::getTablePrefix().'videos.created_at'));
 
         return Datatables::of($videoalbum)
             -> edit_column('album_cover', '<a href="{{{ URL::to(\'admin/video/\' . $id . \'/\' . $albumid . \'/albumcover\' ) }}}" class="btn btn-warning btn-sm" >@if ($album_cover=="1") <span class="glyphicon glyphicon-ok"></span> @else <span class=\'glyphicon glyphicon-remove\'></span> @endif</a>')
