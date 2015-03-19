@@ -6,10 +6,10 @@
         <h2>Home Page</h2>
     </div></div>
 
-    @if(count($news)>0)
+    @if(count($articles)>0)
         <div class="row">
             <h2>News</h2>
-            @foreach ($news as $post)
+            @foreach ($articles as $post)
                 <div class="col-md-6">
                     <div class="row">
                         <div class="col-md-8">

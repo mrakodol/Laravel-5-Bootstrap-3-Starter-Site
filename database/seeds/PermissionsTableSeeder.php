@@ -18,7 +18,7 @@ class PermissionsTableSeeder extends Seeder
                 'is_admin' => 1
             ),
             array( // 2
-                'name' => 'manage_news_category',
+                'name' => 'manage_article_categories',
                 'display_name' => 'Manage news category',
                 'is_admin' => 1
             ),

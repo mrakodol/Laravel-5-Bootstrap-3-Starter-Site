@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder {
        	$this->call('RolesTableSeeder');
         $this->call('PermissionsTableSeeder');
 		$this->call('LanguagesTableSeeder');
-		$this->call('NewsCategoryTableSeeder');
-		$this->call('NewsTableSeeder');
+		$this->call('ArticleCategoriesTableSeeder');
+		$this->call('ArticlesTableSeeder');
 		$this->call('PhotoAlbumsTableSeeder');
         $this->call('PhotosTableSeeder');
         $this->call('VideoAlbumsTableSeeder');

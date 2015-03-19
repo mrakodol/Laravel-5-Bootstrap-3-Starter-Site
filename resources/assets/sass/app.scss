@@ -1,4 +1,4 @@
-$icon-font-path: "/fonts/"; // correct bootstrap font path
+  $icon-font-path: "/fonts/"; // correct bootstrap font path
 @import "bootstrap";
 @import "yeti/variables";
 $icon-font-path: "/fonts/"; // re-correct bootstrap font path
@@ -9,13 +9,6 @@ $icon-font-path: "/fonts/"; // re-correct bootstrap font path
 
 $fa-font-path: "/fonts/"; // correct font-awesome font path
 @import "font-awesome";
-
-
-@import "dataTables-bootstrap3";
-@import "metisMenu";
-@import "colorbox";
-
-
 
 
 /* Sticky footer styles
