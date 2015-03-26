@@ -14,7 +14,7 @@ class PhotoAlbum extends Model{
     public function delete()
     {
         // Delete the gallery images
-        $this->images()->delete();
+        $this->photos()->delete();
 
         // Delete the gallery
         return parent::delete();
@@ -48,4 +48,4 @@ class PhotoAlbum extends Model{
     {
         return $this->belongsTo('App\Language');
     }
-} 
+}
