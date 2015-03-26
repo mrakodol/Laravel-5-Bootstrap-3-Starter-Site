@@ -20,7 +20,7 @@
 
                         @include('errors.list')
 
-                        <form class="form-horizontal" role="form" method="POST" action="/auth/login">
+                        <form class="form-horizontal" role="form" method="POST" action="{!! URL::to('/auth/login') !!}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <div class="form-group">
@@ -55,7 +55,7 @@
                                         Login
                                     </button>
 
-                                    <a href="/password/email">Forgot Your Password?</a>
+                                    <a href="{!! URL::to('/password/email') !!}">Forgot Your Password?</a>
                                 </div>
                             </div>
                         </form>
