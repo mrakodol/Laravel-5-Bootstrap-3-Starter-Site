@@ -5,9 +5,9 @@ $photo_album->name }}} :: @parent @stop @section('content')
 <div id="mygallery">
 	@foreach($photos as $item) 
 	<a
-		href="{{{'../../appfiles/photoalbum/'.$photo_album->folderid.'/'.$item->filename }}}"
+		href="{{{'../../appfiles/photoalbum/'.$photo_album->folder_id.'/'.$item->filename }}}"
 		data-lightbox="roadtrip"> <img alt="{{$item->name}}"
-		src="{{{'../../appfiles/photoalbum/'.$photo_album->folderid.'/thumbs/'.$item->filename }}}" />
+		src="{{{'../../appfiles/photoalbum/'.$photo_album->folder_id.'/thumbs/'.$item->filename }}}" />
 	</a> 
 	@endforeach
 </div>
