@@ -1,4 +1,4 @@
-  $icon-font-path: "/fonts/"; // correct bootstrap font path
+$icon-font-path: "/fonts/"; // correct bootstrap font path
 @import "bootstrap";
 @import "yeti/variables";
 $icon-font-path: "/fonts/"; // re-correct bootstrap font path
@@ -21,7 +21,7 @@ html {
 }
 body {
   /* Margin bottom by footer height */
-  margin-bottom: $footer-height;
+  margin-bottom: $footer-height !important;
 }
 #footer {
   position: absolute;
@@ -32,7 +32,20 @@ body {
   background-color: #f5f5f5;
 }
 
+/* Custom page CSS
+-------------------------------------------------- */
 
+body > .container {
+  padding: $footer-height 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+#footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
 
 /* Dashboard styles
 -------------------------------------------------- */
