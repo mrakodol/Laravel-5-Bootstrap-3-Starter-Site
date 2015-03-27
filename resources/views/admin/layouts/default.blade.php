@@ -31,12 +31,6 @@
 @section('scripts')
     @parent
 
-    {{-- Moved by Elixir--}}
-    <script src="{{asset('js/vendor/metisMenu.js')}}"></script>
-    <script src="{{asset('js/vendor/jquery.colorbox.js')}}"></script>
-    <script src="{{asset('js/vendor/dataTables.js')}}"></script>
-    <script src="{{asset('js/vendor/dataTables-bootstrap3.js')}}"></script>
-
     {{-- Not yet a part of Elixir workflow --}}
     {{--<script src="{{asset('assets/admin/js/jquery-migrate-1.2.1.min.js')}}"></script>--}}
     {{--<script src="{{asset('assets/admin/js/jquery-ui.1.11.2.min.js')}}"></script>--}}
@@ -58,7 +52,6 @@
         $(function () {
             $('#menu').metisMenu();
         });
-
-
     </script>
+
 @endsection
