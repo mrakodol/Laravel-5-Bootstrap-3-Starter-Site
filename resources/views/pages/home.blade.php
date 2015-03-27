@@ -58,10 +58,10 @@
                         <a href="{{URL::to('photo/'.$item->id.'')}}"
                            class="hover-effect"> @if($item->album_image!="")
                                 <img class="col-sm-12"
-                                        src="{!!'appfiles/photoalbum/'.$item->folderid.'/thumbs/'.$item->album_image !!}">
+                                        src="{!!'appfiles/photoalbum/'.$item->folder_id.'/thumbs/'.$item->album_image !!}">
                             @elseif($item->album_image_first!="")
                                 <img class="col-sm-12"
-                                     src="{!!'appfiles/photoalbum/'.$item->folderid.'/thumbs/'.$item->album_image_first !!}">
+                                     src="{!!'appfiles/photoalbum/'.$item->folder_id.'/thumbs/'.$item->album_image_first !!}">
                             @else
                                 <img class="col-sm-12" src="{!!'appfiles/photoalbum/default-image.jpg' !!}">
                             @endif
