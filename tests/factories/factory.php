@@ -40,7 +40,7 @@ $factory('App\Photo', [
     'position' => $faker->boolean(50),
     'slider' => false,
 //    TODO: create variable for image path
-    'filename' => $faker->image($dir = public_path().'/appfiles/photoAlbum', $width = 320, $height = 240),
+    'filename' => $faker->image($dir = public_path().'/appfiles/photoalbum', $width = 320, $height = 240),
     'name' => $faker->word,
     'description' => $faker->paragraph,
     'photo_album_id'=> $faker->numberBetween(1,3),
@@ -61,7 +61,7 @@ $factory('App\Video', [
     'language_id' => $faker->numberBetween(1,3),
     'position' => $faker->boolean(50),
 //    TODO: create variable for image path
-    'filename' => $faker->image($dir = public_path().'/appfiles/videoAlbum', $width = 320, $height = 240),
+    'filename' => $faker->image($dir = public_path().'/appfiles/videoalbum', $width = 320, $height = 240),
     'name' => $faker->word,
     'description' => $faker->paragraph,
     'youtube' => 'https://www.youtube.com/watch?v=FIZ_gDOrzGk',
