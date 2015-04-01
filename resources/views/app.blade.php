@@ -25,7 +25,7 @@
           href="{{asset('assets/site/css/justifiedGallery.min.css')}}"/>
     <link rel="stylesheet"
           href="{{asset('assets/site/css/lightbox.min.css')}}"/>
-    <link rel="stylesheet" href="http://l5start.mrakodol.info/assets/site/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{{asset('assets/site/css/bootstrap-theme.min.css')}}">
 
     @yield('styles')
 
