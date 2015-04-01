@@ -138,9 +138,13 @@ return [
 
 		'Illuminate\Html\HtmlServiceProvider',
 
+		/*
+		 * 3rd Party Service Providers...
+		 */
 		'yajra\Datatables\DatatablesServiceProvider',
 		'Laracasts\Generators\GeneratorsServiceProvider',
 		'Laracasts\Flash\FlashServiceProvider',
+		'Barryvdh\Debugbar\ServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -202,8 +206,12 @@ return [
 		'Form'      => 'Illuminate\Html\FormFacade',
 		'HTML'      => 'Illuminate\Html\HtmlFacade',
 
+		/*
+		 * 3rd Party Aliases...
+		 */
 		'Datatables'  => 'yajra\Datatables\Datatables',
 		'Flash' => 'laracasts/Flash/Flash',
+		'Debugbar' => 'Barryvdh\Debugbar\Facade',
 
 	],
 
