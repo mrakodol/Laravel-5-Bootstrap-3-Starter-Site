@@ -37,7 +37,7 @@ Demo is here http://l5start.mrakodol.info/
 <a name="feature2"></a>
 ##Requirements
 
-	PHP >= 5.4.0
+	PHP >= 5.5.0
 	MCrypt PHP Extension
 	Enable creating triger in database
 	SQL server(for example MySQL)
