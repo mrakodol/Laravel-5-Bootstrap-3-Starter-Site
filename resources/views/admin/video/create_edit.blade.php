@@ -1,7 +1,7 @@
 @extends('admin.layouts.modal') @section('content')
 <ul class="nav nav-tabs">
 	<li class="active"><a href="#tab-general" data-toggle="tab"> {{
-			Lang::get("admin/modal.general") }}</a></li>
+			trans("admin/modal.general") }}</a></li>
 </ul>
 <form class="form-horizontal" id="fupload" enctype="multipart/form-data"
 	method="post"
@@ -17,7 +17,7 @@
 					class="form-group {{{ $errors->has('language_id') ? 'error' : '' }}}">
 					<div class="col-md-12">
 						<label class="control-label" for="language_id">{{
-							Lang::get("admin/admin.language") }}</label> <select
+							trans("admin/admin.language") }}</label> <select
 							style="width: 100%" name="language_id" id="language_id"
 							class="form-control"> @foreach($languages as $item)
 							<option value="{{$item->id}}"
@@ -34,7 +34,7 @@
 					class="form-group {{{ $errors->has('name') ? 'has-error' : '' }}}">
 					<div class="col-md-12">
 						<label class="control-label" for="name"> {{
-							Lang::get("admin/modal.title") }}</label> <input
+							trans("admin/modal.title") }}</label> <input
 							class="form-control" type="text" name="name" id="name"
 							value="{{{ Input::old('name', isset($video) ? $video->name : null) }}}" />
 						{!!$errors->first('name', '<span class="help-block">:message </span>')!!}
@@ -44,7 +44,7 @@
 					class="form-group {{{ $errors->has('photo_album_id') ? 'has-error' : '' }}}">
 					<div class="col-md-12">
 						<label class="control-label" for="video_album_id">{{
-							Lang::get("admin/video.album") }}</label> <select
+							trans("admin/video.album") }}</label> <select
 							style="width: 100%" name="video_album_id" id="video_album_id"
 							class="form-control"> 
 							@foreach($videoalbums as $item)
@@ -62,16 +62,16 @@
 					class="form-group {{{ $errors->has('album_cover') ? 'has-error' : '' }}}">
 					<div class="col-lg-12">
 						<label class="control-label" for="album_cover">{{{
-							Lang::get('admin/photo.album_cover') }}}</label> 
+							trans('admin/photo.album_cover') }}}</label>
 							<label 	class="radio"> {!! Form::radio('album_cover', 1, (Input::old('album_cover') == '1' || (isset($video) &&
 							     $video->video_album_cover == '1')) ? true : false,
 							         array('id'=>'showtitle', 'class'=>'radio')) !!} 
-							{{{	Lang::get('admin/admin.yes') }}} </label> 
+							{{{	trans('admin/admin.yes') }}} </label>
 							<label class="radio">
 							{!! Form::radio('album_cover', 0, (Input::old('album_cover') ==	'0' || (isset($video) && $video->video_album_cover == '0') ||
 							!isset($video)) ? true : false, array('id'=>'showtitle',
 							'class'=>'radio')) !!} 
-							{{{ Lang::get('admin/admin.no') }}} </label>
+							{{{ trans('admin/admin.no') }}} </label>
 
 					</div>
 				</div>
@@ -79,7 +79,7 @@
 					class="form-group {{{ $errors->has('content') ? 'has-error' : '' }}}">
 					<div class="col-md-12">
 						<label class="control-label" for="description">{{
-							Lang::get("admin/photo.description") }}</label>
+							trans("admin/photo.description") }}</label>
 						<textarea class="form-control full-width wysihtml5"
 							name="description" rows="10">{{{ Input::old('content', isset($video) ? $video->description : null) }}}</textarea>
 						{!! $errors->first('description', '<label class="control-label">:message</label>')!!}
@@ -88,7 +88,7 @@
 				<div class="form-group">
 					<div class="col-md-12">
 						<label class="control-label" for="youtube"> {{
-							Lang::get("admin/video.video_youtube") }}</label> <input
+							trans("admin/video.video_youtube") }}</label> <input
 							class="form-control" type="text" name="youtube" id="youtube"
 							value="{{{ Input::old('youtube', isset($video) ? $video->youtube : null) }}}" />
 					</div>
@@ -99,18 +99,18 @@
 			<div class="col-md-12">
 				<button type="reset" class="btn btn-sm btn-warning close_popup">
 					<span class="glyphicon glyphicon-ban-circle"></span> {{
-					Lang::get("admin/modal.cancel") }}
+					trans("admin/modal.cancel") }}
 				</button>
 				<button type="reset" class="btn btn-sm btn-default">
 					<span class="glyphicon glyphicon-remove-circle"></span> {{
-					Lang::get("admin/modal.reset") }}
+					trans("admin/modal.reset") }}
 				</button>
 				<button type="submit" class="btn btn-sm btn-success">
 					<span class="glyphicon glyphicon-ok-circle"></span> 
 					@if (isset($video)) 
-					   {{ Lang::get("admin/modal.edit") }} 
+					   {{ trans("admin/modal.edit") }}
 				    @else 
-				        {{Lang::get("admin/modal.create") }} 
+				        {{trans("admin/modal.create") }}
 				    @endif
 				</button>
 			</div>

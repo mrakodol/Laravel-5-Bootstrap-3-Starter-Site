@@ -1,13 +1,13 @@
 @extends('app')
 
 {{-- Web site Title --}}
-@section('title') {{{ Lang::get('site/user.register') }}} :: @parent @stop
+@section('title') {{{ trans('site/user.register') }}} :: @parent @stop
 
 {{-- Content --}}
 @section('content')
     <div class="row">
         <div class="page-header">
-            <h2>{{{ Lang::get('site/user.register') }}}</h2>
+            <h2>{{{ trans('site/user.register') }}}</h2>
         </div>
     </div>
 
@@ -24,7 +24,7 @@
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <div class="form-group">
-                                <label class="col-md-4 control-label">{{{ Lang::get('site/user.name') }}}</label>
+                                <label class="col-md-4 control-label">{{{ trans('site/user.name') }}}</label>
 
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="name" value="{{ old('name') }}">
@@ -41,7 +41,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-4 control-label">{{{ Lang::get('site/user.e_mail') }}}</label>
+                                <label class="col-md-4 control-label">{{{ trans('site/user.e_mail') }}}</label>
 
                                 <div class="col-md-6">
                                     <input type="email" class="form-control" name="email" value="{{ old('email') }}">

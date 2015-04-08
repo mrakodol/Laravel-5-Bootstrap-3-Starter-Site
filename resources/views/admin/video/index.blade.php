@@ -1,18 +1,18 @@
 @extends('admin.layouts.default')
 
 {{-- Web site Title --}}
-@section('title') {{{ Lang::get("admin/video.video") }}} @parent @stop
+@section('title') {{{ trans("admin/video.video") }}} @parent @stop
 
 {{-- Content --}}
 @section('main')
     <div class="page-header">
         <h3>
-            {{{ Lang::get("admin/video.video") }}}
+            {{{ trans("admin/video.video") }}}
             <div class="pull-right">
                 <a href="{{{ URL::to('admin/video/create') }}}"
                    class="btn btn-sm  btn-primary iframe"><span
                             class="glyphicon glyphicon-plus-sign"></span> {{
-				Lang::get("admin/modal.new") }}</a>
+				trans("admin/modal.new") }}</a>
             </div>
         </h3>
     </div>
@@ -20,12 +20,12 @@
     <table id="table" class="table table-striped table-hover">
         <thead>
         <tr>
-            <th>{{{ Lang::get("admin/modal.title") }}}</th>
-            <th>{{{ Lang::get("admin/video.album") }}}</th>
-            <th>{{{ Lang::get("admin/video.album_cover") }}}</th>
-            <th>{{{ Lang::get("admin/admin.language") }}}</th>
-            <th>{{{ Lang::get("admin/admin.created_at") }}}</th>
-            <th>{{{ Lang::get("admin/admin.action") }}}</th>
+            <th>{{{ trans("admin/modal.title") }}}</th>
+            <th>{{{ trans("admin/video.album") }}}</th>
+            <th>{{{ trans("admin/video.album_cover") }}}</th>
+            <th>{{{ trans("admin/admin.language") }}}</th>
+            <th>{{{ trans("admin/admin.created_at") }}}</th>
+            <th>{{{ trans("admin/admin.action") }}}</th>
         </tr>
         </thead>
         <tbody></tbody>

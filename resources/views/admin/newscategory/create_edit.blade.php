@@ -2,7 +2,7 @@
 <!-- Tabs -->
 <ul class="nav nav-tabs">
 	<li class="active"><a href="#tab-general" data-toggle="tab"> {{
-			Lang::get("admin/modal.general") }}</a></li>
+			trans("admin/modal.general") }}</a></li>
 </ul>
 <!-- ./ tabs -->
 {{-- Edit Blog Form --}}
@@ -23,7 +23,7 @@
 					class="form-group {{{ $errors->has('language_id') ? 'has-error' : '' }}}">
 					<div class="col-md-12">
 						<label class="control-label" for="language_id">{{
-							Lang::get("admin/admin.language") }}</label> <select
+							trans("admin/admin.language") }}</label> <select
 							style="width: 100%" name="language_id" id="language_id"
 							class="form-control"> @foreach($languages as $item)
 							<option value="{{$item->id}}"
@@ -37,7 +37,7 @@
 				<div class="form-group {{{ $errors->has('title') ? 'has-error' : '' }}}">
 					<div class="col-md-12">
 						<label class="control-label" for="title"> {{
-							Lang::get("admin/modal.title") }}</label> <input
+							trans("admin/modal.title") }}</label> <input
 							class="form-control" type="text" name="title" id="title"
 							value="{{{ Input::old('title', isset($newscategory) ? $newscategory->title : null) }}}" />
 						{!!$errors->first('title', '<span class="help-block">:message </span>')!!}
@@ -55,18 +55,18 @@
 			<div class="col-md-12">
 				<button type="reset" class="btn btn-sm btn-warning close_popup">
 					<span class="glyphicon glyphicon-ban-circle"></span> {{
-					Lang::get("admin/modal.cancel") }}
+					trans("admin/modal.cancel") }}
 				</button>
 				<button type="reset" class="btn btn-sm btn-default">
 					<span class="glyphicon glyphicon-remove-circle"></span> {{
-					Lang::get("admin/modal.reset") }}
+					trans("admin/modal.reset") }}
 				</button>
 				<button type="submit" class="btn btn-sm btn-success">
 					<span class="glyphicon glyphicon-ok-circle"></span> 
 					@if (isset($newscategory)) 
-						{{ Lang::get("admin/modal.edit") }} 
+						{{ trans("admin/modal.edit") }}
 					@else 
-						{{Lang::get("admin/modal.create") }} 
+						{{trans("admin/modal.create") }}
 				    	@endif
 				</button>
 			</div>

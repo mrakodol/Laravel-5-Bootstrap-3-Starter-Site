@@ -1,13 +1,13 @@
 @extends('app')
 
 {{-- Web site Title --}}
-@section('title') {{{ Lang::get('site/user.login') }}} :: @parent @stop
+@section('title') {{{ trans('site/user.login') }}} :: @parent @stop
 
 {{-- Content --}}
 @section('content')
     <div class="row">
         <div class="page-header">
-            <h2>{{{ Lang::get('site/user.login_to_account') }}}</h2>
+            <h2>{{{ trans('site/user.login_to_account') }}}</h2>
         </div>
     </div>
 

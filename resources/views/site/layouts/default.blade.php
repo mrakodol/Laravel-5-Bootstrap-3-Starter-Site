@@ -64,22 +64,22 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
                     <li {{ (Request::is('/') ? ' class="active"' : '') }}><a
-                                href="{{{ URL::to('') }}}">{{{ Lang::get('site/site.home') }}}</a></li>
+                                href="{{{ URL::to('') }}}">{{{ trans('site/site.home') }}}</a></li>
                 </ul>
                 <ul class="nav navbar-nav pull-right">
                     @if (Auth::check()) @if(isset($admin))
                         <li><a href="{{{ URL::to('admin/dashboard') }}}">{{{
-								Lang::get('site/site.admin_panel') }}}</a></li> @endif
-                    <li><a href="#">{{{ Lang::get('site/site.login_as') }}} {{{
+								trans('site/site.admin_panel') }}}</a></li> @endif
+                    <li><a href="#">{{{ trans('site/site.login_as') }}} {{{
 								Auth::user()->name }}}</a></li>
                     <li><a href="{{{ URL::to('auth/logout') }}}">{{{
-								Lang::get('site/site.logout') }}}</a></li> @else
+								trans('site/site.logout') }}}</a></li> @else
                         <li {{ (Request::is('auth/login') ? ' class="active"' : '') }}><a
                                     href="{{{ URL::to('auth/login') }}}">{{{
-								Lang::get('site/site.login') }}}</a></li>
+								trans('site/site.login') }}}</a></li>
                         <li {{ (Request::is('auth/register') ? ' class="active"' : '') }}><a
                                     href="{{{ URL::to('auth/register') }}}">{{{
-								Lang::get('site/site.sign_up') }}}</a></li> @endif
+								trans('site/site.sign_up') }}}</a></li> @endif
                 </ul>
             </div>
         </div>

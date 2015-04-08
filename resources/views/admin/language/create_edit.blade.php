@@ -2,7 +2,7 @@
 <!-- Tabs -->
 <ul class="nav nav-tabs">
 	<li class="active"><a href="#tab-general" data-toggle="tab"> {{
-			Lang::get("admin/modal.general") }}</a></li>
+			trans("admin/modal.general") }}</a></li>
 </ul>
 <!-- ./ tabs -->
 <form class="form-horizontal" enctype="multipart/form-data"
@@ -17,7 +17,7 @@
 				class="form-group {{{ $errors->has('name') ? 'has-error' : '' }}}">
 				<div class="col-md-12">
 					<label class="control-label" for="name"> {{
-						Lang::get("admin/modal.title") }}</label> <input
+						trans("admin/modal.title") }}</label> <input
 						class="form-control" type="text" name="name" id="name"
 						value="{{{ Input::old('name', isset($language) ? $language->name : null) }}}" />
 					{!!$errors->first('name', '<label class="control-label" for="name">:message</label>')!!}
@@ -27,7 +27,7 @@
 				class="form-group {{{ $errors->has('lang_code') ? 'has-error' : '' }}}">
 				<div class="col-md-12">
 					<label class="control-label" for="lang_code">{{
-						Lang::get("admin/language.code") }}</label> <input
+						trans("admin/language.code") }}</label> <input
 						class="form-control" type="text" name="lang_code" id="lang_code"
 						value="{{{ Input::old('lang_code', isset($language) ? $language->lang_code : null) }}}" />
 					{!!$errors->first('lang_code', '<label class="control-label"
@@ -37,7 +37,7 @@
 			<div class="form-group">
 				<div class="col-lg-12">
 					<label class="control-label" for="icon">{{
-						Lang::get("admin/language.icon") }}</label> <input name="icon"
+						trans("admin/language.icon") }}</label> <input name="icon"
 						type="file" class="uploader" id="icon" value="Upload" />
 				</div>
 			</div>
@@ -47,18 +47,18 @@
 		<div class="col-md-12">
 			<button type="reset" class="btn btn-sm btn-warning close_popup">
 				<span class="glyphicon glyphicon-ban-circle"></span> {{
-				Lang::get("admin/modal.cancel") }}
+				trans("admin/modal.cancel") }}
 			</button>
 			<button type="reset" class="btn btn-sm btn-default">
 				<span class="glyphicon glyphicon-remove-circle"></span> {{
-				Lang::get("admin/modal.reset") }}
+				trans("admin/modal.reset") }}
 			</button>
 			<button type="submit" class="btn btn-sm btn-success">
 				<span class="glyphicon glyphicon-ok-circle"></span> 
 				@if (isset($language)) 
-				    {{ Lang::get("admin/modal.edit") }} 
+				    {{ trans("admin/modal.edit") }}
 				@else 
-				    {{Lang::get("admin/modal.create") }} 
+				    {{trans("admin/modal.create") }}
 			     @endif
 			</button>
 		</div>

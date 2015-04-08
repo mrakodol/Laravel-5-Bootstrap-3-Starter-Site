@@ -16,6 +16,7 @@ class UsersTableSeeder extends Seeder {
 			'email' => 'admin@admin.com',
 			'password' => bcrypt('admin'),
 			'confirmed' => 1,
+            'admin' => 1,
 			'confirmation_code' => md5(microtime() . env('APP_KEY')),
 		]);
 

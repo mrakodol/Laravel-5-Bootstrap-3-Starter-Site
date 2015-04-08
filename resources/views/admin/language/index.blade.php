@@ -1,20 +1,20 @@
 @extends('admin.layouts.default')
 
 {{-- Web site Title --}}
-@section('title') {{{ Lang::get("admin/language.languages") }}} ::
+@section('title') {{{ trans("admin/language.languages") }}} ::
 @parent @stop
 
 {{-- Content --}}
 @section('main')
     <div class="page-header">
         <h3>
-            {{{ Lang::get("admin/language.languages") }}}
+            {{{ trans("admin/language.languages") }}}
 
             <div class="pull-right">
                 <a href="{{{ URL::to('admin/language/create') }}}"
                    class="btn btn-sm  btn-primary iframe"><span
                             class="glyphicon glyphicon-plus-sign"></span> {{
-				Lang::get("admin/modal.new") }}</a>
+				trans("admin/modal.new") }}</a>
             </div>
         </h3>
     </div>
@@ -22,10 +22,10 @@
     <table id="table" class="table table-striped table-hover">
         <thead>
         <tr>
-            <th>{{ Lang::get("admin/modal.title") }}</th>
-            <th>{{ Lang::get("admin/language.code") }}</th>
-            <th>{{ Lang::get("admin/language.icon") }}</th>
-            <th>{{ Lang::get("admin/admin.action") }}</th>
+            <th>{{ trans("admin/modal.title") }}</th>
+            <th>{{ trans("admin/language.code") }}</th>
+            <th>{{ trans("admin/language.icon") }}</th>
+            <th>{{ trans("admin/admin.action") }}</th>
         </tr>
         </thead>
         <tbody>

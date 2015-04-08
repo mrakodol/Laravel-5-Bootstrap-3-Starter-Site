@@ -48,14 +48,9 @@ class Admin implements Middleware {
         if ($this->auth->check())
         {
             $admin = 0;
-            $user_roles = AssignedRoles::join('roles','role_user.role_id','=','roles.id')
-            ->where('user_id', $this->auth->user()->id)->select('roles.is_admin')->get();
-            foreach($user_roles as $item)
+            if($this->auth->user()->admin==1)
             {
-                if($item->is_admin==1)
-                {
-                    $admin=1;
-                }
+                $admin=1;
             }
             if($admin==0){
                 return $this->response->redirectTo('/');

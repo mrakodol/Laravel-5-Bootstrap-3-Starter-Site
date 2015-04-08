@@ -1,18 +1,18 @@
 @extends('admin.layouts.default')
 
 {{-- Web site Title --}}
-@section('title') {{{ Lang::get("admin/photo.photo") }}} @parent @stop
+@section('title') {{{ trans("admin/photo.photo") }}} @parent @stop
 
 {{-- Content --}}
 @section('main')
     <div class="page-header">
         <h3>
-            {{{ Lang::get("admin/photo.photo") }}}
+            {{{ trans("admin/photo.photo") }}}
             <div class="pull-right">
                 <a href="{{{ URL::to('admin/photo/create') }}}"
                    class="btn btn-sm  btn-primary iframe"><span
                             class="glyphicon glyphicon-plus-sign"></span> {{
-				Lang::get("admin/modal.new") }}</a>
+				trans("admin/modal.new") }}</a>
             </div>
         </h3>
     </div>
@@ -20,13 +20,13 @@
     <table id="table" class="table table-striped table-hover">
         <thead>
         <tr>
-            <th>{{{ Lang::get("admin/modal.title") }}}</th>
-            <th>{{{ Lang::get("admin/photo.album") }}}</th>
-            <th>{{{ Lang::get("admin/photo.album_cover") }}}</th>
-            <th>{{{ Lang::get("admin/photo.slider") }}}</th>
-            <th>{{{ Lang::get("admin/admin.language") }}}</th>
-            <th>{{{ Lang::get("admin/admin.created_at") }}}</th>
-            <th>{{{ Lang::get("admin/admin.action") }}}</th>
+            <th>{{{ trans("admin/modal.title") }}}</th>
+            <th>{{{ trans("admin/photo.album") }}}</th>
+            <th>{{{ trans("admin/photo.album_cover") }}}</th>
+            <th>{{{ trans("admin/photo.slider") }}}</th>
+            <th>{{{ trans("admin/admin.language") }}}</th>
+            <th>{{{ trans("admin/admin.created_at") }}}</th>
+            <th>{{{ trans("admin/admin.action") }}}</th>
         </tr>
         </thead>
         <tbody></tbody>

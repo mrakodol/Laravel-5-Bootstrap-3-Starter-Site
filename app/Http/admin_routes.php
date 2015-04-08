@@ -98,14 +98,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::post('users/{id}/delete', 'Admin\UserController@postDelete');
     Route::get('users/data', 'Admin\UserController@data');
 
-    #Roles
-    /*Route::get('roles/', 'Admin\RoleController@index');
-    Route::get('roles/create', 'Admin\RoleController@getCreate');
-    Route::post('roles/create', 'Admin\RoleController@postCreate');
-    Route::get('roles/{id}/edit', 'Admin\RoleController@getEdit');
-    Route::post('roles/{id}/edit', 'Admin\RoleController@postEdit');
-    Route::get('roles/{id}/delete', 'Admin\RoleController@getDelete');
-    Route::post('roles/{id}/delete', 'Admin\RoleController@postDelete');
-    Route::get('roles/data', 'Admin\RoleController@data');*/
 
 });

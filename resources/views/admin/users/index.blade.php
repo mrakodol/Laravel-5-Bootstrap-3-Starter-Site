@@ -1,20 +1,20 @@
 @extends('admin.layouts.default')
 
 {{-- Web site Title --}}
-@section('title') {{{ Lang::get("admin/users.users") }}} :: @parent
+@section('title') {{{ trans("admin/users.users") }}} :: @parent
 @stop
 
 {{-- Content --}}
 @section('main')
     <div class="page-header">
         <h3>
-            {{{ Lang::get("admin/users.users") }}}
+            {{{ trans("admin/users.users") }}}
             <div class="pull-right">
                 <div class="pull-right">
                     <a href="{{{ URL::to('admin/users/create') }}}"
                        class="btn btn-sm  btn-primary iframe"><span
                                 class="glyphicon glyphicon-plus-sign"></span> {{
-					Lang::get("admin/modal.new") }}</a>
+					trans("admin/modal.new") }}</a>
                 </div>
             </div>
         </h3>
@@ -23,11 +23,11 @@
     <table id="table" class="table table-striped table-hover">
         <thead>
         <tr>
-            <th>{{{ Lang::get("admin/users.name") }}}</th>
-            <th>{{{ Lang::get("admin/users.email") }}}</th>
-            <th>{{{ Lang::get("admin/users.active_user") }}}</th>
-            <th>{{{ Lang::get("admin/admin.created_at") }}}</th>
-            <th>{{{ Lang::get("admin/admin.action") }}}</th>
+            <th>{{{ trans("admin/users.name") }}}</th>
+            <th>{{{ trans("admin/users.email") }}}</th>
+            <th>{{{ trans("admin/users.active_user") }}}</th>
+            <th>{{{ trans("admin/admin.created_at") }}}</th>
+            <th>{{{ trans("admin/admin.action") }}}</th>
         </tr>
         </thead>
         <tbody></tbody>

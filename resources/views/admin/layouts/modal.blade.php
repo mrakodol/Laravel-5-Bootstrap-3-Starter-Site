@@ -58,7 +58,7 @@
 		<div class="pull-right">
 			<button class="btn btn-primary btn-sm close_popup">
 				<span class="glyphicon glyphicon-backward"></span> {{{
-				Lang::get('admin/admin.back') }}}
+				trans('admin/admin.back') }}}
 			</button>
 		</div>
 		<!-- Content -->
