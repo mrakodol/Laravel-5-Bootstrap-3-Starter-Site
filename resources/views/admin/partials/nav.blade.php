@@ -93,11 +93,11 @@ Dashboard</span>
                     class="hidden-sm text"> Users</span>
         </a>
     </li>
-    <li  {{ (Request::is('admin/roles*') ? ' class=active' : '') }}>
+    <!--li  {{ (Request::is('admin/roles*') ? ' class=active' : '') }}>
         <a href="{{URL::to('admin/roles')}}"
                 >
             <i class="glyphicon glyphicon-tasks"></i><span
                     class="hidden-sm text"> Roles</span>
         </a>
-    </li>
+    </li-->
 </ul>
