@@ -115,7 +115,7 @@ And to initial populate database use this:
 
 If you install on your localhost in folder laravel5startersite, you can type on web browser:
 
-	http://localhost/laravel5startersite/www
+	http://localhost/laravel5startersite/public
 -----
 <a name="step6"></a>
 ### Step 6: Start Page
