@@ -1,5 +1,6 @@
 <?php
 
+$faker->locale('en_US'); // set Locale of faked data - see https://github.com/fzaninotto/Faker/tree/master/src/Faker/Provider
 $faker->seed(1234); // manage image library
 
 $factory('App\User', [
