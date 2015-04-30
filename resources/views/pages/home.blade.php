@@ -63,7 +63,7 @@
                                 <img class="col-sm-12"
                                      src="{!!'appfiles/photoalbum/'.$item->folder_id.'/thumbs/'.$item->album_image_first !!}">
                             @else
-                                <img class="col-sm-12" src="{!!'appfiles/photoalbum/default-image.jpg' !!}">
+                                <img class="col-sm-12" src="{!!'img/default-image.jpg' !!}">
                             @endif
                         </a>
 
@@ -88,7 +88,7 @@
                                 <img class="col-sm-12"
                                      src="{{{'http://img.youtube.com/vi/'.$item->album_image_first.'/hqdefault.jpg' }}}">
                             @else
-                                <img class="col-sm-12" src="{{'appfiles/photoalbum/default-image.jpg' }}">
+                                <img class="col-sm-12" src="{{'img/default-image.jpg' }}">
                             @endif
                         </a>
 
