@@ -18,7 +18,7 @@ Demo is here http://l5start.mrakodol.info/
 * Twitter Bootstrap 3.2.0
 * Back-end
 	* Automatic install and settup website.
-	* User and Role management.
+	* User management.
 	* Manage languages.
 	* Manage photos and photo albums.
 	* Manage videos and video albums.
