@@ -145,6 +145,7 @@ return [
 		'Laracasts\Generators\GeneratorsServiceProvider',
 		'Laracasts\Flash\FlashServiceProvider',
 		'Barryvdh\Debugbar\ServiceProvider',
+        'Intervention\Image\ImageServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -212,6 +213,7 @@ return [
 		'Datatables'  => 'yajra\Datatables\Datatables',
 		'Flash' => 'laracasts/Flash/Flash',
 		'Debugbar' => 'Barryvdh\Debugbar\Facade',
+        'Image' => 'Intervention\Image\Facades\Image',
 
 	],
 

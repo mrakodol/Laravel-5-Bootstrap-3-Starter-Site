@@ -14,7 +14,7 @@ class CreateVideoAlbumsTable extends Migration
 	{
 		Schema::create('video_albums', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
-			$table->increments('id');
+			$table->increments('id')->unsigned();
 			$table->unsignedInteger('language_id');
 			$table->foreign('language_id')->references('id')->on('languages');
 			$table->integer('position')->nullable();
