@@ -1,15 +1,62 @@
-$icon-font-path: "/fonts/"; // correct bootstrap font path
-@import "bootstrap";
-@import "yeti/variables";
-$icon-font-path: "/fonts/"; // re-correct bootstrap font path
-@import "bootstrap";
+// Core variables and mixins
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
 @import "yeti/variables";
 
+$icon-font-path: "/fonts/"; // correct font path
+
+// Reset and dependencies
+@import "bootstrap/normalize";
+@import "bootstrap/print";
+@import "bootstrap/glyphicons";
+
+// Core CSS
+@import "bootstrap/scaffolding";
+@import "bootstrap/type";
+@import "bootstrap/code";
+@import "bootstrap/grid";
+@import "bootstrap/tables";
+@import "bootstrap/forms";
+@import "bootstrap/buttons";
+
+// Components
+@import "bootstrap/component-animations";
+@import "bootstrap/dropdowns";
+@import "bootstrap/button-groups";
+@import "bootstrap/input-groups";
+@import "bootstrap/navs";
+@import "bootstrap/navbar";
+@import "bootstrap/breadcrumbs";
+@import "bootstrap/pagination";
+@import "bootstrap/pager";
+@import "bootstrap/labels";
+@import "bootstrap/badges";
+@import "bootstrap/jumbotron";
+@import "bootstrap/thumbnails";
+@import "bootstrap/alerts";
+@import "bootstrap/progress-bars";
+@import "bootstrap/media";
+@import "bootstrap/list-group";
+@import "bootstrap/panels";
+@import "bootstrap/responsive-embed";
+@import "bootstrap/wells";
+@import "bootstrap/close";
+
+// Components w/ JavaScript
+@import "bootstrap/modals";
+@import "bootstrap/tooltip";
+@import "bootstrap/popovers";
+@import "bootstrap/carousel";
+
+// Utility classes
+@import "bootstrap/utilities";
+@import "bootstrap/responsive-utilities";
+
+// Bootswatch theme
 @import "yeti/bootswatch";
 
 $fa-font-path: "/fonts/"; // correct font-awesome font path
 @import "font-awesome";
-
 
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -19,10 +66,12 @@ html {
   position: relative;
   min-height: 100%;
 }
+
 body {
   /* Margin bottom by footer height */
   margin-bottom: $footer-height !important;
 }
+
 #footer {
   position: absolute;
   bottom: 0;
@@ -34,10 +83,10 @@ body {
 
 /* Custom page CSS
 -------------------------------------------------- */
-
 body > .container {
   padding: $footer-height 15px 0;
 }
+
 .container .text-muted {
   margin: 20px 0;
 }
@@ -49,7 +98,6 @@ body > .container {
 
 /* Dashboard styles
 -------------------------------------------------- */
-
 .main .page-header {
   margin-top: 0;
 }
@@ -60,7 +108,39 @@ li > ul {
 
 /* Colorbox corrections
 -------------------------------------------------- */
-#cboxLoadingGraphic{background:url(/img/loading.gif) no-repeat center center;}
-#cboxPrevious{position:absolute; top:50%; left:5px; margin-top:-32px; background:url(/img/controls.png) no-repeat top left; width:28px; height:65px; text-indent:-9999px;}
-#cboxNext{position:absolute; top:50%; right:5px; margin-top:-32px; background:url(/img/controls.png) no-repeat top right; width:28px; height:65px; text-indent:-9999px;}
-#cboxClose{position:absolute; top:5px; right:5px; display:block; background:url(/img/controls.png) no-repeat top center; width:38px; height:19px; text-indent:-9999px;}
+#cboxLoadingGraphic {
+  background: url(/img/loading.gif) no-repeat center center;
+}
+
+#cboxPrevious {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  margin-top: -32px;
+  background: url(/img/controls.png) no-repeat top left;
+  width: 28px;
+  height: 65px;
+  text-indent: -9999px;
+}
+
+#cboxNext {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  margin-top: -32px;
+  background: url(/img/controls.png) no-repeat top right;
+  width: 28px;
+  height: 65px;
+  text-indent: -9999px;
+}
+
+#cboxClose {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: block;
+  background: url(/img/controls.png) no-repeat top center;
+  width: 38px;
+  height: 19px;
+  text-indent: -9999px;
+}

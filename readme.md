@@ -66,7 +66,7 @@ Extract it in www(or htdocs if you using XAMPP) folder and put it for example in
 
 Laravel utilizes [Composer](http://getcomposer.org/) to manage its dependencies. First, download a copy of the composer.phar.
 Once you have the PHAR archive, you can either keep it in your local project directory or move to
-usr/local/bin to use it globally on your system. 
+usr/local/bin to use it globally on your system.
 On Windows, you can use the Composer [Windows installer](https://getcomposer.org/Composer-Setup.exe).
 
 Then run:
@@ -132,6 +132,13 @@ OR user
 -----
 <a name="feature5"></a>
 ## Troubleshooting
+
+### Cache busting with Elixir
+Version-ing of css an javascript is achieved through laravel-elixir. If your javascript or css changes aren't coming through, make sure your work is picked up by gulpfile.js when running gulp.
+
+Note: Blade gets the path to a versioned Elixir file with the following method call:
+
+    elixir($file);
 
 ### Site loading very slow
 

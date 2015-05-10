@@ -19,7 +19,7 @@ Dashboard</span>
     <li {{ (Request::is('admin/language*') ? ' class=active' : '') }}>
         <a href="{{URL::to('admin/language')}}"
                 >
-            <i class="glyphicon glyphicon-flag"></i><span
+            <i class="fa fa-language"></i><span
                     class="hidden-sm text"> Language</span>
         </a>
     </li>
