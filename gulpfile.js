@@ -20,7 +20,7 @@ gulp.task('bower', function() {
 var paths = {
     'jquery': 'vendor/jquery-legacy/dist',
     'bootstrap': 'vendor/bootstrap-sass/assets',
-    'bootswatch': 'vendor/bootswatch-sass',
+    'bootswatch': 'vendor/bootswatch',
     'fontawesome': 'vendor/font-awesome',
     'metisMenu': 'vendor/metisMenu/dist',
     'colorbox': 'vendor/jquery-colorbox',
