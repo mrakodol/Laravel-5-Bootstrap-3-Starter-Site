@@ -39,13 +39,13 @@
     <script type="text/javascript">
         var oTable;
         $(document).ready(function () {
-            oTable = $('#table').dataTable({
+            oTable = $('#table').DataTable({
                 "sDom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
                 "sPaginationType": "bootstrap",
 
-                "bProcessing": true,
-                "bServerSide": true,
-                "sAjaxSource": "{{ URL::to('admin/language/data') }}",
+                "processing": true,
+                "serverSide": true,
+                "ajax": "{{ URL::to('admin/language/data') }}",
                 "fnDrawCallback": function (oSettings) {
                     $(".iframe").colorbox({
                         iframe: true,
