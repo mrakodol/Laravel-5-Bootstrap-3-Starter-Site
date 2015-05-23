@@ -36,11 +36,11 @@ elixir(function (mix) {
     mix.task('bower');
 
     // Copy fonts straight to public
-    mix.copy(paths.bootstrap + '/fonts/bootstrap/**', 'public/fonts');
-    mix.copy(paths.fontawesome + '/fonts/**', 'public/fonts');
+    mix.copy('resources/' + paths.bootstrap + '/fonts/bootstrap/**', 'public/fonts');
+    mix.copy('resources/' + paths.fontawesome + '/fonts/**', 'public/fonts');
 
     // Copy images straight to public
-    mix.copy(paths.colorbox + '/example3/images/**', 'public/img');
+    mix.copy('resources/' + paths.colorbox + '/example3/images/**', 'public/img');
 
      // Compile SASS and output to default resource directory
     mix.sass('app.scss', 'resources/css', {
