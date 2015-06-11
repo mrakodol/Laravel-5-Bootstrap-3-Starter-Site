@@ -27807,7 +27807,7 @@ if (typeof jQuery === 'undefined') {
 })(window, document);
 
 /*!
-	Colorbox 1.6.0
+	Colorbox 1.6.1
 	license: MIT
 	http://www.jacklmoore.com/colorbox
 */
@@ -28782,7 +28782,7 @@ if (typeof jQuery === 'undefined') {
 
 			$(photo)
 			.addClass(prefix + 'Photo')
-			.bind('error',function () {
+			.bind('error.'+prefix,function () {
 				prep($tag(div, 'Error').html(settings.get('imgError')));
 			})
 			.one('load', function () {
@@ -28821,9 +28821,10 @@ if (typeof jQuery === 'undefined') {
 
 					if ($related[1] && (settings.get('loop') || $related[index + 1])) {
 						photo.style.cursor = 'pointer';
-						photo.onclick = function () {
+
+						$(photo).bind('click.'+prefix, function () {
 							publicMethod.next();
-						};
+						});
 					}
 
 					photo.style.width = photo.width + 'px';
