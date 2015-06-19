@@ -1,16 +1,25 @@
 <?php
+use Faker\Factory as Faker;
 
-use Illuminate\Database\Seeder;
-
-// composer require laracasts/testdummy
-use Laracasts\TestDummy\Factory as TestDummy;
-
-class ArticleCategoriesTableSeeder extends Seeder
+class ArticleCategoriesTableSeeder extends DatabaseSeeder
 {
 
 	public function run()
 	{
-		TestDummy::times(5)->create('App\ArticleCategory');
-	}
+		$faker = $this->getFaker();
+		
+		$category = new App\ArticleCategory;
+		$category->language_id = rand(1,3);
+		$category->user_id = 1;
+		$category->title = $faker->sentence;
+		$category->slug = $faker->slug;
+		$category->save();
 
+		$category = new App\ArticleCategory;
+		$category->language_id = rand(1,3);
+		$category->user_id = 1;
+		$category->title = $faker->sentence;
+		$category->slug = $faker->slug;
+		$category->save();			
+	}
 }

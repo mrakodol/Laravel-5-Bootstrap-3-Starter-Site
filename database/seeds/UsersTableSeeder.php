@@ -2,9 +2,6 @@
 
 use Illuminate\Database\Seeder;
 
-// composer require laracasts/testdummy
-use Laracasts\TestDummy\Factory as TestDummy;
-
 class UsersTableSeeder extends Seeder {
 
 	public function run()
@@ -28,8 +25,6 @@ class UsersTableSeeder extends Seeder {
 			'confirmed' => 1,
 			'confirmation_code' => md5(microtime() . env('APP_KEY')),
 		]);
-
-		TestDummy::times(10)->create('App\User');
 
 	}
 
