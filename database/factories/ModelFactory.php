@@ -19,3 +19,27 @@ $factory->define(App\User::class, function ($faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Article::class, function ($faker) {
+
+    return [
+        'language_id' => rand(1, 3),
+        'user_id' => 1,
+        'article_category_id' => rand(1, 2),
+        'title' => $faker->sentence,
+        'slug' => $faker->slug,
+        'introduction' => $faker->paragraph,
+        'content' => $faker->text,
+        'source' => $faker->url,
+    ];
+});
+
+$factory->define(App\ArticleCategory::class, function ($faker) {
+
+    return [
+        'language_id' => rand(1, 3),
+        'user_id' => 1,
+        'title' => $faker->sentence,
+        'slug' => $faker->slug,
+    ];
+});
