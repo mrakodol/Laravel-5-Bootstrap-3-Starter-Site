@@ -1,7 +1,9 @@
+// Bootswatch theme var
+@import "yeti/variables";
+
 // Core variables and mixins
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
-@import "yeti/variables";
 
 $icon-font-path: "/fonts/"; // correct font path
 
@@ -58,9 +60,10 @@ $icon-font-path: "/fonts/"; // correct font path
 $fa-font-path: "/fonts/"; // correct font-awesome font path
 @import "font-awesome";
 
+@import "variables";
+
 /* Sticky footer styles
 -------------------------------------------------- */
-$footer-height: 60px;
 
 html {
   position: relative;
@@ -94,16 +97,6 @@ body > .container {
 #footer > .container {
   padding-right: 15px;
   padding-left: 15px;
-}
-
-/* Dashboard styles
--------------------------------------------------- */
-.main .page-header {
-  margin-top: 0;
-}
-
-li > ul {
-  margin-left: 10px !important;
 }
 
 /* Colorbox corrections
