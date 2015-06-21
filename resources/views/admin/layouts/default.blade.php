@@ -33,7 +33,7 @@
     <script type="text/javascript">
         {{-- from sb-admin-2 --}}
         $(function () {
-            $('#menu').metisMenu();
+            $('.metismenu > ul').metisMenu();
         });
     </script>
 
