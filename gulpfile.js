@@ -25,7 +25,8 @@ var paths = {
     'metisMenu': 'vendor/metisMenu/dist',
     'colorbox': 'vendor/jquery-colorbox',
     'dataTables': 'vendor/datatables/media',
-    'dataTablesBootstrap3Plugin': 'vendor/datatables-bootstrap3-plugin/media'
+    'dataTablesBootstrap3Plugin': 'vendor/datatables-bootstrap3-plugin/media',
+    'flag': 'vendor/flag-sprites/dist'
 };
 
 elixir.config.sourcemaps = false;
@@ -42,7 +43,11 @@ elixir(function (mix) {
     // Copy images straight to public
     mix.copy('resources/' + paths.colorbox + '/example3/images/**', 'public/img');
 
-  // Compile SASS and output to default resource directory
+    // Copy flag resources
+    mix.copy('resources/' + paths.flag + '/css/flag-sprites.min.css', 'public/css/flags.css');
+    mix.copy('resources/' + paths.flag + '/img/flags.png', 'public/img/flags.png');
+
+    // Compile SASS and output to default resource directory
     mix.sass('site.scss', 'resources/assets/build/site.css', {
         includePaths: [
             'resources/' + paths.bootstrap + '/stylesheets/',

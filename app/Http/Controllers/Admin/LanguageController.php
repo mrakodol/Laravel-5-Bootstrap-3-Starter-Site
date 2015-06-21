@@ -142,9 +142,10 @@ class LanguageController extends AdminController {
             ->orderBy('languages.position', 'ASC')
             ->select(array('languages.id', 'languages.name', 'languages.lang_code',
             'languages.icon as icon'));
-
+//        "<span class='flag flag-$lang_code' alt='flag'></span>"
         return Datatables::of($language)
-            ->edit_column('icon', '{!! ($icon!="")? "<img style=\"max-width: 30px; max-height: 30px;\" src=\"../images/language/$id/$icon\">":""; !!}')
+//            ->edit_column('icon', '{!! ($icon!="")? "<img style=\"max-width: 30px; max-height: 30px;\" src=\"../images/language/$id/$icon\">":""; !!}')
+            ->edit_column('icon', '{!! ($icon!="")? "<span class=\"flag $icon\" alt=\"flag\">&nbsp</span>":""; !!}')
 
             ->add_column('actions', '<a href="{{{ URL::to(\'admin/language/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span> {{ trans("admin/modal.edit") }}</a>
                     <a href="{{{ URL::to(\'admin/language/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> {{ trans("admin/modal.delete") }}</a>
