@@ -16,12 +16,13 @@
   ],
   "dependencies": {
     "jquery-legacy": "jquery#^1",
-    "bootstrap-sass": "~3.3.4",
-    "bootswatch": "~3.3.4",
+    "bootstrap-sass": "~3.3.5",
+    "bootswatch": "~3.3.5",
     "font-awesome": "~4.3.0",
-    "metisMenu": "2.0.0",
-    "datatables": "~1.10.5",
+    "metisMenu": "~2.0.2",
+    "datatables": "~1.10.7",
     "datatables-bootstrap3-plugin": "~0.4.0",
-    "jquery-colorbox": "~1.6.0"
+    "jquery-colorbox": "~1.6.1",
+    "flag-sprites": "~1.1.1"
   }
 }

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG'),
+    'debug' => env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -95,7 +95,7 @@ return [
     |
     */
 
-    'log' => 'daily',
+    'log' => 'single',
 
     /*
     |--------------------------------------------------------------------------
@@ -200,10 +200,11 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+
 		/*
 		 * 3rd Party Aliases...
 		 */
-		 'Form'      => Illuminate\Html\FormFacade::class,
+        'Form'      => Illuminate\Html\FormFacade::class,
 		'HTML'      => Illuminate\Html\HtmlFacade::class,
 		'Datatables'  =>yajra\Datatables\Datatables::class,
 		'Flash'     =>  laracasts\Flash\Flash::class,

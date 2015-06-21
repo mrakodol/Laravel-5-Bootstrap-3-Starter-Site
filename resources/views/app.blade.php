@@ -15,16 +15,15 @@
               content="Lorem ipsum dolor sit amet, nihil fabulas et sea, nam posse menandri scripserit no, mei."/>
     @show
 
-{{--		<link href="{{ asset('/css/all.css') }}" rel="stylesheet">--}}
-    <link href="{{asset('css/all.css')}}" rel="stylesheet">
+		<link href="{{ elixir('css/site.css') }}" rel="stylesheet">
 
     {{-- TODO: Incorporate into elixer workflow. --}}
-    <link rel="stylesheet"
-          href="{{asset('assets/site/css/half-slider.css')}}">
-    <link rel="stylesheet"
-          href="{{asset('assets/site/css/justifiedGallery.min.css')}}"/>
-    <link rel="stylesheet"
-          href="{{asset('assets/site/css/lightbox.min.css')}}"/>
+    {{--<link rel="stylesheet"--}}
+          {{--href="{{asset('assets/site/css/half-slider.css')}}">--}}
+    {{--<link rel="stylesheet"--}}
+          {{--href="{{asset('assets/site/css/justifiedGallery.min.css')}}"/>--}}
+    {{--<link rel="stylesheet"--}}
+          {{--href="{{asset('assets/site/css/lightbox.min.css')}}"/>--}}
 
     @yield('styles')
 
@@ -50,17 +49,17 @@
 @include('partials.footer')
 
 <!-- Scripts -->
-{{--<script src="{{ asset('/js/all.js') }}"></script>--}}
-<script src="{{ asset('js/all.js') }}"></script>
+<script src="{{ elixir('js/site.js') }}"></script>
 
 {{-- TODO: Incorporate into elixir workflow. --}}
-<script src="{{asset('assets/site/js/jquery.justifiedGallery.min.js')}}"></script>
-<script src="{{asset('assets/site/js/lightbox.min.js')}}"></script>
+{{--<script src="{{asset('assets/site/js/jquery.justifiedGallery.min.js')}}"></script>--}}
+{{--<script src="{{asset('assets/site/js/lightbox.min.js')}}"></script>--}}
 
 <script>
     $('#flash-overlay-modal').modal();
     $('div.alert').not('.alert-danger').delay(3000).slideUp(300);
 </script>
+
 @yield('scripts')
 
 </body>
