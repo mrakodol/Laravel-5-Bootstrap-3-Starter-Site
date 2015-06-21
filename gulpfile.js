@@ -65,7 +65,11 @@ elixir(function (mix) {
     ], 'public/js/site.js', 'resources/');
 
     // Compile SASS and output to default resource directory.
-    mix.sass('admin.scss', 'resources/assets/build/admin.css');
+    mix.sass('admin.scss', 'resources/assets/build/admin.css', {
+        includePaths: [
+            'resources/' + paths.bootswatch + '/'
+        ]
+    });
 
     // Merge Admin CSSs.
     mix.styles([

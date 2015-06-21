@@ -1,3 +1,4 @@
+@import "yeti/variables";
 @import "variables";
 
 /* Dashboard styles
@@ -6,6 +7,31 @@
     margin-top: 0;
 }
 
-li > ul {
-    margin-left: 10px !important;
+/* MetisMenu styles
+-------------------------------------------------- */
+
+/* All levels of nav */
+.metismenu .nav > li > a {
+    padding: $nav-link-padding; //10px 15px
+}
+.metismenu .nav > li > a:hover,
+.metismenu .nav > li > a:focus {
+    //padding: $nav-link-padding - 1px;
+    padding-left: 14px;
+    border-left: 1px solid $brand-primary;
+}
+.metismenu .nav > .active > a,
+.metismenu .nav > .active:hover > a,
+.metismenu .nav > .active:focus > a {
+    //padding: $nav-link-padding - 2px;
+    padding-left: 13px;
+    border-left: 2px solid $brand-primary;
+}
+
+/* Nav: second level (shown on .active) */
+.metismenu .nav .nav {
+    padding-bottom: 10px;
+}
+.metismenu .nav .nav > li > a {
+    font-size: $font-size-small;
 }
