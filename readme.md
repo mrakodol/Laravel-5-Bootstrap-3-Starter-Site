@@ -96,6 +96,8 @@ After that, copy .env.example and rename it as .env and put connection and chang
 <a name="step5"></a>
 ### Step 5: Install
 
+Firstable need to uncomment this line "extension=php_fileinfo.dll" in php.info file.
+
 This project makes use of Bower and Laravel Elixir. Before triggering Elixir, you must first ensure that Node.js (included in homestead) is installed on your machine.
 
     node -v
