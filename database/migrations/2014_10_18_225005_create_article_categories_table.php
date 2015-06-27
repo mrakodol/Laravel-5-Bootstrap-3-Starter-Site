@@ -27,6 +27,7 @@ class CreateArticleCategoriesTable extends Migration {
 			$table->string('title');
 			$table->string('slug')->nullable();
 			$table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

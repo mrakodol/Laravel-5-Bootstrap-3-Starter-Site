@@ -33,6 +33,7 @@ class CreateArticlesTable extends Migration
 			$table->string('source')->nullable();
 			$table->string('picture')->nullable();
 			$table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

@@ -1,9 +1,17 @@
-<?php namespace App;
+<?php
+
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Language extends Model {
+class Language extends Model
+{
+
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
 
 	/**
 	 * The attributes included in the model's JSON form.
