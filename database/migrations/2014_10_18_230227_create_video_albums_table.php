@@ -26,6 +26,7 @@ class CreateVideoAlbumsTable extends Migration
 			$table->unsignedInteger('user_id_edited')->nullable();
 			$table->foreign('user_id_edited')->references('id')->on('users')->onDelete('set null');
 			$table->timestamps();
+            $table->softDeletes();
 		});
 	}
 
