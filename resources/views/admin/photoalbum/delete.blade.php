@@ -1,8 +1,4 @@
 @extends('admin.layouts.modal') @section('content')
-<ul class="nav nav-tabs">
-	<li class="active"><a href="#tab-general" data-toggle="tab">{{
-			trans("admin/modal.general") }}</a></li>
-</ul>
 <form id="deleteForm" class="form-horizontal" method="post"
 	action="@if (isset($photoalbum)){{ URL::to('admin/photoalbum/' . $photoalbum->id . '/delete') }}@endif"
 	autocomplete="off">
@@ -10,7 +6,7 @@
 		type="hidden" name="id" value="{{ $photoalbum->id }}" />
 	<div class="form-group">
 		<div class="controls">
-			{{ trans("admin/modal.delete_message") }}<br>
+			<p>{{ trans("admin/modal.delete_message") }}</p>
 			<element class="btn btn-warning btn-sm close_popup">
 			<span class="glyphicon glyphicon-ban-circle"></span> {{
 			trans("admin/modal.cancel") }}</element>
