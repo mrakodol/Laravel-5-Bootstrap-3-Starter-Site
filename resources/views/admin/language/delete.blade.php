@@ -1,8 +1,4 @@
 @extends('admin.layouts.modal') @section('content')
-<ul class="nav nav-tabs">
-	<li class="active"><a href="#tab-general" data-toggle="tab">{{
-			trans("admin/modal.general") }}</a></li>
-</ul>
 <form id="deleteForm" class="form-horizontal" method="post"
 	action="{{ URL::to('admin/language/' . $language . '/delete') }}"
 	autocomplete="off">

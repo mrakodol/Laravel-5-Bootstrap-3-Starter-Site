@@ -57,7 +57,7 @@
                         width: "80%",
                         height: "80%",
                         onClosed: function () {
-                            window.location.reload();
+                            oTable.ajax.reload();
                         }
                     });
                 }
