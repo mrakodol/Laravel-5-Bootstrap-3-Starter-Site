@@ -9,7 +9,7 @@
 @section('styles')
     @parent
 
-    <link href="{{ elixir('css/admin.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
 
 @endsection
 
@@ -22,7 +22,7 @@
 @section('scripts')
     @parent
 
-    <script src="{{ elixir('js/admin.js') }}"></script>
+    <script src="{{ asset('js/admin.js') }}"></script>
 
     {{-- Not yet a part of Elixir workflow --}}
     <script src="{{asset('assets/admin/js/bootstrap-dataTables-paging.js')}}"></script>

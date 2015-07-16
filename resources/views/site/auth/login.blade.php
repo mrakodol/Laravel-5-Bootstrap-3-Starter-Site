@@ -18,8 +18,8 @@
 				<input class="form-control" tabindex="1"
 					placeholder="{{ trans('site/user.e_mail') }}" type="text"
 					name="email" id="email" value="{{ Input::old('email') }}"> <span
-					class="help-block">{!!$errors->first('email', '<span
-					class="help-block">:message </span>')!!}
+					class="help-block">{{$errors->first('email', '<span
+					class="help-block">:message </span>')}}
 				</span>
 			</div>
 		</div>
@@ -29,8 +29,8 @@
 			<div class="col-md-10">
 				<input class="form-control" tabindex="2"
 					placeholder="{{ trans('site/user.password') }}" type="password"
-					name="password" id="password"> <span class="help-block">{!!$errors->first('password',
-					'<span class="help-block">:message </span>')!!}
+					name="password" id="password"> <span class="help-block">{{$errors->first('password',
+					'<span class="help-block">:message </span>')}}
 				</span>
 			</div>
 		</div>

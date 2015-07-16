@@ -15,8 +15,8 @@
 				class="form-control"
 				placeholder="{{{ trans('site/user.name') }}}" type="text"
 				name="name" id="name" value="{{{ Input::old('name') }}}"> <span
-				class="help-block">{!!$errors->first('name', '<span
-				class="help-block">:message </span>')!!}
+				class="help-block">{{$errors->first('name', '<span
+				class="help-block">:message </span>')}}
 			</span>
 		</div>
 		<div class="form-group {{$errors->has('email')?'has-error':''}}">
@@ -25,8 +25,8 @@
 			</label> <input class="form-control"
 				placeholder="{{{ trans('site/user.e_mail') }}}" type="text"
 				name="email" id="email" value="{{{ Input::old('email') }}}"> <span
-				class="help-block">{!!$errors->first('email', '<span
-				class="help-block">:message </span>')!!}
+				class="help-block">{{$errors->first('email', '<span
+				class="help-block">:message </span>')}}
 			</span>
 		</div>
 		<div class="form-group {{$errors->has('password')?'has-error':''}}">
@@ -34,8 +34,8 @@
 			<input class="form-control"
 				placeholder="{{{ trans('site/user.password') }}}"
 				type="password" name="password" id="password"> <span
-				class="help-block">{!!$errors->first('password', '<span
-				class="help-block">:message </span>')!!}
+				class="help-block">{{$errors->first('password', '<span
+				class="help-block">:message </span>')}}
 			</span>
 		</div>
 		<div
@@ -45,8 +45,8 @@
 				class="form-control"
 				placeholder="{{{ trans('site/user.password_confirmation') }}}"
 				type="password" name="password_confirmation"
-				id="password_confirmation"> <span class="help-block">{!!$errors->first('password_confirmation',
-				'<span class="help-block">:message </span>')!!}
+				id="password_confirmation"> <span class="help-block">{{$errors->first('password_confirmation',
+				'<span class="help-block">:message </span>')}}
 			</span>
 		</div>
 		<div class="form-actions form-group">

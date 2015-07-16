@@ -41,7 +41,7 @@
 							trans("admin/modal.title") }}</label> <input
 							class="form-control" type="text" name="name" id="name"
 							value="{{{ Input::old('name', isset($photo) ? $photo->name : null) }}}" />
-						{!!$errors->first('name', '<span class="help-block">:message </span>')!!}
+						{{$errors->first('name', '<span class="help-block">:message </span>')}}
 					</div>
 				</div>
 				<div
@@ -64,13 +64,13 @@
 					<div class="col-lg-12">
 						<label class="control-label" for="slider">{{{
 							trans('admin/photo.slider') }}}</label> <label class="radio">
-							{!! Form::radio('slider', 1, (Input::old('slider') == '1' ||
+							{{ Form::radio('slider', 1, (Input::old('slider') == '1' ||
 							(isset($photo) && $photo->slider == '1')) ? true : false,
-							array('id'=>'slider', 'class'=>'radio')) !!} {{{
+							array('id'=>'slider', 'class'=>'radio')) }} {{{
 							trans('admin/admin.yes') }}} </label> <label class="radio">
-							{!! Form::radio('slider', 0, (Input::old('slider') == '0' ||
+							{{ Form::radio('slider', 0, (Input::old('slider') == '0' ||
 							(isset($photo) && $photo->slider == '0') || !isset($photo)) ?
-							true : false, array('id'=>'slider', 'class'=>'radio')) !!} {{{
+							true : false, array('id'=>'slider', 'class'=>'radio')) }} {{{
 							trans('admin/admin.no') }}} </label>
 
 					</div>
@@ -80,15 +80,15 @@
 					<div class="col-lg-12">
 						<label class="control-label" for="album_cover">{{{
 							trans('admin/photo.album_cover') }}}</label> <label
-							class="radio"> {!! Form::radio('album_cover', 1,
+							class="radio"> {{ Form::radio('album_cover', 1,
 							(Input::old('album_cover') == '1' || (isset($photo) &&
 							$photo->album_cover == '1')) ? true : false,
-							array('id'=>'showtitle', 'class'=>'radio')) !!} {{{
+							array('id'=>'showtitle', 'class'=>'radio')) }} {{{
 							trans('admin/admin.yes') }}} </label> <label class="radio">
-							{!! Form::radio('album_cover', 0, (Input::old('album_cover') ==
+							{{ Form::radio('album_cover', 0, (Input::old('album_cover') ==
 							'0' || (isset($photo) && $photo->album_cover == '0') ||
 							!isset($photo)) ? true : false, array('id'=>'showtitle',
-							'class'=>'radio')) !!} {!! trans('admin/admin.no') !!} </label>
+							'class'=>'radio')) }} {{ trans('admin/admin.no') }} </label>
 
 					</div>
 				</div>
@@ -99,8 +99,8 @@
 							trans("admin/photo.description") }}</label>
 						<textarea class="form-control full-width wysihtml5"
 							name="description" rows="10">{{{ Input::old('content', isset($photo) ? $photo->description : null) }}}</textarea>
-						{!! $errors->first('description', '<label class="control-label">:message</label>')
-						!!}
+						{{ $errors->first('description', '<label class="control-label">:message</label>')
+						}}
 					</div>
 				</div>
 

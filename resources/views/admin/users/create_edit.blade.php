@@ -31,8 +31,8 @@
                                placeholder="{{ trans('admin/users.username') }}" name="username"
                                id="username"
                                value="{{{ Input::old('username', isset($user) ? $user->username : null) }}}" />
-                        {!! $errors->first('username', '<label class="control-label"
-                                                            for="username">:message</label>')!!}
+                        {{ $errors->first('username', '<label class="control-label"
+                                                            for="username">:message</label>')}}
                     </div>
                 </div>
             </div>
@@ -45,8 +45,8 @@
 							placeholder="{{ trans('admin/users.email') }}" name="email"
 							id="email"
 							value="{{{ Input::old('email', isset($user) ? $user->email : null) }}}" />
-						{!! $errors->first('email', '<label class="control-label"
-							for="email">:message</label>')!!}
+						{{ $errors->first('email', '<label class="control-label"
+							for="email">:message</label>')}}
 					</div>
 				</div>
 			</div>
@@ -59,8 +59,8 @@
 						<input class="form-control" tabindex="5"
 							placeholder="{{ trans('admin/users.password') }}"
 							type="password" name="password" id="password" value="" />
-						{!!$errors->first('password', '<label class="control-label"
-							for="password">:message</label>')!!}
+						{{$errors->first('password', '<label class="control-label"
+							for="password">:message</label>')}}
 					</div>
 				</div>
 			</div>
@@ -72,8 +72,8 @@
 						<input class="form-control" type="password" tabindex="6"
 							placeholder="{{ trans('admin/users.password_confirmation') }}"
 							name="password_confirmation" id="password_confirmation" value="" />
-						{!!$errors->first('password_confirmation', '<label
-							class="control-label" for="password_confirmation">:message</label>')!!}
+						{{$errors->first('password_confirmation', '<label
+							class="control-label" for="password_confirmation">:message</label>')}}
 					</div>
 				</div>
 			</div>

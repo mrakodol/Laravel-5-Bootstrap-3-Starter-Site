@@ -5,9 +5,9 @@
     <h1>Write an Article</h1>
     <hr>
 
-    {!! Form::open(['url' => 'articles']) !!}
+    {{ Form::open(['url' => 'articles']) }}
         @include('articles._form', ['submitButtonText' => 'Add article'])
-    {!! Form::close() !!}
+    {{ Form::close() }}
 
 
     @include('errors.list')

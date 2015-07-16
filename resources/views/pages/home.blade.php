@@ -14,8 +14,8 @@
                     <div class="row">
                         <div class="col-md-8">
                             <h4>
-                                <strong><a href="{{URL::to('news/'.$post->id.'')}}">{!!
-                                        $post->title !!}</a></strong>
+                                <strong><a href="{{URL::to('news/'.$post->id.'')}}">{{
+                                        $post->title }}</a></strong>
                             </h4>
                         </div>
                     </div>
@@ -25,7 +25,7 @@
                                         src="http://placehold.it/260x180" alt=""></a>
                         </div>
                         <div class="col-md-10">
-                            <p>{!! $post->introduction !!}</p>
+                            <p>{{ $post->introduction }}</p>
 
                             <p>
                                 <a class="btn btn-mini btn-default"
@@ -39,8 +39,8 @@
 
                             <p>
                                 <span class="glyphicon glyphicon-user"></span> by <span
-                                        class="muted">{!! $post->author->name !!}</span> | <span
-                                        class="glyphicon glyphicon-calendar"></span> {!! $post->created_at !!}
+                                        class="muted">{{ $post->author->name }}</span> | <span
+                                        class="glyphicon glyphicon-calendar"></span> {{ $post->created_at }}
                             </p>
                         </div>
                     </div>
@@ -58,16 +58,16 @@
                         <a href="{{URL::to('photo/'.$item->id.'')}}"
                            class="hover-effect"> @if($item->album_image!="")
                                 <img class="col-sm-12"
-                                        src="{!!'appfiles/photoalbum/'.$item->folder_id.'/thumbs/'.$item->album_image !!}">
+                                        src="{{'appfiles/photoalbum/'.$item->folder_id.'/thumbs/'.$item->album_image }}">
                             @elseif($item->album_image_first!="")
                                 <img class="col-sm-12"
-                                     src="{!!'appfiles/photoalbum/'.$item->folder_id.'/thumbs/'.$item->album_image_first !!}">
+                                     src="{{'appfiles/photoalbum/'.$item->folder_id.'/thumbs/'.$item->album_image_first }}">
                             @else
-                                <img class="col-sm-12" src="{!!'img/default-image.jpg' !!}">
+                                <img class="col-sm-12" src="{{'img/default-image.jpg' }}">
                             @endif
                         </a>
 
-                        <div class=" col-sm-12">{!!$item->name!!}</div>
+                        <div class=" col-sm-12">{{$item->name}}</div>
                     </div>
                 </div>
             @endforeach
@@ -92,7 +92,7 @@
                             @endif
                         </a>
 
-                        <div class=" col-sm-12">{!!$item->name!!}</div>
+                        <div class=" col-sm-12">{{$item->name}}</div>
                     </div>
                 </div>
             @endforeach

@@ -40,7 +40,7 @@
 							trans("admin/modal.title") }}</label> <input
 							class="form-control" type="text" name="title" id="title"
 							value="{{{ Input::old('title', isset($newscategory) ? $newscategory->title : null) }}}" />
-						{!!$errors->first('title', '<span class="help-block">:message </span>')!!}
+						{{$errors->first('title', '<span class="help-block">:message </span>')}}
 					</div>
 				</div>
 

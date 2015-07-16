@@ -34,7 +34,7 @@
 							trans("admin/modal.title") }}</label> <input
 							class="form-control" type="text" name="name" id="name"
 							value="{{{ Input::old('name', isset($videoalbum) ? $videoalbum->name : null) }}}" />
-						{!!$errors->first('title', '<label class="control-label">:message</label>')!!}
+						{{$errors->first('title', '<label class="control-label">:message</label>')}}
 					</div>
 				</div>
 				<div class="form-group">

@@ -20,7 +20,7 @@
 						trans("admin/modal.title") }}</label> <input
 						class="form-control" type="text" name="name" id="name"
 						value="{{{ Input::old('name', isset($language) ? $language->name : null) }}}" />
-					{!!$errors->first('name', '<label class="control-label" for="name">:message</label>')!!}
+					{{$errors->first('name', '<label class="control-label" for="name">:message</label>')}}
 				</div>
 			</div>
 			<div
@@ -30,8 +30,8 @@
 						trans("admin/language.code") }}</label> <input
 						class="form-control" type="text" name="lang_code" id="lang_code"
 						value="{{{ Input::old('lang_code', isset($language) ? $language->lang_code : null) }}}" />
-					{!!$errors->first('lang_code', '<label class="control-label"
-						for="name">:message</label>')!!}
+					{{$errors->first('lang_code', '<label class="control-label"
+						for="name">:message</label>')}}
 				</div>
 			</div>
 			<div class="form-group">

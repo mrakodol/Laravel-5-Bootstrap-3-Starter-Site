@@ -37,7 +37,7 @@
 							trans("admin/modal.title") }}</label> <input
 							class="form-control" type="text" name="name" id="name"
 							value="{{{ Input::old('name', isset($video) ? $video->name : null) }}}" />
-						{!!$errors->first('name', '<span class="help-block">:message </span>')!!}
+						{{$errors->first('name', '<span class="help-block">:message </span>')}}
 					</div>
 				</div>
 				<div
@@ -63,14 +63,14 @@
 					<div class="col-lg-12">
 						<label class="control-label" for="album_cover">{{{
 							trans('admin/photo.album_cover') }}}</label>
-							<label 	class="radio"> {!! Form::radio('album_cover', 1, (Input::old('album_cover') == '1' || (isset($video) &&
+							<label 	class="radio"> {{ Form::radio('album_cover', 1, (Input::old('album_cover') == '1' || (isset($video) &&
 							     $video->video_album_cover == '1')) ? true : false,
-							         array('id'=>'showtitle', 'class'=>'radio')) !!} 
+							         array('id'=>'showtitle', 'class'=>'radio')) }}
 							{{{	trans('admin/admin.yes') }}} </label>
 							<label class="radio">
-							{!! Form::radio('album_cover', 0, (Input::old('album_cover') ==	'0' || (isset($video) && $video->video_album_cover == '0') ||
+							{{ Form::radio('album_cover', 0, (Input::old('album_cover') ==	'0' || (isset($video) && $video->video_album_cover == '0') ||
 							!isset($video)) ? true : false, array('id'=>'showtitle',
-							'class'=>'radio')) !!} 
+							'class'=>'radio')) }}
 							{{{ trans('admin/admin.no') }}} </label>
 
 					</div>
@@ -82,7 +82,7 @@
 							trans("admin/photo.description") }}</label>
 						<textarea class="form-control full-width wysihtml5"
 							name="description" rows="10">{{{ Input::old('content', isset($video) ? $video->description : null) }}}</textarea>
-						{!! $errors->first('description', '<label class="control-label">:message</label>')!!}
+						{{ $errors->first('description', '<label class="control-label">:message</label>')}}
 					</div>
 				</div>
 				<div class="form-group">
