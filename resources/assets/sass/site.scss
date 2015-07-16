@@ -5,7 +5,7 @@
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
 
-$icon-font-path: "/fonts/"; // correct font path
+$icon-font-path: "../fonts/"; // correct font path
 
 // Reset and dependencies
 @import "bootstrap/normalize";
@@ -57,7 +57,7 @@ $icon-font-path: "/fonts/"; // correct font path
 // Bootswatch theme
 @import "yeti/bootswatch";
 
-$fa-font-path: "/fonts/"; // correct font-awesome font path
+$fa-font-path: "/"; // correct font-awesome font path
 @import "font-awesome";
 
 @import "variables";
