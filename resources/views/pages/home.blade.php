@@ -100,13 +100,4 @@
     @endif
 
 @endsection
-
-@section('scripts')
-    @parent
-    <script>
-        $('#myCarousel').carousel({
-            interval: 4000
-        });
-    </script>
-@endsection
 @stop
