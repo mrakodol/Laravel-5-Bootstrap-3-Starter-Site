@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html lang="en-US">
-<head>
-<meta charset="utf-8">
-</head>
-<body>
+@extends('app')
+@section('content')
 	<h2>Password Reset</h2>
 
 	<div>
@@ -11,5 +7,4 @@
 		[$token]) }}.<br /> This link will expire in {{
 		config('auth.reminder.expire', 60) }} minutes.
 	</div>
-</body>
-</html>
+@endsection
