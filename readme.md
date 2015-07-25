@@ -138,9 +138,12 @@ OR user
 <a name="feature5"></a>
 ## Troubleshooting
 
+### TokenMismatchException
+ If your `config/session.php` has `'secure' => true` in an environment that doesn't have SSL setup, you will receive a TokenMismatchException. 
+
 ### RuntimeException : No supported encrypter found. The cipher and / or key length are invalid.
 
-php artisan key:generate
+    php artisan key:generate
 
 ### Cache busting with Elixir
 Version-ing of css an javascript is achieved through laravel-elixir. If your javascript or css changes aren't coming through, make sure your work is picked up by gulpfile.js when running gulp.
