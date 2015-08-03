@@ -6,7 +6,7 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "~5.1",
+        "laravel/framework": "5.1.*",
 		"illuminate/html" : "~5.0",
 		"yajra/laravel-datatables-oracle" : "~5.0",
 		"laracasts/flash": "~1.3",
