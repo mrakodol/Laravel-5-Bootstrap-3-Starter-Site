@@ -1,7 +1,7 @@
 <?php
 use Faker\Factory as Faker;
 
-class ArticleCategoriesTableSeeder extends DatabaseSeeder
+class ArticleCategoryTableSeeder extends DatabaseSeeder
 {
 
 	public function run()

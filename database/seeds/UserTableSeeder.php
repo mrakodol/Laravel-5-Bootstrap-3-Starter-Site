@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class UsersTableSeeder extends Seeder {
+class UserTableSeeder extends Seeder {
 
 	public function run()
 	{
