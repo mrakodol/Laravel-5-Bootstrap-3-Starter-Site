@@ -92,9 +92,9 @@ elixir(function(mix) {
 
     // Cache-bust all.css and all.js files.
     mix.version([
-        'css/site.css',
-        'css/admin.css',
-        'js/site.js',
-        'js/admin.js'
+        'public/css/site.css',
+        'public/css/admin.css',
+        'public/js/site.js',
+        'public/js/admin.js'
     ]);
 });
