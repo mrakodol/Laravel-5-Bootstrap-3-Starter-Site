@@ -1,6 +1,6 @@
-var gulp = require("gulp");
-var bower = require("gulp-bower");
-var elixir = require("laravel-elixir");
+var gulp = require('gulp');
+var bower = require('gulp-bower');
+var elixir = require('laravel-elixir');
 
 gulp.task('bower', function() {
     return bower();
@@ -12,7 +12,7 @@ gulp.task('bower', function() {
  |--------------------------------------------------------------------------
  |
  | Elixir provides a clean, fluent API for defining some basic Gulp tasks
- | for your Laravel application. By default, we are compiling the Less
+ | for your Laravel application. By default, we are compiling the Sass
  | file for our application, as well as publishing vendor resources.
  |
  */
@@ -31,7 +31,7 @@ var paths = {
 
 elixir.config.sourcemaps = false;
 
-elixir(function (mix) {
+elixir(function(mix) {
 
     // Run bower install
     mix.task('bower');
@@ -92,10 +92,9 @@ elixir(function (mix) {
 
     // Cache-bust all.css and all.js files.
     mix.version([
-        'css/site.css',
-        'css/admin.css',
-        'js/site.js',
-        'js/admin.js'
+        'public/css/site.css',
+        'public/css/admin.css',
+        'public/js/site.js',
+        'public/js/admin.js'
     ]);
 });
-

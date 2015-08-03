@@ -3,7 +3,7 @@
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 
-class ArticlesTableSeeder extends Seeder
+class ArticleTableSeeder extends Seeder
 {
 
 	public function run()

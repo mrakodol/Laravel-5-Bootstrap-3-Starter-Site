@@ -1,9 +1,14 @@
 # Assets
 composer.lock
 composer.phar
+
+Homestead.yaml
+Homestead.json
 /node_modules
 /vendor
+
 /storage/debugbar
+
 
 # Builds paths (included to encourage builds)
 /public/appfiles/*/*

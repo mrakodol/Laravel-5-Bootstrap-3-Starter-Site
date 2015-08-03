@@ -5,7 +5,7 @@
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
 
-$icon-font-path: "../fonts/"; // correct font path
+$icon-font-path: "/fonts/"; // correct font path
 
 // Reset and dependencies
 @import "bootstrap/normalize";
@@ -57,32 +57,12 @@ $icon-font-path: "../fonts/"; // correct font path
 // Bootswatch theme
 @import "yeti/bootswatch";
 
-$fa-font-path: "/"; // correct font-awesome font path
 @import "font-awesome";
 
 @import "variables";
 
-/* Sticky footer styles
--------------------------------------------------- */
+@import "sticky-footer";
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: $footer-height !important;
-}
-
-#footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: $footer-height;
-  background-color: #f5f5f5;
-}
 
 /* Custom page CSS
 -------------------------------------------------- */
