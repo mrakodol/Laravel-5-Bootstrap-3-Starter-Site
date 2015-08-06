@@ -42,7 +42,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => 'Admin
     Route::get('language/{id}/delete', 'LanguageController@getDelete');
     Route::post('language/{id}/delete', 'LanguageController@postDelete');
     Route::get('language/data', 'LanguageController@data');
-    Route::get('language/reorder', 'LanguageController@getReorder');
 
     # News category
     Route::get('newscategory', 'ArticleCategoriesController@index');

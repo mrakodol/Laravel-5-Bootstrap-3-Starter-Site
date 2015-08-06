@@ -47,7 +47,6 @@
             oTable = $('#table').DataTable({
                 "sDom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
                 "sPaginationType": "bootstrap",
-
                 "processing": true,
                 "serverSide": true,
                 "ajax": "{{ URL::to('admin/language/data') }}",
@@ -59,25 +58,6 @@
                         onClosed: function () {
                             oTable.ajax.reload();
                         }
-                    });
-                }
-            });
-            var startPosition;
-            var endPosition;
-            $("#table tbody").sortable({
-                cursor: "move",
-                start: function (event, ui) {
-                    startPosition = ui.item.prevAll().length + 1;
-                },
-                update: function (event, ui) {
-                    endPosition = ui.item.prevAll().length + 1;
-                    var navigationList = "";
-                    $('#table #row').each(function (i) {
-                        navigationList = navigationList + ',' + $(this).val();
-                    });
-                    $.getJSON("{{ URL::to('admin/language/reorder') }}", {
-                        list: navigationList
-                    }, function (data) {
                     });
                 }
             });

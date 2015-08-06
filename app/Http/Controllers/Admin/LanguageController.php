@@ -140,12 +140,9 @@ class LanguageController extends AdminController {
     {
         $language = Language::whereNull('languages.deleted_at')
             ->orderBy('languages.position', 'ASC')
-            ->select(array('languages.id', 'languages.name', 'languages.lang_code',
-            'languages.icon as icon'));
-//        "<span class='flag flag-$lang_code' alt='flag'></span>"
+            ->select(array('languages.id', 'languages.name', 'languages.lang_code as lang_code','languages.lang_code as icon'));
         return Datatables::of($language)
-//            ->edit_column('icon', '{{ ($icon!="")? "<img style=\"max-width: 30px; max-height: 30px;\" src=\"../images/language/$id/$icon\">":""; }}')
-            ->edit_column('icon', '{{ ($icon!="")? "<span class=\"flag $icon\" alt=\"flag\">&nbsp</span>":""; }}')
+            ->edit_column('icon', '<img src="blank.gif" class="flag flag-{{$icon}}" alt="" />')
 
             ->add_column('actions', '<a href="{{{ URL::to(\'admin/language/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span> {{ trans("admin/modal.edit") }}</a>
                     <a href="{{{ URL::to(\'admin/language/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> {{ trans("admin/modal.delete") }}</a>
@@ -153,25 +150,6 @@ class LanguageController extends AdminController {
             ->remove_column('id')
 
             ->make();
-    }
-
-    /**
-     * Reorder items
-     *
-     * @param items list
-     * @return items from @param
-     */
-    public function getReorder(ReorderRequest $request) {
-        $list = $request->list;
-        $items = explode(",", $list);
-        $order = 1;
-        foreach ($items as $value) {
-            if ($value != '') {
-                Language::where('id', '=', $value) -> update(array('position' => $order));
-                $order++;
-            }
-        }
-        return $list;
     }
 
 }
