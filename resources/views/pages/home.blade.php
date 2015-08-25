@@ -25,7 +25,7 @@
                                         src="http://placehold.it/260x180" alt=""></a>
                         </div>
                         <div class="col-md-10">
-                            <p>{{ $post->introduction }}</p>
+                            <p>{!! $post->introduction !!}</p>
 
                             <p>
                                 <a class="btn btn-mini btn-default"
