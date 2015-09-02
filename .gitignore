@@ -1,43 +1,5 @@
-# Assets
-composer.lock
-composer.phar
-
+/vendor
+/node_modules
 Homestead.yaml
 Homestead.json
-/node_modules
-/vendor
-
-/storage/debugbar
-
-
-# Builds paths (included to encourage builds)
-/public/appfiles/*/*
-/public/appfiles/*/*/*
-/public/build
-/public/css
-/public/fonts
-/public/img
-/public/js
-/resources/assets/build
-
-/www/images
-
-# Environment
 .env
-/config/local
-
-# IDEs
-/.idea
-.project
-/.settings
-
-# OS
-.DS_Store
-Thumbs.db
-
-
-!public/appfiles/
-!public/appfiles/*/thumbs/
-!index.html
-!.gitkeep
-

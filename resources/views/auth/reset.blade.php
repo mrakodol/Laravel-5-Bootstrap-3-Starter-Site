@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
     <div class="container-fluid">
@@ -7,45 +7,38 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Reset Password</div>
                     <div class="panel-body">
-
-                        @include('errors.list')
-
-                        <form class="form-horizontal" role="form" method="POST" action="{{ URL::to('/password/reset') }}">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="hidden" name="token" value="{{ $token }}">
-
-                            <div class="form-group">
-                                <label class="col-md-4 control-label">E-Mail Address</label>
-
-                                <div class="col-md-6">
-                                    <input type="email" class="form-control" name="email" value="{{ old('email') }}">
-                                </div>
+                        {!! Form::open(array('url' => URL::to('password/reset'), 'method' => 'post', 'files'=> true)) !!}
+                        {!! Form::hidden('token', $token) !!}
+                        <div class="form-group  {{ $errors->has('name') ? 'has-error' : '' }}">
+                            {!! Form::label('email', "E-Mail Address", array('class' => 'control-label')) !!}
+                            <div class="controls">
+                                {!! Form::text('email', null, array('class' => 'form-control')) !!}
+                                <span class="help-block">{{ $errors->first('email', ':message') }}</span>
                             </div>
-
-                            <div class="form-group">
-                                <label class="col-md-4 control-label">Password</label>
-
-                                <div class="col-md-6">
-                                    <input type="password" class="form-control" name="password">
-                                </div>
+                        </div>
+                        <div class="form-group  {{ $errors->has('password') ? 'has-error' : '' }}">
+                            {!! Form::label('password', "Password", array('class' => 'control-label')) !!}
+                            <div class="controls">
+                                {!! Form::password('password', array('class' => 'form-control')) !!}
+                                <span class="help-block">{{ $errors->first('password', ':message') }}</span>
                             </div>
-
-                            <div class="form-group">
-                                <label class="col-md-4 control-label">Confirm Password</label>
-
-                                <div class="col-md-6">
-                                    <input type="password" class="form-control" name="password_confirmation">
-                                </div>
+                        </div>
+                        <div class="form-group  {{ $errors->has('password_confirmation') ? 'has-error' : '' }}">
+                            {!! Form::label('password_confirmation', "Confirm Password", array('class' => 'control-label')) !!}
+                            <div class="controls">
+                                {!! Form::password('password_confirmation', array('class' => 'form-control')) !!}
+                                <span class="help-block">{{ $errors->first('password_confirmation', ':message') }}</span>
                             </div>
+                        </div>
 
-                            <div class="form-group">
-                                <div class="col-md-6 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        Reset Password
-                                    </button>
-                                </div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Reset Password
+                                </button>
                             </div>
-                        </form>
+                        </div>
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>

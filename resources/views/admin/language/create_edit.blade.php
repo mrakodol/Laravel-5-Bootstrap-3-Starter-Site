@@ -1,44 +1,31 @@
-@extends('admin.layouts.modal') {{-- Content --}} @section('content')
+@extends('admin.layouts.modal')
+{{-- Content --}}
+@section('content')
 <!-- Tabs -->
 <ul class="nav nav-tabs">
 	<li class="active"><a href="#tab-general" data-toggle="tab"> {{
 			trans("admin/modal.general") }}</a></li>
 </ul>
 <!-- ./ tabs -->
-<form class="form-horizontal" enctype="multipart/form-data"
-	method="post"
-	action="@if(isset($language)){{ URL::to('admin/language/'.$language->id.'/edit') }}
-	        @else{{ URL::to('admin/language/create') }}@endif"
-	autocomplete="off">
-	<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+@if (isset($language))
+    {!! Form::model($language, array('url' => URL::to('admin/language') . '/' . $language->id, 'method' => 'put', 'class' => 'bf', 'files'=> true)) !!}
+@else
+    {!! Form::open(array('url' => URL::to('admin/language'), 'method' => 'post', 'class' => 'bf', 'files'=> true)) !!}
+@endif
 	<div class="tab-content">
 		<div class="tab-pane active" id="tab-general">
-			<div
-				class="form-group {{{ $errors->has('name') ? 'has-error' : '' }}}">
-				<div class="col-md-12">
-					<label class="control-label" for="name"> {{
-						trans("admin/modal.title") }}</label> <input
-						class="form-control" type="text" name="name" id="name"
-						value="{{{ Input::old('name', isset($language) ? $language->name : null) }}}" />
-					{{$errors->first('name', '<label class="control-label" for="name">:message</label>')}}
+			<div class="form-group  {{ $errors->has('name') ? 'has-error' : '' }}">
+				{!! Form::label('name', "Name", array('class' => 'control-label')) !!}
+				<div class="controls">
+					{!! Form::text('name', null, array('class' => 'form-control')) !!}
+					<span class="help-block">{{ $errors->first('name', ':message') }}</span>
 				</div>
 			</div>
-			<div
-				class="form-group {{{ $errors->has('lang_code') ? 'has-error' : '' }}}">
-				<div class="col-md-12">
-					<label class="control-label" for="lang_code">{{
-						trans("admin/language.code") }}</label> <input
-						class="form-control" type="text" name="lang_code" id="lang_code"
-						value="{{{ Input::old('lang_code', isset($language) ? $language->lang_code : null) }}}" />
-					{{$errors->first('lang_code', '<label class="control-label"
-						for="name">:message</label>')}}
-				</div>
-			</div>
-			<div class="form-group">
-				<div class="col-lg-12">
-					<label class="control-label" for="icon">{{
-						trans("admin/language.icon") }}</label> <input name="icon"
-						type="file" class="uploader" id="icon" value="Upload" />
+			<div class="form-group  {{ $errors->has('lang_code') ? 'has-error' : '' }}">
+				{!! Form::label('lang_code', trans("admin/language.code"), array('class' => 'control-label')) !!}
+				<div class="controls">
+					{!! Form::text('lang_code', null, array('class' => 'form-control')) !!}
+					<span class="help-block">{{ $errors->first('lang_code', ':message') }}</span>
 				</div>
 			</div>
 		</div>
@@ -63,5 +50,5 @@
 			</button>
 		</div>
 	</div>
-</form>
+{!! Form::close() !!}
 @stop

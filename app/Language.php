@@ -13,13 +13,8 @@ class Language extends Model
 
     protected $dates = ['deleted_at'];
 
-	/**
-	 * The attributes included in the model's JSON form.
-	 *
-	 * @var array
-	 */
-	protected $fillable = array('name', 'lang_code', 'description', 'icon');
-	
+	protected $guarded  = array('id');
+
 	/**
 	 * The rules for email field, automatic validation.
 	 *

@@ -1,5 +1,6 @@
 <?php namespace App\Http\Requests\Admin;
 
+use App\User;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UserRequest extends FormRequest {
@@ -11,11 +12,35 @@ class UserRequest extends FormRequest {
 	 */
 	public function rules()
 	{
-		return [
-            'name' => 'required|min:3',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|confirmed|min:5',
-		];
+		if($this->segment(3)!="") {
+			$user = User::find($this->segment(3));
+		}
+
+		switch($this->method())
+		{
+			case 'GET':
+			case 'DELETE':
+			{
+				return [];
+			}
+			case 'POST':
+			{
+				return [
+					'name' => 'required|min:3',
+					'email' => 'required|email|unique:users,email',
+					'password' => 'required',
+				];
+			}
+			case 'PUT':
+			case 'PATCH':
+			{
+				return [
+					'name' => 'required|min:3',
+					'email' => 'required|email|unique:users,email,'.$user->id,
+				];
+			}
+			default:break;
+		}
 	}
 
 	/**

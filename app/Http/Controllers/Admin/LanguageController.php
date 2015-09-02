@@ -1,4 +1,6 @@
-<?php namespace App\Http\Controllers\Admin;
+<?php
+
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Input;
@@ -10,6 +12,11 @@ use Illuminate\Support\Facades\Auth;
 use Datatables;
 
 class LanguageController extends AdminController {
+
+    public function __construct()
+    {
+        view()->share('type', 'language');
+    }
     /**
 	 * Display a listing of the resource.
 	 *
@@ -26,7 +33,7 @@ class LanguageController extends AdminController {
 	 *
 	 * @return Response
 	 */
-	public function getCreate()
+	public function create()
 	{
        // Show the page
         return view('admin/language/create_edit');
@@ -37,29 +44,11 @@ class LanguageController extends AdminController {
 	 *
 	 * @return Response
 	 */
-	public function postCreate(LanguageRequest $request)
+	public function store(LanguageRequest $request)
 	{
-        $language = new Language();
+        $language = new Language($request->all());
         $language -> user_id = Auth::id();
-        $language -> lang_code = $request->lang_code;
-        $language -> name = $request->name;
-
-        $icon = "";
-        if(Input::hasFile('icon'))
-        {
-            $file = Input::file('icon');
-            $filename = $file->getClientOriginalName();
-            $extension = $file -> getClientOriginalExtension();
-            $icon = sha1($filename . time()) . '.' . $extension;
-        }
-        $language -> icon = $icon;
         $language -> save();
-
-        if(Input::hasFile('icon'))
-        {
-            $destinationPath = public_path() . '/images/language/'.$language->id.'/';
-            Input::file('icon')->move($destinationPath, $icon);
-        }
 	}
 	/**
 	 * Show the form for editing the specified resource.
@@ -67,10 +56,8 @@ class LanguageController extends AdminController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function getEdit($id)
+	public function edit(Language $language)
 	{
-        $language = Language::find($id);
-
         return view('admin/language/create_edit',compact('language'));
 	}
 
@@ -80,29 +67,10 @@ class LanguageController extends AdminController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function postEdit(LanguageRequest $request, $id)
+	public function update(LanguageRequest $request, Language $language)
 	{
-        $language = Language::find($id);
         $language -> user_id_edited = Auth::id();
-        $language -> lang_code = $request->lang_code;
-        $language -> name = $request->name;
-        $icon = "";
-
-        if(Input::hasFile('icon'))
-        {
-            $file = Input::file('icon');
-            $filename = $file->getClientOriginalName();
-            $extension = $file -> getClientOriginalExtension();
-            $icon = sha1($filename . time()) . '.' . $extension;
-        }
-        $language -> icon = $icon;
-        $language -> save();
-
-        if(Input::hasFile('icon'))
-        {
-            $destinationPath = public_path() . '/images/language/'.$language->id.'/';
-            Input::file('icon')->move($destinationPath, $icon);
-        }
+        $language -> update($request->all());
 	}
 
     /**
@@ -112,9 +80,8 @@ class LanguageController extends AdminController {
      * @return Response
      */
 
-    public function getDelete($id)
+    public function delete(Language $language)
     {
-        $language = $id;
         // Show the page
         return view('admin/language/delete', compact('language'));
     }
@@ -125,9 +92,8 @@ class LanguageController extends AdminController {
      * @param $id
      * @return Response
      */
-    public function postDelete(DeleteRequest $request,$id)
+    public function destroy(Language $language)
     {
-        $language = Language::find($id);
         $language->delete();
     }
 

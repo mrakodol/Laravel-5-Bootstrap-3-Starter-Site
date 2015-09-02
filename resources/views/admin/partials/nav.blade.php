@@ -1,92 +1,68 @@
-{{-- TODO: --}}
-{{--<div class="input-group">--}}
-{{--<input type="text" class="form-control" placeholder="Search...">--}}
-{{--<span class="input-group-btn">--}}
-{{--<button class="btn btn-default" type="button">--}}
-{{--<i class="fa fa-search"></i>--}}
-{{--</button>--}}
-{{--</span>--}}
-{{--</div>--}}
-
-<div class="metismenu">
-<ul class="nav nav-pills nav-stacked">
-    <li class="{{set_active('admin/dashboard')}}">
-        <a href="{{url('admin/dashboard')}}">
-            <i class="fa fa-dashboard fa-fw"></i>
-            <span class="hidden-sm text"> Dashboard</span>
-        </a>
-    </li>
-    <li class="{{set_active('admin/language*')}}">
-        <a href="{{url('admin/language')}}">
-            <i class="fa fa-language"></i>
-            <span class="hidden-sm text"> Language</span>
-        </a>
-    </li>
-    <li class="{{set_active('admin/news*')}}">
-        <a href="#">
-            <i class="glyphicon glyphicon-bullhorn"></i> News items
-            <span class="fa arrow"></span>
-        </a>
-        <ul class="nav collapse">
-            <li class="{{set_active('admin/newscategory')}}">
-                <a href="{{url('admin/newscategory')}}">
-                    <i class="glyphicon glyphicon-list"></i>
-                    <span class="hidden-sm text"> News categories</span>
-                </a>
-            </li>
-            <li class="{{set_active('admin/news')}}">
-                <a href="{{url('admin/news')}}">
-                    <i class="glyphicon glyphicon-bullhorn"></i>
-                    <span class="hidden-sm text"> News</span>
-                </a>
-            </li>
-        </ul>
-    </li>
-    <li class="{{set_active('admin/photo*')}}">
-        <a href="#">
-            <i class="glyphicon glyphicon-camera"></i> Photo items
-            <span class="fa arrow"></span>
-        </a>
-        <ul class="nav collapse">
-            <li class="{{set_active('admin/photoalbum')}}">
-                <a href="{{url('admin/photoalbum')}}">
-                    <i class="glyphicon glyphicon-list"></i>
-                    <span class="hidden-sm text"> Photo albums</span>
-                </a>
-            </li>
-            <li class="{{set_active('admin/photo')}}">
-                <a href="{{url('admin/photo')}}">
-                    <i class="glyphicon glyphicon-camera"></i>
-                    <span class="hidden-sm text"> Photo</span>
-                </a>
-            </li>
-        </ul>
-    </li>
-    <li class="{{set_active('admin/video*')}}">
-        <a href="#">
-            <i class="glyphicon glyphicon-facetime-video"></i> Video items
-            <span class="fa arrow"></span>
-        </a>
-        <ul class="nav collapse">
-            <li class="{{set_active('admin/videoalbum')}}">
-                <a href="{{url('admin/videoalbum')}}">
-                    <i class="glyphicon glyphicon-list"></i>
-                    <span class="hidden-sm text"> Video albums</span>
-                </a>
-            </li>
-            <li class="{{set_active('admin/video')}}">
-                <a href="{{url('admin/video')}}">
-                    <i class="glyphicon glyphicon-facetime-video"></i>
-                    <span class="hidden-sm text"> Video</span>
-                </a>
-            </li>
-        </ul>
-    </li>
-    <li class="{{set_active('admin/users*')}}">
-        <a href="{{url('admin/users')}}">
-            <i class="glyphicon glyphicon-user"></i>
-            <span class="hidden-sm text"> Users</span>
-        </a>
-    </li>
-</ul>
-</div>
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Laravel V5.1</a>
+    </div>
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+                <li>
+                    <a href="{{url('admin/dashboard')}}">
+                        <i class="fa fa-dashboard fa-fw"></i> Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="{{url('admin/language')}}">
+                        <i class="fa fa-language"></i> Language
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="glyphicon glyphicon-bullhorn"></i> Articles
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav collapse">
+                        <li>
+                            <a href="{{url('admin/articlecategory')}}">
+                                <i class="glyphicon glyphicon-list"></i>  Article categories
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{url('admin/article')}}">
+                                <i class="glyphicon glyphicon-bullhorn"></i> Articles
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="glyphicon glyphicon-camera"></i> Photo items
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav collapse">
+                        <li>
+                            <a href="{{url('admin/photoalbum')}}">
+                                <i class="glyphicon glyphicon-list"></i> Photo albums
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{url('admin/photo')}}">
+                                <i class="glyphicon glyphicon-camera"></i> Photo
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{{url('admin/user')}}">
+                        <i class="glyphicon glyphicon-user"></i> Users
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

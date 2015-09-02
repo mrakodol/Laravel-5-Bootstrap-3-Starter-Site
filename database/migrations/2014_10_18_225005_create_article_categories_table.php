@@ -25,7 +25,7 @@ class CreateArticleCategoriesTable extends Migration {
 			$table->unsignedInteger('user_id_edited')->nullable();
 			$table->foreign('user_id_edited')->references('id')->on('users')->onDelete('set null');
 			$table->string('title');
-			$table->string('slug')->nullable();
+			$table->string('slug');
 			$table->timestamps();
             $table->softDeletes();
 		});

@@ -1,6 +1,6 @@
 {
   "name": "Laravel-5-Bootstrap-3-Starter-Site",
-  "version": "0.0.0",
+  "version": "2.0.0",
   "homepage": "https://github.com/mrakodol/Laravel-5-Bootstrap-3-Starter-Site",
   "moduleType": [
     "node"
@@ -15,14 +15,17 @@
     "tests"
   ],
   "dependencies": {
-    "jquery-legacy": "jquery#^1",
-    "bootstrap-sass": "~3.3.5",
+    "jquery": "jquery#^1",
+    "bootstrap": "~3.3.5",
     "bootswatch": "~3.3.5",
     "font-awesome": "~4.3.0",
-    "metisMenu": "~2.0.2",
     "datatables": "~1.10.7",
     "datatables-bootstrap3-plugin": "~0.4.0",
     "jquery-colorbox": "~1.6.1",
-    "flag-sprites": "~1.1.1"
+    "flag-sprites": "~1.1.1",
+    "metisMenu": "~1.1.3",
+    "datatables-responsive": "~1.0.3",
+    "select2": ">=3.5.4",
+    "summernote": ">=0.6.16"
   }
 }

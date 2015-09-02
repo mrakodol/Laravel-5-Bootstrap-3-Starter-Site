@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 @section('title') Contact :: @parent @stop
 @section('content')
     <div class="row">

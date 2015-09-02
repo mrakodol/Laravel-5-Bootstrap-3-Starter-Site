@@ -12,11 +12,9 @@ return [
     'yes'       => 'Yes',
     'no'        =>  'No',
     'view_detail' => 'View Details',
-    'news_categories' => 'News categories',
-    'news_items' => 'News items',
+    'news_categories' => 'Article categories',
+    'news_items' => 'Article items',
     'photo_albums' => 'Photo albums',
     'photo_items' => 'Photo items',
-    'video_albums' => 'Video albums',
-    'video_items' => 'Video items',
     'users' => 'Users',
 	];

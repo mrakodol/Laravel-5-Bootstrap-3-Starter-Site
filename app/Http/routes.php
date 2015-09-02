@@ -1,23 +1,22 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
+/****************   Model binding into route **************************/
+Route::model('article', 'App\Article');
+Route::model('articlecategory', 'App\ArticleCategory');
+Route::model('language', 'App\Language');
+Route::model('photoalbum', 'App\PhotoAlbum');
+Route::model('photo', 'App\Photo');
+Route::model('user', 'App\User');
+Route::pattern('id', '[0-9]+');
+Route::pattern('slug', '[0-9a-z-_]+');
 
+/***************    Site routes  **********************************/
 Route::get('/', 'HomeController@index');
 Route::get('home', 'HomeController@index');
 Route::get('about', 'PagesController@about');
 Route::get('contact', 'PagesController@contact');
-
-Route::pattern('id', '[0-9]+');
-Route::get('news/{id}', 'ArticlesController@show');
+Route::get('articles', 'ArticlesController@index');
+Route::get('article/{slug}', 'ArticlesController@show');
 Route::get('video/{id}', 'VideoController@show');
 Route::get('photo/{id}', 'PhotoController@show');
 
@@ -26,102 +25,53 @@ Route::controllers([
     'password' => 'Auth\PasswordController',
 ]);
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => 'Admin'], function() {
-    Route::pattern('id', '[0-9]+');
-    Route::pattern('id2', '[0-9]+');
+/***************    Admin routes  **********************************/
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
     # Admin Dashboard
-    Route::get('dashboard', 'DashboardController@index');
+    Route::get('dashboard', 'Admin\DashboardController@index');
 
     # Language
-    Route::get('language', 'LanguageController@index');
-    Route::get('language/create', 'LanguageController@getCreate');
-    Route::post('language/create', 'LanguageController@postCreate');
-    Route::get('language/{id}/edit', 'LanguageController@getEdit');
-    Route::post('language/{id}/edit', 'LanguageController@postEdit');
-    Route::get('language/{id}/delete', 'LanguageController@getDelete');
-    Route::post('language/{id}/delete', 'LanguageController@postDelete');
-    Route::get('language/data', 'LanguageController@data');
+    Route::get('language/data', 'Admin\LanguageController@data');
+    Route::get('language/{language}/show', 'Admin\LanguageController@show');
+    Route::get('language/{language}/edit', 'Admin\LanguageController@edit');
+    Route::get('language/{language}/delete', 'Admin\LanguageController@delete');
+    Route::resource('language', 'Admin\LanguageController');
 
-    # News category
-    Route::get('newscategory', 'ArticleCategoriesController@index');
-    Route::get('newscategory/create', 'ArticleCategoriesController@getCreate');
-    Route::post('newscategory/create', 'ArticleCategoriesController@postCreate');
-    Route::get('newscategory/{id}/edit', 'ArticleCategoriesController@getEdit');
-    Route::post('newscategory/{id}/edit', 'ArticleCategoriesController@postEdit');
-    Route::get('newscategory/{id}/delete', 'ArticleCategoriesController@getDelete');
-    Route::post('newscategory/{id}/delete', 'ArticleCategoriesController@postDelete');
-    Route::get('newscategory/data', 'ArticleCategoriesController@data');
-    Route::get('newscategory/reorder', 'ArticleCategoriesController@getReorder');
+    # Article category
+    Route::get('articlecategory/data', 'Admin\ArticleCategoriesController@data');
+    Route::get('articlecategory/{articlecategory}/show', 'Admin\ArticleCategoriesController@show');
+    Route::get('articlecategory/{articlecategory}/edit', 'Admin\ArticleCategoriesController@edit');
+    Route::get('articlecategory/{articlecategory}/delete', 'Admin\ArticleCategoriesController@delete');
+    Route::get('articlecategory/reorder', 'ArticleCategoriesController@getReorder');
+    Route::resource('articlecategory', 'Admin\ArticleCategoriesController');
 
-    # News
-    Route::get('news', 'ArticlesController@index');
-    Route::get('news/create', 'ArticlesController@getCreate');
-    Route::post('news/create', 'ArticlesController@postCreate');
-    Route::get('news/{id}/edit', 'ArticlesController@getEdit');
-    Route::post('news/{id}/edit', 'ArticlesController@postEdit');
-    Route::get('news/{id}/delete', 'ArticlesController@getDelete');
-    Route::post('news/{id}/delete', 'ArticlesController@postDelete');
-    Route::get('news/data', 'ArticlesController@data');
-    Route::get('news/reorder', 'ArticlesController@getReorder');
+    # Articles
+    Route::get('article/data', 'Admin\ArticleController@data');
+    Route::get('article/{article}/show', 'Admin\ArticleController@show');
+    Route::get('article/{article}/edit', 'Admin\ArticleController@edit');
+    Route::get('article/{article}/delete', 'Admin\ArticleController@delete');
+    Route::get('article/reorder', 'Admin\ArticleController@getReorder');
+    Route::resource('article', 'Admin\ArticleController');
 
     # Photo Album
-    Route::get('photoalbum', 'PhotoAlbumController@index');
-    Route::get('photoalbum/create', 'PhotoAlbumController@getCreate');
-    Route::post('photoalbum/create', 'PhotoAlbumController@postCreate');
-    Route::get('photoalbum/{id}/edit', 'PhotoAlbumController@getEdit');
-    Route::post('photoalbum/{id}/edit', 'PhotoAlbumController@postEdit');
-    Route::get('photoalbum/{id}/delete', 'PhotoAlbumController@getDelete');
-    Route::post('photoalbum/{id}/delete', 'PhotoAlbumController@postDelete');
-    Route::get('photoalbum/data', 'PhotoAlbumController@data');
-    Route::get('photoalbum/reorder', 'PhotoAlbumController@getReorder');
+    Route::get('photoalbum/data', 'Admin\PhotoAlbumController@data');
+    Route::get('photoalbum/{photoalbum}/show', 'Admin\PhotoAlbumController@show');
+    Route::get('photoalbum/{photoalbum}/edit', 'Admin\PhotoAlbumController@edit');
+    Route::get('photoalbum/{photoalbum}/delete', 'Admin\PhotoAlbumController@delete');
+    Route::resource('photoalbum', 'Admin\PhotoAlbumController');
 
     # Photo
-    Route::get('photo', 'PhotoController@index');
-    Route::get('photo/create', 'PhotoController@getCreate');
-    Route::post('photo/create', 'PhotoController@postCreate');
-    Route::get('photo/{id}/edit', 'PhotoController@getEdit');
-    Route::post('photo/{id}/edit', 'PhotoController@postEdit');
-    Route::get('photo/{id}/delete', 'PhotoController@getDelete');
-    Route::post('photo/{id}/delete', 'PhotoController@postDelete');
-    Route::get('photo/{id}/itemsforalbum', 'PhotoController@itemsForAlbum');
-    Route::get('photo/{id}/{id2}/slider', 'PhotoController@getSlider');
-    Route::get('photo/{id}/{id2}/albumcover', 'PhotoController@getAlbumCover');
-    Route::get('photo/data/{id}', 'PhotoController@data');
-    Route::get('photo/reorder', 'PhotoController@getReorder');
-
-    # Video
-    Route::get('videoalbum', 'VideoAlbumController@index');
-    Route::get('videoalbum/create', 'VideoAlbumController@getCreate');
-    Route::post('videoalbum/create', 'VideoAlbumController@postCreate');
-    Route::get('videoalbum/{id}/edit', 'VideoAlbumController@getEdit');
-    Route::post('videoalbum/{id}/edit', 'VideoAlbumController@postEdit');
-    Route::get('videoalbum/{id}/delete', 'VideoAlbumController@getDelete');
-    Route::post('videoalbum/{id}/delete', 'VideoAlbumController@postDelete');
-    Route::get('videoalbum/data', 'VideoAlbumController@data');
-    Route::get('video/reorder', 'VideoAlbumController@getReorder');
-
-    # Video
-    Route::get('video', 'VideoController@index');
-    Route::get('video/create', 'VideoController@getCreate');
-    Route::post('video/create', 'VideoController@postCreate');
-    Route::get('video/{id}/edit', 'VideoController@getEdit');
-    Route::post('video/{id}/edit', 'VideoController@postEdit');
-    Route::get('video/{id}/delete', 'VideoController@getDelete');
-    Route::post('video/{id}/delete', 'VideoController@postDelete');
-    Route::get('video/{id}/itemsforalbum', 'VideoController@itemsForAlbum');
-    Route::get('video/{id}/{id2}/albumcover', 'VideoController@getAlbumCover');
-    Route::get('video/data/{id}', 'VideoController@data');
-    Route::get('video/reorder', 'VideoController@getReorder');
+    Route::get('photo/data', 'Admin\PhotoController@data');
+    Route::get('photo/{photo}/show', 'Admin\PhotoController@show');
+    Route::get('photo/{photo}/edit', 'Admin\PhotoController@edit');
+    Route::get('photo/{photo}/delete', 'Admin\PhotoController@delete');
+    Route::resource('photo', 'Admin\PhotoController');
 
     # Users
-    Route::get('users/', 'UserController@index');
-    Route::get('users/create', 'UserController@getCreate');
-    Route::post('users/create', 'UserController@postCreate');
-    Route::get('users/{id}/edit', 'UserController@getEdit');
-    Route::post('users/{id}/edit', 'UserController@postEdit');
-    Route::get('users/{id}/delete', 'UserController@getDelete');
-    Route::post('users/{id}/delete', 'UserController@postDelete');
-    Route::get('users/data', 'UserController@data');
-
+    Route::get('user/data', 'Admin\UserController@data');
+    Route::get('user/{user}/show', 'Admin\UserController@show');
+    Route::get('user/{user}/edit', 'Admin\UserController@edit');
+    Route::get('user/{user}/delete', 'Admin\UserController@delete');
+    Route::resource('user', 'Admin\UserController');
 });

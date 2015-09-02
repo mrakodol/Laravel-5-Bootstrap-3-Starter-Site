@@ -1,21 +1,11 @@
-@extends('admin.layouts.modal') {{-- Content --}} @section('content')
-{{-- Delete Post Form --}}
-<form id="deleteForm" class="form-horizontal" method="post"
-	action="@if (isset($news)){{ URL::to('admin/photo/' . $photo->id . '/delete') }}@endif"
-	autocomplete="off">
-
-	<!-- CSRF Token -->
-	<input type="hidden" name="_token" value="{{{ csrf_token() }}}" /> <input
-		type="hidden" name="id" value="{{ $photo->id }}" />
-	<!-- <input type="hidden" name="_method" value="DELETE" /> -->
-	<!-- ./ csrf token -->
-
-	<!-- Form Actions -->
+@extends('admin.layouts.modal')
+@section('content')
+	{!! Form::model($photo, array('url' => URL::to('admin/photo') . '/' . $photo->id, 'method' => 'delete', 'class' => 'bf', 'files'=> true)) !!}
 	<div class="form-group">
 		<div class="controls">
-			<p>{{ trans("admin/modal.delete_message") }}</p>
+			{{ trans("admin/modal.delete_message") }}<br>
 			<element class="btn btn-warning btn-sm close_popup">
-			<span class="glyphicon glyphicon-ban-circle"></span> {{
+				<span class="glyphicon glyphicon-ban-circle"></span> {{
 			trans("admin/modal.cancel") }}</element>
 			<button type="submit" class="btn btn-sm btn-danger">
 				<span class="glyphicon glyphicon-trash"></span> {{
@@ -23,6 +13,5 @@
 			</button>
 		</div>
 	</div>
-	<!-- ./ form actions -->
-</form>
+	{!! Form::close() !!}
 @stop

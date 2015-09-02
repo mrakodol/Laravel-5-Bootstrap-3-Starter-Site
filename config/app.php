@@ -141,17 +141,14 @@ return [
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-		/*
-		 * 3rd Party Service Providers...
-		 */
-		Illuminate\Html\HtmlServiceProvider::class,
-		yajra\Datatables\DatatablesServiceProvider::class,
-		Laracasts\Flash\FlashServiceProvider::class,
-		Barryvdh\Debugbar\ServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class,
+        yajra\Datatables\DatatablesServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
+        Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
 
     ],
 
@@ -181,6 +178,7 @@ return [
         'Eloquent'  => Illuminate\Database\Eloquent\Model::class,
         'Event'     => Illuminate\Support\Facades\Event::class,
         'File'      => Illuminate\Support\Facades\File::class,
+        'Gate'      => Illuminate\Support\Facades\Gate::class,
         'Hash'      => Illuminate\Support\Facades\Hash::class,
         'Input'     => Illuminate\Support\Facades\Input::class,
         'Inspiring' => Illuminate\Foundation\Inspiring::class,
@@ -201,16 +199,10 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
 
-		/*
-		 * 3rd Party Aliases...
-		 */
-        'Form'      => Illuminate\Html\FormFacade::class,
-		'HTML'      => Illuminate\Html\HtmlFacade::class,
-		'Datatables'  =>yajra\Datatables\Datatables::class,
-		'Flash'     =>  laracasts\Flash\Flash::class,
-		'Debugbar' => Barryvdh\Debugbar\Facade::class,
-        'Image' => Intervention\Image\Facades\Image::class,
-
+        'Datatables' => yajra\Datatables\Datatables::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
     ],
 
 ];

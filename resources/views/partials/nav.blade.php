@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-default navbar-inverse">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -15,6 +15,9 @@
             <ul class="nav navbar-nav">
                 <li class="{{ (Request::is('/') ? 'active' : '') }}">
                     <a href="{{ URL::to('') }}"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li class="{{ (Request::is('articles') ? 'active' : '') }}">
+                    <a href="{{ URL::to('articles') }}">Articles</a>
                 </li>
                 <li class="{{ (Request::is('about') ? 'active' : '') }}">
                     <a href="{{ URL::to('about') }}">About</a>
@@ -39,7 +42,7 @@
                             @if(Auth::check())
                                 @if(Auth::user()->admin==1)
                                     <li>
-                                        <a href="{{ URL::to('admin/dashboard') }}"><i class="fa fa-tachometer"></i> Dashboard</a>
+                                        <a href="{{ URL::to('admin/dashboard') }}"><i class="fa fa-tachometer"></i> Admin Dashboard</a>
                                     </li>
                                 @endif
                                 <li role="presentation" class="divider"></li>

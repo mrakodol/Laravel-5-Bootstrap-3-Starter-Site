@@ -2,23 +2,24 @@
 
 namespace App;
 
+use Cviebrock\EloquentSluggable\SluggableInterface;
+use Cviebrock\EloquentSluggable\SluggableTrait;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\URL;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Article extends Model
-{
+class Article extends Model implements SluggableInterface {
 
-    use SoftDeletes;
+	use SoftDeletes;
+	use SluggableTrait;
 
-    protected $dates = ['deleted_at'];
+	protected $dates = ['deleted_at'];
 
-	/**
-	 * The attributes that are mass assignable.
-	 *
-	 * @var array
-	 */
-	protected $fillable = ['content'];
+	protected $sluggable = [
+		'build_from' => 'title',
+		'save_to'    => 'slug',
+	];
+
+	protected $guarded  = array('id');
 
 	/**
 	 * Returns a formatted post content entry,
@@ -69,7 +70,7 @@ class Article extends Model
 	 */
 	public function category()
 	{
-		return $this->belongsTo('App\NewsCategory');
+		return $this->belongsTo('App\ArticleCategory');
 	}
 
 }

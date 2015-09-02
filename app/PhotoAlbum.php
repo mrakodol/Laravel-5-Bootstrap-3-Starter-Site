@@ -12,20 +12,8 @@ class PhotoAlbum extends Model
     use SoftDeletes;
 
     protected $dates = ['deleted_at'];
-    /**
-     * Deletes a gallery all
-     * the associated images.
-     *
-     * @return bool
-     */
-    public function delete()
-    {
-        // Delete the gallery images
-        $this->photos()->delete();
 
-        // Delete the gallery
-        return parent::delete();
-    }
+    protected $guarded  = array('id');
 
     /**
      * Get the post's author.

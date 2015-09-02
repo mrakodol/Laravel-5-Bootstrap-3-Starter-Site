@@ -13,17 +13,9 @@ class Photo extends Model
 
     protected $dates = ['deleted_at'];
 
+    protected $guarded  = array('id');
+
     /**
-     * Deletes a gallery image.
-     *
-     * @return bool
-     */
-    public function delete()
-    {
-       // Delete the gallery image
-        return parent::delete();
-    }
-	/**
      * Get the post's author.
      *
      * @return User

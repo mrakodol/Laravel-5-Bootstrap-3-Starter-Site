@@ -13,7 +13,7 @@ class ArticleCategory extends Model
 
     protected $dates = ['deleted_at'];
 
-	protected $table = "article_categories";
+	protected $guarded  = array('id');
 
 	/**
 	 * Returns a formatted post content entry,
