@@ -22,7 +22,7 @@ class HomeController extends Controller {
 			'photo_albums.name',
 			'photo_albums.description',
 			'photo_albums.folder_id',
-			DB::raw('(select filename from photos WHERE album_cover=TRUE and photos.photo_album_id=photo_albums.id LIMIT 1) AS album_image'),
+			DB::raw('(select filename from photos WHERE album_cover=1 and photos.photo_album_id=photo_albums.id LIMIT 1) AS album_image'),
 			DB::raw('(select filename from photos WHERE photos.photo_album_id=photo_albums.id ORDER BY position ASC, id ASC LIMIT 1) AS album_image_first')
 		))->limit(8)->get();
 
