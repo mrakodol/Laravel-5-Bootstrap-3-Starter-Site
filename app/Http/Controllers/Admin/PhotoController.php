@@ -70,9 +70,6 @@ class PhotoController extends AdminController
             $destinationPath = public_path() . '/appfiles/photoalbum/' . $photoalbum->folder_id . '/';
             $request->file('image')->move($destinationPath, $picture);
 
-            $path2 = public_path() . '/appfiles/photoalbum/' . $photoalbum->folder_id . '/thumbs/';
-            Thumbnail::generate_image_thumbnail($destinationPath . $picture, $path2 . $picture);
-
         }
     }
 
@@ -112,9 +109,6 @@ class PhotoController extends AdminController
             $photoalbum = PhotoAlbum::find($request->photo_album_id);
             $destinationPath = public_path() . '/appfiles/photoalbum/' . $photoalbum->folder_id . '/';
             $request->file('image')->move($destinationPath, $picture);
-
-            $path2 = public_path() . '/appfiles/photoalbum/' . $photoalbum->folder_id . '/thumbs/';
-            Thumbnail::generate_image_thumbnail($destinationPath . $picture, $path2 . $picture);
         }
     }
 

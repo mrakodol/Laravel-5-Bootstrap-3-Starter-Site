@@ -20,6 +20,7 @@ var paths = {
     'summernote': 'vendor/summernote/dist',
     'select2': 'vendor/select2/dist',
     'jquery_ui':  'vendor/jquery-ui',
+    'justifiedGallery':  'vendor/Justified-Gallery/dist/',
 };
 
 elixir.config.sourcemaps = false;
@@ -49,13 +50,15 @@ elixir(function(mix) {
         '../../' + paths.fontawesome + '/css/font-awesome.css',
         '../../' + paths.bootswatch + '/bootstrap.css',
         '../../' + paths.colorbox + '/example3/colorbox.css',
+        '../../' + paths.justifiedGallery + '/css/justifiedGallery.css'
     ], 'public/css/site.css');
 
     // Merge Site scripts.
     mix.scripts([
         '../../' + paths.jquery + '/jquery.js',
         '../../' + paths.bootstrap + '/js/bootstrap.js',
-        '../../' + paths.colorbox + '/jquery.colorbox.js'
+        '../../' + paths.colorbox + '/jquery.colorbox.js',
+        '../../' + paths.justifiedGallery + '/js/jquery.justifiedGallery.js'
     ], 'public/js/site.js');
 
     // Merge Admin CSSs.
