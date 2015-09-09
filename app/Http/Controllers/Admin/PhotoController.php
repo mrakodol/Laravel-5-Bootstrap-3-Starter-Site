@@ -151,6 +151,7 @@ class PhotoController extends AdminController
     {
         $photos = Photo::join('languages', 'languages.id', '=', 'photos.language_id')
             ->join('photo_albums', 'photo_albums.id', '=', 'photos.photo_album_id')
+            ->whereNull('photo_albums.deleted_at')
             ->orderBy('photos.position')
             ->select(array('photos.id', 'photos.name',
                 'photo_albums.name as category', 'photos.album_cover',
