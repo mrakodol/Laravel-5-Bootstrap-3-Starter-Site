@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "jquery": "jquery#^1",
+    "jquery-ui": "~1.10.4",
     "bootstrap": "~3.3.5",
     "bootswatch": "~3.3.5",
     "font-awesome": "~4.3.0",

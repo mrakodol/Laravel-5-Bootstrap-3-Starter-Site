@@ -8,9 +8,9 @@
 </ul>
 <!-- ./ tabs -->
 @if (isset($photo))
-{!! Form::model($photo, array('url' => URL::to('admin/photo') . '/' . $photo->id, 'method' => 'put', 'class' => 'bf', 'files'=> true)) !!}
+{!! Form::model($photo, array('url' => URL::to('admin/photo') . '/' . $photo->id, 'method' => 'put','id'=>'fupload','class' => 'bf', 'files'=> true)) !!}
 @else
-{!! Form::open(array('url' => URL::to('admin/photo'), 'method' => 'post', 'class' => 'bf', 'files'=> true)) !!}
+{!! Form::open(array('url' => URL::to('admin/photo'), 'method' => 'post', 'class' => 'bf','id'=>'fupload', 'files'=> true)) !!}
 @endif
         <!-- Tabs Content -->
 <div class="tab-content">
@@ -69,10 +69,9 @@
         <div
                 class="form-group {{ $errors->has('image') ? 'error' : '' }}">
             <div class="col-lg-12">
-                <label class="control-label" for="image">{{
-							trans("admin/photo.picture") }}</label> <input name="image"
-                                                                           type="file" class="uploader" id="image"
-                                                                           value="Upload"/>
+                <label class="control-label" for="image">
+                    {{ trans("admin/photo.picture") }}</label>
+                <input name="image" type="file" class="uploader" id="image" value="Upload"/>
             </div>
 
         </div>
