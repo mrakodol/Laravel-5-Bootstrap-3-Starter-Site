@@ -5,11 +5,6 @@ use App\PhotoAlbum;
 
 class PhotoController extends Controller {
 
-    public function __construct()
-    {
-        $this->middleware('auth', [ 'except' => [ 'index', 'show' ] ]);
-    }
-
     public function show($id)
 	{
         $photo_album = PhotoAlbum::find($id);
