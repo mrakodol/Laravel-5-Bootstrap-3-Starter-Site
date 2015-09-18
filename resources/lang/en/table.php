@@ -26,6 +26,6 @@ return [
     'showmenu' => 'Show _MENU_ elements',
     'processing' => 'Processing ...',
     'sort' => 'sorting',
-    "emptytable" => 'Not available in the table data',
+    'emptytable' => 'Not available in the table data',
 
 ];
