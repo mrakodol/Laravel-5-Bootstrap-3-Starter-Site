@@ -1,6 +1,6 @@
 # Laravel Framework 5.1  Bootstrap 3 Starter Site
 
-Demo is here http://l5start.mrakodol.info/
+Demo site is deleteed today> It's because some user upload virus code which is stop work server, which I use to hosting, and I need do delete it. Host owner tell me that I have some virus code on my start site(someone is upload some virus code on server) and I need to delete it or they delete it. So I must delete it. Sorry.
 
 ## Starter Site based on on Laravel 5.1 and Boostrap 3
 * [Features](#feature1)
