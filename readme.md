@@ -71,8 +71,8 @@ On Windows, you can use the Composer [Windows installer](https://getcomposer.org
 
 Then run:
 
-    composer install
-to install dependencies Laravel and other packages.
+    composer dump-autoload
+    composer install --no-scripts
 
 -----
 <a name="step3"></a>
@@ -94,7 +94,7 @@ This project makes use of Bower and Laravel Elixir. Before triggering Elixir, yo
 
 Install dependencies listed in package.json with:
 
-    npm install
+    npm install --save-dev
 
 Retrieve frontend dependencies with Bower, compile SASS, and move frontend files into place:
 
