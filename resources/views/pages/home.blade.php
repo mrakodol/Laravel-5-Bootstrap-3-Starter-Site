@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title') Home :: @parent @stop
+@section('title') Home :: @parent @endsection
 @section('content')
 <div class="row">
     <div class="page-header">
