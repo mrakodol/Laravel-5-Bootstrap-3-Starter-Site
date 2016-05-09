@@ -104,4 +104,4 @@
     <!-- ./ form actions -->
 {!! Form::close() !!}
 </div>
-@stop
+@endsection

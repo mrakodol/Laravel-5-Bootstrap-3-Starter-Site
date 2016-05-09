@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 {{-- Web site Title --}}
-@section('title') {!!  trans('site/user.login') !!} :: @parent @stop
+@section('title') {!!  trans('site/user.login') !!} :: @parent @endsection
 
 {{-- Content --}}
 @section('content')

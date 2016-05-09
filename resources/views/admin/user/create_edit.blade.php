@@ -83,11 +83,11 @@
         </div>
     </div>
     {!! Form::close() !!}
-    @stop @section('scripts')
+    @endsection @section('scripts')
         <script type="text/javascript">
             $(function () {
                 $("#roles").select2()
             });
         </script>
 </div>
-@stop
+@endsection

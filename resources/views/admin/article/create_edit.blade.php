@@ -97,4 +97,4 @@
 <!-- ./ form actions -->
 
 </form>
-@stop
+@endsection

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title')
-    {!! $photo_album->name !!} :: @parent @stop @section('content')
+    {!! $photo_album->name !!} :: @parent @endsection
+@section('content')
     <h3>{!! $photo_album->name !!}</h3>
     <div id="mygallery">
         @foreach($photos as $item)
@@ -9,9 +10,9 @@
             </a>
         @endforeach
     </div>
-@stop
+@endsection
 @section('scripts')
     <script>
         $("#mygallery").justifiedGallery();
     </script>
-@stop
+@endsection

@@ -61,4 +61,4 @@
 		<!-- ./ form actions -->
 
 {!! Form::close() !!}
-@stop
+@endsection

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 	@section('title') {!! trans('site/user.change_password') !!} :: @parent
-@stop
+@endsection
 {{-- Content --}}
 @section('content')
 <div class="page-header">
@@ -28,4 +28,4 @@
 		</div>
 	</fieldset>
 {!! Form::close() !!}
-@stop
+@endsection

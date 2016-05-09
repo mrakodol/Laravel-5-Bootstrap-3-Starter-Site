@@ -1,10 +1,10 @@
 @extends('layouts.app')
 {{-- Web site Title --}}
-@section('title') {!!  $article->title !!} :: @parent @stop
+@section('title') {!!  $article->title !!} :: @parent @endsection
 
 @section('meta_author')
     <meta name="author" content="{!! $article->author->username !!}"/>
-@stop
+@endsection
 {{-- Content --}}
 @section('content')
     <h3>{{ $article->title }}</h3>
@@ -17,4 +17,4 @@
     <div>
         <span class="badge badge-info">Posted {!!  $article->created_at !!} </span>
     </div>
-@stop
+@endsection

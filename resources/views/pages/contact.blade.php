@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title') Contact :: @parent @stop
+@section('title') Contact :: @parent @endsection
 @section('content')
     <div class="row">
         <div class="page-header">

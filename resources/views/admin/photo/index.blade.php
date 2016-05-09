@@ -2,7 +2,7 @@
 
 {{-- Web site Title --}}
 @section('title') {!! trans("admin/photo.photo") !!}
-:: @parent @stop
+:: @parent @endsection
 
 {{-- Content --}}
 @section('main')
@@ -33,8 +33,8 @@
         </thead>
         <tbody></tbody>
     </table>
-@stop
+@endsection
 
 {{-- Scripts --}}
 @section('scripts')
-@stop
+@endsection

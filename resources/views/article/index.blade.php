@@ -2,7 +2,7 @@
 {{-- Web site Title --}}
 @section('title')
 	@parent
-@stop
+@endsection
 
 @section('content')
 	@foreach($articles as $item)
@@ -13,4 +13,4 @@
 		</div>
 	@endforeach
 	{!! $articles->render() !!}
-@stop
+@endsection

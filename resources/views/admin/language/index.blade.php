@@ -2,7 +2,7 @@
 
 {{-- Web site Title --}}
 @section('title') {!! trans("admin/language.languages") !!} ::
-@parent @stop
+@parent @endsection
 
 @section('styles')
     @parent
@@ -36,8 +36,8 @@
         <tbody>
         </tbody>
     </table>
-@stop
+@endsection
 
 {{-- Scripts --}}
 @section('scripts')
-@stop
+@endsection
