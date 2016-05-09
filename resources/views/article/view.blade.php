@@ -11,7 +11,7 @@
     <p>{!! $article->introduction !!}</p>
     @if($article->picture!="")
         <img alt="{{$article->picture}}"
-             src="{!! URL::to('appfiles/article/'.$article->id.'/'.$article->picture) !!}"/>
+             src="{!! url('appfiles/article/'.$article->id.'/'.$article->picture) !!}"/>
     @endif
     <p>{!! $article->content !!}</p>
     <div>

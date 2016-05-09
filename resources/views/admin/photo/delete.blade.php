@@ -1,6 +1,6 @@
 @extends('admin.layouts.modal')
 @section('content')
-	{!! Form::model($photo, array('url' => URL::to('admin/photo') . '/' . $photo->id, 'method' => 'delete', 'class' => 'bf', 'files'=> true)) !!}
+	{!! Form::model($photo, array('url' => url('admin/photo') . '/' . $photo->id, 'method' => 'delete', 'class' => 'bf', 'files'=> true)) !!}
 	<div class="form-group">
 		<div class="controls">
 			{{ trans("admin/modal.delete_message") }}<br>

@@ -8,9 +8,9 @@
 </ul>
 <!-- ./ tabs -->
 @if (isset($photo))
-{!! Form::model($photo, array('url' => URL::to('admin/photo') . '/' . $photo->id, 'method' => 'put','id'=>'fupload','class' => 'bf', 'files'=> true)) !!}
+{!! Form::model($photo, array('url' => url('admin/photo') . '/' . $photo->id, 'method' => 'put','id'=>'fupload','class' => 'bf', 'files'=> true)) !!}
 @else
-{!! Form::open(array('url' => URL::to('admin/photo'), 'method' => 'post', 'class' => 'bf','id'=>'fupload', 'files'=> true)) !!}
+{!! Form::open(array('url' => url('admin/photo'), 'method' => 'post', 'class' => 'bf','id'=>'fupload', 'files'=> true)) !!}
 @endif
         <!-- Tabs Content -->
 <div class="tab-content">

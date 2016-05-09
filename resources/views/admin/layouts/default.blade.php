@@ -27,11 +27,10 @@
 </div>
 
 <script type="text/javascript">
+    @if(isset($type))
     var oTable;
     $(document).ready(function () {
         oTable = $('#table').DataTable({
-            "sDom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
-            "sPaginationType": "bootstrap",
             "oLanguage": {
                 "sProcessing": "{{ trans('table.processing') }}",
                 "sLengthMenu": "{{ trans('table.showmenu') }}",
@@ -52,7 +51,9 @@
             },
             "processing": true,
             "serverSide": true,
-            "ajax": "{!! $type !!}/data",
+            "order": [],
+            "ajax": "{{ url('admin/'.$type.'/data') }}",
+            "pagingType": "full_numbers",
             "fnDrawCallback": function (oSettings) {
                 $(".iframe").colorbox({
                     iframe: true,
@@ -65,6 +66,7 @@
             }
         });
     });
+    @endif
 </script>
 @yield('scripts')
 </body>

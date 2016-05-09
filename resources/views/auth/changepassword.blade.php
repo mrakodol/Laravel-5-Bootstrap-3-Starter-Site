@@ -6,7 +6,7 @@
 <div class="page-header">
 	<h1>{!! trans('site/user.change_password') !!}</h1>
 </div>
-{!! Form::open(array('url' => URL::to('auth/changepassword'), 'method' => 'post', 'files'=> true)) !!}
+{!! Form::open(array('url' => url('auth/changepassword'), 'method' => 'post', 'files'=> true)) !!}
 	<fieldset>
         <div class="form-group  {{ $errors->has('password') ? 'has-error' : '' }}">
             {!! Form::label('quantity', trans('site/user.password'), array('class' => 'control-label')) !!}

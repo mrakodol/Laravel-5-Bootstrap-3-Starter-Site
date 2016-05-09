@@ -13,7 +13,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            {!! Form::open(array('url' => URL::to('auth/register'), 'method' => 'post', 'files'=> true)) !!}
+            {!! Form::open(array('url' => url('auth/register'), 'method' => 'post', 'files'=> true)) !!}
             <div class="form-group  {{ $errors->has('name') ? 'has-error' : '' }}">
                 {!! Form::label('name', trans('site/user.name'), array('class' => 'control-label')) !!}
                 <div class="controls">

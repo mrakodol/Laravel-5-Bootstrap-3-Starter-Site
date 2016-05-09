@@ -13,7 +13,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            {!! Form::open(array('url' => URL::to('auth/login'), 'method' => 'post', 'files'=> true)) !!}
+            {!! Form::open(array('url' => url('auth/login'), 'method' => 'post', 'files'=> true)) !!}
             <div class="form-group  {{ $errors->has('email') ? 'has-error' : '' }}">
                 {!! Form::label('email', "E-Mail Address", array('class' => 'control-label')) !!}
                 <div class="controls">
@@ -44,7 +44,7 @@
                         Login
                     </button>
 
-                    <a href="{{ URL::to('/password/email') }}">Forgot Your Password?</a>
+                    <a href="{{ url('/password/email') }}">Forgot Your Password?</a>
                 </div>
             </div>
             {!! Form::close() !!}

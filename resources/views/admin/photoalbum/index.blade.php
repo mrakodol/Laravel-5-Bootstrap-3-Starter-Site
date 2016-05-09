@@ -11,7 +11,7 @@
             {!! trans("admin/photoalbum.photoalbum") !!}
             <div class="pull-right">
                 <div class="pull-right">
-                    <a href="{!! URL::to('admin/photoalbum/create') !!}"
+                    <a href="{!! url('admin/photoalbum/create') !!}"
                        class="btn btn-sm  btn-primary iframe"><span
                                 class="glyphicon glyphicon-plus-sign"></span> {{ trans("admin/modal.new") }}</a>
                 </div>

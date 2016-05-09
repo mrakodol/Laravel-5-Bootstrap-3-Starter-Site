@@ -9,7 +9,7 @@
 		<h3>{{ $item->title }}</h3>
 		<p>{!! $item->introduction !!}</p>
 		<div>
-			<a class="btn btn-success" href="{{ URL::to('article/'.$item->slug) }}">Read more</a>
+			<a class="btn btn-success" href="{{ url('article/'.$item->slug) }}">Read more</a>
 		</div>
 	@endforeach
 	{!! $articles->render() !!}

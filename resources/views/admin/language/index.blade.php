@@ -16,7 +16,7 @@
             {!! trans("admin/language.languages") !!}
 
             <div class="pull-right">
-                <a href="{!!  URL::to('admin/language/create') !!}"
+                <a href="{!!  url('admin/language/create') !!}"
                    class="btn btn-sm  btn-primary iframe"><span
                             class="glyphicon glyphicon-plus-sign"></span> {!!
 				trans("admin/modal.new") !!}</a>

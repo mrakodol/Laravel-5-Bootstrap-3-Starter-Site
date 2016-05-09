@@ -1,7 +1,7 @@
 @extends('admin.layouts.default')
 
 {{-- Web site Title --}}
-@section('title') {!! trans("admin/newscategory.newscategories") !!}
+@section('title') {!! trans("admin/articlecategory.articlecategories") !!}
 :: @parent @stop
 
 {{-- Content --}}
@@ -11,7 +11,7 @@
             {!! trans("admin/articlecategory.articlecategories") !!}
             <div class="pull-right">
                 <div class="pull-right">
-                    <a href="{!! URL::to('admin/articlecategory/create') !!}"
+                    <a href="{!! url('admin/articlecategory/create') !!}"
                        class="btn btn-sm  btn-primary iframe"><span
                                 class="glyphicon glyphicon-plus-sign"></span> {{ trans("admin/modal.new") }}</a>
                 </div>

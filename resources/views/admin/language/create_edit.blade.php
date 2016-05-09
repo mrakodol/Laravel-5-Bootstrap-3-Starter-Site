@@ -8,9 +8,9 @@
 </ul>
 <!-- ./ tabs -->
 @if (isset($language))
-    {!! Form::model($language, array('url' => URL::to('admin/language') . '/' . $language->id, 'method' => 'put', 'class' => 'bf', 'files'=> true)) !!}
+    {!! Form::model($language, array('url' => url('admin/language') . '/' . $language->id, 'method' => 'put', 'class' => 'bf', 'files'=> true)) !!}
 @else
-    {!! Form::open(array('url' => URL::to('admin/language'), 'method' => 'post', 'class' => 'bf', 'files'=> true)) !!}
+    {!! Form::open(array('url' => url('admin/language'), 'method' => 'post', 'class' => 'bf', 'files'=> true)) !!}
 @endif
 	<div class="tab-content">
 		<div class="tab-pane active" id="tab-general">

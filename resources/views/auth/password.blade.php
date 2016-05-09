@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Reset Password</div>
                     <div class="panel-body">
-                        {!! Form::open(array('url' => URL::to('password/email'), 'method' => 'post', 'files'=> true)) !!}
+                        {!! Form::open(array('url' => url('password/email'), 'method' => 'post', 'files'=> true)) !!}
                         <div class="form-group  {{ $errors->has('email') ? 'has-error' : '' }}">
                             {!! Form::label('email', "E-Mail Address", array('class' => 'control-label')) !!}
                             <div class="controls">

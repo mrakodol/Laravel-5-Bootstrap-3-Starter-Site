@@ -11,7 +11,7 @@
             {!! trans("admin/users.users") !!}
             <div class="pull-right">
                 <div class="pull-right">
-                    <a href="{!! URL::to('admin/user/create') !!}"
+                    <a href="{!! url('admin/user/create') !!}"
                        class="btn btn-sm  btn-primary iframe"><span
                                 class="glyphicon glyphicon-plus-sign"></span> {{
 					trans("admin/modal.new") }}</a>
