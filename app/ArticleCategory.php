@@ -33,7 +33,7 @@ class ArticleCategory extends Model
 	 */
 	public function author()
 	{
-		return $this->belongsTo('App\User');
+		return $this->belongsTo(User::class, 'user_id');
 	}
 
 	/**
@@ -43,7 +43,7 @@ class ArticleCategory extends Model
 	 */
 	public function articles()
 	{
-		return $this->hasMany('App\Article');
+		return $this->hasMany(Article::class,'article_category_id');
 	}
 
 	/**
@@ -53,6 +53,6 @@ class ArticleCategory extends Model
 	 */
 	public function language()
 	{
-		return $this->belongsTo('App\Language');
+		return $this->belongsTo(Language::class,'language_id');
 	}
 }

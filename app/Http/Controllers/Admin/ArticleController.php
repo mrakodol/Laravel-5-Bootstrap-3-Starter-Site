@@ -138,12 +138,18 @@ class ArticleController extends AdminController {
      */
     public function data()
     {
-        $article = Article::join('languages', 'languages.id', '=', 'articles.language_id')
-            ->join('article_categories', 'article_categories.id', '=', 'articles.article_category_id')
-            ->select(array('articles.id','articles.title','article_categories.title as category', 'languages.name', 
-                'articles.created_at'));
-
-        return Datatables::of($article)
+        $articles = Article::with('category','language')
+            ->get()
+            ->map(function ($article) {
+                return [
+                    'id' => $article->id,
+                    'title' => $article->title,
+                    'category' => isset($article->category)?$article->category->title:"",
+                    'language' => isset($article->language)?$article->language->name:"",
+                    'created_at' => $article->created_at->format('d.m.Y.'),
+                ];
+            });
+        return Datatables::of($articles)
             ->add_column('actions', '<a href="{{{ url(\'admin/article/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span>  {{ trans("admin/modal.edit") }}</a>
                     <a href="{{{ url(\'admin/article/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> {{ trans("admin/modal.delete") }}</a>
                     <input type="hidden" name="row" value="{{$id}}" id="row">')

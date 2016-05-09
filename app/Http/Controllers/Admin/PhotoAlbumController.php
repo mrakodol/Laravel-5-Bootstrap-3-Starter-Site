@@ -105,11 +105,18 @@ class PhotoAlbumController extends AdminController
      */
     public function data()
     {
-        $photo_category = PhotoAlbum::join('languages', 'languages.id', '=', 'photo_albums.language_id')
-            ->select(array('photo_albums.id', 'photo_albums.name', 'languages.name as language',
-                'photo_albums.id as images_count', 'photo_albums.created_at'));
+        $photo_albums = PhotoAlbum::with('language')
+            ->get()
+            ->map(function ($photo_album) {
+                return [
+                    'id' => $photo_album->id,
+                    'title' => $photo_album->title,
+                    'language' => isset($photo_album->language) ? $photo_album->language->name : "",
+                    'created_at' => $photo_album->created_at->format('d.m.Y.'),
+                ];
+            });
 
-        return Datatables::of($photo_category)
+        return Datatables::of($photo_albums)
             ->edit_column('images_count', '<a class="btn btn-primary btn-sm" >{{ \App\Photo::where(\'photo_album_id\', \'=\', $id)->count() }}</a>')
             ->add_column('actions', '<a href="{{{ url(\'admin/photoalbum/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span>  {{ trans("admin/modal.edit") }}</a>
                     <a href="{{{ url(\'admin/photoalbum/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> {{ trans("admin/modal.delete") }}</a>

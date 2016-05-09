@@ -104,10 +104,18 @@ class LanguageController extends AdminController {
      */
     public function data()
     {
-        $language = Language::whereNull('languages.deleted_at')
+        $languages = Language::whereNull('languages.deleted_at')
             ->orderBy('languages.position', 'ASC')
-            ->select(array('languages.id', 'languages.name', 'languages.lang_code as lang_code','languages.lang_code as icon'));
-        return Datatables::of($language)
+			->get()
+			->map(function ($language) {
+				return [
+					'id' => $language->id,
+					'name' => $language->name,
+					'lang_code' => $language->lang_code,
+					'icon' => $language->lang_code,
+				];
+			});
+        return Datatables::of($languages)
             ->edit_column('icon', '<img src="blank.gif" class="flag flag-{{$icon}}" alt="" />')
 
             ->add_column('actions', '<a href="{{{ url(\'admin/language/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span> {{ trans("admin/modal.edit") }}</a>

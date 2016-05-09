@@ -143,20 +143,24 @@ class PhotoController extends AdminController
      */
     public function data()
     {
-        $photos = Photo::join('languages', 'languages.id', '=', 'photos.language_id')
-            ->join('photo_albums', 'photo_albums.id', '=', 'photos.photo_album_id')
-            ->whereNull('photo_albums.deleted_at')
-            ->orderBy('photos.position')
-            ->select(array('photos.id', 'photos.name',
-                'photo_albums.name as category', 'photos.album_cover',
-                'photos.slider', 'languages.name as language', 'photos.created_at'));
-
+        $photos = Photo::with('album','language')
+            ->get()
+            ->map(function ($photo) {
+                return [
+                    'id' => $photo->id,
+                    'title' => $photo->title,
+                    'album_cover' => $photo->album_cover,
+                    'slider' => $photo->slider,
+                    'album' => isset($photo->album) ? $photo->album->title : "",
+                    'language' => isset($photo->language) ? $photo->language->name : "",
+                    'created_at' => $photo->created_at->format('d.m.Y.'),
+                ];
+            });
         return Datatables::of($photos)
             ->add_column('actions', '<a href="{{{ url(\'admin/photo/\' . $id . \'/edit\' ) }}}" class="btn btn-success btn-sm iframe" ><span class="glyphicon glyphicon-pencil"></span>  {{ trans("admin/modal.edit") }}</a>
                 <a href="{{{ url(\'admin/photo/\' . $id . \'/delete\' ) }}}" class="btn btn-sm btn-danger iframe"><span class="glyphicon glyphicon-trash"></span> {{ trans("admin/modal.delete") }}</a>
                 <input type="hidden" name="row" value="{{$id}}" id="row">')
             ->remove_column('id')
-            ->remove_column('albumid')
             ->make();
     }
 }
