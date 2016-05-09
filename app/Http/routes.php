@@ -26,7 +26,7 @@ Route::controllers([
 ]);
 
 /***************    Admin routes  **********************************/
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
 
     # Admin Dashboard
     Route::get('dashboard', 'Admin\DashboardController@index');
