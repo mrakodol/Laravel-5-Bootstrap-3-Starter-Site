@@ -33,7 +33,7 @@
 
 -----
 <a name="feature2"></a>
-##Requirements
+## Requirements
 
 	PHP >= 5.5.9
 	OpenSSL PHP Extension
@@ -45,7 +45,7 @@
 
 -----
 <a name="feature3"></a>
-##How to install:
+## How to install:
 * [Step 1: Get the code](#step1)
 * [Step 2: Use Composer to install dependencies](#step2)
 * [Step 3: Create database](#step3)
@@ -153,7 +153,7 @@ Inspired by and based on [andrew13's Laravel-4-Bootstrap-Starter-Site](https://g
 
 ----
 <a name="feature8"></a>
-##How Starter Site is look like
+## How Starter Site is look like
 
 ![Index](http://i57.tinypic.com/2yug28x.jpg)
 ![Login](http://i58.tinypic.com/r7p4et.jpg)
